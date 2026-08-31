@@ -84,7 +84,7 @@ budget permitting):
 3. Write a full entry per Step 3/4 (into `articles/` + `index.json`), setting
    `discovered_via: "Snacks Weekly on Data Science podcast"` where applicable.
 4. **Remove** the deepened stub from `catalog.json` and bump its `updated`.
-5. Mirror the new full entries into `reader.html`'s `ARTICLES` array and drop the
+5. Mirror the new full entries into `index.html`'s `ARTICLES` array and drop the
    corresponding objects from its `CATALOG` array (Step 6b).
 
 Also enumerate more episodes when you can (the full podcast feed/list is
@@ -114,14 +114,15 @@ Write `digests/<YYYY-MM-DD>.md` with two parts:
    (title, source, category, one-line hook, novelty). If none were added, say
    so and note what was scanned.
 
-## Step 6b — Update the browsable reader (optional)
+## Step 6b — Update the browsable reader
 
-`reader.html` is a single-file HTML reader whose article data lives in the
-`ARTICLES` array near the bottom of the file. If new entries were added, mirror
-them into that array (same fields used by existing entries) and bump `UPDATED`.
-The backlog lives in a parallel `CATALOG` array in the same file: add new stubs
-there, and when a stub is deepened, remove it from `CATALOG` and add the full
-object to `ARTICLES`. Keep `reader.html` and `catalog.json` in sync.
+`index.html` is a single-file, standalone HTML reader (served publicly via
+GitHub Pages) whose article data lives in the `ARTICLES` array near the bottom
+of the file. If new entries were added, mirror them into that array (same fields
+used by existing entries) and bump `UPDATED`. The backlog lives in a parallel
+`CATALOG` array in the same file: add new stubs there, and when a stub is
+deepened, remove it from `CATALOG` and add the full object to `ARTICLES`. Keep
+`index.html` and `catalog.json` in sync.
 
 Each `related` item is a string that the reader auto-links: a bare `arXiv <id>`
 becomes a link, an in-bank title listed in the `REL_LINKS` map links to its source,
@@ -131,16 +132,13 @@ you add a new in-bank article that others cite, add its title → source-URL to 
 `REL_LINKS` object near the top of the script. In the `articles/*.md` entries, link
 related work per `TEMPLATE.md` (sibling `.md` for in-bank, `arxiv.org/abs/<id>` for
 papers).
-The reader is published as an Artifact at this stable URL:
 
-    https://claude.ai/code/artifact/1dc76309-4483-4c41-8dd5-164619574cde
-
-To refresh the published artifact at that same URL (do NOT create a new one):
-first read it (`Artifact` `action: "read"` with that `url`), then publish
-`reader.html` with that same `url` so it redeploys in place. Do not pass a new
-`favicon` on republish — it keeps its existing 🧠 icon. If the `Artifact` tool
-is unavailable in the run, skip this step: it is a convenience surface and
-skipping it does not affect the email digest.
+`index.html` is published by **GitHub Pages** straight from `main` — no Artifact
+step. Just committing the updated `index.html` in Step 7 redeploys the public
+page automatically; do not call the `Artifact` tool. Do not add `<!doctype>`,
+`<html>`, `<head>`, or `<body>` tags beyond the ones already in the file, and
+keep it a single self-contained document (inline CSS/JS; only the Google Fonts
+`<link>` is external).
 
 ## Step 7 — Deliver & persist
 
