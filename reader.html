@@ -569,14 +569,137 @@ const ARTICLES = [
       ["Data plane vs. control plane","Data plane = quality of what the model predicts; control plane = systems governing how models deploy and roll back."],
       ["ML governance","The processes and metrics that keep a fleet of models accountable for quality, risk, and impact."]
     ]
+  },
+  {
+    id: "spotify-adaptive-decoding", title: "Balancing Multiple Objectives in Generative Recommendations with Adaptive Decoding",
+    source: "Spotify Research / arXiv", url: "https://research.atspotify.com/2026/8/balancing-multiple-objectives-in-generative-recommendations-with-adaptive-decoding",
+    published: "2026-08", added: "2026-08-31", category: "personalization-recsys", novelty: 4, via: "web search",
+    tags: ["generative-recommendation","multi-objective","decoding","slate-generation"],
+    tldr: "A lightweight, inference-time decoding layer (SPDD) steers a generative recommender toward auxiliary objectives without retraining, using primal-dual updates as the slate is generated.",
+    business: "<p>Generative recommenders that autoregressively decode a slate are increasingly Spotify's production paradigm, but real slates rarely optimize a single objective — product teams also need exposure, fairness, or diversity targets met, ideally without retraining the model every time a business objective shifts.</p>",
+    technical: "<ul><li><strong>Inference-time only:</strong> SPDD wraps an existing generative recommender and doesn't modify or retrain its weights.</li><li><strong>Slate generation as constrained optimization:</strong> producing a slate is framed as an <strong>online constrained optimization problem</strong>, solved step by step as items are selected.</li><li><strong>Primal-dual mechanics:</strong> at each step the decoder tracks each objective's <strong>slack</strong> (remaining gap to target) and adjusts a dynamic weight — objectives with more slack get prioritized, those close to satisfied are down-weighted.</li><li>Generalizes to <strong>multiple simultaneous objectives</strong>, each tracked with its own slack and weight.</li></ul>",
+    impact: "<p><strong>Realized:</strong> in a large-scale online A/B test on playlist ranking, SPDD delivered <strong>+1.8pp</strong> more auxiliary-objective gain than fixed-weight decoding with no loss in user consumption; on a designated content subset it achieved <strong>+5.44%</strong> stream share vs. <strong>+3.60%</strong> for weighted-average decoding.</p><p><strong>Potential:</strong> retargeting a deployed generative recommender toward new business objectives without a retraining cycle.</p>",
+    verdict: { score: 4, line: "a clean production-first answer to a real gap in generative recsys", body: "<p>Multi-objective control for generative recommenders has usually meant retraining with a modified loss or reranking after the fact. Doing the trade-off inside decoding via primal-dual updates is a sharp, well-validated production pattern — not a new algorithm (primal-dual methods are classical), but a strong application to a problem without a good lightweight answer yet.</p>" },
+    related: [
+      "Deploying Semantic ID-based Generative Retrieval for Podcast Discovery at Spotify — the generative-retrieval paradigm SPDD decodes on top of.",
+      "From Models to Products: LLMs for Recommendation at Spotify Scale — a complementary Spotify effort steering recommenders via prompting/grounding instead.",
+      "Constrained/guided decoding for LLMs — a related family of decode-time shaping techniques."
+    ],
+    jargon: [
+      ["Generative recommender","A model that produces recommendations by autoregressively generating item identifiers rather than scoring a fixed candidate set."],
+      ["Slate","The ordered list of items shown on one recommendation surface, e.g. a playlist."],
+      ["Primal-dual optimization","A constrained-optimization technique that maintains both the original decision variables and dual variables representing how tightly each constraint binds."],
+      ["Slack","How far a constraint currently is from being met; small slack means it's nearly satisfied."]
+    ]
+  },
+  {
+    id: "spotify-neo-glide", title: "From Models to Products: LLMs for Recommendation at Spotify Scale",
+    source: "Spotify Research", url: "https://research.atspotify.com/2026/8/from-models-to-products-llms-for-recommendation-at-spotify-scale",
+    published: "2026-08", added: "2026-08-31", category: "llm-genai", novelty: 4, via: "web search",
+    tags: ["llm","recommendation","semantic-ids","grounding","steerability"],
+    tldr: "NEO frames language-steerable recommendation generally; GLIDE, its production instance on a compact 1B-parameter LLM, grounds generation with Semantic IDs and lifted new-show podcast discovery 14.3% in a live A/B test.",
+    business: "<p>LLMs are attractive for recommendation because they can reason over language, user context, and catalog structure jointly, and can in principle be steered with natural-language instructions rather than retrained per objective. The practical blocker is <strong>grounding</strong>: an LLM asked to recommend from a huge, shifting catalog will hallucinate items that don't exist. Spotify's goal was production discovery of podcast episodes listeners wouldn't otherwise find.</p>",
+    technical: "<ul><li><strong>NEO</strong> is the general framework: adapting LLMs to reason jointly over language, users, and structured domain entities, pitched as reusable beyond recommendation.</li><li><strong>GLIDE</strong> is the production system, built on a <strong>compact 1B-parameter LLM</strong>, formulating recommendation as <strong>instruction-following over a discretized catalog</strong> via <strong>Semantic IDs (SIDs)</strong> so outputs are constrained to valid items by construction.</li><li>GLIDE conditions on recent listening history and lightweight context, injecting <strong>long-term user embeddings as soft prompts</strong> to preserve stable preferences under tight latency constraints.</li><li>Deployed as an <strong>additional candidate generator</strong> feeding the existing ranking pipeline, not a stack replacement.</li></ul>",
+    impact: "<p><strong>Realized:</strong> in a 21-day online A/B test on Spotify Home (~20M impressions/cell), GLIDE increased <strong>non-habitual podcast listening 5.4%</strong> and <strong>new-show discovery 14.3%</strong>, meeting latency and engagement guardrails.</p><p><strong>Potential:</strong> NEO's grounding + steerability recipe as a template for other large-scale discovery/retrieval problems.</p>",
+    verdict: { score: 4, line: "a real production LLM recommender with a measured discovery lift", body: "<p>Plenty of research proposes LLM-based recommendation; few report a live A/B test with meaningful traffic and a genuine lift on a hard-to-move metric like new-show discovery. The recipe (semantic IDs for grounding, soft-prompted long-term embeddings, a small dedicated LLM) is production-pragmatic rather than fundamentally new, hence 4 rather than 5.</p>" },
+    related: [
+      "Deploying Semantic ID-based Generative Retrieval for Podcast Discovery at Spotify — the semantic-ID retrieval work GLIDE grounds on.",
+      "Balancing Multiple Objectives in Generative Recommendations with Adaptive Decoding — a complementary decode-time steering technique.",
+      "GenRec at Netflix — another production LLM-native recommender, ranking rather than generating candidates."
+    ],
+    jargon: [
+      ["Grounding","Constraining a generative model's output to a fixed, verifiable set of valid items instead of arbitrary text."],
+      ["Semantic ID (SID)","A short sequence of discrete codes representing an item's meaning, generated instead of free text."],
+      ["Soft prompt","A learned vector injected into a model's input in place of natural-language tokens."],
+      ["Non-habitual listening","Consumption outside a user's established repeat pattern, used as a proxy for genuine discovery."]
+    ]
+  },
+  {
+    id: "airbnb-covid-unlearn", title: "How We Knew COVID Was Over (and What Our Models Had to Unlearn)",
+    source: "Airbnb Tech Blog", url: "https://medium.com/airbnb-engineering/how-we-knew-covid-was-over-and-what-our-models-had-to-unlearn-c606b9bdb0ab",
+    published: "2026-08", added: "2026-08-31", category: "forecasting-timeseries", novelty: 3, via: "web search",
+    tags: ["hierarchical-bayesian","time-series","demand-forecasting","pandemic"],
+    tldr: "Airbnb's forecasting team re-specifies hierarchical pooling from a fixed pre-pandemic market hierarchy to geographic adjacency and shared real-time recovery dynamics — the sequel problem to surviving the initial shock.",
+    business: "<p>Airbnb forecasts demand across thousands of destination markets, many too thin on history to forecast alone. Pre-2020, low-data markets borrowed strength from stable \"anchor\" markets assumed to behave similarly. COVID broke that assumption: the shock was larger than anything seen before, and recovery was wildly uneven — some markets snapped back fast, others stayed flat for quarters, and previously-correlated markets diverged.</p>",
+    technical: "<ul><li><strong>Why pooling broke:</strong> the same hierarchical pooling that stabilized pre-2020 forecasts began <strong>contaminating</strong> them once markets stopped moving together.</li><li><strong>The respecification:</strong> pooling now borrows along <strong>geographic adjacency and shared real-time recovery dynamics</strong> — a market borrows from places behaving like it <em>today</em>, not places it resembled before the crisis.</li><li><strong>The harder problem:</strong> detecting when it's safe to relax emergency adaptations and \"unlearn\" crisis-mode assumptions, rather than surviving the shock itself.</li></ul>",
+    impact: "<p><strong>Realized:</strong> a production respecification of Airbnb's hierarchical demand-forecasting pooling structure, used to call market recovery from COVID.</p><p><strong>Potential:</strong> a general pattern for hierarchical/Bayesian forecasters facing any large, geographically uneven shock — re-pool by current observed dynamics rather than historical resemblance.</p>",
+    verdict: { score: 3, line: "solid applied Bayesian engineering on a genuinely hard, recurring problem", body: "<p>Dynamic vs. fixed pooling isn't new in the Bayesian time-series literature, but the framing — the hard problem is knowing when to <em>stop</em> treating data as shocked, not surviving the shock — is a useful, underreported lesson. Strong applied case, not a new method.</p>" },
+    related: [
+      "Forecasting@Meta: Balancing Art and Science — another platform's account of blending statistical models with judgment.",
+      "Forecasting the Evolving Composition of Guest Origin Markets in Platform Bookings (arXiv 2602.18358) — a related Airbnb-data Bayesian compositional forecasting paper."
+    ],
+    jargon: [
+      ["Hierarchical pooling","Letting data-sparse groups borrow statistical strength from related, data-rich groups instead of modeling each in isolation."],
+      ["Anchor market","A market with enough history to estimate reliably on its own, used as a reference for thinner nearby markets."],
+      ["Shock decoupling","When an external event causes previously correlated series to stop moving together, invalidating pooling assumptions."]
+    ]
+  },
+  {
+    id: "netflix-video-annotator", title: "Video Annotator: Building Video Classifiers Using Vision-Language Models and Active Learning",
+    source: "Netflix Tech Blog", url: "https://netflixtechblog.com/video-annotator-building-video-classifiers-using-vision-language-models-and-active-learning-8ebdda0b2db4",
+    published: "2024-06", added: "2026-08-31", category: "cv-multimodal", novelty: 3, via: "web search",
+    tags: ["active-learning","vision-language-models","video-classification","human-in-the-loop"],
+    tldr: "A self-service framework combining zero-shot VLM embeddings with active learning lets domain experts (not ML engineers) bootstrap and iterate on video classifiers, beating the best baseline by a median 8.3 AP points across 56 tasks.",
+    business: "<p>Netflix needs many narrow video classifiers, one per ad hoc content-understanding task, but training each the conventional way needs ML engineering resources and large labeled datasets per label — it doesn't scale to the long tail of needs across media teams. The bet: let domain experts (video editors) build classifiers themselves.</p>",
+    technical: "<ul><li><strong>Bootstrapping via text-to-video search:</strong> users find an initial example set using text-to-video search powered by a VLM's shared video/text embeddings — no labels required to start.</li><li><strong>Active learning loop:</strong> a lightweight binary classifier trains on the VLM embeddings, scores all corpus clips, and surfaces the most informative unlabeled examples back to the annotator.</li><li><strong>Human-in-the-loop by design:</strong> built for iteration by non-ML domain experts throughout.</li><li>Released a dataset of <strong>153k labels across 56 video-understanding tasks</strong>, annotated using the tool itself.</li></ul>",
+    impact: "<p><strong>Realized:</strong> across 56 labels and 500,000 shots, a <strong>median 8.3-point Average Precision</strong> improvement over the strongest baseline.</p><p><strong>Potential:</strong> a reusable recipe — VLM embeddings + active learning + self-service UI — for letting non-ML experts build narrow video classifiers on demand.</p>",
+    verdict: { score: 3, line: "solid, well-executed combination of established techniques", body: "<p>Zero-shot VLM embeddings and active learning are each well-established; the contribution is packaging them into a self-service tool validated at real scale (56 tasks, 500k shots, a released dataset). Strong engineering story, not a new method.</p>" },
+    related: [
+      "MediaFM at Netflix — a related, more recent shared multimodal foundation for media understanding.",
+      "MAPS at Netflix — another multimodal-embedding system, applied to asset personalization rather than classifier bootstrapping."
+    ],
+    jargon: [
+      ["Vision-language model (VLM)","A model trained jointly on images/video and text so both land in a shared embedding space, enabling text-to-video search."],
+      ["Active learning","A training strategy where the model selects which unlabeled examples would be most informative to label next."],
+      ["Average Precision (AP)","A standard metric summarizing a classifier's precision-recall trade-off across thresholds into one score."]
+    ]
+  },
+  {
+    id: "pinterest-metric-movements", title: "The Quest to Understand Metric Movements",
+    source: "Pinterest Engineering Blog", url: "https://medium.com/pinterest-engineering/the-quest-to-understand-metric-movements-8ab12ae97cda",
+    published: "2025-02", added: "2026-08-31", category: "data-engineering", novelty: 3, via: "web search",
+    tags: ["root-cause-analysis","observability","metrics","anomaly-detection"],
+    tldr: "Pinterest's root-cause-analysis platform combines segment drilling, cross-metric similarity search, and experiment-effect attribution to narrow down why a metric moved.",
+    business: "<p>\"Why did this metric move?\" is one of the hardest common questions at Pinterest's scale — causes range from infrastructure issues to traffic shifts to code/experiment changes, spread across teams. Answering it ad hoc every time is slow and inconsistent, so Pinterest built a dedicated platform.</p>",
+    technical: "<ul><li><strong>Segment drilling:</strong> slices a metric along a tree of dimensions to narrow down which segment is responsible; found particular success on video metric regressions.</li><li><strong>General similarity:</strong> scans other metrics for ones that moved similarly (same or opposite direction) over the same window, surfacing correlated signals as clues.</li><li><strong>Experiment-effect attribution:</strong> checks whether a movement is explained by a live experiment.</li><li>The team notes a stated gap: no feedback loop yet for users to label RCA suggestions as helpful, and flags <strong>causal discovery</strong> as a future direction to move beyond correlation.</li></ul>",
+    impact: "<p><strong>Realized:</strong> a production RCA platform combining three complementary techniques, with a specific win in diagnosing video metric regressions.</p><p><strong>Potential:</strong> moving from correlational general-similarity matching toward genuine causal discovery between metrics, for less noisy, more trustworthy automated RCA.</p>",
+    verdict: { score: 3, line: "practical engineering with an honest account of its own limits", body: "<p>None of the three techniques is individually novel, but combining them at Pinterest's scale — and being candid that general-similarity is correlational, not causal, and that a feedback loop is still missing — makes this a useful, grounded account rather than a breakthrough.</p>" },
+    related: [
+      "Autonomous Observability at Pinterest — a related, more automated effort following clues across logs, metrics, traces, and change events.",
+      "Handling Online-Offline Discrepancy in Pinterest Ads Ranking System — a narrower, model-specific instance of root-cause diagnosis."
+    ],
+    jargon: [
+      ["Root-cause analysis (RCA)","Identifying the underlying reason a metric or system behavior changed, not just that it changed."],
+      ["General similarity","Pinterest's term for finding metrics whose time series moved in a correlated pattern, used as a clue rather than proof of causation."],
+      ["Causal discovery","Statistical methods that attempt to infer cause-and-effect structure between variables from observational data."]
+    ]
+  },
+  {
+    id: "meta-forecasting-art-science", title: "Forecasting@Meta: Balancing Art and Science",
+    source: "Analytics at Meta (Medium)", url: "https://medium.com/@AnalyticsAtMeta/forecasting-meta-balancing-art-and-science-92526e1ae36c",
+    published: "2024-05", added: "2026-08-31", category: "forecasting-timeseries", novelty: 2, via: "web search",
+    tags: ["forecasting","backtesting","product-impact","judgment"],
+    tldr: "Meta's Analytics team describes validating forecasts via backtesting, and folding known experiment-measured product impact into forecasts without double-counting.",
+    business: "<p>Forecasts at Meta's scale feed real planning decisions, and a purely model-driven number can miss context a forecaster knows (an upcoming launch, a known seasonal quirk) that the model doesn't. Pure human judgment reintroduces bias. Meta frames its practice as balancing both.</p>",
+    technical: "<ul><li><strong>Validation via backtesting</strong> against historical data as a sanity check before trusting a model going forward.</li><li><strong>Incorporating product impact:</strong> when an experiment holdout gives high-confidence impact estimates, that impact is folded directly into the forecast alongside the base model's prediction.</li><li><strong>Avoiding double-counting:</strong> the team either subtracts prior known product impact from historical training data before fitting, or measures rough incrementality designed to minimize disruption to model fidelity.</li></ul>",
+    impact: "<p><strong>Realized:</strong> a described, in-production process at Meta for validating forecasts and folding in known product impact without double-counting.</p><p><strong>Potential:</strong> a reusable playbook for any forecasting team blending a statistical model with judgment-based information the model can't see.</p>",
+    verdict: { score: 2, line: "a clear, useful practitioner write-up of established practice", body: "<p>Backtesting and manually adjusting for known upcoming effects are standard forecasting practice. The value is in clearly explaining how to avoid double-counting when blending a measured experiment effect into a forecast — a useful recap, not a novel technique.</p>" },
+    related: [
+      "How We Knew COVID Was Over (and What Our Models Had to Unlearn) at Airbnb — another platform's account of when to trust vs. override a statistical model.",
+      "Forecasting the Evolving Composition of Guest Origin Markets in Platform Bookings (arXiv 2602.18358) — a more technical companion on hierarchical forecasting."
+    ],
+    jargon: [
+      ["Backtesting","Evaluating a forecasting approach by simulating it against historical data."],
+      ["Experiment holdout","A control group excluded from a feature rollout so its impact can be measured by comparison."],
+      ["Double-counting","Accidentally including the same effect twice in an estimate."]
+    ]
   }
 ];
 
-const UPDATED = "2026-08-30";
+const UPDATED = "2026-08-31";
 
 // Lightweight backlog (mostly Snacks Weekly episodes) awaiting full deep-dive write-ups.
 const CATALOG = [
-  { id:"netflix-video-understanding-active-learning", company:"Netflix", title:"Video-understanding models with a self-service active-learning system", category:"cv-multimodal", hook:"A self-service platform trains video-understanding models with active learning to cut labeling cost.", url:null },
   { id:"netflix-contextual-bandits-reward-engineering", company:"Netflix", title:"Content recommendation with contextual bandits and reward engineering", category:"personalization-recsys", hook:"Proxy reward functions and offline models drive recommendation via contextual bandits.", url:null },
   { id:"netflix-session-intent-multitask", company:"Netflix", title:"Predicting user session intent with hierarchical multi-task learning", category:"personalization-recsys", hook:"A hierarchical multi-task architecture personalizes the session in real time.", url:null },
   { id:"airbnb-conversational-ai-guardrails", company:"Airbnb", title:"Conversational AI with LLMs, context management, and a guardrail framework", category:"llm-genai", hook:"Structured workflows plus LLM reasoning, kept controlled by a guardrail framework.", url:null },
@@ -589,7 +712,6 @@ const CATALOG = [
   { id:"instacart-quasi-experiment-rdd", company:"Instacart", title:"Quasi-experimentation and regression discontinuity design", category:"experimentation-causal", hook:"Using RDD to make decisions when clean A/B tests aren't possible.", url:null },
   { id:"instacart-smart-replacements", company:"Instacart", title:"Smart replacements for out-of-stock products", category:"personalization-recsys", hook:"ML suggests substitutions when an item is unavailable.", url:null },
   { id:"instacart-covariate-selection-causal", company:"Instacart", title:"Covariate selection in causal inference", category:"experimentation-causal", hook:"Choosing covariates well to get unbiased causal estimates.", url:null },
-  { id:"meta-forecasting-art-and-science", company:"Meta", title:"Forecasting: balancing art and science", category:"forecasting-timeseries", hook:"Validating forecasts and integrating product impact into forecasting.", url:null },
   { id:"meta-ladder-of-evidence", company:"Meta", title:"The Ladder of Evidence for evaluating new features", category:"experimentation-causal", hook:"A framework for how much evidence a product decision needs.", url:null },
   { id:"meta-global-feature-importance", company:"Meta", title:"Feature selection at scale with Global Feature Importance", category:"research-foundational", hook:"Selecting features across huge model inputs via a global importance method.", url:null },
   { id:"cvs-product-rec-word2vec-llm", company:"CVS Health", title:"Product recommendation with Word2Vec and LLM summaries", category:"personalization-recsys", hook:"Embedding products with Word2Vec and enriching them with LLM-generated summaries.", url:null },
@@ -603,13 +725,14 @@ const CATALOG = [
   { id:"amazon-price-experimentation", company:"Amazon", title:"Improving price experimentation in the Amazon Store", category:"experimentation-causal", hook:"Better experimental design for pricing decisions.", url:"https://creators.spotify.com/pod/profile/pan-wu/episodes/Improving-Price-Experimentation-at-Amazon-Amazon-e2ilod8" },
   { id:"microsoft-double-machine-learning", company:"Microsoft", title:"Causal inference with Double Machine Learning", category:"experimentation-causal", hook:"Double ML answers high-stakes questions without a clean experiment.", url:null },
   { id:"mercadolibre-geo-experimentation", company:"Mercado Libre", title:"Geo experimentation", category:"experimentation-causal", hook:"Region-level experiments where user-level randomization fails.", url:"https://creators.spotify.com/pod/profile/pan-wu/episodes/2023-11-13-Geo-Experimentation-Mercado-Libre-e2brq2p" },
-  { id:"pinterest-root-cause-analysis-platform", company:"Pinterest", title:"A root-cause-analysis platform for metric movements", category:"data-engineering", hook:"Slice-and-dice, general similarity, and experiment effects to explain why metrics move.", url:null },
   { id:"yelp-video-review-moderation", company:"Yelp", title:"Moderating video reviews with ML", category:"cv-multimodal", hook:"Detecting inappropriate content to keep video reviews trustworthy.", url:null },
   { id:"picnic-scalable-demand-forecasting", company:"Picnic", title:"Scalable demand forecasting for online groceries", category:"forecasting-timeseries", hook:"ML models for demand forecasting at an online grocer.", url:null },
   { id:"afresh-promotion-aware-demand-forecasting", company:"Afresh", title:"Promotion-aware demand forecasting", category:"forecasting-timeseries", hook:"Handling the outsized effect of promotions in grocery forecasting.", url:null },
   { id:"glassdoor-data-quality-anomaly-detection", company:"Glassdoor", title:"Data quality and anomaly detection at petabyte scale", category:"data-engineering", hook:"Data contracts, static analysis, LLM-based logic checks, and anomaly detection.", url:null },
   { id:"thumbtack-recommendations-offline-inference", company:"Thumbtack", title:"Recommendations with two sub-models and offline inference", category:"personalization-recsys", hook:"A two-sub-model recommendation architecture served via offline inference.", url:null },
-  { id:"urban-company-causal-inference", company:"Urban Company", title:"Leveraging causal inference for product decisions", category:"experimentation-causal", hook:"Causal inference to guide decisions where experiments are hard.", url:null }
+  { id:"urban-company-causal-inference", company:"Urban Company", title:"Leveraging causal inference for product decisions", category:"experimentation-causal", hook:"Causal inference to guide decisions where experiments are hard.", url:null },
+  { id:"doordash-flux-cloud-agents-engineering", company:"DoorDash", title:"Delegating Engineering Work To Cloud-Based Agents (Flux)", category:"llm-genai", hook:"DoorDash's cloud agent platform automated 130k engineering tasks and 25k+ weekly code reviews in a month.", url:"https://careersatdoordash.com/blog/delegating-engineering-work-to-cloud-based-agents/" },
+  { id:"pinterest-pinner-progression-use-case-representation", company:"Pinterest", title:"Pinner Progression: Better Use-Case Representation Driving Weekly Active User Growth", category:"personalization-recsys", hook:"User Interest Clusters reframe home-feed recommendation around retention as a first-class objective.", url:"https://medium.com/pinterest-engineering/pinner-progression-better-use-case-representation-driving-weekly-active-user-growth-at-pinterest-bd2131ab238a" }
 ];
 
 // ---- render ----
