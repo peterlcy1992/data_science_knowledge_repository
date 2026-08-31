@@ -79,8 +79,8 @@ instructive, but it's applying a known blueprint rather than advancing it — a 
 
 - **NVIDIA: fraud detection with Graph Neural Networks** — the learned-representation
   direction beyond hand-computed graph features.
-- **detectGNN** (arXiv 2503.22681) — GNNs for credit-card fraud, a research analog.
-- **Databricks Feature Store: Sub-Second Freshness** (in this bank) — the real-time
+- [**detectGNN**](https://arxiv.org/abs/2503.22681) (arXiv 2503.22681) — GNNs for credit-card fraud, a research analog.
+- [**Databricks Feature Store: Sub-Second Freshness**](2026-08-30-databricks-feature-store-subsecond-freshness.md) (in this bank) — the real-time
   feature-serving discipline this depends on, applied to graph features.
 
 ### Jargon buster

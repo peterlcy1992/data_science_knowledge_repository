@@ -122,6 +122,15 @@ them into that array (same fields used by existing entries) and bump `UPDATED`.
 The backlog lives in a parallel `CATALOG` array in the same file: add new stubs
 there, and when a stub is deepened, remove it from `CATALOG` and add the full
 object to `ARTICLES`. Keep `reader.html` and `catalog.json` in sync.
+
+Each `related` item is a string that the reader auto-links: a bare `arXiv <id>`
+becomes a link, an in-bank title listed in the `REL_LINKS` map links to its source,
+and explicit `[text](url)` markdown is honoured. So write related items as plain
+`Title — note` (or `[Title](url) — note` for anything not in `REL_LINKS`), and when
+you add a new in-bank article that others cite, add its title → source-URL to the
+`REL_LINKS` object near the top of the script. In the `articles/*.md` entries, link
+related work per `TEMPLATE.md` (sibling `.md` for in-bank, `arxiv.org/abs/<id>` for
+papers).
 The reader is published as an Artifact at this stable URL:
 
     https://claude.ai/code/artifact/1dc76309-4483-4c41-8dd5-164619574cde

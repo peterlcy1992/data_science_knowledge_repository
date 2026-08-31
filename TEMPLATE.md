@@ -49,8 +49,15 @@ existing idea. Who is likely to copy it.>
 
 ### Similar / related work
 
-- <Article or paper> — <one line on the connection>
-- <Article or paper> — <one line on the connection>
+Link every reference that points at a reachable material. For another entry already
+in this bank, link its title to the sibling file, e.g.
+`[**Title**](YYYY-MM-DD-id.md) (in this bank)`. For an external paper with an arXiv
+id, link the title to `https://arxiv.org/abs/<id>`. Leave a reference unlinked only
+when no specific URL is known (a vague body of work, "general X literature") — never
+invent a URL.
+
+- [**<Article or paper>**](<sibling-file.md or source URL>) — <one line on the connection>
+- [**<Article or paper>**](<sibling-file.md or source URL>) — <one line on the connection>
 
 ### Jargon buster
 

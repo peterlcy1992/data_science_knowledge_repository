@@ -744,6 +744,42 @@ const emptyEl = document.getElementById("empty");
 let activeCat = null;
 
 function esc(s){ return s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+// Links for "Similar / related work" items. Keys are the exact title segment that
+// appears before the " — " em dash; values point at the underlying material.
+const REL_LINKS = {
+  "GenRec at Netflix": "https://arxiv.org/html/2608.10257",
+  "GenRec": "https://arxiv.org/html/2608.10257",
+  "MAPS at Netflix": "https://arxiv.org/abs/2608.18322",
+  "Spotify semantic-ID generative retrieval": "https://arxiv.org/pdf/2603.17540",
+  "Deploying Semantic ID-based Generative Retrieval for Podcast Discovery at Spotify": "https://arxiv.org/pdf/2603.17540",
+  "In-House LLM Serving at Netflix": "https://netflixtechblog.com/in-house-llm-serving-at-netflix-a5a8e799ea2c",
+  "Scaling LLM Post-Training at Netflix": "https://netflixtechblog.com/scaling-llm-post-training-at-netflix-0046f8790194",
+  "Databricks Feature Store": "https://www.databricks.com/blog/how-databricks-feature-store-serves-features-sub-second-freshness",
+  "From Models to Products: LLMs for Recommendation at Spotify Scale": "https://research.atspotify.com/2026/8/from-models-to-products-llms-for-recommendation-at-spotify-scale",
+  "Balancing Multiple Objectives in Generative Recommendations with Adaptive Decoding": "https://research.atspotify.com/2026/8/balancing-multiple-objectives-in-generative-recommendations-with-adaptive-decoding",
+  "How We Knew COVID Was Over (and What Our Models Had to Unlearn) at Airbnb": "https://medium.com/airbnb-engineering/how-we-knew-covid-was-over-and-what-our-models-had-to-unlearn-c606b9bdb0ab",
+  "Forecasting@Meta: Balancing Art and Science": "https://medium.com/@AnalyticsAtMeta/forecasting-meta-balancing-art-and-science-92526e1ae36c"
+};
+function anchor(href, text){ return `<a href="${esc(href)}" target="_blank" rel="noopener">${text}</a>`; }
+function arxivify(h){ return h.replace(/arXiv\s+(\d{4}\.\d{4,5})/g, (m,id)=>`arXiv ${anchor("https://arxiv.org/abs/"+id, id)}`); }
+// Turn a related-work string into safe HTML with links: explicit [text](url) markdown
+// wins; otherwise link a known in-bank title; always auto-link bare "arXiv <id>".
+function relLinkify(s){
+  if (s.includes("](")){
+    let h = "", re = /\[([^\]]+)\]\((https?:[^)]+)\)/g, last = 0, m;
+    while ((m = re.exec(s))){ h += esc(s.slice(last, m.index)) + anchor(m[2], esc(m[1])); last = m.index + m[0].length; }
+    h += esc(s.slice(last));
+    return arxivify(h);
+  }
+  const dash = s.indexOf(" — ");
+  const head = dash >= 0 ? s.slice(0, dash) : s;
+  const tail = dash >= 0 ? s.slice(dash) : "";
+  const out = Object.prototype.hasOwnProperty.call(REL_LINKS, head)
+    ? anchor(REL_LINKS[head], esc(head)) + esc(tail)
+    : esc(s);
+  return arxivify(out);
+}
 function meter(n){
   let bars = "";
   for (let i=1;i<=5;i++) bars += `<i class="${i<=n?'on':''}"></i>`;
@@ -864,7 +900,7 @@ function openDetail(id){
       <div class="verdict">${meter(a.verdict.score)}<span class="score">${a.verdict.score}/5 — ${esc(a.verdict.line)}</span></div>
       ${a.verdict.body}
       <h4>Similar / related work</h4>
-      <ul class="related">${a.related.map(r=>`<li>${esc(r)}</li>`).join("")}</ul>
+      <ul class="related">${a.related.map(r=>`<li>${relLinkify(r)}</li>`).join("")}</ul>
       <h4>Jargon buster</h4>
       <dl class="jargon">${a.jargon.map(j=>`<div><dt>${esc(j[0])}</dt><dd>${esc(j[1])}</dd></div>`).join("")}</dl>
     </div>`;

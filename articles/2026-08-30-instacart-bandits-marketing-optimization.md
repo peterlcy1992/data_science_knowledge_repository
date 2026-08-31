@@ -78,8 +78,8 @@ post is an application rather than a new method.
 
 ### Similar / related work
 
-- **"Optimizing Adaptive Experiments: Regret Minimization and Best-Arm
-  Identification"** (arXiv 2402.10592) — the theory behind the trade-off Instacart
+- [**"Optimizing Adaptive Experiments: Regret Minimization and Best-Arm
+  Identification"**](https://arxiv.org/abs/2402.10592) (arXiv 2402.10592) — the theory behind the trade-off Instacart
   operationalizes.
 - **Netflix contextual bandits for recommendations** (a Snacks Weekly episode) —
   bandits applied to content selection with reward engineering.

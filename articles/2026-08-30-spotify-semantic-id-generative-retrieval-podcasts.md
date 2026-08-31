@@ -71,12 +71,12 @@ established; the advance is productionization and the domain (podcasts).
 
 ### Similar / related work
 
-- **GenRec at Netflix** (in this bank) — contrasts with this: GenRec keeps an LLM
+- [**GenRec at Netflix**](2026-08-30-netflix-genrec-llm-native-recommendation.md) (in this bank) — contrasts with this: GenRec keeps an LLM
   ranker with a single-pass head instead of decoding semantic IDs.
-- **"LLMs Need Encoders for Semantic IDs Too"** (arXiv 2606.00324) and
-  **"Reasoning over Semantic IDs Enhances Generative Recommendation"**
+- [**"LLMs Need Encoders for Semantic IDs Too"**](https://arxiv.org/abs/2606.00324) (arXiv 2606.00324) and
+  [**"Reasoning over Semantic IDs Enhances Generative Recommendation"**](https://arxiv.org/abs/2603.23183)
   (arXiv 2603.23183) — active threads refining the semantic-ID recipe.
-- **MAPS at Netflix** (in this bank) — the embedding-store alternative to a
+- [**MAPS at Netflix**](2026-08-30-netflix-maps-multimodal-asset-personalization.md) (in this bank) — the embedding-store alternative to a
   discrete-ID vocabulary.
 
 ### Jargon buster

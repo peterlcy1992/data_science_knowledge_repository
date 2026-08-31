@@ -80,9 +80,9 @@ engineering, not a new method.
 
 ### Similar / related work
 
-- **Databricks Feature Store: Sub-Second Freshness** (in this bank) — the feature
+- [**Databricks Feature Store: Sub-Second Freshness**](2026-08-30-databricks-feature-store-subsecond-freshness.md) (in this bank) — the feature
   infrastructure side of serving models like this in real time.
-- **UME: A Unified Meta-Generalization Framework for Cross-Domain ETA**
+- [**UME: A Unified Meta-Generalization Framework for Cross-Domain ETA**](https://arxiv.org/abs/2606.00979)
   (arXiv 2606.00979) — a research take on generalizing ETA across domains.
 - **DoorDash "Precision in Motion"** — a companion post on deep learning for ETA.
 

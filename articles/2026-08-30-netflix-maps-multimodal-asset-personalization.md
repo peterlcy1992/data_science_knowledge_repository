@@ -89,9 +89,9 @@ advance rather than a new modeling result.
 
 ### Similar / related work
 
-- **GenRec: An LLM-backed recommendation ranker at Netflix** (in this bank) —
+- [**GenRec: An LLM-backed recommendation ranker at Netflix**](2026-08-30-netflix-genrec-llm-native-recommendation.md) (in this bank) —
   the LLM-native counterpart to this embedding-native approach.
-- **Deploying Semantic ID-based Generative Retrieval at Spotify** (in this bank) —
+- [**Deploying Semantic ID-based Generative Retrieval at Spotify**](2026-08-30-spotify-semantic-id-generative-retrieval-podcasts.md) (in this bank) —
   another "shared representation across surfaces" strategy, via semantic IDs.
 - **Scaling Media Machine Learning at Netflix** (Netflix Tech Blog) — the
   media-understanding pipeline that produces the shot-level signals MediaFM

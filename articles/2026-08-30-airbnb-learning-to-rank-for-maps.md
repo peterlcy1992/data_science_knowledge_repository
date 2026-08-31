@@ -81,9 +81,9 @@ applied.
 
 ### Similar / related work
 
-- **MAPS: Multimodal Asset Personalization at Netflix** (in this bank) — also about
+- [**MAPS: Multimodal Asset Personalization at Netflix**](2026-08-30-netflix-maps-multimodal-asset-personalization.md) (in this bank) — also about
   *presentation* (artwork) as a personalization lever, not just item order.
-- **GenRec at Netflix** (in this bank) — ranking-stage rethink, from the LLM angle.
+- [**GenRec at Netflix**](2026-08-30-netflix-genrec-llm-native-recommendation.md) (in this bank) — ranking-stage rethink, from the LLM angle.
 - **Airbnb Relevance team publications** — the broader body of Airbnb ranking work
   this belongs to.
 

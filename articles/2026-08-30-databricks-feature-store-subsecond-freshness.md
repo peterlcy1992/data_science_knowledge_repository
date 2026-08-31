@@ -80,7 +80,7 @@ rather than defining a new one — a solid 3.
 - **Airbnb Zipline** (declarative feature engineering) — the "author once, serve
   batch + streaming" lineage this extends.
 - **Uber Michelangelo Palette / Tecton / Feast** — the feature-store prior art.
-- **In-House LLM Serving at Netflix** (in this bank) — the serving-latency
+- [**In-House LLM Serving at Netflix**](2026-08-30-netflix-in-house-llm-serving.md) (in this bank) — the serving-latency
   discipline, applied to features rather than models.
 
 ### Jargon buster

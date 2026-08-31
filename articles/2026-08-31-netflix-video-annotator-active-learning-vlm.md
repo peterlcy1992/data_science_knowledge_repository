@@ -85,8 +85,8 @@ rather than a new method, which is why it lands at 3 rather than higher.
 - **MediaFM: The Multimodal AI Foundation for Media Understanding at Netflix**
   — a related, more recent Netflix effort building shared multimodal
   foundations for media understanding tasks.
-- **MAPS: Multimedia Asset Personalization via Multimodal Embeddings at
-  Netflix** (in this bank) — another Netflix system built on multimodal
+- [**MAPS: Multimedia Asset Personalization via Multimodal Embeddings at
+  Netflix**](2026-08-30-netflix-maps-multimodal-asset-personalization.md) (in this bank) — another Netflix system built on multimodal
   embeddings, applied to asset personalization rather than classifier
   bootstrapping.
 - General active-learning-for-annotation literature — VA is a concrete,

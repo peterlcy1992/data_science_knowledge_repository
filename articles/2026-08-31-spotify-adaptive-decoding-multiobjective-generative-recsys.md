@@ -88,10 +88,10 @@ didn't have a good lightweight answer yet.
 
 ### Similar / related work
 
-- **Deploying Semantic ID-based Generative Retrieval for Podcast Discovery at
-  Spotify** (in this bank) — the underlying generative-retrieval paradigm SPDD
+- [**Deploying Semantic ID-based Generative Retrieval for Podcast Discovery at
+  Spotify**](2026-08-30-spotify-semantic-id-generative-retrieval-podcasts.md) (in this bank) — the underlying generative-retrieval paradigm SPDD
   decodes on top of.
-- **From Models to Products: LLMs for Recommendation at Spotify Scale** (in
+- [**From Models to Products: LLMs for Recommendation at Spotify Scale**](2026-08-31-spotify-neo-glide-llm-recommendation-grounding.md) (in
   this bank) — a complementary Spotify effort steering LLM-based recommenders
   via prompting/grounding rather than decode-time optimization.
 - **Constrained decoding for LLMs** (e.g. grammar-constrained or guided

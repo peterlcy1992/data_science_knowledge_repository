@@ -74,7 +74,7 @@ practical value, low methodological novelty.
 
 ### Similar / related work
 
-- **In-House LLM Serving at Netflix** (in this bank) — the serving/reliability side
+- [**In-House LLM Serving at Netflix**](2026-08-30-netflix-in-house-llm-serving.md) (in this bank) — the serving/reliability side
   of running many models in production.
 - **Uber "Raising the Bar on ML Model Deployment Safety"** — the control-plane
   guardrails MES complements.

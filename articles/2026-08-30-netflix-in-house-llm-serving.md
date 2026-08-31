@@ -85,9 +85,9 @@ practice rather than a step change — hence a 3.
 
 ### Similar / related work
 
-- **Scaling LLM Post-Training at Netflix** (in this bank) — the training-side
+- [**Scaling LLM Post-Training at Netflix**](2026-08-30-netflix-scaling-llm-post-training.md) (in this bank) — the training-side
   companion; both lean on vLLM and Ray.
-- **GenRec** (in this bank) — a consumer of exactly this serving path for
+- [**GenRec**](2026-08-30-netflix-genrec-llm-native-recommendation.md) (in this bank) — a consumer of exactly this serving path for
   LLM-native ranking.
 - **NVIDIA Triton / vLLM docs and case studies** — the reference implementations
   of the components Netflix assembled.

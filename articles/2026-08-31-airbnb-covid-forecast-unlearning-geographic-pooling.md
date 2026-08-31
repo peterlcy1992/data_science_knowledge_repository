@@ -87,10 +87,10 @@ well-told applied case rather than a new method, hence a 3.
 
 ### Similar / related work
 
-- **Forecasting the Evolving Composition of Guest Origin Markets in Platform
-  Bookings** (arXiv 2602.18358) — a related Airbnb-data paper on Bayesian
+- [**Forecasting the Evolving Composition of Guest Origin Markets in Platform
+  Bookings**](https://arxiv.org/abs/2602.18358) (arXiv 2602.18358) — a related Airbnb-data paper on Bayesian
   compositional time series for booking markets.
-- **Forecasting@Meta: Balancing Art and Science** (in this bank) — another
+- [**Forecasting@Meta: Balancing Art and Science**](2026-08-31-meta-forecasting-art-and-science.md) (in this bank) — another
   large-platform forecasting team's account of blending statistical models
   with judgment-driven adjustment.
 - Airbnb's earlier post, "What COVID did to our forecasting models (and what

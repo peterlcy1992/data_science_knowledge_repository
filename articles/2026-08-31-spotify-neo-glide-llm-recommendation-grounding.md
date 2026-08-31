@@ -90,14 +90,14 @@ rather than 5.
 
 ### Similar / related work
 
-- **Deploying Semantic ID-based Generative Retrieval for Large-Scale Podcast
-  Discovery at Spotify** (in this bank) — the semantic-ID retrieval work GLIDE
+- [**Deploying Semantic ID-based Generative Retrieval for Large-Scale Podcast
+  Discovery at Spotify**](2026-08-30-spotify-semantic-id-generative-retrieval-podcasts.md) (in this bank) — the semantic-ID retrieval work GLIDE
   builds its grounding on.
-- **Balancing Multiple Objectives in Generative Recommendations with Adaptive
-  Decoding** (in this bank) — a complementary Spotify technique for steering
+- [**Balancing Multiple Objectives in Generative Recommendations with Adaptive
+  Decoding**](2026-08-31-spotify-adaptive-decoding-multiobjective-generative-recsys.md) (in this bank) — a complementary Spotify technique for steering
   generative recommenders at decode time rather than through the LLM's own
   instruction-following.
-- **GenRec at Netflix** (in this bank) — another production LLM-native
+- [**GenRec at Netflix**](2026-08-30-netflix-genrec-llm-native-recommendation.md) (in this bank) — another production LLM-native
   recommender, using a post-trained foundation LLM as a ranker rather than a
   semantic-ID candidate generator.
 

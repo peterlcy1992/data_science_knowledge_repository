@@ -82,12 +82,12 @@ but that's a useful recap rather than a novel technique.
 
 ### Similar / related work
 
-- **How We Knew COVID Was Over (and What Our Models Had to Unlearn)** at
+- [**How We Knew COVID Was Over (and What Our Models Had to Unlearn)**](2026-08-31-airbnb-covid-forecast-unlearning-geographic-pooling.md) at
   Airbnb (in this bank) — another large-platform forecasting team's account
   of when to trust versus override a statistical model during unusual
   conditions.
-- **Forecasting the Evolving Composition of Guest Origin Markets in Platform
-  Bookings** (arXiv 2602.18358) — a more technical, methods-first companion
+- [**Forecasting the Evolving Composition of Guest Origin Markets in Platform
+  Bookings**](https://arxiv.org/abs/2602.18358) (arXiv 2602.18358) — a more technical, methods-first companion
   on hierarchical/compositional forecasting for a similar class of problem.
 - Standard time-series forecasting practice (e.g. Meta's own Prophet library
   documentation) — this post is a practitioner-process complement to that

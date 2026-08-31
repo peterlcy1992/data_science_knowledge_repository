@@ -80,12 +80,12 @@ integration and one throughput trick.
 
 ### Similar / related work
 
-- **In-House LLM Serving at Netflix** (in this bank) — the inference-side companion;
+- [**In-House LLM Serving at Netflix**](2026-08-30-netflix-in-house-llm-serving.md) (in this bank) — the inference-side companion;
   both rely on vLLM.
-- **GenRec** (in this bank) — a downstream consumer of models this framework
+- [**GenRec**](2026-08-30-netflix-genrec-llm-native-recommendation.md) (in this bank) — a downstream consumer of models this framework
   post-trains.
-- **"Relax / Laminar / ROLL Flash" async RL papers** (arXiv 2604.11554,
-  2510.11345) — the broader move toward asynchronous RL post-training that this
+- **"Relax / Laminar / ROLL Flash" async RL papers** (arXiv [2604.11554](https://arxiv.org/abs/2604.11554),
+  [2510.11345](https://arxiv.org/abs/2510.11345)) — the broader move toward asynchronous RL post-training that this
   work sits alongside.
 
 ### Jargon buster

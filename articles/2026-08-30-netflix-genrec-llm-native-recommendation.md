@@ -78,12 +78,12 @@ contribution is applying it precisely where the pain is, at Netflix scale.
 
 ### Similar / related work
 
-- **Deploying Semantic ID-based Generative Retrieval at Spotify** (in this bank) —
+- [**Deploying Semantic ID-based Generative Retrieval at Spotify**](2026-08-30-spotify-semantic-id-generative-retrieval-podcasts.md) (in this bank) —
   the semantic-ID/next-token approach GenRec deliberately contrasts with.
-- **MAPS: Multimodal Asset Personalization** (in this bank) — the embedding-native
+- [**MAPS: Multimodal Asset Personalization**](2026-08-30-netflix-maps-multimodal-asset-personalization.md) (in this bank) — the embedding-native
   sibling; together they show Netflix's two bets (embeddings and LLMs) on recsys.
-- **"Understanding Generative Recommendation with Semantic IDs from a Model-scaling
-  View"** (arXiv 2509.25522) — scaling analysis of the paradigm GenRec sits within.
+- [**"Understanding Generative Recommendation with Semantic IDs from a Model-scaling
+  View"**](https://arxiv.org/abs/2509.25522) (arXiv 2509.25522) — scaling analysis of the paradigm GenRec sits within.
 
 ### Jargon buster
 
