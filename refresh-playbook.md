@@ -122,9 +122,16 @@ them into that array (same fields used by existing entries) and bump `UPDATED`.
 The backlog lives in a parallel `CATALOG` array in the same file: add new stubs
 there, and when a stub is deepened, remove it from `CATALOG` and add the full
 object to `ARTICLES`. Keep `reader.html` and `catalog.json` in sync.
-To refresh the published artifact at its existing URL, read it first
-(`Artifact` `action: "read"` with the URL) then publish with that same `url`.
-This is a convenience surface; skipping it does not affect the email digest.
+The reader is published as an Artifact at this stable URL:
+
+    https://claude.ai/code/artifact/1dc76309-4483-4c41-8dd5-164619574cde
+
+To refresh the published artifact at that same URL (do NOT create a new one):
+first read it (`Artifact` `action: "read"` with that `url`), then publish
+`reader.html` with that same `url` so it redeploys in place. Do not pass a new
+`favicon` on republish — it keeps its existing 🧠 icon. If the `Artifact` tool
+is unavailable in the run, skip this step: it is a convenience surface and
+skipping it does not affect the email digest.
 
 ## Step 7 — Deliver & persist
 
