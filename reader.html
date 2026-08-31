@@ -1,0 +1,788 @@
+<title>DS Knowledge Bank</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    --ground: #F5F7FA;
+    --surface: #FFFFFF;
+    --surface-2: #EEF1F6;
+    --title: #111621;
+    --body: #39424F;
+    --muted: #6A7484;
+    --edge: #E1E6ED;
+    --edge-strong: #CFD6E0;
+    --accent: #2C5FEF;
+    --accent-ink: #1E48C4;
+    --accent-wash: #ECF1FE;
+    --take-wash: #F3F5FE;
+    --take-edge: #C9D3F5;
+    --meter-off: #DDE2EA;
+    --shadow: 0 1px 2px rgba(17,22,33,.04), 0 6px 20px rgba(17,22,33,.06);
+    --shadow-lift: 0 2px 6px rgba(17,22,33,.08), 0 18px 44px rgba(17,22,33,.12);
+    --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0C0F16;
+      --surface: #141922;
+      --surface-2: #1B212C;
+      --title: #ECEFF5;
+      --body: #AAB3C0;
+      --muted: #78828F;
+      --edge: #232A36;
+      --edge-strong: #313a48;
+      --accent: #5E8BFF;
+      --accent-ink: #89A9FF;
+      --accent-wash: #172033;
+      --take-wash: #141B2B;
+      --take-edge: #2B3650;
+      --meter-off: #2A313D;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.35);
+      --shadow-lift: 0 2px 6px rgba(0,0,0,.4), 0 18px 44px rgba(0,0,0,.5);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0C0F16;
+    --surface: #141922;
+    --surface-2: #1B212C;
+    --title: #ECEFF5;
+    --body: #AAB3C0;
+    --muted: #78828F;
+    --edge: #232A36;
+    --edge-strong: #313a48;
+    --accent: #5E8BFF;
+    --accent-ink: #89A9FF;
+    --accent-wash: #172033;
+    --take-wash: #141B2B;
+    --take-edge: #2B3650;
+    --meter-off: #2A313D;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.35);
+    --shadow-lift: 0 2px 6px rgba(0,0,0,.4), 0 18px 44px rgba(0,0,0,.5);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--body);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent-ink); }
+
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 40px); }
+
+  /* Masthead */
+  header.mast { padding: clamp(32px, 6vw, 60px) 0 22px; border-bottom: 1px solid var(--edge); }
+  .eyebrow {
+    font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+    letter-spacing: .16em; text-transform: uppercase; color: var(--muted);
+    display: flex; align-items: center; gap: 10px; margin: 0 0 14px;
+  }
+  .eyebrow .tick { width: 22px; height: 1px; background: var(--edge-strong); }
+  h1.title {
+    font-size: clamp(30px, 5vw, 46px); line-height: 1.05; font-weight: 700;
+    color: var(--title); margin: 0 0 12px; letter-spacing: -.02em; text-wrap: balance;
+  }
+  .lede { font-size: clamp(15px, 1.6vw, 17px); max-width: 62ch; margin: 0 0 22px; color: var(--body); }
+  .lede b { color: var(--title); font-weight: 600; }
+  .statline {
+    display: flex; flex-wrap: wrap; gap: 8px 22px; font-family: var(--font-mono);
+    font-size: 12.5px; color: var(--muted); letter-spacing: .02em;
+  }
+  .statline b { color: var(--title); font-weight: 600; }
+
+  /* Controls */
+  .controls { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--ground) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--edge); padding: 14px 0; }
+  .controls-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .search {
+    flex: 1 1 240px; display: flex; align-items: center; gap: 9px;
+    background: var(--surface); border: 1px solid var(--edge-strong); border-radius: 9px;
+    padding: 9px 13px; box-shadow: var(--shadow);
+  }
+  .search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-wash); }
+  .search svg { flex: none; color: var(--muted); }
+  .search input { border: 0; outline: 0; background: transparent; color: var(--title); font-family: var(--font-sans); font-size: 14.5px; width: 100%; }
+  .search input::placeholder { color: var(--muted); }
+  .sort { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
+  .sort select {
+    font-family: var(--font-mono); font-size: 12.5px; color: var(--title); background: var(--surface);
+    border: 1px solid var(--edge-strong); border-radius: 8px; padding: 8px 10px; cursor: pointer;
+  }
+  .sort select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .chip {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: .02em;
+    padding: 6px 12px 6px 10px; border-radius: 999px; border: 1px solid var(--edge-strong);
+    background: var(--surface); color: var(--body); cursor: pointer; display: inline-flex; align-items: center; gap: 7px;
+    transition: border-color .12s, background .12s, color .12s;
+  }
+  .chip:hover { border-color: var(--accent); color: var(--title); }
+  .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .chip[aria-pressed="true"] .dot { box-shadow: 0 0 0 2px rgba(255,255,255,.6); }
+  .chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cat, var(--muted)); flex: none; }
+  .chip .n { opacity: .6; }
+  .chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* Grid */
+  main { padding: 26px 0 60px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px; }
+  .card {
+    position: relative; text-align: left; background: var(--surface); border: 1px solid var(--edge);
+    border-radius: 14px; padding: 20px 20px 18px; cursor: pointer; box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: 12px; font: inherit; color: inherit;
+    transition: transform .14s ease, box-shadow .14s ease, border-color .14s ease;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); border-color: var(--edge-strong); }
+  .card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .cat-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); display: inline-flex; align-items: center; gap: 7px; }
+  .cat-label .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cat, var(--muted)); flex: none; }
+  .card h2 { font-size: 18px; line-height: 1.28; font-weight: 600; color: var(--title); margin: 0; letter-spacing: -.01em; text-wrap: balance; }
+  .card-meta { font-family: var(--font-mono); font-size: 11.5px; color: var(--muted); }
+  .card p.tldr { margin: 0; font-size: 14px; color: var(--body); }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+  .tag { font-family: var(--font-mono); font-size: 10.5px; color: var(--muted); background: var(--surface-2); border-radius: 5px; padding: 3px 7px; }
+
+  /* Novelty meter */
+  .meter { display: inline-flex; flex-direction: column; align-items: flex-end; gap: 4px; flex: none; }
+  .meter .bars { display: inline-flex; gap: 3px; }
+  .meter .bars i { width: 6px; height: 16px; border-radius: 2px; background: var(--meter-off); }
+  .meter .bars i.on { background: var(--accent); }
+  .meter .cap { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+
+  .empty { text-align: center; color: var(--muted); font-family: var(--font-mono); font-size: 13px; padding: 60px 0; }
+
+  /* Backlog */
+  .backlog { margin-top: 46px; padding-top: 30px; border-top: 1px dashed var(--edge-strong); }
+  .backlog-head h2 { font-size: 20px; font-weight: 600; color: var(--title); margin: 0 0 6px; letter-spacing: -.01em; }
+  .backlog-head p { margin: 0 0 20px; font-size: 13.5px; color: var(--muted); max-width: 70ch; }
+  .backlog-head a { color: var(--accent-ink); }
+  .card.stub { cursor: default; box-shadow: none; border-style: dashed; background: transparent; gap: 9px; }
+  .card.stub:hover { transform: none; box-shadow: none; border-color: var(--accent); }
+  .card.stub h2 { font-size: 15.5px; }
+  .stub-badge { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--edge-strong); border-radius: 5px; padding: 3px 7px; align-self: flex-start; }
+  .stub-src { font-family: var(--font-mono); font-size: 11.5px; }
+  .stub-src a { color: var(--accent-ink); text-decoration: none; }
+  .stub-src a:hover { text-decoration: underline; }
+
+  /* Detail overlay */
+  .overlay { position: fixed; inset: 0; z-index: 60; display: none; }
+  .overlay[data-open="true"] { display: block; }
+  .backdrop { position: absolute; inset: 0; background: rgba(9,12,18,.55); backdrop-filter: blur(3px); animation: fade .18s ease; }
+  .panel {
+    position: absolute; top: 0; right: 0; height: 100%; width: min(760px, 100%);
+    background: var(--surface); box-shadow: var(--shadow-lift); overflow-y: auto;
+    animation: slidein .22s cubic-bezier(.22,.61,.36,1); border-left: 1px solid var(--edge);
+  }
+  @keyframes fade { from { opacity: 0; } }
+  @keyframes slidein { from { transform: translateX(24px); opacity: .4; } }
+  .panel-inner { padding: clamp(22px, 4vw, 40px); }
+  .panel-close {
+    position: sticky; top: 14px; float: right; margin-left: 12px; z-index: 2;
+    width: 38px; height: 38px; border-radius: 9px; border: 1px solid var(--edge-strong);
+    background: var(--surface); color: var(--body); cursor: pointer; font-size: 18px; line-height: 1;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .panel-close:hover { color: var(--title); border-color: var(--accent); }
+  .panel-close:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .d-cat { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+  .d-cat .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--cat, var(--muted)); }
+  .panel h2.d-title { font-size: clamp(22px, 3.2vw, 30px); line-height: 1.14; font-weight: 700; color: var(--title); margin: 0 0 14px; letter-spacing: -.02em; text-wrap: balance; }
+  .d-meta { display: flex; flex-wrap: wrap; gap: 8px 18px; font-family: var(--font-mono); font-size: 12px; color: var(--muted); align-items: center; padding-bottom: 18px; border-bottom: 1px solid var(--edge); margin-bottom: 6px; }
+  .d-meta a { color: var(--accent-ink); text-decoration: none; }
+  .d-meta a:hover { text-decoration: underline; }
+  .d-meta .via { text-transform: uppercase; letter-spacing: .08em; font-size: 10.5px; background: var(--surface-2); padding: 3px 7px; border-radius: 5px; }
+
+  .callout { background: var(--accent-wash); border-radius: 11px; padding: 15px 17px; margin: 22px 0; font-size: 15px; color: var(--title); }
+  .callout .k { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-ink); display: block; margin-bottom: 5px; }
+
+  .section { margin: 26px 0; }
+  .section > h3 {
+    font-size: 12px; font-family: var(--font-mono); font-weight: 600; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--muted); margin: 0 0 10px; display: flex; align-items: baseline; gap: 10px;
+  }
+  .section > h3 .num { color: var(--accent-ink); }
+  .section p { margin: 0 0 12px; font-size: 15px; }
+  .section ul { margin: 0 0 12px; padding-left: 20px; }
+  .section li { margin-bottom: 7px; font-size: 14.5px; }
+  .section strong { color: var(--title); font-weight: 600; }
+
+  .take { background: var(--take-wash); border: 1px solid var(--take-edge); border-radius: 13px; padding: 20px 20px 6px; margin: 30px 0 10px; }
+  .take-head { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .take-head .mark { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-ink); font-weight: 600; }
+  .take-head .rule { flex: 1; height: 1px; background: var(--take-edge); }
+  .take .disclaim { font-size: 12px; color: var(--muted); margin: 0 0 14px; font-style: italic; }
+  .verdict { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 4px; }
+  .verdict .score { font-family: var(--font-mono); font-weight: 600; color: var(--title); font-size: 14px; }
+  .take h4 { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 20px 0 9px; }
+  .related { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .related li { font-size: 14px; padding-left: 16px; position: relative; }
+  .related li::before { content: "→"; position: absolute; left: 0; color: var(--accent-ink); }
+  dl.jargon { margin: 0; display: grid; gap: 10px; }
+  dl.jargon > div { border-left: 2px solid var(--take-edge); padding-left: 13px; }
+  dl.jargon dt { font-weight: 600; color: var(--title); font-size: 14px; }
+  dl.jargon dd { margin: 2px 0 0; font-size: 13.5px; color: var(--body); }
+
+  footer { border-top: 1px solid var(--edge); padding: 26px 0 50px; font-size: 13px; color: var(--muted); }
+  footer .fmono { font-family: var(--font-mono); font-size: 12px; }
+  footer b { color: var(--body); font-weight: 600; }
+
+  /* Theme toggle */
+  .toggle { margin-left: auto; }
+  .toggle button { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); background: var(--surface); border: 1px solid var(--edge-strong); border-radius: 8px; padding: 8px 11px; cursor: pointer; }
+  .toggle button:hover { color: var(--title); border-color: var(--accent); }
+  .toggle button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+  @media (max-width: 560px) { .card { border-radius: 12px; } .panel-inner { padding: 20px 18px 40px; } }
+</style>
+
+<header class="mast">
+  <div class="wrap">
+    <p class="eyebrow"><span class="tick"></span> Data Science · Cutting-Edge Knowledge Bank</p>
+    <h1 class="title">The Knowledge Bank</h1>
+    <p class="lede">A self-refreshing shelf of the sharpest applied ML, AI-engineering, and data-science writing — each entry distilled into <b>business context</b>, <b>technical detail</b>, and <b>impact</b>, then annotated with a <b>Claude's Take</b>: a novelty score, related work, and plain-language explainers.</p>
+    <div class="statline">
+      <span><b id="stat-count">0</b> deep dives</span>
+      <span><b id="stat-backlog">0</b> in backlog</span>
+      <span><b id="stat-cats">0</b> categories</span>
+      <span>updated <b id="stat-updated">—</b></span>
+      <span>refreshed daily · 8:00 AM PT</span>
+    </div>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="wrap">
+    <div class="controls-row">
+      <label class="search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <input id="q" type="search" placeholder="Search titles, sources, tags, terms…" aria-label="Search articles">
+      </label>
+      <div class="sort">
+        <span>Sort</span>
+        <select id="sort" aria-label="Sort articles">
+          <option value="added">Newest added</option>
+          <option value="novelty">Highest novelty</option>
+          <option value="published">Recently published</option>
+          <option value="title">Title A–Z</option>
+        </select>
+      </div>
+      <div class="toggle"><button id="theme" type="button" aria-label="Toggle color theme">◐ Theme</button></div>
+    </div>
+    <div class="chips" id="chips"></div>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" hidden>No deep-dive articles match that filter.</div>
+
+  <section id="backlog" class="backlog">
+    <div class="backlog-head">
+      <h2>Episode backlog</h2>
+      <p>Discovered from the <a href="https://podcasts.apple.com/us/podcast/snacks-weekly-on-data-science/id1709920384" target="_blank" rel="noopener">Snacks Weekly on Data Science</a> catalogue and awaiting a full deep-dive write-up. The daily refresh upgrades these into full entries above over time.</p>
+    </div>
+    <div class="grid backlog-grid" id="backlog-grid"></div>
+    <div class="empty" id="backlog-empty" hidden>No backlog items match that filter.</div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="fmono">Delivered as a daily digest via a Claude Code Routine — a <b>deep dive</b> on the latest-added article plus the day's <b>newly added</b> list. This page is a snapshot of <b>this repository</b> and is regenerated on each refresh. Opinions are fenced under <b>Claude's Take</b> and are not the sources' claims.</p>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="d-title" data-open="false">
+  <div class="backdrop" id="backdrop"></div>
+  <div class="panel" role="document">
+    <div class="panel-inner" id="panel-inner"></div>
+  </div>
+</div>
+
+<script>
+const CATS = {
+  "personalization-recsys": { name: "Personalization & Recsys", color: "#E0728F" },
+  "llm-genai":              { name: "LLMs & GenAI",             color: "#7C6BF0" },
+  "ml-infra-serving":       { name: "ML Infra & Serving",       color: "#2F9E8F" },
+  "data-engineering":       { name: "Data Engineering",         color: "#C98A3B" },
+  "search-ranking":         { name: "Search & Ranking",         color: "#3D82D6" },
+  "experimentation-causal": { name: "Experimentation & Causal", color: "#C264C9" },
+  "cv-multimodal":          { name: "CV & Multimodal",          color: "#4CA36A" },
+  "forecasting-timeseries": { name: "Forecasting & Time Series",color: "#D2694C" },
+  "research-foundational":  { name: "Research & Foundational",  color: "#6E7787" }
+};
+
+const ARTICLES = [
+  {
+    id: "netflix-maps", title: "MAPS: Multimedia Asset Personalization via Multimodal Embeddings at Netflix",
+    source: "Netflix Tech Blog / arXiv", url: "https://arxiv.org/abs/2608.18322",
+    published: "2026-08", added: "2026-08-30", category: "cv-multimodal", novelty: 4, via: "web search",
+    tags: ["multimodal","embeddings","clip","two-tower","cold-start","embedding-store"],
+    tldr: "Shared multimodal embeddings + a central Embedding Store let one model personalize all five artwork canvas types and make foundation models swappable.",
+    business: "<p>The image (\"artwork\") shown for a title is one of Netflix's highest-leverage personalization surfaces. Each placement used to be served by its own separately trained model: costly to maintain and weak at <strong>cold-start</strong>, exactly when new titles launch. Netflix wanted one approach that generalizes across surfaces, handles new assets gracefully, and lets teams reuse foundation models without re-plumbing every downstream system.</p>",
+    technical: "<ul><li>A <strong>two-tower</strong> recommender augmented with <strong>CLIP image embeddings</strong>; because CLIP shares an image–text space, one representation serves several jobs.</li><li>A single CLIP-augmented model serves <strong>all five artwork canvas types</strong>, replacing five per-canvas models and improving cold-start.</li><li>A lightweight extension makes artwork <strong>query-aware in search</strong> by reusing CLIP's joint text–image space.</li><li><strong>MediaFM</strong>, an in-house multimodal foundation model fusing <strong>visual, audio, and timed-text</strong> signals, trained on shots from the catalog.</li><li>The keystone: foundation-model outputs register in a central <strong>Embedding Store</strong>, so a new/upgraded model integrates <strong>without changing downstream training or serving</strong>.</li></ul>",
+    impact: "<p><strong>Realized:</strong> five models collapsed into one; substantial cold-start gains; query-aware artwork in search; much less model sprawl to maintain.</p><p><strong>Potential:</strong> \"adopt a new foundation model\" becomes a registration step rather than a cross-team re-integration project — the transferable lesson Netflix frames for other practitioners.</p>",
+    verdict: { score: 4, line: "the paradigm is known; the productionization is the contribution", body: "<p>Two-tower recommenders and CLIP are both established, so the ingredients aren't new. What earns the 4 is the systems framing: one shared representation retiring a family of bespoke models, and the <strong>Embedding Store as a decoupling layer</strong> that makes foundation models swappable dependencies. That's the part other large recsys orgs will copy. Short of 5 because it's an integration advance, not a new modeling result.</p>" },
+    related: [
+      "GenRec at Netflix — the LLM-native counterpart to this embedding-native approach.",
+      "Spotify semantic-ID generative retrieval — another shared-representation-across-surfaces play.",
+      "Scaling Media ML at Netflix — the pipeline producing the shot-level signals MediaFM trains on."
+    ],
+    jargon: [
+      ["Two-tower model","Separate user and item encoders whose vectors are compared by dot product; fast because item vectors precompute."],
+      ["CLIP","A model that places images and their text descriptions in one vector space, so you can compare image-to-text directly — great for cold-start."],
+      ["Cold-start","Recommending something (or with something) that has little or no interaction history yet, e.g. a brand-new title or fresh artwork."],
+      ["Embedding Store","A central service holding precomputed embeddings so many systems read the same representation instead of recomputing it."]
+    ]
+  },
+  {
+    id: "netflix-genrec", title: "GenRec: Towards LLM-Native Recommendation at Netflix",
+    source: "Netflix Tech Blog / arXiv", url: "https://arxiv.org/html/2608.10257",
+    published: "2026-07", added: "2026-08-30", category: "search-ranking", novelty: 4, via: "web search",
+    tags: ["llm","ranking","generative-retrieval","catalog-aware-head","reward"],
+    tldr: "A catalog-aware ranking head lets an LLM score a large candidate set in a single forward pass, dodging the latency of autoregressive beam-search decoding.",
+    business: "<p>Recommendation has been dominated by specialized deep models. LLMs promise richer reasoning over user context, but the standard recipe — treat items as tokens and <strong>autoregressively decode</strong> with beam search — is too slow and costly to rank the large candidate sets a production ranker scores per request. Netflix wanted the LLM upside without that inference tax.</p>",
+    technical: "<ul><li><strong>Catalog-aware ranking head:</strong> instead of generating item tokens one at a time, GenRec augments the base LLM with a head that scores/ranks a large candidate set <strong>in one forward pass</strong> — the central cost-and-latency move.</li><li><strong>LLM-lens design:</strong> deliberate <strong>context engineering</strong> (packing user history, metadata, situation) and <strong>reward integration</strong> to encode business goals and optimize long-term satisfaction, not just clicks.</li><li><strong>Vs. generative retrieval:</strong> most such work encodes items as <strong>semantic IDs</strong> and frames recommendation as next-token prediction; GenRec keeps the LLM backbone but replaces the decode bottleneck with single-pass scoring — a ranking-stage design.</li></ul>",
+    impact: "<p><strong>Realized:</strong> an LLM-backed ranker serving-cost-effective enough to rank large candidate sets, by removing autoregressive decoding from the hot path.</p><p><strong>Potential:</strong> a lower-risk on-ramp to LLM-native recsys — adopt LLM reasoning and reward shaping in ranking without first rebuilding retrieval around semantic IDs.</p>",
+    verdict: { score: 4, line: "a pragmatic answer to the biggest blocker in LLM recsys", body: "<p>The field agrees LLMs should help recommendation but has been stuck on decode + beam search not fitting a low-latency ranker. GenRec's single-forward-pass head is a clean, deployable answer to exactly that, and pairing it with reward integration for long-term satisfaction is the right objective framing. A 4 rather than 5 because \"add a task-specific head to a transformer\" is familiar; the contribution is applying it precisely where the pain is, at scale.</p>" },
+    related: [
+      "Spotify semantic-ID generative retrieval — the next-token approach GenRec deliberately contrasts with.",
+      "MAPS at Netflix — the embedding-native sibling; together they show Netflix's two recsys bets.",
+      "\"Understanding Generative Recommendation with Semantic IDs from a Model-scaling View\" (arXiv 2509.25522)."
+    ],
+    jargon: [
+      ["Autoregressive decoding","Generating output one token at a time, each conditioned on the last; accurate but sequential and slow."],
+      ["Beam search","Keeping the top-k partial sequences at each step to find a high-scoring full sequence; multiplies decode cost."],
+      ["Ranking head","A small output layer on top of a base model that turns its representations into item scores for ordering."],
+      ["Semantic ID","A short code (often from a learned quantizer) representing an item's meaning, so items can be \"spoken\" as tokens by an LLM."],
+      ["Context engineering","Deciding what user/item/situation info to feed the model and how to format it — feature engineering for LLMs."]
+    ]
+  },
+  {
+    id: "netflix-post-training", title: "Scaling LLM Post-Training at Netflix",
+    source: "Netflix Tech Blog", url: "https://netflixtechblog.com/scaling-llm-post-training-at-netflix-0046f8790194",
+    published: "2026-02", added: "2026-08-30", category: "llm-genai", novelty: 4, via: "web search",
+    tags: ["post-training","sft","dpo","rl","sequence-packing","ray","verl"],
+    tldr: "A reusable SFT/DPO/RL/distillation framework whose on-the-fly async sequence packing lifted effective token throughput up to 4.7× on length-skewed data.",
+    business: "<p>Off-the-shelf LLMs don't natively speak Netflix's domain — its catalog, signals, objectives. Turning a base model into something useful for recommendation and search needs <strong>post-training</strong> (SFT, preference alignment, RL, distillation), done repeatedly, reliably, and cheaply. That demands shared infrastructure rather than one-off scripts.</p>",
+    technical: "<ul><li><strong>Four pillars:</strong> Data, Model, Compute, plus Workflow, to support multi-stage patterns (e.g. an RL fine-tune chaining generation, scoring, updates).</li><li><strong>Standardized recipes</strong> for <strong>SFT</strong>, <strong>DPO</strong>, <strong>RL</strong>, and <strong>knowledge distillation</strong>.</li><li>Built on <strong>PyTorch, Ray, vLLM, and Verl</strong> with custom optimizations; Ray coordinates distributed work, vLLM drives fast RL-rollout generation, Verl provides RL machinery.</li><li><strong>On-the-fly async sequence packing (headline):</strong> streams samples from storage and packs them into full sequences in memory dynamically, <strong>asynchronously</strong> so CPU packing overlaps GPU compute — up to <strong>4.7× effective token throughput</strong> on the most skewed dataset.</li></ul>",
+    impact: "<p><strong>Realized:</strong> up to 4.7× throughput from async packing on skewed data; one framework covering SFT/DPO/RL/distillation; teams share recipes instead of bespoke training code.</p><p><strong>Potential:</strong> a reference blueprint for productionizing RL/preference alignment at scale — the packing trick generalizes to any org with length-skewed data.</p>",
+    verdict: { score: 4, line: "a concrete, measurable win inside otherwise-standard plumbing", body: "<p>Sequence packing is known; making it on-the-fly and asynchronous so it overlaps GPU compute, and reporting a clean 4.7× on skewed data, is the kind of specific, portable optimization blogs rarely give. The SFT/DPO/RL framing on PyTorch/Ray/vLLM/Verl is mainstream, but the packing result plus the honest structure make this a strong 4.</p>" },
+    related: [
+      "In-House LLM Serving at Netflix — the inference-side companion; both lean on vLLM.",
+      "GenRec — a downstream consumer of models this framework post-trains.",
+      "Async RL papers (Relax / Laminar / ROLL Flash) — the broader move this sits alongside."
+    ],
+    jargon: [
+      ["Post-training","Everything done to a base LLM after pretraining to make it useful: fine-tuning, alignment, distillation."],
+      ["SFT","Supervised fine-tuning — training on curated input→desired-output examples."],
+      ["DPO","Direct Preference Optimization — aligning to preferred vs. dispreferred responses directly, without a separate reward model."],
+      ["Knowledge distillation","Training a smaller \"student\" to mimic a larger \"teacher,\" trading a little quality for much lower serving cost."],
+      ["Sequence packing","Concatenating several short examples into one full-length sequence so GPUs aren't wasted padding short inputs."]
+    ]
+  },
+  {
+    id: "spotify-semantic-id", title: "Semantic ID-based Generative Retrieval for Podcast Discovery at Spotify",
+    source: "Spotify / arXiv", url: "https://arxiv.org/pdf/2603.17540",
+    published: "2026-03", added: "2026-08-30", category: "search-ranking", novelty: 4, via: "web search",
+    tags: ["generative-retrieval","semantic-ids","rq-vae","podcasts","cold-start"],
+    tldr: "A real at-scale deployment of generative retrieval: items become semantic IDs and retrieval is reframed as next-token prediction over them.",
+    business: "<p>Podcast discovery is hard: a huge catalog, many new or long-tail shows, and classic embedding retrieval (ANN over a two-tower space) can under-serve fresh or sparse items. Spotify wanted retrieval that captures item semantics compactly, generalizes to cold-start content, and serves at scale — motivating generative retrieval over semantic IDs rather than pure ANN lookup.</p>",
+    technical: "<ul><li><strong>Semantic IDs:</strong> each item is a short sequence of discrete codes derived from its content/embedding via a learned quantizer (<strong>RQ-VAE</strong>-style residual quantization); similar items share prefix codes, giving the ID space meaning.</li><li><strong>Retrieval as generation:</strong> rather than nearest-neighbor search, a model <strong>generates</strong> the semantic ID of the item(s) to recommend — retrieval becomes <strong>next-token prediction</strong> over the ID vocabulary.</li><li><strong>Production focus:</strong> building the ID space for a large, shifting catalog, handling <strong>cold-start</strong>, and serving the generative retriever at Spotify scale.</li></ul>",
+    impact: "<p><strong>Realized:</strong> a deployed generative-retrieval system for podcast discovery at scale — a relatively rare production account of the paradigm.</p><p><strong>Potential:</strong> semantic IDs give a compact, meaningful item vocabulary LLM-style models can consume directly — a foundation for LLM-native recommendation and better cold-start across catalogs.</p>",
+    verdict: { score: 4, line: "the paradigm is hot; a real production deployment is rarer", body: "<p>Semantic IDs and generative retrieval have been the most active idea in recsys research, but mostly as offline benchmarks. A concrete at-scale deployment — with catalog churn, cold-start, and serving addressed — is the valuable, less common contribution. Not a 5 because the core method is established; the advance is productionization and the podcast domain.</p>" },
+    related: [
+      "GenRec at Netflix — contrasts: an LLM ranker with a single-pass head instead of decoding semantic IDs.",
+      "\"LLMs Need Encoders for Semantic IDs Too\" (arXiv 2606.00324).",
+      "MAPS at Netflix — the embedding-store alternative to a discrete-ID vocabulary."
+    ],
+    jargon: [
+      ["Generative retrieval","Instead of searching for nearest items in a vector index, a model generates the identifier of the item to retrieve."],
+      ["Semantic ID","A short sequence of discrete codes encoding an item's meaning; similar items share leading codes, so IDs aren't arbitrary."],
+      ["RQ-VAE","Residual-quantized VAE — turns a continuous embedding into discrete codes by repeatedly quantizing the leftover residual."],
+      ["ANN","Approximate nearest neighbor — fast search for the closest vectors in an index; the classic method generative retrieval competes with."]
+    ]
+  },
+  {
+    id: "netflix-llm-serving", title: "In-House LLM Serving at Netflix (vLLM + Triton)",
+    source: "Netflix Tech Blog", url: "https://netflixtechblog.com/in-house-llm-serving-at-netflix-a5a8e799ea2c",
+    published: "2026-07", added: "2026-08-30", category: "ml-infra-serving", novelty: 3, via: "web search",
+    tags: ["llm-serving","vllm","triton","grpc","constrained-decoding","gpu"],
+    tldr: "A candid production account of self-hosting LLMs on vLLM + Triton behind unified gRPC / OpenAI-compatible APIs, and why Netflix left TensorRT-LLM.",
+    business: "<p>Netflix increasingly runs LLM-shaped workloads inside its recommendation, personalization, and search systems, where low latency, deep customization, and tight integration matter more than a hosted API's convenience. Self-hosting gives control over architectures, decoding, and cost — but Netflix now owns the hard operational parts itself.</p>",
+    technical: "<ul><li><strong>Engine choice:</strong> originally <strong>TensorRT-LLM</strong>; by summer 2025 open engines had closed the gap and the workload broadened (embeddings, <strong>prefill-only</strong> ranking inference, decoding, custom models), so <strong>vLLM</strong> became the paved-path engine for loading custom architectures without a compile pipeline.</li><li><strong>Two-tier execution:</strong> the existing <strong>JVM serving layer</strong> handles routing, features, candidate generation, post-processing, logging; small models run <strong>in-process on CPUs</strong>, larger requests go to <strong>MSS</strong> where <strong>Triton</strong> handles loading, batching, GPU scheduling.</li><li><strong>Unified API:</strong> one contract via <strong>gRPC</strong> and <strong>OpenAI-compatible</strong> endpoints.</li><li>Production hardening: packaging, version compatibility, <strong>zero-downtime deploys</strong>, observability, and scaling <strong>constrained decoding</strong> off the critical path.</li></ul>",
+    impact: "<p><strong>Realized:</strong> one paved-path platform spanning embeddings, prefill-only ranking, and full generation, integrated with the existing serving layer; unified APIs and zero-downtime deploys cut the cost of shipping and upgrading models.</p><p><strong>Potential:</strong> a decision framework for other orgs weighing self-hosting vs. hosted APIs.</p>",
+    verdict: { score: 3, line: "best-in-class execution of a now-standard stack", body: "<p>vLLM + Triton behind an OpenAI-compatible gateway is, by mid-2026, the mainstream way to self-host. The value isn't a new technique; it's the honest operational detail (why they left TensorRT-LLM, the CPU-in-process vs. GPU-delegated split, how constrained decoding scales) that teams rarely publish. Useful consolidation of known practice — a 3.</p>" },
+    related: [
+      "Scaling LLM Post-Training at Netflix — the training-side companion; both rely on vLLM.",
+      "GenRec — a consumer of exactly this serving path.",
+      "NVIDIA Triton / vLLM reference docs — the components Netflix assembled."
+    ],
+    jargon: [
+      ["vLLM","An open-source LLM inference engine known for high throughput via PagedAttention, which manages the KV cache like virtual-memory pages."],
+      ["Triton","NVIDIA's inference server handling model loading, request batching, and GPU scheduling for many model types."],
+      ["Constrained decoding","Forcing an LLM's output to obey a structure (valid JSON, a schema, a fixed vocabulary) during generation."],
+      ["Prefill-only inference","Running just the \"read the prompt\" phase to produce embeddings/hidden states, without generating tokens; useful for ranking."],
+      ["KV cache","Stored key/value tensors from earlier tokens so the model doesn't recompute them per new token; the main memory cost of generation."]
+    ]
+  },
+  {
+    id: "databricks-feature-store", title: "How Databricks Feature Store Serves Features with Sub-Second Freshness",
+    source: "Databricks Blog", url: "https://www.databricks.com/blog/how-databricks-feature-store-serves-features-sub-second-freshness",
+    published: "2026-08", added: "2026-08-30", category: "ml-infra-serving", novelty: 3, via: "web search",
+    tags: ["feature-store","streaming","spark-rtm","lakebase","feature-views","kafka"],
+    tldr: "Spark Real-Time Mode + a serverless-Postgres online layer (Lakebase) + Feature Views serve Kafka streaming aggregations at ~200ms p99.",
+    business: "<p>Real-time ML — fraud, ranking, personalization — is only as good as its feature freshness. The classic offline/online split leaves lag between an event and its servable aggregate, and forces teams to author features twice (batch vs. streaming), inviting <strong>training–serving skew</strong>. Databricks' goal: sub-second features from a single definition, run as managed infrastructure.</p>",
+    technical: "<ul><li><strong>Spark Real-Time Mode (RTM):</strong> processes rows <strong>continuously</strong> instead of in microbatches, updates rolling-window aggregates <strong>per event</strong>, and amortizes checkpointing to keep stateful streaming latency low.</li><li><strong>Lakebase:</strong> a <strong>serverless Postgres</strong> online layer that separates compute and storage to cut <strong>write amplification</strong> for frequent small upserts; reported <strong>~200ms p99</strong> for Kafka-sourced streaming aggregations.</li><li><strong>Feature Views:</strong> author a feature <strong>once</strong> and use it across experimentation, batch, and real-time serving — the abstraction that fights skew.</li><li>Deeply integrated with <strong>Unity Catalog</strong> governance.</li></ul>",
+    impact: "<p><strong>Realized:</strong> ~200ms p99 online serving of Kafka streaming aggregations; feature lag cut from minutes/hours to milliseconds; one definition across batch/experiment/real-time.</p><p><strong>Potential:</strong> brings genuinely real-time features to teams that can't run a bespoke streaming + online-store stack, by making it managed and governed.</p>",
+    verdict: { score: 3, line: "closing a well-known gap with a strong managed implementation", body: "<p>Feature stores, online/offline duality, and streaming aggregation are mature (Tecton, Feast, Uber's Michelangelo Palette). The news is execution and integration: per-event Spark RTM plus serverless-Postgres online serving at 200ms p99, all inside Unity Catalog governance. Valuable and it lowers the bar for real-time ML, but it's catching a known frontier — a solid 3.</p>" },
+    related: [
+      "Airbnb Zipline — the \"author once, serve batch + streaming\" lineage this extends.",
+      "Uber Michelangelo Palette / Tecton / Feast — the feature-store prior art.",
+      "In-House LLM Serving at Netflix — the serving-latency discipline, applied to features."
+    ],
+    jargon: [
+      ["Feature store","A system that computes, stores, and serves the input features models need, keeping training and serving values consistent."],
+      ["Training–serving skew","Bugs from computing a feature one way in training and slightly differently at serving, degrading live quality."],
+      ["Microbatch vs. per-event","Classic Spark Streaming groups events into small batches; Real-Time Mode processes each event as it arrives for lower latency."],
+      ["Write amplification","When one logical update triggers much more physical I/O than the data itself; costly for frequent tiny upserts."],
+      ["p99 latency","The latency 99% of requests come in under; a tail measure that matters more than the average for user-facing serving."]
+    ]
+  },
+  {
+    id: "airbnb-maps-l2r", title: "Learning to Rank for Maps at Airbnb",
+    source: "Airbnb Tech Blog / arXiv", url: "https://medium.com/airbnb-engineering/improving-search-ranking-for-maps-13b03f2c2cca",
+    published: "2024-07", added: "2026-08-30", category: "search-ranking", novelty: 4, via: "web search · Snacks Weekly",
+    tags: ["learning-to-rank","maps","user-attention","ndcg","ux"],
+    tldr: "Ranking for a map isn't ranking for a list: attention decays radially, not by position. Re-deriving the objective and adding \"mini-pins\" drove one of Airbnb's largest booking gains.",
+    business: "<p>Maps account for roughly <strong>80% of search interactions</strong> on Airbnb, yet map ranking reused <strong>list/feed assumptions</strong>. On a list, sorting by booking probability works because attention decays with position. On a map there's <strong>no ranked list and no positional decay</strong>, so that strategy misplaces the best listings — a mismatch that showed up in <strong>NDCG</strong>.</p>",
+    technical: "<ul><li><strong>Attention model for maps:</strong> attention is maximum at the <strong>center</strong> and <strong>decays radially outward</strong>; on desktop a left-side listing grid adds a <strong>leftward pull</strong>. The objective is re-derived around this spatial distribution.</li><li><strong>Two-tier pins:</strong> highest-probability listings show as regular <strong>price pins</strong>; lower-probability ones as smaller <strong>mini-pins</strong> without price, drawing ~<strong>8× lower</strong> click-through.</li><li>Presentation itself becomes a ranking lever — controlling how much attention each listing can capture, not just its order.</li></ul>",
+    impact: "<p><strong>Realized:</strong> one of the <strong>largest bookings improvements in Airbnb ranking history</strong>, with gains in quality bookings (more 5-star trips).</p><p><strong>Potential:</strong> a general lesson for any non-list surface (maps, grids, carousels) — model where attention actually goes, and treat presentation as a ranking lever.</p>",
+    verdict: { score: 4, line: "reframes the ranking objective instead of tuning the model", body: "<p>Most ranking write-ups tweak features or losses. This one questions the foundational assumption — attention decays by position — and shows it's wrong for a whole class of UI, then uses pin <em>styling</em> as an attention control. Fresh, deployable, and a rare \"largest in company history\" result. Not a 5 because the underlying LTR machinery is standard; the insight is where it's applied.</p>" },
+    related: [
+      "MAPS at Netflix — presentation (artwork) as a personalization lever, not just item order.",
+      "GenRec at Netflix — a ranking-stage rethink, from the LLM angle.",
+      "Airbnb Relevance team publications — the broader body of ranking work."
+    ],
+    jargon: [
+      ["Learning to rank","Training a model to order a set of items to maximize a ranking metric, rather than scoring each in isolation."],
+      ["NDCG","A ranking-quality metric that rewards putting relevant items where users look; its \"discount\" encodes the attention model."],
+      ["Positional decay","The assumption that users attend less to items further down a list — the thing that breaks on a map."],
+      ["Click-through rate","Fraction of shown items clicked; used to quantify how much attention mini-pins draw vs. full pins."]
+    ]
+  },
+  {
+    id: "doordash-eta", title: "Improving ETAs with Multi-Task Models & Probabilistic Forecasts at DoorDash",
+    source: "DoorDash Engineering", url: "https://careersatdoordash.com/blog/improving-etas-with-multi-task-models-deep-learning-and-probabilistic-forecasts/",
+    published: "2024-11", added: "2026-08-30", category: "forecasting-timeseries", novelty: 4, via: "web search · Snacks Weekly",
+    tags: ["eta","mixture-of-experts","multitask","probabilistic-forecast","deep-learning"],
+    tldr: "DoorDash moved ETA from trees to an MLP-gated mixture-of-experts (DeepNet + CrossNet + transformer), trained multi-task with probabilistic outputs — a ~20% relative accuracy gain.",
+    business: "<p>ETA drives consumer expectations, dispatch, and routing; errors are costly both ways. Tree-based ETA models had plateaued on accuracy, robustness, and generalization across contexts (store, traffic, handoff). DoorDash wanted world-class predictions that also express <strong>uncertainty</strong>, since a point estimate hides the variance operations must plan around.</p>",
+    technical: "<ul><li>Replaced tree models with neural networks for accuracy, robustness, generalization.</li><li><strong>MLP-gated mixture of experts:</strong> a gate routes inputs across three specialized encoders — <strong>DeepNet</strong>, <strong>CrossNet</strong>, and a <strong>transformer</strong> — to adapt to diverse scenarios.</li><li><strong>Feature embeddings</strong> encode <strong>high-cardinality</strong> inputs to capture segment-specific patterns.</li><li><strong>Multi-task learning</strong> improves consistency across ETA scenarios and transfers knowledge across tasks.</li><li><strong>Probabilistic forecasts:</strong> predicts a distribution, not a point, so downstream systems reason about uncertainty.</li></ul>",
+    impact: "<p><strong>Realized:</strong> a <strong>~20% relative improvement in ETA accuracy</strong>, boosting operational efficiency and reliability.</p><p><strong>Potential:</strong> the MoE + multitask + distributional-output pattern transfers to most spatiotemporal prediction (dispatch, supply/demand, wait times).</p>",
+    verdict: { score: 4, line: "a strong, specific applied-ML recipe with a real number", body: "<p>The pieces (MoE, DeepNet/CrossNet, transformers, multitask, probabilistic heads) are known, but assembling them into one ETA model with a gated blend of three complementary encoders and a clean <strong>20%</strong> gain is exactly the reusable applied-ML write-up worth capturing. The point→probabilistic move is the most transferable and under-invested idea. A 4: excellent engineering, not a new method.</p>" },
+    related: [
+      "Databricks Feature Store — the real-time feature side of serving models like this.",
+      "UME: Unified Meta-Generalization for Cross-Domain ETA (arXiv 2606.00979).",
+      "DoorDash \"Precision in Motion\" — a companion deep-learning ETA post."
+    ],
+    jargon: [
+      ["Mixture of experts","Several sub-networks plus a gate that decides how much each contributes per input, so experts specialize by situation."],
+      ["DeepNet / CrossNet","DeepNet is a deep MLP; CrossNet explicitly models feature interactions (crosses); together they capture nonlinearity and interaction."],
+      ["Multi-task learning","Training one model on several related objectives so shared structure transfers and tasks regularize each other."],
+      ["Probabilistic forecast","Predicting a full distribution with uncertainty, not a single number, enabling risk-aware decisions."],
+      ["High cardinality","A feature with very many distinct values (e.g. store IDs); embedded so models can use it."]
+    ]
+  },
+  {
+    id: "instacart-bandits", title: "Bandits for Marketing Optimization at Instacart",
+    source: "Instacart Tech", url: "https://tech.instacart.com/bandits-for-marketing-optimization-f5a63b9bfaa7",
+    published: "2024-09", added: "2026-08-30", category: "experimentation-causal", novelty: 3, via: "web search · Snacks Weekly",
+    tags: ["multi-armed-bandit","adaptive-experimentation","explore-exploit","marketing","causal"],
+    tldr: "Marketing run as an adaptive experiment: inject random perturbations to create the exogenous variation needed to estimate performance curves, then shift from exploration to exploitation.",
+    business: "<p>Marketing spend is a classic explore/exploit problem. A fully randomized A/B test is clean but slow and keeps funding known-worse arms; a \"do what looks best\" policy never learns the true response curve. Instacart wanted to <strong>maximize efficiency while still learning</strong>, continuously rather than in discrete cycles.</p>",
+    technical: "<ul><li><strong>Perturbations for identification:</strong> random perturbations in marketing actions create the <strong>exogenous variation</strong> needed to identify <strong>performance curves</strong> — a causal move, not just optimization.</li><li><strong>Adaptive allocation:</strong> biased toward better-performing arms but still sampling others — a bandit balance of explore/exploit.</li><li><strong>Explore → exploit over time:</strong> explore early to learn curves accurately, then tilt to exploitation as confidence grows, within one running system.</li><li>Contrast: full randomization wastes budget on known-worse arms; \"no experiment\" never explores. Adaptive occupies the middle.</li></ul>",
+    impact: "<p><strong>Realized:</strong> a live adaptive-experimentation system improving marketing efficiency by learning response curves while spending.</p><p><strong>Potential:</strong> the perturbation-for-identification pattern generalizes to any continuous decision variable (pricing, budgets, notification frequency).</p>",
+    verdict: { score: 3, line: "a clean, well-framed application of adaptive experimentation", body: "<p>Bandits and adaptive experiments are textbook; what lifts this above a recap is the explicit <strong>causal framing</strong> — deliberate perturbations to generate exogenous variation and estimate <em>performance curves</em>, not just pick an arm. That \"optimization as identification\" reframing is the transferable idea. A 3 because the core techniques are established and this is an application.</p>" },
+    related: [
+      "\"Optimizing Adaptive Experiments\" (arXiv 2402.10592) — the theory behind the trade-off.",
+      "Netflix contextual bandits for recommendations — bandits with reward engineering.",
+      "Instacart quasi-experimentation / regression-discontinuity — the causal-inference sibling."
+    ],
+    jargon: [
+      ["Multi-armed bandit","Repeatedly choose an option, observe a reward, and balance trying new options (explore) vs. favoring the best-known (exploit)."],
+      ["Exploration vs. exploitation","Learning which option is best vs. cashing in on what you already believe is best."],
+      ["Exogenous variation","Variation in the action independent of confounders (here, injected by randomization) — what lets you estimate a causal response."],
+      ["Performance curve","How an outcome changes as you vary an action level (e.g. spend) — the object the experiment learns."],
+      ["Adaptive experiment","An experiment whose allocation updates as data arrives, shifting toward better arms while still sampling others."]
+    ]
+  },
+  {
+    id: "booking-graph-fraud", title: "Graph Technology for Real-Time Fraud Detection at Booking.com",
+    source: "Booking.com Engineering", url: "https://medium.com/booking-com-development/leverage-graph-technology-for-real-time-fraud-detection-and-prevention-438336076ea5",
+    published: "2024-07", added: "2026-08-30", category: "data-engineering", novelty: 3, via: "web search · Snacks Weekly",
+    tags: ["graph","fraud-detection","real-time","graph-features","bfs"],
+    tldr: "Requests are modeled as a graph of shared identifiers; real-time BFS computes graph features over connected entities, which feed an ML fraud model — catching linked fraud a per-request model misses.",
+    business: "<p>Fraud is rarely a lone event: fraudsters reuse <strong>linked actors, identifiers, and requests</strong>, so signal emerges from shared data points — a flagged email predicts risk for connected accounts. A model scoring each request in isolation can't see those links. Booking.com wanted a <strong>real-time</strong> platform exploiting relational structure while still making a fast per-request call.</p>",
+    technical: "<ul><li><strong>Graph construction:</strong> a Graph Service inserts request <strong>identifiers as nodes</strong> and adds <strong>edges</strong> between related identifiers.</li><li><strong>Real-time features:</strong> for each request it runs a <strong>breadth-first search</strong> to fetch the connected network, computes <strong>graph features</strong> of that neighborhood, and returns them to the Fraud Detection Service.</li><li><strong>Graph + ML, not rules:</strong> finding a link alone isn't a verdict — graph features feed <strong>ML models</strong> that predict fraud.</li><li>The graph DB and traversal are one component of a low-latency fraud platform.</li></ul>",
+    impact: "<p><strong>Realized:</strong> a real-time fraud platform turning relationship structure into predictive features, catching ring/linked fraud isolated models miss.</p><p><strong>Potential:</strong> the \"graph features → ML\" pattern generalizes to abuse, account-takeover, and trust-and-safety across marketplaces.</p>",
+    verdict: { score: 3, line: "a well-executed instance of a proven pattern", body: "<p>Graph-based fraud detection is established, and the architecture — identifiers as nodes, BFS for the neighborhood, features into ML — is the canonical design done cleanly and in real time. The transferable emphasis is the discipline that <strong>a link alone isn't a verdict</strong>. Solid and instructive, but applying a known blueprint rather than advancing it — a 3. Learned representations / GNNs would push it higher.</p>" },
+    related: [
+      "NVIDIA: fraud detection with Graph Neural Networks — the learned-representation direction.",
+      "detectGNN (arXiv 2503.22681) — GNNs for credit-card fraud.",
+      "Databricks Feature Store — the real-time feature-serving discipline, applied to graph features."
+    ],
+    jargon: [
+      ["Graph database","A store optimized for nodes and the edges between them, so \"who is connected to whom\" queries are fast."],
+      ["Breadth-first search","A traversal exploring immediate neighbors first, then theirs — used to gather the local network around a request."],
+      ["Graph features","Numeric summaries of a node's neighborhood (size, density, flagged entities) used as model inputs."],
+      ["Entity resolution","Deciding when different records (emails, devices, cards) refer to the same actor — what makes edges meaningful."],
+      ["Graph Neural Network","A model that learns node representations from the graph directly, instead of hand-designed graph features."]
+    ]
+  },
+  {
+    id: "uber-mes", title: "Model Excellence Scores: ML Quality at Scale at Uber",
+    source: "Uber Engineering", url: "https://www.uber.com/blog/enhancing-the-quality-of-machine-learning-systems-at-scale/",
+    published: "2024-10", added: "2026-08-30", category: "ml-infra-serving", novelty: 3, via: "web search · Snacks Weekly",
+    tags: ["ml-governance","model-quality","sla","drift","mlops"],
+    tldr: "Uber's Model Excellence Scores turn \"is this model good?\" into a measured, SLA-enforced number across the whole lifecycle — accuracy, freshness, feature quality — so ML quality becomes governable.",
+    business: "<p>At Uber's scale, thousands of models run in production with inconsistent, mostly train-time quality assessment. That left engineers with poor lifecycle visibility and leaders unable to compare models on quality and impact. Uber wanted a <strong>standardized, org-wide</strong> way to measure, monitor, and enforce ML quality — the ML analog of engineering SLAs.</p>",
+    technical: "<ul><li><strong>Lifecycle dimensions:</strong> distinct quality dimensions per phase — <strong>prototyping, training, deployment, prediction</strong> — not a single train-time accuracy.</li><li><strong>SLA integration:</strong> borrows the Service Level Agreement concept to make quality <strong>enforceable</strong>.</li><li><strong>Key metrics:</strong> training accuracy, prediction accuracy, <strong>model freshness</strong>, prediction feature quality.</li><li><strong>Position:</strong> MES tracks <strong>data-plane</strong> quality (accuracy, drift) and complements <strong>control-plane</strong> deployment-safety guardrails.</li></ul>",
+    impact: "<p><strong>Realized:</strong> a common quality language across Uber's ML fleet — clearer practitioner visibility, more informed leadership prioritization.</p><p><strong>Potential:</strong> a template for ML governance once model count outstrips manual oversight; the SLA framing is the reusable idea.</p>",
+    verdict: { score: 3, line: "governance, not modeling, but a genuinely useful codification", body: "<p>No new algorithm; the contribution is <strong>organizational</strong> — naming quality dimensions per lifecycle stage and attaching SLAs so quality is enforced fleet-wide. Unglamorous and exactly what large ML orgs need, and the split between data-plane quality (MES) and control-plane safety (guardrails) is a clarifying model. A 3 — high practical value, low methodological novelty.</p>" },
+    related: [
+      "In-House LLM Serving at Netflix — the serving/reliability side of running many models.",
+      "Uber \"Raising the Bar on ML Model Deployment Safety\" — the control-plane guardrails MES complements.",
+      "Uber Michelangelo — the platform context these systems sit within."
+    ],
+    jargon: [
+      ["SLA","A committed standard a service must meet (e.g. uptime); applied here to model-quality metrics."],
+      ["Model freshness","How recently a model was retrained relative to how fast its data shifts; stale models silently decay."],
+      ["Drift","When live data or the target relationship moves away from training, degrading accuracy over time."],
+      ["Data plane vs. control plane","Data plane = quality of what the model predicts; control plane = systems governing how models deploy and roll back."],
+      ["ML governance","The processes and metrics that keep a fleet of models accountable for quality, risk, and impact."]
+    ]
+  }
+];
+
+const UPDATED = "2026-08-30";
+
+// Lightweight backlog (mostly Snacks Weekly episodes) awaiting full deep-dive write-ups.
+const CATALOG = [
+  { id:"netflix-video-understanding-active-learning", company:"Netflix", title:"Video-understanding models with a self-service active-learning system", category:"cv-multimodal", hook:"A self-service platform trains video-understanding models with active learning to cut labeling cost.", url:null },
+  { id:"netflix-contextual-bandits-reward-engineering", company:"Netflix", title:"Content recommendation with contextual bandits and reward engineering", category:"personalization-recsys", hook:"Proxy reward functions and offline models drive recommendation via contextual bandits.", url:null },
+  { id:"netflix-session-intent-multitask", company:"Netflix", title:"Predicting user session intent with hierarchical multi-task learning", category:"personalization-recsys", hook:"A hierarchical multi-task architecture personalizes the session in real time.", url:null },
+  { id:"airbnb-conversational-ai-guardrails", company:"Airbnb", title:"Conversational AI with LLMs, context management, and a guardrail framework", category:"llm-genai", hook:"Structured workflows plus LLM reasoning, kept controlled by a guardrail framework.", url:null },
+  { id:"airbnb-personal-data-classification", company:"Airbnb", title:"Personal data classification at scale", category:"data-engineering", hook:"Classifying and protecting personal data across a large data estate.", url:null },
+  { id:"uber-invoice-processing-genai", company:"Uber", title:"Processing invoices at scale with generative AI", category:"llm-genai", hook:"GenAI builds a flexible document-processing system for varied invoice layouts and languages.", url:null },
+  { id:"uber-out-of-app-marketing-personalization", company:"Uber", title:"Out-of-app marketing and personalization", category:"personalization-recsys", hook:"Personalizing out-of-app marketing at Uber scale.", url:null },
+  { id:"uber-crm-contextual-bandits-genai-embeddings", company:"Uber", title:"CRM personalization with contextual bandits and generative-AI embeddings", category:"personalization-recsys", hook:"Contextual bandits plus genAI embeddings personalize CRM messaging.", url:null },
+  { id:"linkedin-product-rec-deep-rl", company:"LinkedIn", title:"Product recommendation with deep learning and reinforcement learning", category:"personalization-recsys", hook:"The ML architecture behind LinkedIn premium product recommendation.", url:"https://creators.spotify.com/pod/profile/pan-wu/episodes/Product-Recommendation-with-Deep-Learning-and-Reinforcement-Learning-LinkedIn-e2mr9hm" },
+  { id:"linkedin-job-search-llms", company:"LinkedIn", title:"Reimagining job search with LLMs (intent-aware)", category:"search-ranking", hook:"From keyword-based to flexible, intent-aware job search with LLMs.", url:null },
+  { id:"instacart-quasi-experiment-rdd", company:"Instacart", title:"Quasi-experimentation and regression discontinuity design", category:"experimentation-causal", hook:"Using RDD to make decisions when clean A/B tests aren't possible.", url:null },
+  { id:"instacart-smart-replacements", company:"Instacart", title:"Smart replacements for out-of-stock products", category:"personalization-recsys", hook:"ML suggests substitutions when an item is unavailable.", url:null },
+  { id:"instacart-covariate-selection-causal", company:"Instacart", title:"Covariate selection in causal inference", category:"experimentation-causal", hook:"Choosing covariates well to get unbiased causal estimates.", url:null },
+  { id:"meta-forecasting-art-and-science", company:"Meta", title:"Forecasting: balancing art and science", category:"forecasting-timeseries", hook:"Validating forecasts and integrating product impact into forecasting.", url:null },
+  { id:"meta-ladder-of-evidence", company:"Meta", title:"The Ladder of Evidence for evaluating new features", category:"experimentation-causal", hook:"A framework for how much evidence a product decision needs.", url:null },
+  { id:"meta-global-feature-importance", company:"Meta", title:"Feature selection at scale with Global Feature Importance", category:"research-foundational", hook:"Selecting features across huge model inputs via a global importance method.", url:null },
+  { id:"cvs-product-rec-word2vec-llm", company:"CVS Health", title:"Product recommendation with Word2Vec and LLM summaries", category:"personalization-recsys", hook:"Embedding products with Word2Vec and enriching them with LLM-generated summaries.", url:null },
+  { id:"hellofresh-genai-recipes", company:"HelloFresh", title:"Generative AI to create new food recipes", category:"llm-genai", hook:"Using generative models to invent new recipes.", url:null },
+  { id:"walmart-text-data-imbalance-augmentation", company:"Walmart", title:"Data imbalance in text models with automated augmentation", category:"research-foundational", hook:"Automated augmentation techniques to fix class imbalance in text data.", url:null },
+  { id:"walmart-bayesian-structural-time-series", company:"Walmart", title:"Bayesian Structural Time Series for causal impact", category:"experimentation-causal", hook:"Measuring the impact of a product taxonomy change with BSTS.", url:null },
+  { id:"oda-ab-testing-culture", company:"Oda", title:"A/B testing practices and experimentation culture", category:"experimentation-causal", hook:"How Oda builds a culture that supports experimentation.", url:null },
+  { id:"lyft-interference-bias-mmv", company:"Lyft", title:"Interference bias and Marketplace Marginal Values (MMV)", category:"experimentation-causal", hook:"MMVs correct interference bias in marketplace experiments.", url:null },
+  { id:"lyft-realtime-spatial-temporal-forecasting", company:"Lyft", title:"Real-time spatial-temporal forecasting: classical vs deep models", category:"forecasting-timeseries", hook:"Choosing between classical time-series and DNNs for real-time forecasting.", url:null },
+  { id:"expedia-generative-traditional-ai-travel", company:"Expedia", title:"Combining generative and traditional AI for travel", category:"llm-genai", hook:"GenAI for open-ended tasks, traditional models for structured, mission-critical ones.", url:null },
+  { id:"amazon-price-experimentation", company:"Amazon", title:"Improving price experimentation in the Amazon Store", category:"experimentation-causal", hook:"Better experimental design for pricing decisions.", url:"https://creators.spotify.com/pod/profile/pan-wu/episodes/Improving-Price-Experimentation-at-Amazon-Amazon-e2ilod8" },
+  { id:"microsoft-double-machine-learning", company:"Microsoft", title:"Causal inference with Double Machine Learning", category:"experimentation-causal", hook:"Double ML answers high-stakes questions without a clean experiment.", url:null },
+  { id:"mercadolibre-geo-experimentation", company:"Mercado Libre", title:"Geo experimentation", category:"experimentation-causal", hook:"Region-level experiments where user-level randomization fails.", url:"https://creators.spotify.com/pod/profile/pan-wu/episodes/2023-11-13-Geo-Experimentation-Mercado-Libre-e2brq2p" },
+  { id:"pinterest-root-cause-analysis-platform", company:"Pinterest", title:"A root-cause-analysis platform for metric movements", category:"data-engineering", hook:"Slice-and-dice, general similarity, and experiment effects to explain why metrics move.", url:null },
+  { id:"yelp-video-review-moderation", company:"Yelp", title:"Moderating video reviews with ML", category:"cv-multimodal", hook:"Detecting inappropriate content to keep video reviews trustworthy.", url:null },
+  { id:"picnic-scalable-demand-forecasting", company:"Picnic", title:"Scalable demand forecasting for online groceries", category:"forecasting-timeseries", hook:"ML models for demand forecasting at an online grocer.", url:null },
+  { id:"afresh-promotion-aware-demand-forecasting", company:"Afresh", title:"Promotion-aware demand forecasting", category:"forecasting-timeseries", hook:"Handling the outsized effect of promotions in grocery forecasting.", url:null },
+  { id:"glassdoor-data-quality-anomaly-detection", company:"Glassdoor", title:"Data quality and anomaly detection at petabyte scale", category:"data-engineering", hook:"Data contracts, static analysis, LLM-based logic checks, and anomaly detection.", url:null },
+  { id:"thumbtack-recommendations-offline-inference", company:"Thumbtack", title:"Recommendations with two sub-models and offline inference", category:"personalization-recsys", hook:"A two-sub-model recommendation architecture served via offline inference.", url:null },
+  { id:"urban-company-causal-inference", company:"Urban Company", title:"Leveraging causal inference for product decisions", category:"experimentation-causal", hook:"Causal inference to guide decisions where experiments are hard.", url:null }
+];
+
+// ---- render ----
+const grid = document.getElementById("grid");
+const chipsEl = document.getElementById("chips");
+const qEl = document.getElementById("q");
+const sortEl = document.getElementById("sort");
+const emptyEl = document.getElementById("empty");
+let activeCat = null;
+
+function esc(s){ return s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function meter(n){
+  let bars = "";
+  for (let i=1;i<=5;i++) bars += `<i class="${i<=n?'on':''}"></i>`;
+  return `<span class="meter"><span class="bars" aria-hidden="true">${bars}</span><span class="cap">Novelty ${n}/5</span></span>`;
+}
+
+function catCounts(){
+  const m = {};
+  ARTICLES.forEach(a => m[a.category] = (m[a.category]||0)+1);
+  return m;
+}
+
+function renderChips(){
+  const counts = catCounts();
+  const order = Object.keys(CATS).filter(c => counts[c]);
+  let html = `<button class="chip" data-cat="" aria-pressed="${activeCat===null}"><span class="dot" style="background:var(--muted)"></span>All <span class="n">${ARTICLES.length}</span></button>`;
+  html += order.map(c =>
+    `<button class="chip" data-cat="${c}" aria-pressed="${activeCat===c}" style="--cat:${CATS[c].color}"><span class="dot"></span>${esc(CATS[c].name)} <span class="n">${counts[c]}</span></button>`
+  ).join("");
+  chipsEl.innerHTML = html;
+  chipsEl.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => {
+    activeCat = b.dataset.cat || null;
+    renderChips(); renderGrid(); renderBacklog();
+  }));
+}
+
+function currentList(){
+  const q = qEl.value.trim().toLowerCase();
+  let list = ARTICLES.slice();
+  if (activeCat) list = list.filter(a => a.category === activeCat);
+  if (q) list = list.filter(a => {
+    const hay = [a.title, a.source, a.tldr, a.tags.join(" "), (a.jargon||[]).map(j=>j[0]).join(" ")].join(" ").toLowerCase();
+    return hay.includes(q);
+  });
+  const s = sortEl.value;
+  list.sort((a,b) =>
+    s==="novelty" ? b.novelty-a.novelty || b.added.localeCompare(a.added) :
+    s==="published" ? b.published.localeCompare(a.published) :
+    s==="title" ? a.title.localeCompare(b.title) :
+    b.added.localeCompare(a.added) || b.novelty-a.novelty
+  );
+  return list;
+}
+
+function renderGrid(){
+  const list = currentList();
+  emptyEl.hidden = list.length !== 0;
+  grid.innerHTML = list.map(a => {
+    const c = CATS[a.category];
+    return `<button class="card" data-id="${a.id}" style="--cat:${c.color}">
+      <div class="card-top">
+        <span class="cat-label"><span class="dot"></span>${esc(c.name)}</span>
+        ${meter(a.novelty)}
+      </div>
+      <h2>${esc(a.title)}</h2>
+      <div class="card-meta">${esc(a.source)} · ${a.published}</div>
+      <p class="tldr">${esc(a.tldr)}</p>
+      <div class="tags">${a.tags.slice(0,5).map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div>
+    </button>`;
+  }).join("");
+  grid.querySelectorAll(".card").forEach(card => card.addEventListener("click", () => openDetail(card.dataset.id)));
+}
+
+const backlogGrid = document.getElementById("backlog-grid");
+const backlogEmpty = document.getElementById("backlog-empty");
+const backlogSection = document.getElementById("backlog");
+
+function renderBacklog(){
+  const q = qEl.value.trim().toLowerCase();
+  let list = CATALOG.slice();
+  if (activeCat) list = list.filter(s => s.category === activeCat);
+  if (q) list = list.filter(s => [s.title, s.company, s.hook, s.category].join(" ").toLowerCase().includes(q));
+  backlogEmpty.hidden = list.length !== 0;
+  backlogGrid.innerHTML = list.map(s => {
+    const c = CATS[s.category] || { name: s.category, color: "var(--muted)" };
+    const src = s.url ? `<div class="stub-src"><a href="${esc(s.url)}" target="_blank" rel="noopener">Episode ↗</a></div>` : "";
+    return `<div class="card stub" style="--cat:${c.color}">
+      <div class="card-top">
+        <span class="cat-label"><span class="dot"></span>${esc(c.name)}</span>
+        <span class="stub-badge">Deep-dive pending</span>
+      </div>
+      <h2>${esc(s.title)}</h2>
+      <div class="card-meta">${esc(s.company)}</div>
+      <p class="tldr">${esc(s.hook)}</p>
+      ${src}
+    </div>`;
+  }).join("");
+}
+
+// ---- detail overlay ----
+const overlay = document.getElementById("overlay");
+const backdrop = document.getElementById("backdrop");
+const panelInner = document.getElementById("panel-inner");
+let lastFocus = null;
+
+function openDetail(id){
+  const a = ARTICLES.find(x => x.id === id);
+  if (!a) return;
+  const c = CATS[a.category];
+  panelInner.innerHTML = `
+    <button class="panel-close" id="panel-close" aria-label="Close">✕</button>
+    <div class="d-cat" style="--cat:${c.color}"><span class="dot"></span>${esc(c.name)}</div>
+    <h2 class="d-title" id="d-title">${esc(a.title)}</h2>
+    <div class="d-meta">
+      <a href="${esc(a.url)}" target="_blank" rel="noopener">${esc(a.source)} ↗</a>
+      <span>Published ${a.published}</span>
+      <span>Added ${a.added}</span>
+      ${meter(a.novelty)}
+      <span class="via">via ${esc(a.via)}</span>
+    </div>
+    <div class="callout"><span class="k">TL;DR</span>${esc(a.tldr)}</div>
+    <div class="section"><h3><span class="num">01</span> Business context</h3>${a.business}</div>
+    <div class="section"><h3><span class="num">02</span> Technical details</h3>${a.technical}</div>
+    <div class="section"><h3><span class="num">03</span> Impact — potential &amp; realized</h3>${a.impact}</div>
+    <div class="take">
+      <div class="take-head"><span class="mark">✦ Claude's Take</span><span class="rule"></span></div>
+      <p class="disclaim">Opinion, not the source's claims.</p>
+      <div class="verdict">${meter(a.verdict.score)}<span class="score">${a.verdict.score}/5 — ${esc(a.verdict.line)}</span></div>
+      ${a.verdict.body}
+      <h4>Similar / related work</h4>
+      <ul class="related">${a.related.map(r=>`<li>${esc(r)}</li>`).join("")}</ul>
+      <h4>Jargon buster</h4>
+      <dl class="jargon">${a.jargon.map(j=>`<div><dt>${esc(j[0])}</dt><dd>${esc(j[1])}</dd></div>`).join("")}</dl>
+    </div>`;
+  lastFocus = document.activeElement;
+  overlay.dataset.open = "true";
+  document.body.style.overflow = "hidden";
+  const close = document.getElementById("panel-close");
+  close.addEventListener("click", closeDetail);
+  close.focus();
+  overlay.querySelector(".panel").scrollTop = 0;
+}
+function closeDetail(){
+  overlay.dataset.open = "false";
+  document.body.style.overflow = "";
+  if (lastFocus) lastFocus.focus();
+}
+backdrop.addEventListener("click", closeDetail);
+document.addEventListener("keydown", e => { if (e.key === "Escape" && overlay.dataset.open === "true") closeDetail(); });
+
+// ---- theme toggle ----
+const themeBtn = document.getElementById("theme");
+function stored(){ try { return localStorage.getItem("dsbank-theme"); } catch(e){ return null; } }
+function applyTheme(t){ if (t) document.documentElement.setAttribute("data-theme", t); else document.documentElement.removeAttribute("data-theme"); }
+applyTheme(stored());
+themeBtn.addEventListener("click", () => {
+  const cur = document.documentElement.getAttribute("data-theme");
+  const isDark = cur ? cur === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  const next = isDark ? "light" : "dark";
+  applyTheme(next);
+  try { localStorage.setItem("dsbank-theme", next); } catch(e){}
+});
+
+// ---- stats + init ----
+document.getElementById("stat-count").textContent = ARTICLES.length;
+document.getElementById("stat-backlog").textContent = CATALOG.length;
+document.getElementById("stat-cats").textContent = new Set([...ARTICLES, ...CATALOG].map(a=>a.category)).size;
+document.getElementById("stat-updated").textContent = UPDATED;
+const rerender = () => { renderGrid(); renderBacklog(); };
+qEl.addEventListener("input", rerender);
+sortEl.addEventListener("change", rerender);
+renderChips();
+renderGrid();
+renderBacklog();
+</script>
