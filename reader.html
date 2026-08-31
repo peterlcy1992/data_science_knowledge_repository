@@ -321,6 +321,134 @@ const CATS = {
 
 const ARTICLES = [
   {
+    id: "meta-llatte-ads-scaling-laws", title: "From User Sequences to Scaling Laws: A Multi-Stage Architecture for Meta's Ads Ranking",
+    source: "Engineering at Meta", url: "https://engineering.fb.com/2026/08/05/ml-applications/from-user-sequences-to-scaling-laws-a-multi-stage-architecture-for-metas-ads-ranking/",
+    published: "2026-08", added: "2026-08-31", category: "personalization-recsys", novelty: 4, via: "web search",
+    tags: ["sequence-modeling","ads-ranking","scaling-laws","transformer","latency"],
+    tldr: "Meta's LLaTTE shows sequence models of user behavior in ads ranking follow LLM-like power-law scaling once semantic features are added; an async two-stage online/offline split captures the gains under latency limits for a 4.3% conversion uplift.",
+    business: "<p>Meta's ranking systems process billions of daily interactions across products, ads, and content, and the order/timing of those interactions carries intent signal flat feature aggregates lose. LLM scaling laws show that simply scaling a transformer on more data/parameters reliably improves quality — Meta's question was whether the same predictable payoff holds for sequence models of user behavior in <strong>latency-sensitive</strong> ads ranking, where every millisecond of inference cost is a hard constraint unlike batch LLM training.</p>",
+    technical: "<ul><li><strong>LLaTTE:</strong> a scalable transformer modeling user behavior as sequences of temporal events (views, clicks, conversions), built as a shared backbone for ads ranking.</li><li><strong>Power-law scaling, conditional on semantic features:</strong> sequence-model quality scales as a predictable power law with capacity — similar to LLM scaling laws — but only once richer, meaning-carrying <strong>semantic features</strong> are included; without them the curve bends and plateaus earlier.</li><li><strong>Two-stage architecture for latency:</strong> an <strong>online ranking model</strong> bounded by request-time latency, plus an <strong>asynchronous offline user model</strong> doing heavy long-context computation off the critical path. Scaling online yields steeper per-compute gains; scaling offline improves more gradually but avoids latency limits.</li><li><strong>Sequence length and diversity both matter:</strong> quality keeps improving with longer sequences, and a diverse mix of action types beats sequences built from one action type.</li></ul>",
+    impact: "<p><strong>Realized:</strong> deployed as the largest user model at Meta, the framework drove a <strong>4.3% conversion uplift</strong> on Facebook Feed and Reels with minimal added serving overhead.</p><p><strong>Potential:</strong> a principled way to forecast the ROI of further scaling investment in ranking sequence models, rather than scaling ad hoc.</p>",
+    verdict: { score: 4, line: "a genuine scaling-law result for production ads ranking, not just a bigger model", body: "<p>Plenty of teams scale up ranking sequence models and report a lift; fewer characterize the scaling behavior as a power law conditional on a specific design choice (semantic features) and then engineer an async offline/online split to actually capture it in production. That combination — scaling-law characterization plus a concrete serving answer to the latency problem it creates — is a step beyond \"we made the model bigger.\" Not a 5 because the LLM-scaling-law framing itself is imported from language modeling.</p>" },
+    related: [
+      "GEM Training: How Meta Doubled the Efficiency of Its LLM-Scale Ads Foundation Model — the training-efficiency companion; GEM is the foundation model, LLaTTE the sequence-modeling research feeding the same ads-ranking stack.",
+      "Towards Generalizable and Efficient Large-Scale Generative Recommenders — Netflix's own scaling-law study for a generative recommender backbone (2M → 1B parameters).",
+      "Meta Adaptive Ranking Model (Engineering at Meta, Mar 2026) — Meta's earlier work serving LLM-scale ranking models within latency budgets, which this async split builds on."
+    ],
+    jargon: [
+      ["Scaling law","An empirical power-law relationship between model/data/compute size and resulting quality, first popularized for LLM pretraining."],
+      ["Semantic features","Feature representations encoding the meaning of an event rather than just a raw ID, similar in spirit to semantic IDs."],
+      ["Two-stage online/offline architecture","Splitting a model into a latency-bounded piece running at request time and a heavier piece running ahead of time asynchronously."],
+      ["Temporal events","A user's interactions represented as a timestamped, ordered sequence rather than an unordered feature bag."]
+    ]
+  },
+  {
+    id: "meta-gem-training", title: "GEM Training: How Meta Doubled the Efficiency of Its LLM-Scale Ads Foundation Model",
+    source: "Engineering at Meta", url: "https://engineering.fb.com/2026/08/03/ml-applications/training-gem-at-llm-scale-meta-ads-recommendation-foundation-model/",
+    published: "2026-08", added: "2026-08-31", category: "llm-genai", novelty: 4, via: "web search",
+    tags: ["foundation-model","ads","training-efficiency","mfu","parallelism"],
+    tldr: "Meta trains GEM, its ads foundation model, at LLM scale by co-designing custom kernels, MXFP8 mixed precision, and topology-aware 5D parallelism — doubling training efficiency to 20-25% MFU while scaling total FLOPs 4x in twelve months.",
+    business: "<p>GEM is the foundation model Meta positions as the \"central brain\" behind ads recommendation across Instagram and Facebook — a single hybrid model trained once and adapted downstream. Unlike a typical LLM, GEM combines trillions of sparse embedding parameters with billions of dense parameters, trained on sequence and non-sequence features together. As Meta scaled GEM's training compute toward LLM-class budgets, keeping GPU utilization high became the binding cost constraint.</p>",
+    technical: "<ul><li><strong>Hybrid architecture at LLM scale:</strong> sparse embedding tables (trillions of parameters) blended with a dense LLM-style backbone (billions of parameters), trained on several thousand latest-generation GPUs.</li><li><strong>Custom recommendation kernels:</strong> Jagged Flash Attention, Generalized Dot-Product Attention, and BlockAttention — attention kernels adapted to recommendation's ragged, variable-length sequence features.</li><li><strong>Mixed ultra-low precision:</strong> <strong>MXFP8</strong> cuts memory/compute cost while preserving training stability.</li><li><strong>Topology-aware 5D parallelism:</strong> model, data, and communication partitioned across five dimensions tuned to the physical cluster's network topology.</li><li>Gains came from optimizing kernels, precision, parallelism, networking, and memory <strong>together</strong>, not as independent point fixes.</li></ul>",
+    impact: "<p><strong>Realized:</strong> training efficiency doubled to <strong>20-25% MFU</strong> while total training FLOPs scaled <strong>4x</strong> over the prior twelve months. GEM is separately reported to drive 5% conversion increases on Instagram and 3% on Facebook.</p><p><strong>Potential:</strong> a template for any org merging LLM-style dense backbones with recommendation-style sparse embeddings, a combination standard LLM training stacks aren't built for.</p>",
+    verdict: { score: 4, line: "genuinely hard systems co-design, reported with real numbers", body: "<p>Recommendation models with huge sparse embedding tables and LLMs with dense transformer backbones have historically trained on different stacks with different bottlenecks. Merging them and reporting a concrete 20-25% MFU at 4x more FLOPs is a specific, verifiable systems result. Not a 5 because the individual techniques (FlashAttention variants, FP8 training, multi-dimensional parallelism) are each established in LLM-training literature — the contribution is co-designing them for recommendation's embedding-heavy workload.</p>" },
+    related: [
+      "Scaling LLM Post-Training at Netflix — a different production org's training-infrastructure efficiency story (sequence packing rather than precision/parallelism co-design).",
+      "Towards Generalizable and Efficient Large-Scale Generative Recommenders — Netflix's parallel study of scaling a generative recommender backbone.",
+      "From User Sequences to Scaling Laws — the ads-ranking research this training work supports."
+    ],
+    jargon: [
+      ["MFU (Model FLOPs Utilization)","The fraction of a GPU cluster's theoretical peak compute training actually achieves; higher is more efficient."],
+      ["MXFP8","A microscaled 8-bit floating-point format that packs more values per byte than 16/32-bit formats, cutting memory/bandwidth at some precision cost."],
+      ["Sparse embedding parameters","One learned vector per discrete feature value; tables can hold trillions of parameters but only a tiny slice is touched per example."],
+      ["5D parallelism","Splitting a training job across five different axes so no single GPU has to hold the whole model or batch."]
+    ]
+  },
+  {
+    id: "uber-deepett", title: "Scaling Real-Time Traffic Forecasting with a Graph-Aware Transformer",
+    source: "Uber Engineering", url: "https://www.uber.com/us/en/blog/scaling-real-time-traffic/",
+    published: "2026-05", added: "2026-08-31", category: "forecasting-timeseries", novelty: 4, via: "web search",
+    tags: ["traffic-forecasting","transformer","graph-features","real-time","eta"],
+    tldr: "Uber's DeepETT, a graph-aware transformer serving 2M+ forecasts/second, tokenizes pre-aggregated spatial and temporal signal for constant-time inference and continuously recalibrates via Flink — +6% long-trip accuracy, +19% variance explained, ~$100M in value.",
+    business: "<p>Traffic forecasting underlies route selection and arrival-time estimation across Uber's core products, and the prior stack had reliably supported that at massive scale for over a decade. Incremental improvements to a decade-old architecture eventually hit diminishing returns, so Uber's Traffic Forecasting and Applied AI teams rebuilt the system on a modern deep-learning architecture that could natively fuse spatial (road-graph) and temporal signal.</p>",
+    technical: "<ul><li><strong>Fixed-input graph-aware transformer:</strong> tokenizes pre-aggregated segment-level, road-graph, regional, historical, real-time, and event features into a fixed-size input, enabling <strong>constant-time inference</strong> regardless of upstream feature richness.</li><li><strong>Continuous real-time calibration:</strong> a <strong>Flink-based streaming pipeline</strong> continuously calibrates output against observed drift, adapting as conditions diverge from the model's priors.</li><li><strong>Cadence and horizon:</strong> every 5 minutes, forecasts mean estimated traversal time (ETT) per road segment out to a <strong>three-hour horizon</strong>.</li><li><strong>Throughput:</strong> one of Uber's highest-throughput deep learning deployments, serving upwards of <strong>2 million real-time forecasts per second</strong>.</li></ul>",
+    impact: "<p><strong>Realized:</strong> +6% long-trip arrival-time accuracy, +19% forecast variance explained, and an estimated <strong>$100M</strong> in incremental annual value.</p><p><strong>Potential:</strong> the pre-aggregate-then-tokenize pattern paired with streaming recalibration is a template for other real-time, massive-throughput spatiotemporal forecasting problems.</p>",
+    verdict: { score: 4, line: "a mature, decade-refined system with a genuinely hard throughput constraint", body: "<p>Graph-aware and transformer-based traffic forecasting are active research areas, so the modeling ideas aren't new in isolation. The strength is production engineering: a fixed input representation that keeps inference cost constant regardless of upstream feature growth, plus a streaming (Flink) recalibration loop, sustaining one of the highest per-second inference throughputs in this bank. An evolution of Uber's DeepETA lineage rather than a new paradigm.</p>" },
+    related: [
+      "Improving ETAs with Multi-Task Models & Probabilistic Forecasts at DoorDash — a competitor's deep-learning approach to the closely related ETA-forecasting problem.",
+      "DeepETA: How Uber Predicts Arrival Times Using Deep Learning (Uber Engineering) — the predecessor system DeepETT succeeds.",
+      "\"Towards Spatio-Temporal Aware Traffic Time Series Forecasting\" (arXiv 2203.15737) — general academic literature on combining spatial and temporal traffic signal."
+    ],
+    jargon: [
+      ["Graph-aware model","A model that explicitly uses the road network's graph structure as input, rather than treating each segment independently."],
+      ["Fixed-input tokenization","Converting variable, growing raw signal into a fixed-size representation before it reaches the model, keeping inference time constant."],
+      ["ETT (Estimated Traversal Time)","The forecasted time to traverse a specific road segment, summed along a route to get a full trip ETA."]
+    ]
+  },
+  {
+    id: "doordash-flux", title: "Delegating Engineering Work to Cloud-Based Agents (Flux)",
+    source: "DoorDash Engineering", url: "https://careersatdoordash.com/blog/delegating-engineering-work-to-cloud-based-agents/",
+    published: "2026-08", added: "2026-08-31", category: "llm-genai", novelty: 4, via: "web search",
+    tags: ["coding-agents","cloud-agents","sandboxing","mcp","security"],
+    tldr: "DoorDash's Flux runs coding agents in Firecracker microVM sandboxes instead of on laptops, built around sandboxes/MCP-gateway/playbooks/invocation-surface primitives — 130k automated engineering tasks in a month, 25k+ weekly code reviews, p95 setup under 5 seconds.",
+    business: "<p>Cloud-based coding agents are attractive to most engineering orgs but risky to turn on: an agent with laptop-level access to source, credentials, and internal tools is a large, hard-to-audit attack surface. DoorDash's bet was that the blocker isn't agent capability but execution environment — proper isolation, scoping, and observability unlocks agents for high-volume background work too risky to run locally at scale.</p>",
+    technical: "<ul><li><strong>Firecracker microVM sandboxes:</strong> each agent task runs in an isolated cloud sandbox with hardware-level isolation.</li><li><strong>Fully provisioned per-task workspace:</strong> each sandbox gets the specific repos, tools, secrets, and runtime dependencies the task needs.</li><li><strong>Four platform primitives:</strong> sandboxes, an <strong>MCP gateway</strong> for tool access, <strong>playbooks</strong> (reusable task templates), and <strong>invocation surfaces</strong> — designed to be modular.</li><li><strong>Setup latency SLO:</strong> p95 under 5 seconds for full end-to-end sandbox setup.</li><li><strong>Code-review guardrails:</strong> prevent false-clean reviews, reconcile stale findings when a PR changes mid-review, and collapse old comments on re-review.</li></ul>",
+    impact: "<p><strong>Realized:</strong> <strong>130,000</strong> engineering tasks automated in a month; <strong>25,000+</strong> automated code reviews weekly; 300+ playbooks with 10,000+ weekly invocations; p95 sandbox cold-start under 5 seconds.</p><p><strong>Potential:</strong> the sandbox/MCP-gateway/playbook/invocation-surface split is a reusable platform pattern for agent autonomy without laptop-equivalent access.</p>",
+    verdict: { score: 4, line: "a well-specified answer to the \"agents need real access\" security problem", body: "<p>The interesting idea isn't \"use coding agents\" — it's framing the primitives around the agent (isolation, tool gateway, workflow templates, invocation surface) as the actual product, decoupled from which agent or model does the work. Not a 5 because Firecracker isolation and MCP as a tool-access layer are existing building blocks; the contribution is the platform composition and guardrail engineering.</p>" },
+    related: [
+      "In-House LLM Serving at Netflix — a different kind of in-house LLM infrastructure investment (inference serving rather than agent sandboxing).",
+      "\"Building a Production AI Code Review Agent with High Engineer Acceptance\" (ZenML LLMOps Database) — the code-review agent specifically.",
+      "Model Context Protocol (MCP) — the open tool-access standard Flux's gateway is built on."
+    ],
+    jargon: [
+      ["Firecracker microVM","A lightweight VM technology giving near-container startup speed with much stronger, hardware-level isolation than a typical container."],
+      ["MCP (Model Context Protocol)","An open protocol standardizing how an AI agent discovers and calls external tools."],
+      ["p95 SLO","A service-level objective stated as the 95th-percentile value — a standard way to commit to \"almost always fast.\""]
+    ]
+  },
+  {
+    id: "pinterest-pinner-progression", title: "Pinner Progression: Better Use-Case Representation Driving Weekly Active User Growth",
+    source: "Pinterest Engineering Blog", url: "https://medium.com/pinterest-engineering/pinner-progression-better-use-case-representation-driving-weekly-active-user-growth-at-pinterest-bd2131ab238a",
+    published: "2026-07", added: "2026-08-31", category: "personalization-recsys", novelty: 3, via: "web search",
+    tags: ["retention","use-case-representation","diversity","home-feed"],
+    tldr: "Pinterest's Pinner Progression reframes home-feed ranking around retention, adding User Interest Clusters — a holistic, persistent use-case signal — with a penalty-based diversity mechanism so under-represented interests aren't crowded out by a user's dominant one.",
+    business: "<p>Pinterest shifted its north-star metric from monthly active users to <strong>new weekly active pinners</strong> — a metric more directly tied to whether the platform is actively useful right now. Standard sequential recommendation tends to reinforce a user's already-dominant interest, which is good for short-term engagement but does little to help users discover or return to other use cases that would make the platform more broadly useful and more likely to bring them back weekly.</p>",
+    technical: "<ul><li><strong>User Interest Clusters (UICs):</strong> a holistic, persistent signal representing a user's distinct use cases, layered on top of existing sequential, action-by-action modeling.</li><li><strong>The dominance problem:</strong> without intervention, the candidate pool tends to be dominated by a user's most established interests, starving newer or growing use-cases of surviving candidates.</li><li><strong>Penalty-based diversity:</strong> Pins that duplicate an already well-represented UIC receive a discounted score, giving under-represented interests room to advance.</li><li>UICs are threaded through candidate generation and ranking so the feed reflects breadth of interest, not just the most recent or frequent one.</li></ul>",
+    impact: "<p><strong>Realized:</strong> Pinterest reports the metric shift plus UIC/diversity mechanism together <strong>accelerated weekly active pinner growth</strong>; no specific percentage is given for UICs' isolated contribution.</p><p><strong>Potential:</strong> treating \"use-case breadth\" as an explicit representation and optimization target is a reusable pattern for feed-ranking systems optimizing retention over pure short-term engagement.</p>",
+    verdict: { score: 3, line: "a sensible retention-first reframing, light on quantified impact", body: "<p>Explicitly representing and protecting under-served user interests to combat feedback-loop dominance is well-precedented in recommender-systems literature; Pinterest's contribution is a clean, production-shaped application — a specific signal (UICs), a specific penalty mechanism, and a metric shift that aligns measurement with the intervention. Without a quantified lift specifically attributable to UICs, it doesn't clear the bar for a 4.</p>" },
+    related: [
+      "The Quest to Understand Metric Movements — a different Pinterest team's tooling for diagnosing why a metric like weekly active pinners moved, complementary to driving it.",
+      "Bandits for Marketing Optimization at Instacart — another example of restructuring an optimization objective around a longer-horizon business goal.",
+      "General recommender-systems diversity and exploration literature — the broader body of work on preventing engagement-driven feedback loops."
+    ],
+    jargon: [
+      ["Weekly active pinner","Pinterest's retention metric: a user who pins or repins something new within a given week, distinct from simply visiting."],
+      ["User Interest Cluster (UIC)","A persistent grouping representing one of a user's distinct use cases, used alongside sequential behavior modeling."],
+      ["Penalty-based diversity","Enforcing variety by discounting the score of redundant candidates rather than by hard quotas or separate diversity slots."]
+    ]
+  },
+  {
+    id: "uber-invoice-genai", title: "Advancing Invoice Document Processing at Uber Using GenAI",
+    source: "Uber Engineering", url: "https://www.uber.com/us/en/blog/advancing-invoice-document-processing-using-genai/",
+    published: "2025-04", added: "2026-08-31", category: "llm-genai", novelty: 3, via: "web search",
+    tags: ["document-ai","ocr","gpt-4","human-in-the-loop"],
+    tldr: "TextSense, Uber's GenAI document-processing platform, combines OCR, GPT-4 as a semantic reader, business-rule post-processing, and human-in-the-loop review — cutting invoice handling time 70% and delivering 90% accuracy, replacing brittle RPA/rule-based processing.",
+    business: "<p>Uber's global supplier network generates a high volume of invoices daily in varied formats and languages. The legacy RPA and hand-written-rules approach struggled with growing format complexity — rule-based systems are brittle to layout changes and don't generalize across suppliers. Uber's bet was that a GenAI reader, interpreting an invoice's layout and content the way a human would rather than matching fixed templates, would generalize far better while routing uncertain cases to human reviewers.</p>",
+    technical: "<ul><li><strong>Modular pipeline:</strong> OCR/computer-vision preprocessing, an AI/ML reading stage, business-rule post-processing (validation, enrichment, PO cross-checking), and human-in-the-loop review.</li><li><strong>Vision Gateway</strong> extracts raw text even from blurry or handwritten scans.</li><li><strong>GPT-4 as semantic reader:</strong> identifies invoice numbers, dates, line items, and totals semantically rather than via fixed templates.</li><li><strong>Model comparison:</strong> open-source models (Flan-T5, LLaMA 2) were competitive on header-level accuracy but faltered on line-item consistency, where GPT-4 was superior across all fields.</li><li><strong>HITL design for speed:</strong> side-by-side review UI with soft alerts, favoring eye movement over clicks.</li></ul>",
+    impact: "<p><strong>Realized:</strong> 70% reduction in handling time, 2x reduction in manual effort, 25-30% cost savings, and 90% overall extraction accuracy.</p><p><strong>Potential:</strong> the OCR + LLM-reader + rules + HITL pattern generalizes to other high-volume, format-varied document-processing workflows beyond invoices.</p>",
+    verdict: { score: 3, line: "a well-executed, now-standard document-AI recipe", body: "<p>Using an LLM to semantically read documents instead of template-matching, backed by human-in-the-loop, is by 2026 a well-established document-AI pattern. What's useful is the concrete GPT-4 vs. open-source comparison on a real production workload and the honest breakdown of where open models fell short (line items) vs. held up (headers) — a specific data point rather than a generic \"we used an LLM\" claim.</p>" },
+    related: [
+      "Scaling LLM Post-Training at Netflix — a different production LLM investment, illustrating the range of ways \"put an LLM in production\" plays out.",
+      "Delegating Engineering Work to Cloud-Based Agents (Flux) — another example of GenAI automating a previously manual/rule-based operational workflow with its own oversight guardrails.",
+      "General Document AI / IDP (Intelligent Document Processing) literature — the broader field of OCR+LLM pipelines this system belongs to."
+    ],
+    jargon: [
+      ["RPA (Robotic Process Automation)","Automation that scripts a fixed sequence of UI/data actions; effective for stable formats but brittle when layouts vary."],
+      ["Human-in-the-loop (HITL)","A workflow where a model handles most cases automatically but routes uncertain cases to a human reviewer."],
+      ["Header-level vs. line-item accuracy","Header fields are few and prominent; line items are harder to extract consistently because there are more of them and layout varies more."]
+    ]
+  },
+  {
     id: "netflix-maps", title: "MAPS: Multimedia Asset Personalization via Multimodal Embeddings at Netflix",
     source: "Netflix Tech Blog / arXiv", url: "https://arxiv.org/abs/2608.18322",
     published: "2026-08", added: "2026-08-30", category: "cv-multimodal", novelty: 4, via: "web search",
@@ -704,10 +832,9 @@ const CATALOG = [
   { id:"netflix-session-intent-multitask", company:"Netflix", title:"Predicting user session intent with hierarchical multi-task learning", category:"personalization-recsys", hook:"A hierarchical multi-task architecture personalizes the session in real time.", url:null },
   { id:"airbnb-conversational-ai-guardrails", company:"Airbnb", title:"Conversational AI with LLMs, context management, and a guardrail framework", category:"llm-genai", hook:"Structured workflows plus LLM reasoning, kept controlled by a guardrail framework.", url:null },
   { id:"airbnb-personal-data-classification", company:"Airbnb", title:"Personal data classification at scale", category:"data-engineering", hook:"Classifying and protecting personal data across a large data estate.", url:null },
-  { id:"uber-invoice-processing-genai", company:"Uber", title:"Processing invoices at scale with generative AI", category:"llm-genai", hook:"GenAI builds a flexible document-processing system for varied invoice layouts and languages.", url:null },
   { id:"uber-out-of-app-marketing-personalization", company:"Uber", title:"Out-of-app marketing and personalization", category:"personalization-recsys", hook:"Personalizing out-of-app marketing at Uber scale.", url:null },
   { id:"uber-crm-contextual-bandits-genai-embeddings", company:"Uber", title:"CRM personalization with contextual bandits and generative-AI embeddings", category:"personalization-recsys", hook:"Contextual bandits plus genAI embeddings personalize CRM messaging.", url:null },
-  { id:"linkedin-product-rec-deep-rl", company:"LinkedIn", title:"Product recommendation with deep learning and reinforcement learning", category:"personalization-recsys", hook:"The ML architecture behind LinkedIn premium product recommendation.", url:"https://creators.spotify.com/pod/profile/pan-wu/episodes/Product-Recommendation-with-Deep-Learning-and-Reinforcement-Learning-LinkedIn-e2mr9hm" },
+  { id:"linkedin-product-rec-deep-rl", company:"LinkedIn", title:"Product recommendation with deep learning and reinforcement learning", category:"personalization-recsys", hook:"Two-tower plus RL behind LinkedIn Premium product recommendation; official post found but too thin on detail to deepen without fabricating.", url:"https://www.linkedin.com/blog/engineering/machine-learning/matching-linkedin-members-with-the-right-premium-products" },
   { id:"linkedin-job-search-llms", company:"LinkedIn", title:"Reimagining job search with LLMs (intent-aware)", category:"search-ranking", hook:"From keyword-based to flexible, intent-aware job search with LLMs.", url:null },
   { id:"instacart-quasi-experiment-rdd", company:"Instacart", title:"Quasi-experimentation and regression discontinuity design", category:"experimentation-causal", hook:"Using RDD to make decisions when clean A/B tests aren't possible.", url:null },
   { id:"instacart-smart-replacements", company:"Instacart", title:"Smart replacements for out-of-stock products", category:"personalization-recsys", hook:"ML suggests substitutions when an item is unavailable.", url:null },
@@ -731,8 +858,13 @@ const CATALOG = [
   { id:"glassdoor-data-quality-anomaly-detection", company:"Glassdoor", title:"Data quality and anomaly detection at petabyte scale", category:"data-engineering", hook:"Data contracts, static analysis, LLM-based logic checks, and anomaly detection.", url:null },
   { id:"thumbtack-recommendations-offline-inference", company:"Thumbtack", title:"Recommendations with two sub-models and offline inference", category:"personalization-recsys", hook:"A two-sub-model recommendation architecture served via offline inference.", url:null },
   { id:"urban-company-causal-inference", company:"Urban Company", title:"Leveraging causal inference for product decisions", category:"experimentation-causal", hook:"Causal inference to guide decisions where experiments are hard.", url:null },
-  { id:"doordash-flux-cloud-agents-engineering", company:"DoorDash", title:"Delegating Engineering Work To Cloud-Based Agents (Flux)", category:"llm-genai", hook:"DoorDash's cloud agent platform automated 130k engineering tasks and 25k+ weekly code reviews in a month.", url:"https://careersatdoordash.com/blog/delegating-engineering-work-to-cloud-based-agents/" },
-  { id:"pinterest-pinner-progression-use-case-representation", company:"Pinterest", title:"Pinner Progression: Better Use-Case Representation Driving Weekly Active User Growth", category:"personalization-recsys", hook:"User Interest Clusters reframe home-feed recommendation around retention as a first-class objective.", url:"https://medium.com/pinterest-engineering/pinner-progression-better-use-case-representation-driving-weekly-active-user-growth-at-pinterest-bd2131ab238a" }
+  { id:"linkedin-feed-sr-sequential-recommender", company:"LinkedIn", title:"An Industrial-Scale Sequential Recommender for LinkedIn Feed Ranking (Feed SR)", category:"search-ranking", hook:"A transformer-based sequential ranking model processing 1,000+ historical interactions replaces a DCNv2 ranker; +2.10% time spent in production A/B tests.", url:"https://arxiv.org/abs/2602.12354" },
+  { id:"netflix-generalizable-generative-recommenders", company:"Netflix", title:"Towards Generalizable and Efficient Large-Scale Generative Recommenders", category:"personalization-recsys", hook:"Netflix scales a generative recommender backbone from 2M to 1B parameters; +28.1% on cold-start titles in production shadow.", url:"https://arxiv.org/abs/2605.23312" },
+  { id:"instacart-llm-discovery-recommendations", company:"Instacart", title:"Our Early Journey to Transform Instacart's Discovery Recommendations with LLMs", category:"llm-genai", hook:"An AI-native platform for content generation, evaluation, and retrieval shows early promise for discovery recommendations.", url:"https://tech.instacart.com/our-early-journey-to-transform-instacarts-discovery-recommendations-with-llms-cf4591a8602b" },
+  { id:"instacart-ads-retrieval-rebuild", company:"Instacart", title:"From Scoring to Spelling: Rebuilding Ads Retrieval at Instacart", category:"search-ranking", hook:"BERT-like transformers trained on millions of shopping sessions rebuild ads retrieval around learned purchasing patterns.", url:"https://tech.instacart.com/from-scoring-to-spelling-rebuilding-ads-retrieval-at-instacart-cf36b4e8d1bb" },
+  { id:"uber-count-distinct-high-cardinality-pipelines", company:"Uber", title:"Scaling Exact COUNT(DISTINCT) for High-Cardinality Non-Rollup Metrics in Distributed Data Pipelines", category:"data-engineering", hook:"A distributed-pipelines approach to exact (not approximate) COUNT(DISTINCT) at high cardinality without rollups.", url:null },
+  { id:"airbnb-voice-support-ml", company:"Airbnb", title:"Listening, Learning, and Helping at Scale: How ML Transforms Airbnb's Voice Support Experience", category:"llm-genai", hook:"Speech recognition, intent detection, and language models assist human support agents in real time.", url:"https://medium.com/airbnb-engineering/listening-learning-and-helping-at-scale-how-machine-learning-transforms-airbnbs-voice-support-b71f912d4760" },
+  { id:"deepmind-double-blind-ai-evaluations", company:"Google DeepMind", title:"Piloting the World's First Double-Blind AI Evaluations", category:"experimentation-causal", hook:"A cryptographically secure double-blind protocol for benchmarking proprietary models, aimed at building trust in AI evaluation results.", url:"https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/" }
 ];
 
 // ---- render ----
@@ -759,7 +891,14 @@ const REL_LINKS = {
   "From Models to Products: LLMs for Recommendation at Spotify Scale": "https://research.atspotify.com/2026/8/from-models-to-products-llms-for-recommendation-at-spotify-scale",
   "Balancing Multiple Objectives in Generative Recommendations with Adaptive Decoding": "https://research.atspotify.com/2026/8/balancing-multiple-objectives-in-generative-recommendations-with-adaptive-decoding",
   "How We Knew COVID Was Over (and What Our Models Had to Unlearn) at Airbnb": "https://medium.com/airbnb-engineering/how-we-knew-covid-was-over-and-what-our-models-had-to-unlearn-c606b9bdb0ab",
-  "Forecasting@Meta: Balancing Art and Science": "https://medium.com/@AnalyticsAtMeta/forecasting-meta-balancing-art-and-science-92526e1ae36c"
+  "Forecasting@Meta: Balancing Art and Science": "https://medium.com/@AnalyticsAtMeta/forecasting-meta-balancing-art-and-science-92526e1ae36c",
+  "GEM Training: How Meta Doubled the Efficiency of Its LLM-Scale Ads Foundation Model": "https://engineering.fb.com/2026/08/03/ml-applications/training-gem-at-llm-scale-meta-ads-recommendation-foundation-model/",
+  "From User Sequences to Scaling Laws": "https://engineering.fb.com/2026/08/05/ml-applications/from-user-sequences-to-scaling-laws-a-multi-stage-architecture-for-metas-ads-ranking/",
+  "Towards Generalizable and Efficient Large-Scale Generative Recommenders": "https://arxiv.org/abs/2605.23312",
+  "Improving ETAs with Multi-Task Models & Probabilistic Forecasts at DoorDash": "https://careersatdoordash.com/blog/improving-etas-with-multi-task-models-deep-learning-and-probabilistic-forecasts/",
+  "Delegating Engineering Work to Cloud-Based Agents (Flux)": "https://careersatdoordash.com/blog/delegating-engineering-work-to-cloud-based-agents/",
+  "The Quest to Understand Metric Movements": "https://medium.com/pinterest-engineering/the-quest-to-understand-metric-movements-8ab12ae97cda",
+  "Bandits for Marketing Optimization at Instacart": "https://tech.instacart.com/bandits-for-marketing-optimization-f5a63b9bfaa7"
 };
 function anchor(href, text){ return `<a href="${esc(href)}" target="_blank" rel="noopener">${text}</a>`; }
 function arxivify(h){ return h.replace(/arXiv\s+(\d{4}\.\d{4,5})/g, (m,id)=>`arXiv ${anchor("https://arxiv.org/abs/"+id, id)}`); }
