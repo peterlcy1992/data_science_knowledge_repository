@@ -151,9 +151,20 @@ authenticated in the run environment (see Prerequisites). If it is not, **skip
 silently** and add one line to the digest — `🎙️ Podcast: skipped (NotebookLM not
 configured in this environment)` — then carry on. Never let this step fail the run.
 
-Precondition check first — if it fails, skip per above:
+Bootstrap + precondition — run this first; if the final check is non-zero, skip
+per above (missing secret, no tool, or no egress):
 
 ```sh
+# 1. Materialize the master token from the environment secret, if present.
+if [ -n "$NOTEBOOKLM_MASTER_TOKEN_JSON" ]; then
+  umask 077; mkdir -p ~/.notebooklm/profiles/default
+  printf '%s' "$NOTEBOOKLM_MASTER_TOKEN_JSON" > ~/.notebooklm/profiles/default/master_token.json
+  chmod 600 ~/.notebooklm/profiles/default/master_token.json
+fi
+# 2. Install the CLI if absent (headless extra — pure Python, no browser).
+command -v notebooklm >/dev/null 2>&1 || pip install "notebooklm-py[headless]" >/dev/null 2>&1
+# 3. Gate: only proceed if the tool is present AND auth refreshes (needs the
+#    secret + egress to Google). A non-zero exit here means skip.
 command -v notebooklm >/dev/null 2>&1 && notebooklm auth refresh --quiet >/dev/null 2>&1
 ```
 
