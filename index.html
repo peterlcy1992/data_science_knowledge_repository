@@ -331,6 +331,64 @@ const CATS = {
 
 const ARTICLES = [
   {
+    id: "deepmind-double-blind-ai-evaluations", title: "Piloting the World's First Double-Blind AI Evaluations",
+    source: "Google DeepMind", url: "https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/",
+    published: "2026-08", added: "2026-09-01", category: "experimentation-causal", novelty: 4, via: "web search",
+    tags: ["evaluation","benchmarking","confidential-computing","trust"],
+    tldr: "Google DeepMind ran what it calls the first double-blind evaluation of a proprietary, frontier-class AI model, using confidential computing so the evaluator never sees Gemini's weights and Google never sees the evaluator's prompts. The pilot, with the Singapore AI Safety Institute, OpenMined, AVERI, and MLCommons, tested a Gemini Flash Lite model on August 27, 2026.",
+    business: "<p>Third-party AI benchmarking has forced a bad trade: evaluators hand over test prompts in advance (risking inflated scores) or providers hand over model weights (risking IP). That's made outside parties reluctant to run truly rigorous, contamination-free evaluations, and providers reluctant to expose IP to enable them. DeepMind wants a measurement protocol trustworthy enough that neither side has to take the other on faith.</p>",
+    technical: "<ul><li><strong>Confidential computing core:</strong> the evaluation runs inside Google Cloud Confidential Space, using an NVIDIA H100 Confidential GPU and Intel TDX host memory encryption.</li><li><strong>Mutual blindness:</strong> DeepMind supplies Gemini's weights and inference code; the evaluator supplies its benchmark prompts and evaluation code, both transmitted over encrypted connections into the enclave.</li><li><strong>Remote attestation:</strong> cryptographic proof that the software running inside the enclave is what both parties agreed to, rather than a tampered version that could leak data.</li><li><strong>Model and partners:</strong> a Gemini Flash Lite model, tested with the Singapore AI Safety Institute, OpenMined, AVERI, and MLCommons.</li></ul>",
+    impact: "<p><strong>Realized:</strong> a working pilot showing a frontier-class proprietary model can be benchmarked by an outside party without either side exposing its protected assets — described as a first for a model at this class.</p><p><strong>Potential:</strong> a possible trust layer under independent AI safety/capability evaluation generally, letting bodies like MLCommons certify claims about proprietary models without providers choosing between opacity and IP exposure. No numbers on throughput, cost overhead, or scaling beyond one Flash Lite-sized model are reported.</p>",
+    verdict: { score: 4, line: "a genuinely new trust primitive for AI measurement, still at pilot scale", body: "<p>Confidential computing isn't new, but applying it to the specific 'who do we trust with what' deadlock in AI benchmarking is a clever, previously-unaddressed application. It doesn't introduce a new ML technique, which keeps it short of a 5, but it targets a real, growing problem — benchmark contamination and gameable evaluations — that most of the field currently just lives with.</p>" },
+    related: [
+      "Hashmarks: Privacy-Preserving Benchmarks for High-Stakes AI Evaluation (arXiv 2312.00645) — an earlier cryptographic approach to keeping benchmark data private from model providers, addressing one half of the same trust problem.",
+      "Sidekick's Continual Learning Loop — a different angle on trusting an evaluation signal enough to act on it, there solved by calibrating an LLM-judge against human raters and production A/B outcomes rather than cryptography."
+    ],
+    jargon: [
+      ["Confidential computing","Running a workload inside hardware-encrypted memory so not even the cloud provider can inspect the data or code while it executes."],
+      ["Remote attestation","A cryptographic proof that a specific, agreed-on piece of software — and nothing else — is what's actually running inside a secure enclave."],
+      ["Benchmark contamination","When a model has been exposed to test questions (or similar data) before evaluation, inflating its apparent performance without a real capability gain."]
+    ]
+  },
+  {
+    id: "meta-ladder-of-evidence", title: "Ladder of Evidence in Understanding Effectiveness of New Products",
+    source: "Analytics at Meta", url: "https://medium.com/@AnalyticsAtMeta/ladder-of-evidence-in-understanding-effectiveness-of-new-products-part-i-ad8dee70906c",
+    published: "2025-10", added: "2026-09-01", category: "experimentation-causal", novelty: 3, via: "web search",
+    tags: ["ab-testing","causal-inference","decision-framework"],
+    tldr: "Meta's analytics team lays out a 'ladder of evidence' — a decision framework running from randomized A/B tests at the top down through quasi-experiments, counterfactual estimation, and descriptive statistics at the bottom — with rules for when it's legitimate to step down the ladder.",
+    business: "<p>Not every product decision at Meta's scale can or should be validated with a full randomized trial: some features can't be cleanly randomized, and running a rigorous experiment for every question isn't always worth the analyst time. Teams need a shared way to decide which methodology a question warrants, and how much confidence that choice buys them.</p>",
+    technical: "<ul><li><strong>1. A/B tests (RCTs):</strong> the top rung — random assignment removes confounding by construction.</li><li><strong>2. Quasi-experiments:</strong> difference-in-differences, matching, controlled regression, used when true randomization isn't available.</li><li><strong>3. Counterfactual / observational causal inference:</strong> estimating what would have happened absent the change from existing data alone — the weakest rung that still claims a causal estimate.</li><li><strong>4. Descriptive statistics:</strong> correlational analysis at the bottom, no direct causal evidence.</li></ul><p>The core discipline is procedural: as a decision's reach and stakes grow, the expected rigor of its evidence should grow correspondingly, and analysts should be explicit about which rung they're standing on.</p>",
+    impact: "<p><strong>Realized:</strong> an internal decision framework reportedly used at Meta to standardize how data scientists choose a measurement method and how much confidence to attach to it; no specific product decisions or quantified error-rate reductions are disclosed.</p><p><strong>Potential:</strong> a template other analytics orgs can adopt to make 'how sure are we, really' an explicit, shared vocabulary rather than an inconsistent individual judgment call.</p>",
+    verdict: { score: 3, line: "a clean restatement of a well-known evidence hierarchy", body: "<p>The levels-of-evidence idea (RCT &gt; quasi-experiment &gt; observational inference &gt; correlation) is standard applied-causal-inference practice. The value is organizational — a crisp shared name and framework for a hierarchy analysts already know — not a new estimator or technique.</p>" },
+    related: [
+      "Piloting the World's First Double-Blind AI Evaluations — a different axis of the same underlying concern (how much can you trust a measurement) applied to model benchmarking rather than product experimentation."
+    ],
+    jargon: [
+      ["Quasi-experiment","A study design approximating random assignment when a true randomized experiment isn't feasible."],
+      ["Counterfactual estimation","Estimating what would have happened to a metric without a change, using only observational data."],
+      ["Difference-in-differences","Comparing the change over time in a treated group against an untreated comparison group to isolate an effect."]
+    ]
+  },
+  {
+    id: "cvs-product-rec-word2vec-llm", title: "Enhancing \"You May Also Like\" (YMAL) Systems using LLMs and Word2Vec",
+    source: "CVS Health Tech Blog", url: "https://medium.com/cvs-health-tech-blog/enhancing-you-may-also-like-ymal-systems-using-llms-and-word2vec-0340280019d2",
+    published: "2025-04", added: "2026-09-01", category: "personalization-recsys", novelty: 2, via: "web search",
+    tags: ["embeddings","word2vec","llm-features"],
+    tldr: "CVS Health improved its 'You May Also Like' product recommender by embedding products with Word2Vec and Euclidean distance over titles/brands/categories, then enriching thin product metadata with GPT-4-generated 200-word summaries used as extra embedding features, targeting missing and poor-quality recommendations.",
+    business: "<p>CVS's e-commerce YMAL widget suggests similar products across a large, heterogeneous catalog. Two problems limited it: bad coverage (many products got no recommendations) and bad relevance (recommended products didn't match well) — a root cause of both being short, low-information product titles that give a title-based embedding model too little signal.</p>",
+    technical: "<ul><li><strong>Baseline embedding:</strong> products embedded from titles, brands, categories, and sub-categories via Word2Vec, similarity scored by Euclidean distance.</li><li><strong>LLM-generated summaries as features:</strong> OpenAI GPT-3.5 Turbo and GPT-4 generate ~200-word product description summaries from existing metadata, adding richer, more consistent context than raw catalog text.</li><li><strong>Feature fusion:</strong> summaries feed the same Word2Vec-based pipeline as additional features rather than replacing it with an LLM-native retrieval system.</li></ul>",
+    impact: "<p><strong>Realized:</strong> qualitative improvements to recommendation coverage and relevance described from adding LLM-generated summary features; no specific offline/online metrics (coverage %, CTR, precision) are reported.</p><p><strong>Potential:</strong> a low-lift pattern for any catalog with sparse item text — enrich metadata with an LLM once, offline, ahead of a classical embedding pipeline rather than re-architecting around an LLM.</p>",
+    verdict: { score: 2, line: "a practical but well-trodden pattern", body: "<p>Using an LLM purely as an offline feature-enrichment step ahead of a classical Word2Vec/distance recommender is sensible for a legacy-system context, but it isn't a new technique, and the lack of any reported quantitative lift makes it hard to judge how much the LLM step actually helped.</p>" },
+    related: [
+      "From Scoring to Spelling: Rebuilding Ads Retrieval at Instacart — also modernizes a legacy retrieval system's inputs, there via a generative retrieval model rather than an LLM-as-feature-generator pattern."
+    ],
+    jargon: [
+      ["Word2Vec","A technique that learns dense vector embeddings for items such that items appearing in similar contexts get similar vectors."],
+      ["Euclidean distance","The straight-line distance between two embedding vectors; smaller means more similar."],
+      ["Coverage","The fraction of catalog items for which a recommender can produce any recommendation at all."]
+    ]
+  },
+  {
     id: "shopify-sidekick-continual-learning-loop", title: "Sidekick's Continual Learning Loop",
     source: "Shopify Engineering", url: "https://shopify.engineering/sidekicks-continual-learning-loop",
     published: "2026-08", added: "2026-09-01", category: "llm-genai", novelty: 5, via: "full-text fetch",
@@ -1028,9 +1086,7 @@ const CATALOG = [
   { id:"instacart-quasi-experiment-rdd", company:"Instacart", title:"Quasi-experimentation and regression discontinuity design", category:"experimentation-causal", hook:"Using RDD to make decisions when clean A/B tests aren't possible.", url:null },
   { id:"instacart-smart-replacements", company:"Instacart", title:"Smart replacements for out-of-stock products", category:"personalization-recsys", hook:"ML suggests substitutions when an item is unavailable.", url:null },
   { id:"instacart-covariate-selection-causal", company:"Instacart", title:"Covariate selection in causal inference", category:"experimentation-causal", hook:"Choosing covariates well to get unbiased causal estimates.", url:null },
-  { id:"meta-ladder-of-evidence", company:"Meta", title:"The Ladder of Evidence for evaluating new features", category:"experimentation-causal", hook:"A framework for how much evidence a product decision needs.", url:null },
   { id:"meta-global-feature-importance", company:"Meta", title:"Feature selection at scale with Global Feature Importance", category:"research-foundational", hook:"Selecting features across huge model inputs via a global importance method.", url:null },
-  { id:"cvs-product-rec-word2vec-llm", company:"CVS Health", title:"Product recommendation with Word2Vec and LLM summaries", category:"personalization-recsys", hook:"Embedding products with Word2Vec and enriching them with LLM-generated summaries.", url:null },
   { id:"hellofresh-genai-recipes", company:"HelloFresh", title:"Generative AI to create new food recipes", category:"llm-genai", hook:"Using generative models to invent new recipes.", url:null },
   { id:"walmart-text-data-imbalance-augmentation", company:"Walmart", title:"Data imbalance in text models with automated augmentation", category:"research-foundational", hook:"Automated augmentation techniques to fix class imbalance in text data.", url:null },
   { id:"walmart-bayesian-structural-time-series", company:"Walmart", title:"Bayesian Structural Time Series for causal impact", category:"experimentation-causal", hook:"Measuring the impact of a product taxonomy change with BSTS.", url:null },
@@ -1049,8 +1105,7 @@ const CATALOG = [
   { id:"urban-company-causal-inference", company:"Urban Company", title:"Leveraging causal inference for product decisions", category:"experimentation-causal", hook:"Causal inference to guide decisions where experiments are hard.", url:null },
   { id:"instacart-llm-discovery-recommendations", company:"Instacart", title:"Our Early Journey to Transform Instacart's Discovery Recommendations with LLMs", category:"llm-genai", hook:"An AI-native platform for content generation, evaluation, and retrieval shows early promise for discovery recommendations.", url:"https://tech.instacart.com/our-early-journey-to-transform-instacarts-discovery-recommendations-with-llms-cf4591a8602b" },
   { id:"uber-count-distinct-high-cardinality-pipelines", company:"Uber", title:"Scaling Exact COUNT(DISTINCT) for High-Cardinality Non-Rollup Metrics in Distributed Data Pipelines", category:"data-engineering", hook:"A distributed-pipelines approach to exact (not approximate) COUNT(DISTINCT) at high cardinality without rollups.", url:null },
-  { id:"airbnb-voice-support-ml", company:"Airbnb", title:"Listening, Learning, and Helping at Scale: How ML Transforms Airbnb's Voice Support Experience", category:"llm-genai", hook:"Speech recognition, intent detection, and language models assist human support agents in real time.", url:"https://medium.com/airbnb-engineering/listening-learning-and-helping-at-scale-how-machine-learning-transforms-airbnbs-voice-support-b71f912d4760" },
-  { id:"deepmind-double-blind-ai-evaluations", company:"Google DeepMind", title:"Piloting the World's First Double-Blind AI Evaluations", category:"experimentation-causal", hook:"A cryptographically secure double-blind protocol for benchmarking proprietary models, aimed at building trust in AI evaluation results.", url:"https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/" }
+  { id:"airbnb-voice-support-ml", company:"Airbnb", title:"Listening, Learning, and Helping at Scale: How ML Transforms Airbnb's Voice Support Experience", category:"llm-genai", hook:"Speech recognition, intent detection, and language models assist human support agents in real time.", url:"https://medium.com/airbnb-engineering/listening-learning-and-helping-at-scale-how-machine-learning-transforms-airbnbs-voice-support-b71f912d4760" }
 ];
 
 // ---- render ----
@@ -1093,7 +1148,10 @@ const REL_LINKS = {
   "An Industrial-Scale Sequential Recommender for LinkedIn Feed Ranking (Feed SR)": "https://arxiv.org/abs/2602.12354",
   "From Scoring to Spelling: Rebuilding Ads Retrieval at Instacart": "https://tech.instacart.com/from-scoring-to-spelling-rebuilding-ads-retrieval-at-instacart-cf36b4e8d1bb",
   "Deploying Semantic ID-based Generative Retrieval for Large-Scale Podcast Discovery at Spotify": "https://arxiv.org/pdf/2603.17540",
-  "How Databricks Feature Store Serves Features with Sub-Second Freshness": "https://www.databricks.com/blog/how-databricks-feature-store-serves-features-sub-second-freshness"
+  "How Databricks Feature Store Serves Features with Sub-Second Freshness": "https://www.databricks.com/blog/how-databricks-feature-store-serves-features-sub-second-freshness",
+  "Piloting the World's First Double-Blind AI Evaluations": "https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/",
+  "Ladder of Evidence in Understanding Effectiveness of New Products": "https://medium.com/@AnalyticsAtMeta/ladder-of-evidence-in-understanding-effectiveness-of-new-products-part-i-ad8dee70906c",
+  "Enhancing \"You May Also Like\" (YMAL) Systems using LLMs and Word2Vec": "https://medium.com/cvs-health-tech-blog/enhancing-you-may-also-like-ymal-systems-using-llms-and-word2vec-0340280019d2"
 };
 function anchor(href, text){ return `<a href="${esc(href)}" target="_blank" rel="noopener">${text}</a>`; }
 function arxivify(h){ return h.replace(/arXiv\s+(\d{4}\.\d{4,5})/g, (m,id)=>`arXiv ${anchor("https://arxiv.org/abs/"+id, id)}`); }

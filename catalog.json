@@ -3,39 +3,253 @@
   "updated": "2026-09-01",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
-    { "id": "netflix-contextual-bandits-reward-engineering", "company": "Netflix", "title": "Content recommendation with contextual bandits and reward engineering", "category": "personalization-recsys", "hook": "Proxy reward functions and offline models drive recommendation via contextual bandits.", "url": null },
-    { "id": "netflix-session-intent-multitask", "company": "Netflix", "title": "Predicting user session intent with hierarchical multi-task learning", "category": "personalization-recsys", "hook": "A hierarchical multi-task architecture personalizes the session in real time.", "url": null },
-    { "id": "airbnb-conversational-ai-guardrails", "company": "Airbnb", "title": "Upgrading conversational AI with LLMs, context management, and a guardrail framework", "category": "llm-genai", "hook": "Structured workflows plus LLM reasoning, kept controlled by a guardrail framework.", "url": null },
-    { "id": "airbnb-personal-data-classification", "company": "Airbnb", "title": "Personal data classification at scale", "category": "data-engineering", "hook": "Classifying and protecting personal data across a large data estate.", "url": null },
-    { "id": "uber-out-of-app-marketing-personalization", "company": "Uber", "title": "Out-of-app marketing and personalization", "category": "personalization-recsys", "hook": "Personalizing out-of-app marketing at Uber scale.", "url": null },
-    { "id": "uber-crm-contextual-bandits-genai-embeddings", "company": "Uber", "title": "Personalizing CRM communications with contextual bandits and generative-AI embeddings", "category": "personalization-recsys", "hook": "Contextual bandits plus genAI embeddings personalize CRM messaging.", "url": null },
-    { "id": "linkedin-product-rec-deep-rl", "company": "LinkedIn", "title": "Product recommendation with deep learning and reinforcement learning", "category": "personalization-recsys", "hook": "The ML architecture (two-tower plus RL) behind LinkedIn Premium product recommendation; official post found (May 2024) but too thin on technical detail in search results to deepen without fabricating — revisit with a direct fetch.", "url": "https://www.linkedin.com/blog/engineering/machine-learning/matching-linkedin-members-with-the-right-premium-products" },
-    { "id": "linkedin-job-search-llms", "company": "LinkedIn", "title": "Reimagining job search with LLMs (intent-aware)", "category": "search-ranking", "hook": "From keyword-based to flexible, intent-aware job search with LLMs.", "url": null },
-    { "id": "instacart-quasi-experiment-rdd", "company": "Instacart", "title": "Quasi-experimentation and regression discontinuity design", "category": "experimentation-causal", "hook": "Using RDD to make decisions when clean A/B tests aren't possible.", "url": null },
-    { "id": "instacart-smart-replacements", "company": "Instacart", "title": "Smart replacements for out-of-stock products", "category": "personalization-recsys", "hook": "ML suggests substitutions when an item is unavailable.", "url": null },
-    { "id": "instacart-covariate-selection-causal", "company": "Instacart", "title": "Covariate selection in causal inference", "category": "experimentation-causal", "hook": "Choosing covariates well to get unbiased causal estimates.", "url": null },
-    { "id": "meta-ladder-of-evidence", "company": "Meta", "title": "The Ladder of Evidence for evaluating new features", "category": "experimentation-causal", "hook": "A framework for how much evidence a product decision needs.", "url": null },
-    { "id": "meta-global-feature-importance", "company": "Meta", "title": "Feature selection at scale with Global Feature Importance", "category": "research-foundational", "hook": "Selecting features across huge model inputs via a global importance method.", "url": null },
-    { "id": "cvs-product-rec-word2vec-llm", "company": "CVS Health", "title": "Product recommendation with Word2Vec, Euclidean distance, and LLM summaries", "category": "personalization-recsys", "hook": "Embedding products with Word2Vec and enriching them with LLM-generated summaries.", "url": null },
-    { "id": "hellofresh-genai-recipes", "company": "HelloFresh", "title": "Generative AI to create new food recipes", "category": "llm-genai", "hook": "Using generative models to invent new recipes.", "url": null },
-    { "id": "walmart-text-data-imbalance-augmentation", "company": "Walmart", "title": "Handling data imbalance in text models with automated augmentation", "category": "research-foundational", "hook": "Automated augmentation techniques to fix class imbalance in text data.", "url": null },
-    { "id": "walmart-bayesian-structural-time-series", "company": "Walmart", "title": "Bayesian Structural Time Series for causal impact measurement", "category": "experimentation-causal", "hook": "Measuring the impact of a product taxonomy change with BSTS.", "url": null },
-    { "id": "oda-ab-testing-culture", "company": "Oda", "title": "A/B testing practices and experimentation culture", "category": "experimentation-causal", "hook": "How Oda builds a culture that supports experimentation.", "url": null },
-    { "id": "lyft-interference-bias-mmv", "company": "Lyft", "title": "Tackling interference bias with Marketplace Marginal Values (MMV)", "category": "experimentation-causal", "hook": "MMVs correct interference bias in marketplace experiments.", "url": null },
-    { "id": "lyft-realtime-spatial-temporal-forecasting", "company": "Lyft", "title": "Real-time spatial-temporal forecasting: classical vs deep models", "category": "forecasting-timeseries", "hook": "Choosing between classical time-series and DNNs for real-time forecasting.", "url": null },
-    { "id": "expedia-generative-traditional-ai-travel", "company": "Expedia", "title": "Combining generative and traditional AI for travel", "category": "llm-genai", "hook": "GenAI for open-ended tasks, traditional models for structured, mission-critical ones.", "url": null },
-    { "id": "amazon-price-experimentation", "company": "Amazon", "title": "Improving price experimentation in the Amazon Store", "category": "experimentation-causal", "hook": "Better experimental design for pricing decisions.", "url": "https://creators.spotify.com/pod/profile/pan-wu/episodes/Improving-Price-Experimentation-at-Amazon-Amazon-e2ilod8" },
-    { "id": "microsoft-double-machine-learning", "company": "Microsoft", "title": "Causal inference with Double Machine Learning when A/B testing isn't possible", "category": "experimentation-causal", "hook": "Double ML answers high-stakes questions without a clean experiment.", "url": null },
-    { "id": "mercadolibre-geo-experimentation", "company": "Mercado Libre", "title": "Geo experimentation", "category": "experimentation-causal", "hook": "Region-level experiments where user-level randomization fails.", "url": "https://creators.spotify.com/pod/profile/pan-wu/episodes/2023-11-13-Geo-Experimentation-Mercado-Libre-e2brq2p" },
-    { "id": "yelp-video-review-moderation", "company": "Yelp", "title": "Moderating video reviews with ML", "category": "cv-multimodal", "hook": "Detecting inappropriate content to keep video reviews trustworthy.", "url": null },
-    { "id": "picnic-scalable-demand-forecasting", "company": "Picnic", "title": "Scalable demand forecasting for online groceries", "category": "forecasting-timeseries", "hook": "ML models for demand forecasting at an online grocer.", "url": null },
-    { "id": "afresh-promotion-aware-demand-forecasting", "company": "Afresh", "title": "Promotion-aware demand forecasting", "category": "forecasting-timeseries", "hook": "Handling the outsized effect of promotions in grocery forecasting.", "url": null },
-    { "id": "glassdoor-data-quality-anomaly-detection", "company": "Glassdoor", "title": "Data quality and anomaly detection at petabyte scale", "category": "data-engineering", "hook": "Data contracts, static analysis, LLM-based logic checks, and anomaly detection.", "url": null },
-    { "id": "thumbtack-recommendations-offline-inference", "company": "Thumbtack", "title": "Recommendations with two sub-models and offline inference", "category": "personalization-recsys", "hook": "A two-sub-model recommendation architecture served via offline inference.", "url": null },
-    { "id": "urban-company-causal-inference", "company": "Urban Company", "title": "Leveraging causal inference for product decisions", "category": "experimentation-causal", "hook": "Causal inference to guide decisions where experiments are hard.", "url": null },
-    { "id": "instacart-llm-discovery-recommendations", "company": "Instacart", "title": "Our Early Journey to Transform Instacart's Discovery Recommendations with LLMs", "category": "llm-genai", "hook": "An AI-native platform for content generation, evaluation, and retrieval; generative models show early promise for discovery recommendations.", "url": "https://tech.instacart.com/our-early-journey-to-transform-instacarts-discovery-recommendations-with-llms-cf4591a8602b" },
-    { "id": "uber-count-distinct-high-cardinality-pipelines", "company": "Uber", "title": "Scaling Exact COUNT(DISTINCT) for High-Cardinality Non-Rollup Metrics in Distributed Data Pipelines", "category": "data-engineering", "hook": "A distributed-pipelines approach to computing exact (not approximate) COUNT(DISTINCT) at high cardinality without rollups.", "url": null },
-    { "id": "airbnb-voice-support-ml", "company": "Airbnb", "title": "Listening, Learning, and Helping at Scale: How ML Transforms Airbnb's Voice Support Experience", "category": "llm-genai", "hook": "Speech recognition, intent detection, and language models assist human support agents in real time.", "url": "https://medium.com/airbnb-engineering/listening-learning-and-helping-at-scale-how-machine-learning-transforms-airbnbs-voice-support-b71f912d4760" },
-    { "id": "deepmind-double-blind-ai-evaluations", "company": "Google DeepMind", "title": "Piloting the World's First Double-Blind AI Evaluations", "category": "experimentation-causal", "hook": "A cryptographically secure double-blind protocol for benchmarking proprietary models, aimed at building trust in AI evaluation results.", "url": "https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/" }
+    {
+      "id": "netflix-contextual-bandits-reward-engineering",
+      "company": "Netflix",
+      "title": "Content recommendation with contextual bandits and reward engineering",
+      "category": "personalization-recsys",
+      "hook": "Proxy reward functions and offline models drive recommendation via contextual bandits.",
+      "url": null
+    },
+    {
+      "id": "netflix-session-intent-multitask",
+      "company": "Netflix",
+      "title": "Predicting user session intent with hierarchical multi-task learning",
+      "category": "personalization-recsys",
+      "hook": "A hierarchical multi-task architecture personalizes the session in real time.",
+      "url": null
+    },
+    {
+      "id": "airbnb-conversational-ai-guardrails",
+      "company": "Airbnb",
+      "title": "Upgrading conversational AI with LLMs, context management, and a guardrail framework",
+      "category": "llm-genai",
+      "hook": "Structured workflows plus LLM reasoning, kept controlled by a guardrail framework.",
+      "url": null
+    },
+    {
+      "id": "airbnb-personal-data-classification",
+      "company": "Airbnb",
+      "title": "Personal data classification at scale",
+      "category": "data-engineering",
+      "hook": "Classifying and protecting personal data across a large data estate.",
+      "url": null
+    },
+    {
+      "id": "uber-out-of-app-marketing-personalization",
+      "company": "Uber",
+      "title": "Out-of-app marketing and personalization",
+      "category": "personalization-recsys",
+      "hook": "Personalizing out-of-app marketing at Uber scale.",
+      "url": null
+    },
+    {
+      "id": "uber-crm-contextual-bandits-genai-embeddings",
+      "company": "Uber",
+      "title": "Personalizing CRM communications with contextual bandits and generative-AI embeddings",
+      "category": "personalization-recsys",
+      "hook": "Contextual bandits plus genAI embeddings personalize CRM messaging.",
+      "url": null
+    },
+    {
+      "id": "linkedin-product-rec-deep-rl",
+      "company": "LinkedIn",
+      "title": "Product recommendation with deep learning and reinforcement learning",
+      "category": "personalization-recsys",
+      "hook": "The ML architecture (two-tower plus RL) behind LinkedIn Premium product recommendation; official post found (May 2024) but too thin on technical detail in search results to deepen without fabricating \u2014 revisit with a direct fetch.",
+      "url": "https://www.linkedin.com/blog/engineering/machine-learning/matching-linkedin-members-with-the-right-premium-products"
+    },
+    {
+      "id": "linkedin-job-search-llms",
+      "company": "LinkedIn",
+      "title": "Reimagining job search with LLMs (intent-aware)",
+      "category": "search-ranking",
+      "hook": "From keyword-based to flexible, intent-aware job search with LLMs.",
+      "url": null
+    },
+    {
+      "id": "instacart-quasi-experiment-rdd",
+      "company": "Instacart",
+      "title": "Quasi-experimentation and regression discontinuity design",
+      "category": "experimentation-causal",
+      "hook": "Using RDD to make decisions when clean A/B tests aren't possible.",
+      "url": null
+    },
+    {
+      "id": "instacart-smart-replacements",
+      "company": "Instacart",
+      "title": "Smart replacements for out-of-stock products",
+      "category": "personalization-recsys",
+      "hook": "ML suggests substitutions when an item is unavailable.",
+      "url": null
+    },
+    {
+      "id": "instacart-covariate-selection-causal",
+      "company": "Instacart",
+      "title": "Covariate selection in causal inference",
+      "category": "experimentation-causal",
+      "hook": "Choosing covariates well to get unbiased causal estimates.",
+      "url": null
+    },
+    {
+      "id": "meta-global-feature-importance",
+      "company": "Meta",
+      "title": "Feature selection at scale with Global Feature Importance",
+      "category": "research-foundational",
+      "hook": "Selecting features across huge model inputs via a global importance method.",
+      "url": null
+    },
+    {
+      "id": "hellofresh-genai-recipes",
+      "company": "HelloFresh",
+      "title": "Generative AI to create new food recipes",
+      "category": "llm-genai",
+      "hook": "Using generative models to invent new recipes.",
+      "url": null
+    },
+    {
+      "id": "walmart-text-data-imbalance-augmentation",
+      "company": "Walmart",
+      "title": "Handling data imbalance in text models with automated augmentation",
+      "category": "research-foundational",
+      "hook": "Automated augmentation techniques to fix class imbalance in text data.",
+      "url": null
+    },
+    {
+      "id": "walmart-bayesian-structural-time-series",
+      "company": "Walmart",
+      "title": "Bayesian Structural Time Series for causal impact measurement",
+      "category": "experimentation-causal",
+      "hook": "Measuring the impact of a product taxonomy change with BSTS.",
+      "url": null
+    },
+    {
+      "id": "oda-ab-testing-culture",
+      "company": "Oda",
+      "title": "A/B testing practices and experimentation culture",
+      "category": "experimentation-causal",
+      "hook": "How Oda builds a culture that supports experimentation.",
+      "url": null
+    },
+    {
+      "id": "lyft-interference-bias-mmv",
+      "company": "Lyft",
+      "title": "Tackling interference bias with Marketplace Marginal Values (MMV)",
+      "category": "experimentation-causal",
+      "hook": "MMVs correct interference bias in marketplace experiments.",
+      "url": null
+    },
+    {
+      "id": "lyft-realtime-spatial-temporal-forecasting",
+      "company": "Lyft",
+      "title": "Real-time spatial-temporal forecasting: classical vs deep models",
+      "category": "forecasting-timeseries",
+      "hook": "Choosing between classical time-series and DNNs for real-time forecasting.",
+      "url": null
+    },
+    {
+      "id": "expedia-generative-traditional-ai-travel",
+      "company": "Expedia",
+      "title": "Combining generative and traditional AI for travel",
+      "category": "llm-genai",
+      "hook": "GenAI for open-ended tasks, traditional models for structured, mission-critical ones.",
+      "url": null
+    },
+    {
+      "id": "amazon-price-experimentation",
+      "company": "Amazon",
+      "title": "Improving price experimentation in the Amazon Store",
+      "category": "experimentation-causal",
+      "hook": "Better experimental design for pricing decisions.",
+      "url": "https://creators.spotify.com/pod/profile/pan-wu/episodes/Improving-Price-Experimentation-at-Amazon-Amazon-e2ilod8"
+    },
+    {
+      "id": "microsoft-double-machine-learning",
+      "company": "Microsoft",
+      "title": "Causal inference with Double Machine Learning when A/B testing isn't possible",
+      "category": "experimentation-causal",
+      "hook": "Double ML answers high-stakes questions without a clean experiment.",
+      "url": null
+    },
+    {
+      "id": "mercadolibre-geo-experimentation",
+      "company": "Mercado Libre",
+      "title": "Geo experimentation",
+      "category": "experimentation-causal",
+      "hook": "Region-level experiments where user-level randomization fails.",
+      "url": "https://creators.spotify.com/pod/profile/pan-wu/episodes/2023-11-13-Geo-Experimentation-Mercado-Libre-e2brq2p"
+    },
+    {
+      "id": "yelp-video-review-moderation",
+      "company": "Yelp",
+      "title": "Moderating video reviews with ML",
+      "category": "cv-multimodal",
+      "hook": "Detecting inappropriate content to keep video reviews trustworthy.",
+      "url": null
+    },
+    {
+      "id": "picnic-scalable-demand-forecasting",
+      "company": "Picnic",
+      "title": "Scalable demand forecasting for online groceries",
+      "category": "forecasting-timeseries",
+      "hook": "ML models for demand forecasting at an online grocer.",
+      "url": null
+    },
+    {
+      "id": "afresh-promotion-aware-demand-forecasting",
+      "company": "Afresh",
+      "title": "Promotion-aware demand forecasting",
+      "category": "forecasting-timeseries",
+      "hook": "Handling the outsized effect of promotions in grocery forecasting.",
+      "url": null
+    },
+    {
+      "id": "glassdoor-data-quality-anomaly-detection",
+      "company": "Glassdoor",
+      "title": "Data quality and anomaly detection at petabyte scale",
+      "category": "data-engineering",
+      "hook": "Data contracts, static analysis, LLM-based logic checks, and anomaly detection.",
+      "url": null
+    },
+    {
+      "id": "thumbtack-recommendations-offline-inference",
+      "company": "Thumbtack",
+      "title": "Recommendations with two sub-models and offline inference",
+      "category": "personalization-recsys",
+      "hook": "A two-sub-model recommendation architecture served via offline inference.",
+      "url": null
+    },
+    {
+      "id": "urban-company-causal-inference",
+      "company": "Urban Company",
+      "title": "Leveraging causal inference for product decisions",
+      "category": "experimentation-causal",
+      "hook": "Causal inference to guide decisions where experiments are hard.",
+      "url": null
+    },
+    {
+      "id": "instacart-llm-discovery-recommendations",
+      "company": "Instacart",
+      "title": "Our Early Journey to Transform Instacart's Discovery Recommendations with LLMs",
+      "category": "llm-genai",
+      "hook": "An AI-native platform for content generation, evaluation, and retrieval; generative models show early promise for discovery recommendations.",
+      "url": "https://tech.instacart.com/our-early-journey-to-transform-instacarts-discovery-recommendations-with-llms-cf4591a8602b"
+    },
+    {
+      "id": "uber-count-distinct-high-cardinality-pipelines",
+      "company": "Uber",
+      "title": "Scaling Exact COUNT(DISTINCT) for High-Cardinality Non-Rollup Metrics in Distributed Data Pipelines",
+      "category": "data-engineering",
+      "hook": "A distributed-pipelines approach to computing exact (not approximate) COUNT(DISTINCT) at high cardinality without rollups.",
+      "url": null
+    },
+    {
+      "id": "airbnb-voice-support-ml",
+      "company": "Airbnb",
+      "title": "Listening, Learning, and Helping at Scale: How ML Transforms Airbnb's Voice Support Experience",
+      "category": "llm-genai",
+      "hook": "Speech recognition, intent detection, and language models assist human support agents in real time.",
+      "url": "https://medium.com/airbnb-engineering/listening-learning-and-helping-at-scale-how-machine-learning-transforms-airbnbs-voice-support-b71f912d4760"
+    }
   ]
 }
