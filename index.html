@@ -331,6 +331,185 @@ const CATS = {
 
 const ARTICLES = [
   {
+    id: "shopify-sidekick-continual-learning-loop", title: "Sidekick's Continual Learning Loop",
+    source: "Shopify Engineering", url: "https://shopify.engineering/sidekicks-continual-learning-loop",
+    published: "2026-08", added: "2026-09-01", category: "llm-genai", novelty: 5, via: "full-text fetch",
+    tags: ["continual-learning","llm-judge","dspy","grpo","reinforcement-learning"],
+    tldr: "Shopify rebuilt Sidekick's improvement loop around a four-stage flywheel — a human-calibrated quality rubric, an LLM judge calibrated against it and against real A/B outcomes, automated prompt/tool research, and GRPO fine-tuning against that judge — cutting serving cost for a GraphQL agent from ~$27M to ~$1M/year.",
+    business: "<p>Sidekick is Shopify's AI agent. Relying purely on ever-larger frontier-model prompting to improve its quality gets expensive fast and hits diminishing returns. Shopify wanted to keep improving Sidekick without perpetually scaling frontier-model spend, and to do so against a quality signal it could actually trust rather than informal judgment calls.</p>",
+    technical: "<ul><li><strong>1. Human-calibrated quality rubric:</strong> calibrated against human raters using <strong>Cohen's kappa</strong>, an inter-rater agreement statistic that corrects for chance agreement.</li><li><strong>2. Judge calibration:</strong> a <strong>DSPy</strong>-based pipeline tunes an LLM-as-judge against the rubric using reflective prompt-optimization techniques (<strong>GEPA</strong> and <strong>ACE</strong>), then validates the judge against <strong>production A/B test outcomes</strong> before it's trusted as a reward signal.</li><li><strong>3. Prompt/tool autoresearch:</strong> an automated search process explores prompt and tool configurations.</li><li><strong>4. Continual learning:</strong> production failures are mined for SFT, followed by <strong>GRPO</strong> fine-tuning using the calibrated judge itself as the reward signal.</li><li>Serves a GraphQL agent at <strong>2,000 requests/minute</strong>.</li></ul>",
+    impact: "<p><strong>Realized:</strong> serving cost fell roughly <strong>96%, from ~$27M to ~$1M/year</strong>.</p><p><strong>Potential:</strong> a template for compounding LLM-agent quality improvements without linear cost growth from continually upgrading to bigger frontier models — as long as the judge is genuinely validated first.</p>",
+    verdict: { score: 5, line: "the calibration-before-reward discipline is the real contribution", body: "<p>LLM-as-judge, DSPy prompt optimization, and GRPO are each individually known. What stands out is calibrating the judge against human raters <em>and</em> real production A/B outcomes before ever using it as an RL reward — the step that separates this from RLHF against an uncalibrated judge, which tends to reward gaming the judge rather than genuine improvement. A verifiable, large production cost number for a real high-traffic agent is rare enough to merit the top of the scale.</p>" },
+    related: [
+      "Gisting: Compressing LLM Agent Context to Increase Throughput and Cut Cost — Shopify's companion piece; context compression as a different cost-reduction lever for the same underlying problem.",
+      "Running a Software Factory Efficiently at Uber Scale — a different company's cost-management framework for a coding-agent platform, attacking usage/routing economics rather than model quality via RL.",
+      "Delegating Engineering Work to Cloud-Based Agents (Flux) — another production LLM agent platform at scale, focused on sandboxed execution rather than a continual-learning loop."
+    ],
+    jargon: [
+      ["Cohen's kappa","A statistic measuring inter-rater agreement that corrects for chance, used here to validate a quality rubric against human judgment."],
+      ["LLM-as-judge","Using an LLM to score another model's outputs as a scalable stand-in for human evaluation."],
+      ["DSPy","A framework for programmatically optimizing prompts and multi-step LLM pipelines against a metric."],
+      ["GRPO (Group Relative Policy Optimization)","A reinforcement-learning fine-tuning method that scores a group of sampled outputs relative to each other rather than needing a separate value function."]
+    ]
+  },
+  {
+    id: "linkedin-feed-sr-sequential-recommender", title: "An Industrial-Scale Sequential Recommender for LinkedIn Feed Ranking (Feed SR)",
+    source: "LinkedIn / arXiv", url: "https://arxiv.org/abs/2602.12354",
+    published: "2026-02", added: "2026-09-01", category: "search-ranking", novelty: 5, via: "full-text fetch",
+    tags: ["sequential-recommender","transformer","rope","feed-ranking","scaling-laws","flash-attention"],
+    tldr: "LinkedIn replaced its DCNv2-based Feed ranker with Feed SR, a decoder-only transformer processing up to 1,000 historical impressions per member; it beat the legacy ranker and a tested LLM-based alternative, delivering +2.10% time spent and +3.52% social actions in production A/B while using less energy than the CPU-served incumbent.",
+    business: "<p>LinkedIn Feed serves 1.2B+ members. The legacy ranker (DCNv2, a feature-cross architecture) has no native way to model a member's long interaction history as an ordered sequence. LinkedIn built Feed SR to test whether a transformer-based sequential ranker could do better, evaluated against both the incumbent and LLM-based ranking alternatives under real production latency/cost constraints.</p>",
+    technical: "<ul><li><strong>Architecture:</strong> decoder-only transformer, pre-LayerNorm, RoPE positional embeddings, and scaled \"RescaleAndAdd\" residual connections (without pre-LN, AUC collapses to 0.5); processes up to <strong>1,000 historical impressions</strong> per member.</li><li><strong>Scoring head:</strong> a \"parallel DCNv2\" head after the transformer beat linear, MLP, stacked-DCNv2, and MMoE alternatives.</li><li><strong>Feature engineering:</strong> ~80% feature reduction vs. the legacy ranker; item-popularity and viewer-author-affinity signals mattered most.</li><li><strong>Serving:</strong> disaggregated CPU/GPU stack; Arrow columnar member histories; \"shared context batching\" scores ~512 candidates in one forward pass (80x speedup); a custom flash-attention CUDA kernel (\"SRMIS\") gives ~2x speedup over PyTorch SDPA.</li><li><strong>Rejected alternatives:</strong> an LLM-Ranker (text-prompt based) never beat production online; a TransAct-style history encoder was too latency-heavy for the pointwise-scoring serving infra.</li></ul>",
+    impact: "<p><strong>Realized:</strong> production A/B vs. prior DCNv2 — <strong>+2.10% time spent</strong> (DAU +2.38%), <strong>+3.52%</strong> likes/comments/reshares (DAU +4.07%); serving the majority of Feed traffic for 3+ months; uses ~0.2x training and ~0.7x inference energy of the legacy CPU-served pipeline despite being larger. Ablations: no RoPE costs -0.19% Long Dwell AUC; swapping in an HSTU-style architecture at matched compute costs -0.23%.</p><p><strong>Potential:</strong> a template combining sequential-transformer ranking with serious GPU-serving engineering for teams whose rankers are still CPU-served feature-cross models.</p>",
+    verdict: { score: 5, line: "rare rigor and rare honesty for a production systems paper", body: "<p>An unusually numbers-dense industrial paper: real production A/B results, energy-efficiency numbers, kernel-level engineering detail, and honest negative results about the LLM-ranker and TransAct approaches that didn't ship. That combination of rigor and candor is rare in a single write-up.</p>" },
+    related: [
+      "How Generative Recommenders Are Redefining RecSys at Scale — the same generative/sequential-recommender shift at the tooling level, including HSTU, which Feed SR explicitly tested and rejected at matched compute.",
+      "Towards Generalizable and Efficient Large-Scale Generative Recommenders — a parallel scaling-law study for a similar sequential-recommender backbone at Netflix.",
+      "From Models to Products: LLMs for Recommendation at Spotify Scale — another production system that rejected the most literal \"big LLM\" design in favor of a compact, purpose-built model."
+    ],
+    jargon: [
+      ["DCNv2","Deep & Cross Network v2, a feature-crossing ranking architecture common before sequence models."],
+      ["RoPE","Rotary Positional Embedding — encoding token position by rotating embedding vectors."],
+      ["Flash attention","A GPU-memory-efficient algorithm for computing attention without materializing the full attention matrix."]
+    ]
+  },
+  {
+    id: "netflix-generalizable-generative-recommenders", title: "Towards Generalizable and Efficient Large-Scale Generative Recommenders",
+    source: "Netflix / arXiv (RecSys '26)", url: "https://arxiv.org/abs/2605.23312",
+    published: "2026-05", added: "2026-09-01", category: "personalization-recsys", novelty: 5, via: "full-text fetch",
+    tags: ["generative-recommenders","scaling-laws","cold-start","multi-token-prediction","sampled-softmax"],
+    tldr: "Netflix scales its generative-recommender backbone from 2M to 1B parameters and finds the scaling payoff is task-dependent, not universal — introducing an \"offset power-law\" fit — plus multi-token prediction, sampled-softmax decoding, and semantic-embedding cold-start towers; a production-shadow test showed the 1B model beating the 2M baseline everywhere, including +28.1% MRR on cold-start titles.",
+    business: "<p>Netflix uses a shared generative sequence-model backbone across multiple recommendation-surface tasks. The paper asks whether LLM-style scaling pays off for this backbone in production, since pretraining gains don't automatically transfer to every downstream task, while respecting production constraints like frequent retraining cost, latency, and item cold-start.</p>",
+    technical: "<ul><li><strong>Scale:</strong> backbone scaled <strong>2M → 1B parameters</strong> (excluding embedding/decoding layers).</li><li><strong>Offset power-law fit:</strong> P(N) = P₀ − (N/N₀)^(−a), cutting RMSE 48.4%/61.8%/14.9% vs. standard log-linear fits on three task types; scaling benefit is task-dependent — some tasks near a ceiling, others still climbing.</li><li><strong>Multi-token prediction (MTP):</strong> a weighted multi-label loss with exponential time-decay addressing staleness under a 48-hour caching window; improved MRR 22-28% under that regime, though counterproductive for order-sensitive online serving.</li><li><strong>Efficient decoding:</strong> sampled softmax (~1% of negatives) plus a projected decoding head cuts FLOPs/token by ~35x, enabling frequent retraining.</li><li><strong>Cold-start:</strong> semantic item towers combining knowledge-graph features, LLM2Vec embeddings, and editorial annotations, with collaborative-embedding masking during training to force reliance on semantic evidence for new items.</li></ul>",
+    impact: "<p><strong>Realized:</strong> in a 1-week, 1M-user production-shadow evaluation, the 1B backbone beat the 2M baseline on MRR across every task — up to <strong>+28.1% on cold-start titles</strong>, the largest gain.</p><p><strong>Potential:</strong> the offset power-law diagnostic lets a team tell, per task, whether more scale will keep paying off before spending the compute to find out.</p>",
+    verdict: { score: 5, line: "a rare, rigorous scaling-law study, honest that scaling isn't universal", body: "<p>Genuinely rigorous recommender scaling-law studies at production scale are rare. The offset power-law fit is a useful diagnostic, backed by three separate concrete engineering answers each tied to a measured number. Being candid that scaling is task-dependent rather than universal is itself a useful, contrarian contribution.</p>" },
+    related: [
+      "An Industrial-Scale Sequential Recommender for LinkedIn Feed Ranking (Feed SR) — a similar production sequential/generative recommender, focused on serving engineering rather than scaling-law characterization.",
+      "How Generative Recommenders Are Redefining RecSys at Scale — the tooling layer this class of model would run on.",
+      "From User Sequences to Scaling Laws — Meta's own scaling-law study for a sequence-model ranking backbone, a close conceptual parallel."
+    ],
+    jargon: [
+      ["Multi-token prediction (MTP)","Training a model to predict several future tokens/events at once rather than just the next one."],
+      ["Sampled softmax","Approximating a full softmax over a huge vocabulary by scoring only a random sample of negative classes."],
+      ["MRR (Mean Reciprocal Rank)","A ranking-quality metric based on the position of the first relevant item in a ranked list."]
+    ]
+  },
+  {
+    id: "nvidia-generative-recommenders-recsys-scale", title: "How Generative Recommenders Are Redefining RecSys at Scale",
+    source: "NVIDIA Technical Blog", url: "https://developer.nvidia.com/blog/how-generative-recommenders-are-redefining-recsys-at-scale",
+    published: "2026-08", added: "2026-09-01", category: "personalization-recsys", novelty: 4, via: "full-text fetch",
+    tags: ["generative-recommenders","hstu","semantic-ids","gpu-inference","triton"],
+    tldr: "NVIDIA surveys the shift from embedding-similarity recommenders to generative, sequence-modeling recommenders centered on HSTU and Semantic IDs, and open-sources a reference training/serving stack reporting 7.65-31.40% FLOP/utilization gains and 1.14-2.38x inference speedups on DGX H100.",
+    business: "<p>Production recommenders traditionally score a fixed candidate set via embedding similarity. The field is shifting toward generative recommenders that treat recommendation as sequence generation, promising better long-tail/cold-start generalization — but bringing LLM-scale training/serving costs recsys teams aren't set up for without new tooling.</p>",
+    technical: "<ul><li><strong>HSTU</strong> (Hierarchical Sequential Transduction Units) — the architecture treating interaction history as a token sequence.</li><li><strong>Semantic ID tokenization</strong> — items as short discrete code sequences instead of memorized raw IDs.</li><li><strong>Open-source tooling:</strong> the recsys-examples repo, nv-embedding-cache, DynamicEmb GPU hash tables, Megatron-Core for training, PyTorch AOTInductor/Triton for inference.</li><li><strong>Benchmarks:</strong> 7.65-31.40% FLOP/utilization gains on DGX H100; 1.14-2.38x inference speedups; 2.14-2.27x lower offline latency and 1.85x higher online throughput vs. SGLang; 99,997 QPS on an MLPerf benchmark.</li></ul>",
+    impact: "<p><strong>Realized:</strong> the benchmark numbers above on NVIDIA's own reference stack/hardware — infrastructure benchmarking, not one company's live production result.</p><p><strong>Potential:</strong> a reusable GPU-optimized reference stack for any recsys team adopting generative recommenders without building large-scale training/serving infra from scratch.</p>",
+    verdict: { score: 4, line: "the tooling layer for an idea that's already spreading", body: "<p>HSTU and semantic IDs are established ideas — several posts in this bank already ship production instances. NVIDIA's contribution is the systems/tooling layer plus a consolidated benchmark story, useful as a signal of how standardized the pattern has become, but not a new modeling idea.</p>" },
+    related: [
+      "An Industrial-Scale Sequential Recommender for LinkedIn Feed Ranking (Feed SR) — a fully-realized production instance of this shift, including a head-to-head rejection of HSTU at matched compute.",
+      "Towards Generalizable and Efficient Large-Scale Generative Recommenders — Netflix's modeling counterpart to NVIDIA's tooling story.",
+      "Deploying Semantic ID-based Generative Retrieval for Large-Scale Podcast Discovery at Spotify — a production semantic-ID system predating this survey."
+    ],
+    jargon: [
+      ["HSTU","Hierarchical Sequential Transduction Units — a transformer-like architecture for modeling recommendation history as a sequence."],
+      ["Semantic ID","A short sequence of discrete codes standing in for an item's meaning, generated instead of a memorized raw ID."]
+    ]
+  },
+  {
+    id: "shopify-gisting-context-compression", title: "Gisting: Compressing LLM Agent Context to Increase Throughput and Cut Cost",
+    source: "Shopify Engineering", url: "https://shopify.engineering/gisting",
+    published: "2026-08", added: "2026-09-01", category: "llm-genai", novelty: 4, via: "full-text fetch",
+    tags: ["context-compression","knowledge-distillation","latency","throughput"],
+    tldr: "Shopify compresses Sidekick's ~6,000-token system prompt into ~1,500 learned \"gist\" tokens via knowledge distillation; at 350 req/min, median time-to-first-token dropped 438ms→354ms, median end-to-end latency 6.8s→4.2s, and throughput rose 20.2→23.4 QPS on identical hardware.",
+    business: "<p>Sidekick's system prompt carries substantial instructions and tool definitions. At production volume, the fixed cost of processing that prompt on every call adds up in both latency and aggregate compute cost. Shopify wanted to shrink that overhead without changing agent behavior.</p>",
+    technical: "<ul><li><strong>Gist tokens:</strong> knowledge distillation compresses the long system prompt into a short sequence of learned embeddings, trained so behavior conditioned on the gist tokens mirrors behavior conditioned on the full prompt.</li><li><strong>Compression ratio:</strong> ~6,000 tokens → ~1,500 gist tokens, a 4x reduction.</li><li><strong>Deployment:</strong> gist tokens swapped in at inference time in place of the real prompt text.</li></ul>",
+    impact: "<p><strong>Realized:</strong> at 350 req/min on identical hardware — median TTFT 438ms→354ms (-19%), median e2e latency 6.8s→4.2s (-38%), throughput 20.2→23.4 QPS.</p><p><strong>Potential:</strong> applicable to any LLM agent carrying a large, mostly-static system/tool-definition prompt paid for on every request.</p>",
+    verdict: { score: 4, line: "a clean production measurement of a known technique", body: "<p>Compressing a prompt into learned \"gist\" tokens isn't a new research idea, but a clean production measurement of the latency/throughput payoff at real traffic volume is comparatively rare to see reported with actual before/after numbers.</p>" },
+    related: [
+      "Sidekick's Continual Learning Loop — Shopify's companion piece; quality-driven RL as a different cost-reduction lever for the same underlying problem.",
+      "GEM Training: How Meta Doubled the Efficiency of Its LLM-Scale Ads Foundation Model — a different flavor of production LLM efficiency work (training-time systems co-design vs. inference-time context compression)."
+    ],
+    jargon: [
+      ["Gist tokens","A small number of learned embeddings trained to stand in for (compress) a much longer prompt."],
+      ["Time to first token (TTFT)","The latency from request start to the model's first generated output token."]
+    ]
+  },
+  {
+    id: "google-nested-learning-continual-learning-paradigm", title: "Introducing Nested Learning: A New ML Paradigm for Continual Learning",
+    source: "Google Research", url: "https://research.google/blog/introducing-nested-learning-a-new-ml-paradigm-for-continual-learning/",
+    published: "2026-08", added: "2026-09-01", category: "research-foundational", novelty: 4, via: "full-text fetch",
+    tags: ["continual-learning","catastrophic-forgetting","associative-memory","architecture"],
+    tldr: "Google Research proposes Nested Learning, reframing a model's architecture and optimizer as nested optimization problems updating at different frequencies to fight catastrophic forgetting; the accompanying Hope architecture (built on Titans) beats Transformer, Samba, TTT and Mamba2 baselines on perplexity, accuracy, and long-context needle-in-haystack tasks.",
+    business: "<p>Today's LLMs are largely frozen after pretraining; teaching them new information afterward tends to overwrite (catastrophically forget) prior knowledge, unlike biological brains. This blocks any deployed model from genuinely learning over time — a problem for any long-lived agent that should keep improving from experience.</p>",
+    technical: "<ul><li><strong>Core reframing:</strong> a model as a system of interconnected, multi-level optimization problems solved simultaneously — architecture and optimizer are \"the same concepts,\" just different levels of the same nested structure.</li><li><strong>Multi-time-scale updates:</strong> each component updates at its own frequency, echoing multi-frequency processing in biological brains.</li><li><strong>Associative memory framing:</strong> backprop and attention modeled as associative memory modules mapping data points to the value of their local error.</li><li><strong>Continuum Memory System (CMS):</strong> extends the Transformer's short-term/long-term memory split into a spectrum of modules each updating at its own frequency.</li><li><strong>Hope architecture:</strong> a self-modifying recurrent architecture built on the prior Titans framework, adding unbounded levels of in-context learning via self-referential optimization plus CMS blocks.</li></ul>",
+    impact: "<p><strong>Realized (benchmark, not production):</strong> Hope shows lower perplexity and higher accuracy than Transformer, Samba, and Titans baselines, and outperforms TTT and Mamba2 on long-context Needle-In-Haystack tasks across three difficulty levels. Published at NeurIPS 2025 (Behrouz, Razaviyayn, Zhong, Mirrokni).</p><p><strong>Potential:</strong> a genuinely different way to design architectures for continual learning without catastrophic forgetting, if it holds up at larger scale — not yet reported.</p>",
+    verdict: { score: 4, line: "a genuinely different conceptual frame, not yet proven at production scale", body: "<p>Proposing that architecture and optimizer are the same nested-optimization idea at different timescales is a different conceptual frame from most recent recurrent/hybrid papers. Hope backs it with head-to-head benchmarks against strong recent baselines. Not a 5 because everything reported is academic-benchmark scale — the payoff for real continual learning at production scale hasn't been demonstrated.</p>" },
+    related: [
+      "[Titans: Learning to Memorize at Test Time](https://arxiv.org/abs/2501.00663) — the prior architecture Hope builds directly on.",
+      "[Nested Learning: The Illusion of Deep Learning Architectures](https://arxiv.org/abs/2512.24695) — the full arXiv paper behind this blog post."
+    ],
+    jargon: [
+      ["Catastrophic forgetting","A model overwriting previously learned knowledge when it learns something new."],
+      ["Needle-in-a-haystack (NIAH)","A benchmark testing whether a model can retrieve a small piece of relevant information hidden inside a very long context."]
+    ]
+  },
+  {
+    id: "instacart-ads-retrieval-rebuild", title: "From Scoring to Spelling: Rebuilding Ads Retrieval at Instacart",
+    source: "Instacart Tech", url: "https://tech.instacart.com/from-scoring-to-spelling-rebuilding-ads-retrieval-at-instacart-cf36b4e8d1bb",
+    published: "2026-06", added: "2026-09-01", category: "search-ranking", novelty: 3, via: "web search",
+    tags: ["ads-retrieval","generative-retrieval","sequence-modeling","beam-search"],
+    tldr: "Instacart rebuilds ads retrieval around a generative model that \"spells out\" product identifiers token-by-token rather than scoring a pre-enumerated candidate list — successor to its 2024 BERT-like Contextual Recommendations model. Reported CTR lift is single-sourced and some architecture details are unconfirmed (tech.instacart.com was unreachable in this environment).",
+    business: "<p>Instacart surfaces sponsored products on the retailer home page, search results, and near the cart via a retrieval model selecting from a large ads catalog. Its 2024 Contextual Recommendations (CR) system treated shopping like language modeling — product IDs as tokens, a session as the input sequence. This rebuild moves from scoring a fixed candidate list to generating product identifiers directly, aiming to reach ad products a fixed-candidate system couldn't.</p>",
+    technical: "<ul><li>Reportedly generates product representations token-by-token using <strong>beam search</strong>, mapped against a retailer-partitioned index.</li><li>Whether items use Semantic IDs (as in Spotify's generative retrieval) is plausible but <strong>unconfirmed</strong> as specific to this implementation.</li><li>Predecessor CR system reportedly delivered a 30% cart-addition lift and 10-40% Recall@K improvement (per a third-party summary, not this article).</li></ul>",
+    impact: "<p><strong>Realized (single-source, unverified):</strong> a reported +5% CTR improvement in online A/B testing — from search-engine synthesis, not independently corroborated.</p><p><strong>Potential:</strong> if the generative approach genuinely escapes a fixed candidate list's discovery ceiling, it's applicable to any retrieval system bottlenecked the same way.</p>",
+    verdict: { score: 3, line: "a real shift, but the least-verified entry in this batch", body: "<p>The scoring-to-generation reframing is meaningful and consistent with where the industry is heading, but the specific architectural claims here are the least verified of anything in this batch — worth revisiting once the primary source is directly reachable.</p>" },
+    related: [
+      "Deploying Semantic ID-based Generative Retrieval for Large-Scale Podcast Discovery at Spotify — the generative-retrieval pattern this entry's \"spelling\" framing likely resembles.",
+      "GenRec at Netflix — another production system moving retrieval/ranking toward LLM-native generation.",
+      "An Industrial-Scale Sequential Recommender for LinkedIn Feed Ranking (Feed SR) — a useful contrast: a similarly-motivated generative/LLM ranker tried and explicitly rejected there."
+    ],
+    jargon: [
+      ["Beam search","A search strategy keeping the top-k partial sequences at each generation step, to explore multiple candidate outputs."],
+      ["Candidate retrieval","The stage narrowing a huge catalog to a shortlist before ranking."]
+    ]
+  },
+  {
+    id: "uber-cost-efficient-export-workloads", title: "Running Cost-Efficient Export Workloads at Uber",
+    source: "Uber Engineering", url: "https://www.uber.com/us/en/blog/running-cost-efficient-export/",
+    published: "2026-08", added: "2026-09-01", category: "data-engineering", novelty: 3, via: "full-text fetch",
+    tags: ["lakehouse","hudi","data-pruning","compliance"],
+    tldr: "Uber cuts the cost of \"needle in haystack\" compliance/export queries against its GCS-backed Hudi lakehouse by combining column-stats file pruning with table sorting/clustering on predicate columns — a 24.8% disk reduction on sorted partitions vs. a secondary-index alternative.",
+    business: "<p>Compliance/export queries like Data Subject Access Requests touch a tiny number of specific records, but were triggering full-table scans against a lakehouse tuned for large scans — defeating storage tiering and driving up compute/egress cost for what should be cheap point lookups.</p>",
+    technical: "<ul><li><strong>Column-stats file pruning:</strong> Hudi skips files whose stored min/max stats show they can't match, without reading them.</li><li><strong>Table sorting/clustering</strong> on the columns export queries filter on physically co-locates matching rows, making pruning far more effective.</li><li>Evaluated against an alternative design using a <strong>secondary index</strong>.</li></ul>",
+    impact: "<p><strong>Realized:</strong> a 24.8% disk reduction on sorted partitions, plus reduced GCS egress and metadata costs vs. the secondary-index alternative.</p><p><strong>Potential:</strong> a reusable pattern for any lakehouse mixing rare point-lookup workloads into a system otherwise tuned for large scans.</p>",
+    verdict: { score: 3, line: "solid, well-evaluated engineering on established techniques", body: "<p>Column-stats pruning and clustering for predicate locality are well-established lakehouse techniques. The value is Uber's specific, measured comparison against a plausible alternative and a concrete number, not a new idea.</p>" },
+    related: [
+      "How Databricks Feature Store Serves Features with Sub-Second Freshness — a different lakehouse-adjacent optimization problem on a similar class of infrastructure."
+    ],
+    jargon: [
+      ["Apache Hudi","An open table format for building lakehouses, with support for indexing, clustering, and incremental processing."],
+      ["Data Subject Access Request (DSAR)","A legally mandated request for all the personal data a company holds on a specific individual."]
+    ]
+  },
+  {
+    id: "uber-software-factory-efficient-agent-cost", title: "Running a Software Factory Efficiently at Uber Scale",
+    source: "Uber Engineering", url: "https://www.uber.com/us/en/blog/efficient-software-factory/",
+    published: "2026-08", added: "2026-09-01", category: "llm-genai", novelty: 3, via: "full-text fetch",
+    tags: ["coding-agents","cost-management","model-routing","prompt-caching"],
+    tldr: "Uber manages its coding-agent platform's cost (>70% of PRs now agent-authored, 30K+ daily skill runs) by decomposing spend as users×sessions×turns×requests×tokens×price — model routing, prompt caching, CLI-based MCP access, and code-mode batching cut cost per 1,000 requests 34% and cost per session 52% since June 2026, even as usage grew 7-9x.",
+    business: "<p>As Uber's internal coding-agent platform scaled, usage grew far faster than budgeted, and unmanaged frontier-model spend threatened to grow linearly (or worse) with usage. Uber needed a systematic cost framework rather than ad hoc cuts.</p>",
+    technical: "<ul><li><strong>Cost decomposition:</strong> users × sessions × turns × requests × tokens × price — identifying which factor to attack.</li><li><strong>Benchmark-driven model routing</strong> to the cheapest model clearing a quality bar.</li><li><strong>Prompt caching</strong> to avoid recomputing repeated prefixes.</li><li><strong>CLI-based MCP tool access</strong>, avoiding the 50-70K token overhead of exposing full tool schemas in the prompt.</li><li><strong>Code-mode batching</strong> of operations.</li></ul>",
+    impact: "<p><strong>Realized:</strong> 7x WAU growth, 9.4x weekly request growth (Feb-Aug 2026); cost per 1,000 requests down 34%, cost per session down 52% from its June 2026 peak; >70% of PRs now agent-authored, 30K+ daily skill runs.</p><p><strong>Potential:</strong> a reusable multiplicative cost model for any org running a high-growth internal LLM-agent platform.</p>",
+    verdict: { score: 3, line: "a useful operational framework, not a new technique", body: "<p>The multiplicative cost decomposition is a clean, reusable mental model with large concrete numbers, but most individual levers — routing, caching, batching — are known practices applied well at scale rather than a research contribution.</p>" },
+    related: [
+      "Delegating Engineering Work to Cloud-Based Agents (Flux) — DoorDash's own cloud coding-agent platform, focused on sandboxed execution rather than cost management specifically.",
+      "Sidekick's Continual Learning Loop — Shopify's cost-reduction lever (quality-driven RL) for a different kind of high-traffic LLM agent."
+    ],
+    jargon: [
+      ["MCP (Model Context Protocol)","A standard protocol for exposing tools and data sources to an LLM agent."],
+      ["Model routing","Dynamically choosing which model serves a given request based on a cost/quality tradeoff."]
+    ]
+  },
+  {
     id: "meta-llatte-ads-scaling-laws", title: "From User Sequences to Scaling Laws: A Multi-Stage Architecture for Meta's Ads Ranking",
     source: "Engineering at Meta", url: "https://engineering.fb.com/2026/08/05/ml-applications/from-user-sequences-to-scaling-laws-a-multi-stage-architecture-for-metas-ads-ranking/",
     published: "2026-08", added: "2026-08-31", category: "personalization-recsys", novelty: 4, via: "web search",
@@ -834,7 +1013,7 @@ const ARTICLES = [
   }
 ];
 
-const UPDATED = "2026-08-31";
+const UPDATED = "2026-09-01";
 
 // Lightweight backlog (mostly Snacks Weekly episodes) awaiting full deep-dive write-ups.
 const CATALOG = [
@@ -868,10 +1047,7 @@ const CATALOG = [
   { id:"glassdoor-data-quality-anomaly-detection", company:"Glassdoor", title:"Data quality and anomaly detection at petabyte scale", category:"data-engineering", hook:"Data contracts, static analysis, LLM-based logic checks, and anomaly detection.", url:null },
   { id:"thumbtack-recommendations-offline-inference", company:"Thumbtack", title:"Recommendations with two sub-models and offline inference", category:"personalization-recsys", hook:"A two-sub-model recommendation architecture served via offline inference.", url:null },
   { id:"urban-company-causal-inference", company:"Urban Company", title:"Leveraging causal inference for product decisions", category:"experimentation-causal", hook:"Causal inference to guide decisions where experiments are hard.", url:null },
-  { id:"linkedin-feed-sr-sequential-recommender", company:"LinkedIn", title:"An Industrial-Scale Sequential Recommender for LinkedIn Feed Ranking (Feed SR)", category:"search-ranking", hook:"A transformer-based sequential ranking model processing 1,000+ historical interactions replaces a DCNv2 ranker; +2.10% time spent in production A/B tests.", url:"https://arxiv.org/abs/2602.12354" },
-  { id:"netflix-generalizable-generative-recommenders", company:"Netflix", title:"Towards Generalizable and Efficient Large-Scale Generative Recommenders", category:"personalization-recsys", hook:"Netflix scales a generative recommender backbone from 2M to 1B parameters; +28.1% on cold-start titles in production shadow.", url:"https://arxiv.org/abs/2605.23312" },
   { id:"instacart-llm-discovery-recommendations", company:"Instacart", title:"Our Early Journey to Transform Instacart's Discovery Recommendations with LLMs", category:"llm-genai", hook:"An AI-native platform for content generation, evaluation, and retrieval shows early promise for discovery recommendations.", url:"https://tech.instacart.com/our-early-journey-to-transform-instacarts-discovery-recommendations-with-llms-cf4591a8602b" },
-  { id:"instacart-ads-retrieval-rebuild", company:"Instacart", title:"From Scoring to Spelling: Rebuilding Ads Retrieval at Instacart", category:"search-ranking", hook:"BERT-like transformers trained on millions of shopping sessions rebuild ads retrieval around learned purchasing patterns.", url:"https://tech.instacart.com/from-scoring-to-spelling-rebuilding-ads-retrieval-at-instacart-cf36b4e8d1bb" },
   { id:"uber-count-distinct-high-cardinality-pipelines", company:"Uber", title:"Scaling Exact COUNT(DISTINCT) for High-Cardinality Non-Rollup Metrics in Distributed Data Pipelines", category:"data-engineering", hook:"A distributed-pipelines approach to exact (not approximate) COUNT(DISTINCT) at high cardinality without rollups.", url:null },
   { id:"airbnb-voice-support-ml", company:"Airbnb", title:"Listening, Learning, and Helping at Scale: How ML Transforms Airbnb's Voice Support Experience", category:"llm-genai", hook:"Speech recognition, intent detection, and language models assist human support agents in real time.", url:"https://medium.com/airbnb-engineering/listening-learning-and-helping-at-scale-how-machine-learning-transforms-airbnbs-voice-support-b71f912d4760" },
   { id:"deepmind-double-blind-ai-evaluations", company:"Google DeepMind", title:"Piloting the World's First Double-Blind AI Evaluations", category:"experimentation-causal", hook:"A cryptographically secure double-blind protocol for benchmarking proprietary models, aimed at building trust in AI evaluation results.", url:"https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/" }
@@ -908,7 +1084,16 @@ const REL_LINKS = {
   "Improving ETAs with Multi-Task Models & Probabilistic Forecasts at DoorDash": "https://careersatdoordash.com/blog/improving-etas-with-multi-task-models-deep-learning-and-probabilistic-forecasts/",
   "Delegating Engineering Work to Cloud-Based Agents (Flux)": "https://careersatdoordash.com/blog/delegating-engineering-work-to-cloud-based-agents/",
   "The Quest to Understand Metric Movements": "https://medium.com/pinterest-engineering/the-quest-to-understand-metric-movements-8ab12ae97cda",
-  "Bandits for Marketing Optimization at Instacart": "https://tech.instacart.com/bandits-for-marketing-optimization-f5a63b9bfaa7"
+  "Bandits for Marketing Optimization at Instacart": "https://tech.instacart.com/bandits-for-marketing-optimization-f5a63b9bfaa7",
+  "Gisting: Compressing LLM Agent Context to Increase Throughput and Cut Cost": "https://shopify.engineering/gisting",
+  "Sidekick's Continual Learning Loop": "https://shopify.engineering/sidekicks-continual-learning-loop",
+  "Running a Software Factory Efficiently at Uber Scale": "https://www.uber.com/us/en/blog/efficient-software-factory/",
+  "Running Cost-Efficient Export Workloads at Uber": "https://www.uber.com/us/en/blog/running-cost-efficient-export/",
+  "How Generative Recommenders Are Redefining RecSys at Scale": "https://developer.nvidia.com/blog/how-generative-recommenders-are-redefining-recsys-at-scale",
+  "An Industrial-Scale Sequential Recommender for LinkedIn Feed Ranking (Feed SR)": "https://arxiv.org/abs/2602.12354",
+  "From Scoring to Spelling: Rebuilding Ads Retrieval at Instacart": "https://tech.instacart.com/from-scoring-to-spelling-rebuilding-ads-retrieval-at-instacart-cf36b4e8d1bb",
+  "Deploying Semantic ID-based Generative Retrieval for Large-Scale Podcast Discovery at Spotify": "https://arxiv.org/pdf/2603.17540",
+  "How Databricks Feature Store Serves Features with Sub-Second Freshness": "https://www.databricks.com/blog/how-databricks-feature-store-serves-features-sub-second-freshness"
 };
 function anchor(href, text){ return `<a href="${esc(href)}" target="_blank" rel="noopener">${text}</a>`; }
 function arxivify(h){ return h.replace(/arXiv\s+(\d{4}\.\d{4,5})/g, (m,id)=>`arXiv ${anchor("https://arxiv.org/abs/"+id, id)}`); }
