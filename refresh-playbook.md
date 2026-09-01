@@ -151,15 +151,11 @@ authenticated in the run environment (see Prerequisites). If it is not, **skip
 silently** and add one line to the digest — `🎙️ Podcast: skipped (NotebookLM not
 configured in this environment)` — then carry on. Never let this step fail the run.
 
-Precondition check first:
+Precondition check first — if it fails, skip per above:
 
 ```sh
-command -v notebooklm >/dev/null 2>&1 && notebooklm auth status >/dev/null 2>&1
+command -v notebooklm >/dev/null 2>&1 && notebooklm auth refresh --quiet >/dev/null 2>&1
 ```
-
-(If `auth status` is not a valid subcommand in the installed version, treat a
-successful `notebooklm create --help` plus an existing stored login as the gate.)
-If the check fails, skip per above.
 
 When available, run — substituting the chosen article's file and today's date:
 
@@ -185,13 +181,31 @@ Then:
   size becomes a concern, switch to keeping only the latest file, e.g.
   `podcasts/latest.m4a`, instead of a dated archive.)
 
-**Prerequisites (one-time, in the Routine's environment — not doable from a
-normal run):** install the tool (`uv tool install "notebooklm-py[browser]"`),
-and create a **persisted, non-interactive login** with a master token
-(`notebooklm login --master-token --account <you@example.com>`) so fresh CI-style
-sessions can authenticate without a browser. The environment also needs outbound
-network access to Google/NotebookLM. Until these are in place, the step no-ops by
-design and the digest notes the skip.
+**Prerequisites (one-time, environment-level — cannot be done from inside a run).**
+Use the **master-token** auth: durable, self-refreshing, pure-Python (no browser).
+
+1. On a normal machine, with a **dedicated/throwaway Google account**:
+   `pip install "notebooklm-py[headless]"` then
+   `notebooklm login --master-token --account <you@gmail.com>`. This writes
+   `~/.notebooklm/profiles/default/master_token.json`.
+2. Add that file's JSON to the Routine's environment as a **secret** named
+   `NOTEBOOKLM_MASTER_TOKEN_JSON` (env `env_01Kyo6JpRMFq4tGL5wUee1Ln`). Never
+   commit the token — it grants full account access, hence the throwaway account.
+3. Ensure the environment's **network policy allows outbound access to Google /
+   NotebookLM**.
+
+At run time, Step 6c (or the environment setup script) materializes it before use:
+
+```sh
+umask 077; mkdir -p ~/.notebooklm/profiles/default
+printf '%s' "$NOTEBOOKLM_MASTER_TOKEN_JSON" > ~/.notebooklm/profiles/default/master_token.json
+chmod 600 ~/.notebooklm/profiles/default/master_token.json
+command -v notebooklm >/dev/null 2>&1 || pip install "notebooklm-py[headless]" >/dev/null 2>&1
+notebooklm auth refresh --quiet   # mints fresh web cookies from the master token
+```
+
+Until the secret + egress are in place, Step 6c no-ops by design and the digest
+notes the skip.
 
 ## Step 7 — Deliver & persist
 
