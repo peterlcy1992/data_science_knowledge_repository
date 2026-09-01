@@ -140,15 +140,69 @@ page automatically; do not call the `Artifact` tool. Do not add `<!doctype>`,
 keep it a single self-contained document (inline CSS/JS; only the Google Fonts
 `<link>` is external).
 
+## Step 6c — Generate the deep-dive podcast (best-effort)
+
+Turn today's deep-dive article (the one chosen in Step 5) into a NotebookLM
+**deep-dive audio podcast**, using [`notebooklm-py`](https://github.com/teng-lin/notebooklm-py)
+and the steering prompt in [`automation/podcast_prompt.md`](automation/podcast_prompt.md).
+
+This step is **best-effort**: it needs NotebookLM to be installed and
+authenticated in the run environment (see Prerequisites). If it is not, **skip
+silently** and add one line to the digest — `🎙️ Podcast: skipped (NotebookLM not
+configured in this environment)` — then carry on. Never let this step fail the run.
+
+Precondition check first:
+
+```sh
+command -v notebooklm >/dev/null 2>&1 && notebooklm auth status >/dev/null 2>&1
+```
+
+(If `auth status` is not a valid subcommand in the installed version, treat a
+successful `notebooklm create --help` plus an existing stored login as the gate.)
+If the check fails, skip per above.
+
+When available, run — substituting the chosen article's file and today's date:
+
+```sh
+# 1. New notebook for today's deep dive
+notebooklm create "DS Deep Dive <YYYY-MM-DD> — <article title>"
+# 2. Add the article itself as the single source (Markdown is supported)
+notebooklm source add "articles/<YYYY-MM-DD>-<id>.md"
+# 3. Generate a deep-dive podcast at the DEFAULT length, steered by the prompt file.
+#    Confirm the exact format/length flag names with `notebooklm generate audio --help`
+#    (the format is "deep-dive"; do NOT pass a length flag — default length is wanted).
+notebooklm generate audio --prompt-file automation/podcast_prompt.md --wait
+# 4. Download the audio into the repo
+notebooklm download audio "podcasts/<YYYY-MM-DD>-<id>.m4a"
+```
+
+Then:
+- Add a **Podcast** line to today's digest and to the deep-dive section:
+  `🎙️ Deep-dive podcast: podcasts/<YYYY-MM-DD>-<id>.m4a` (once committed it is
+  also reachable on the Pages site at
+  `https://peterlcy1992.github.io/data_science_knowledge_repository/podcasts/<YYYY-MM-DD>-<id>.m4a`).
+- Commit the `.m4a` with everything else in Step 7. (Audio is large — if repo
+  size becomes a concern, switch to keeping only the latest file, e.g.
+  `podcasts/latest.m4a`, instead of a dated archive.)
+
+**Prerequisites (one-time, in the Routine's environment — not doable from a
+normal run):** install the tool (`uv tool install "notebooklm-py[browser]"`),
+and create a **persisted, non-interactive login** with a master token
+(`notebooklm login --master-token --account <you@example.com>`) so fresh CI-style
+sessions can authenticate without a browser. The environment also needs outbound
+network access to Google/NotebookLM. Until these are in place, the step no-ops by
+design and the digest notes the skip.
+
 ## Step 7 — Deliver & persist
 
-- Commit everything on the branch with a message like
-  `refresh <YYYY-MM-DD> (+N articles)` and push with
+- Commit everything on the branch (articles, `index.json`, `catalog.json`,
+  `index.html`, the digest, and today's `podcasts/*.m4a` if one was produced)
+  with a message like `refresh <YYYY-MM-DD> (+N articles)` and push with
   `git push -u origin main` (retry on
   network errors with exponential backoff).
 - End the session with the digest as the final message so it becomes the
   owner-notification email body. Lead with the deep-dive article title and the
-  count of newly added articles.
+  count of newly added articles; if a podcast was produced, mention it.
 
 ## Guardrails
 
