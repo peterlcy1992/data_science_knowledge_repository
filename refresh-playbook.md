@@ -218,13 +218,74 @@ notebooklm auth refresh --quiet   # mints fresh web cookies from the master toke
 Until the secret + egress are in place, Step 6c no-ops by design and the digest
 notes the skip.
 
+## Step 6d — Episode metadata, cover art & RSS.com draft (best-effort)
+
+Run this **only when Step 6c actually produced an `.m4a`**. Every part is
+best-effort — never fail the run over it. The audio lives in the podcast show
+**Data Science in the Wild** (see [`podcasts/SHOW.md`](podcasts/SHOW.md)).
+
+1. **Episode notes.** Write `podcasts/<YYYY-MM-DD>-<id>.md` — the episode title
+   and a one-paragraph description built from the article's substance. Title:
+   `"<Company> — <short hook>"`. End the description with a
+   `Source article: "<article title>" — <source>, <url> (published <YYYY-MM>).`
+   line taken from the article's front matter. Do **not** reference the internal
+   knowledge bank — the podcast audience can't see it.
+
+2. **Manifest.** Append an entry to [`podcasts/episodes.json`](podcasts/episodes.json)
+   (the manifest `automation/rss_upload.py` reads). Use `next_episode` for the
+   `episode` number, then increment `next_episode`. Fields:
+   `{ "episode": N, "season": 1, "date": "<YYYY-MM-DD>", "title": "...",
+   "description": "...", "audio": "podcasts/<YYYY-MM-DD>-<id>.m4a",
+   "cover": "podcasts/<YYYY-MM-DD>-<id>.cover.png", "rss_status": "not_uploaded" }`.
+   Keep `title`/`description` identical to the sidecar `.md`.
+
+3. **Cover art.** Generate a mono-color episode tile with the source company's
+   stylized wordmark (an attribution treatment — never a reproduction of a
+   trademarked logo). Derive the company from the article's `source`/front
+   matter, then:
+
+   ```sh
+   NODE_PATH=/opt/node22/lib/node_modules node automation/podcast_cover.js \
+     --company "<Company>" \
+     --title "<short display title>" \
+     --overline "<category or theme>" \
+     --subtitle "<one short line>" \
+     --episode <N> \
+     --out "podcasts/<YYYY-MM-DD>-<id>.cover.png"
+   ```
+
+   Optional `--motif signal|sequence|loop` (default `signal`); palette + monogram
+   are auto-derived from the company when not overridden with `--ink/--accent-ink/--mono`.
+   Needs Node + Playwright + Chromium (present in this environment; set
+   `CHROMIUM_PATH` only if auto-detect fails). If it errors, skip and leave the
+   `cover` field null.
+
+4. **RSS.com draft (best-effort).** Create an **unpublished draft** episode on
+   RSS.com:
+
+   ```sh
+   python3 automation/rss_upload.py --episode <N> --yes
+   ```
+
+   It needs `RSS_API_KEY` and egress to `api.rss.com`; if either is missing it
+   exits cleanly — then skip and leave `rss_status` `"not_uploaded"`, noting in
+   the digest that the episode is ready for a manual/local upload. **NEVER
+   publish** — the script only ever creates a draft; the owner publishes from the
+   RSS.com dashboard. On success it records `rss_status`/`rss_episode_id` back
+   into `episodes.json`.
+
+Add a short line to the digest reflecting what happened, e.g.
+`🎙️ Episode S1E<N> — cover ✓, RSS draft ✓` (or `RSS: not configured — ready for
+local upload`).
+
 ## Step 7 — Deliver & persist
 
 - Commit everything on the branch (articles, `index.json`, `catalog.json`,
-  `index.html`, the digest, and today's `podcasts/*.m4a` if one was produced)
-  with a message like `refresh <YYYY-MM-DD> (+N articles)` and push with
-  `git push -u origin main` (retry on
-  network errors with exponential backoff).
+  `index.html`, the digest, and — if a podcast was produced in Step 6c/6d —
+  today's `podcasts/<YYYY-MM-DD>-<id>.m4a`, its `.md` sidecar and `.cover.png`,
+  and the updated `podcasts/episodes.json`) with a message like
+  `refresh <YYYY-MM-DD> (+N articles)` and push with `git push -u origin main`
+  (retry on network errors with exponential backoff).
 - End the session with the digest as the final message so it becomes the
   owner-notification email body. Lead with the deep-dive article title and the
   count of newly added articles; if a podcast was produced, mention it.
@@ -237,3 +298,9 @@ notes the skip.
   source or search results, omit it or mark it as unclear.
 - Keep opinions fenced under **Claude's Take**; never present them as the
   source's claims.
+- RSS.com uploads (Step 6d) only ever create an **unpublished draft** — never
+  publish or schedule an episode. The owner reviews and publishes each draft.
+- Never commit secrets (`RSS_API_KEY`, the NotebookLM token). They come from the
+  environment; the repo only reads them.
+- Company wordmarks on covers are stylized attribution treatments — never
+  reproduce a company's actual trademarked logo.

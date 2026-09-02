@@ -27,5 +27,27 @@ design with the source company's stylized wordmark.
 | 01 | A Transformer That Ranks Your Feed (Feed SR) | LinkedIn | [notes](2026-09-01-linkedin-feed-sr-sequential-recommender.md) · [cover](2026-09-01-linkedin-feed-sr-sequential-recommender.cover.png) |
 | 02 | An AI Agent That Trains Itself (Sidekick) | Shopify | [notes](2026-09-01-shopify-sidekick-continual-learning-loop.md) · [cover](2026-09-01-shopify-sidekick-continual-learning-loop.cover.png) |
 
+## Publishing to RSS.com
+
+Episode metadata for the podcast host lives in [`episodes.json`](episodes.json).
+[`../automation/rss_upload.py`](../automation/rss_upload.py) creates an
+**unpublished draft** episode on RSS.com (Core API v4) for each entry — audio +
+cover + title + description — for the **Data Science in the Wild** show. It never
+publishes; the owner reviews and publishes each draft in the RSS.com dashboard.
+
+It needs an RSS.com **Network plan**, `RSS_API_KEY` in the environment, and
+outbound egress to `api.rss.com` (both are unavailable in the repo's automation
+environments by policy — run it locally):
+
+```
+export RSS_API_KEY=...                              # from RSS.com settings
+python3 automation/rss_upload.py --list-podcasts    # confirm the show is found
+python3 automation/rss_upload.py --all              # dry-run (prints the plan)
+python3 automation/rss_upload.py --all --yes        # create the drafts
+```
+
+`rss_status` in `episodes.json` tracks each episode: `not_uploaded` → `draft` →
+`scheduled`/`published`.
+
 Audio files are large; if repository size becomes a concern, switch the daily
 job to keep only the latest file (`latest.m4a`) instead of a dated archive.
