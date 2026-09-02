@@ -331,6 +331,110 @@ const CATS = {
 
 const ARTICLES = [
   {
+    id: "databricks-agent-cost-tracing-mcp", title: "How We Eliminated $1M/Year of Wasted AI Agent Spend in One Hour",
+    source: "Databricks Blog", url: "https://www.databricks.com/blog/how-we-eliminated-1-million-year-wasted-ai-agent-spend-one-hour",
+    published: "2026-09", added: "2026-09-02", category: "ml-infra-serving", novelty: 3, via: "web search",
+    tags: ["agent-observability","mcp","opentelemetry","cost-optimization","tracing"],
+    tldr: "Databricks engineers used OpenTelemetry traces of every MCP tool call, queried via a natural-language interface (Genie One), to find seven silent tool-server bugs causing AI agents to burn tokens on failing retries — an estimated $1.2M/year in waste, found and fixed within an hour.",
+    business: "<p>AI agents calling tools via MCP don't fail loudly when a tool call goes wrong — they retry or work around the error, so wasted tokens and latency show up on a dashboard only as generic 'usage growth,' not as an identifiable defect. Databricks wanted to know whether trace data it already collected could surface these hidden failures without a dedicated cost-audit project.</p>",
+    technical: "<ul><li><strong>Unity Gateway tracing:</strong> every MCP tool call automatically emits an OpenTelemetry trace with tool name, arguments, errors, token counts, latency, and session ID — instrumentation already running.</li><li><strong>Genie One as the query interface:</strong> natural-language queries against the trace data, rather than hand-written SQL, is what let the investigation move from suspicion to seven named bugs in about an hour.</li><li><strong>Failure pattern:</strong> the costliest bugs were tools accepting only rigid input formats while the model reasonably inferred flexible alternatives — a Jira bug caused 535 failures/day, a Google Drive bug failed on 49.6% of calls.</li></ul>",
+    impact: "<p><strong>Realized:</strong> seven tool-server bugs fixed; an estimated <strong>$499K/year</strong> in wasted tokens plus <strong>~12,000 engineering-hours/year</strong> lost to wait time, for a combined <strong>~$1.2M/year</strong> — found and resolved within one hour.</p><p><strong>Potential:</strong> a template for treating existing agent observability data as a first-class cost-debugging surface rather than building bespoke cost-monitoring tooling.</p>",
+    verdict: { score: 3, line: "a compelling case study in a discipline more teams should already practice", body: "<p>No new technique — OpenTelemetry tracing and natural-language BI interfaces both predate this. The value is the demonstration: agent cost waste hides in silent retries that usage dashboards can't distinguish from legitimate growth, and the fix was cheap once someone actually queried the trace data.</p>" },
+    related: [
+      "Sidekick's Continual Learning Loop — a deeper lever on agent serving cost (RL-tuned model quality) but the same underlying concern of agent cost bloat at scale.",
+      "Gisting: Compressing LLM Agent Context to Increase Throughput and Cut Cost — another agent cost lever, there attacking token volume directly via context compression rather than eliminating failed calls.",
+      "Running a Software Factory Efficiently at Uber Scale — a companion piece on managing coding-agent costs via model routing and prompt caching rather than tracing-driven bug hunts."
+    ],
+    jargon: [
+      ["MCP (Model Context Protocol)","A standard protocol letting an LLM agent call external tools (e.g., Jira, Google Drive) in a structured way."],
+      ["OpenTelemetry trace","A structured record of an operation (here, one tool call) capturing timing, inputs, outputs, and errors."],
+      ["Genie One","Databricks' natural-language query interface, letting users ask questions of tabular data without writing SQL."]
+    ]
+  },
+  {
+    id: "aws-bedrock-query-aware-rag-compression", title: "Reduce RAG Costs on Amazon Bedrock with Query-Aware Compression",
+    source: "AWS Machine Learning Blog", url: "https://aws.amazon.com/blogs/machine-learning/reduce-rag-costs-on-amazon-bedrock-with-query-aware-compression/",
+    published: "2026-08", added: "2026-09-02", category: "llm-genai", novelty: 3, via: "web search",
+    tags: ["rag","context-compression","cost-optimization","bedrock","hallucination-reduction"],
+    tldr: "AWS describes a two-stage RAG pattern where a cheap model (Claude Haiku) extracts only query-relevant verbatim spans from retrieved chunks before a larger model (Claude Sonnet) answers — cutting cost 33-36%, tokens to the primary model 8.6-10.1x, and hallucination rate from 51% to as low as 38%.",
+    business: "<p>RAG retrieval is tuned for high recall — 5-20 chunks of several thousand tokens per query — but most retrieved tokens are irrelevant to any specific question, and every one is billed to the expensive answering model. Irrelevant context is also itself a hallucination source, giving the model more room to latch onto tangential material.</p>",
+    technical: "<ul><li><strong>Two-stage pipeline:</strong> a small model (Claude Haiku) receives the full retrieved context plus the query and extracts only relevant verbatim spans, without paraphrasing, preserving chunk IDs for citation.</li><li><strong>Answer stage:</strong> the compressed, span-only context goes to the primary model (Claude Sonnet) to generate the final answer.</li><li><strong>Where savings come from:</strong> trimming context before the expensive call, using a much cheaper model to do the trimming — the pattern generalizes to any small/large model pair on Bedrock.</li><li><strong>Optional reranking</strong> before compression pushes savings and quality further at a small added latency cost.</li></ul>",
+    impact: "<p><strong>Realized</strong> (500+ questions, 9 enterprise document types): <strong>33% cost reduction</strong> alone, <strong>36%</strong> with reranking; <strong>8.6x fewer tokens</strong> to the primary model alone, <strong>10.1x</strong> with reranking; <strong>+12-19% latency</strong>; quality preserved at <strong>97.5%</strong> of baseline; hallucination rate down from <strong>51% to 44% (compression) to 38%</strong> (compression + reranking).</p><p><strong>Potential:</strong> most valuable for large retrieved contexts (&gt;5,000 tokens) with narrow questions relative to retrieval breadth — a common shape for enterprise document Q&amp;A.</p>",
+    verdict: { score: 3, line: "a clean, well-benchmarked production recipe for a known idea", body: "<p>Using a cheap model to filter context before an expensive model answers isn't new, but this write-up is unusually well quantified — cost, latency, quality, and hallucination all reported together on a real 500+ question benchmark, plus the useful finding that trimming irrelevant context reduces hallucination, not just cost.</p>" },
+    related: [
+      "Gisting: Compressing LLM Agent Context to Increase Throughput and Cut Cost — the same 'shrink context before the expensive call' idea applied to agent tool-use context rather than RAG retrieval context.",
+      "GenRec at Netflix — a different context-engineering problem (fitting a huge catalog into an LLM's context) tackled with a catalog-aware model head rather than a compression pass.",
+      "From Models to Products: LLMs for Recommendation at Spotify Scale — grounding as a way to reduce hallucination-like failures, there via constrained output (semantic IDs) rather than context trimming."
+    ],
+    jargon: [
+      ["RAG (Retrieval-Augmented Generation)","Answering a question by first retrieving relevant documents/chunks and passing them to an LLM as context."],
+      ["Query-aware compression","Filtering retrieved context down to only the parts relevant to a specific query."],
+      ["Reranking","A second scoring pass over retrieved chunks to reorder them by relevance, typically with a more precise but more expensive model."]
+    ]
+  },
+  {
+    id: "instacart-llm-discovery-shopping-hub", title: "Our Early Journey to Transform Instacart's Discovery Recommendations with LLMs",
+    source: "Instacart Tech", url: "https://tech.instacart.com/our-early-journey-to-transform-instacarts-discovery-recommendations-with-llms-cf4591a8602b",
+    published: "2026-02", added: "2026-09-02", category: "llm-genai", novelty: 4, via: "web search",
+    tags: ["generative-ui","llm-agents","rag","llm-as-judge","personalization","discovery"],
+    tldr: "Instacart's Shopping Hub rebuilt itself around a four-phase generative pipeline — an LLM page-design agent generates personalized shopping themes top-down, RAG-constrained keyword generation maps them to real inventory, multiple LLM-judge/embedding filters enforce quality, and existing ranking services pick final products — replacing a static, manually curated content library.",
+    business: "<p>Instacart's Shopping Hub is the discovery page shown right after choosing a retailer, shaping the whole shopping session that follows. It historically relied on static, manually curated content: personalization didn't scale (authoring per-segment placements was slow), and the page lacked cohesion, since different teams built placements independently.</p>",
+    technical: "<ul><li><strong>Top-down vs. bottoms-up:</strong> the team chose <strong>top-down</strong> generation (page structure first, then populate with products) over bottoms-up (products first, then cluster), given latency limits and catalog turnover.</li><li><strong>Phase 1 — page design:</strong> an LLM agent generates personalized, high-level shopping themes from purchase history and engagement signals.</li><li><strong>Phase 2 — retrieval keyword generation:</strong> teacher-student fine-tuning plus RAG maps themes to retrieval-compatible descriptors; RAG's embedding constraint alone cut generation cost <strong>15-20%</strong>.</li><li><strong>Phase 3 — quality/diversity filtering:</strong> embedding-based dedup, LLM-as-a-judge scoring (cohesion, diversity, brand alignment), and a fine-tuned cross-encoder for relevance.</li><li><strong>Phase 4 — ranking:</strong> filtered placements hand off to Instacart's existing ranking services for final product selection.</li><li><strong>Evaluation as a first-class problem:</strong> LLM-as-a-judge suite, a fine-tuned <strong>DeBERTa</strong> classifier for relevance (claimed <strong>99% cost reduction</strong> vs. closed-weight LLM inference), plus classical proxy signals.</li></ul>",
+    impact: "<p><strong>Realized:</strong> a qualitative shift from rigid single-category placements to multi-category, history-aware ones; initial A/B results described as 'quite promising' with no specific lift numbers disclosed — explicitly framed as early-stage.</p><p><strong>Potential:</strong> a reusable pattern (LLM-generated structure, RAG-grounded content, existing ranking kept as final arbiter) for any discovery surface built on static content, plus the cheap-classifier-distillation evaluation pattern as a template for affordable generative-UI evals.</p>",
+    verdict: { score: 4, line: "a genuinely new generative-UI architecture, honestly reported as still early", body: "<p>Generating page structure top-down with an LLM agent, constraining content with RAG, then handing off to existing ranking infrastructure is a real architectural departure from both static curation and LLM-picks-products-directly designs. Distilling a cheap DeBERTa classifier (99% cheaper than LLM inference) for relevance filtering at scale is a smart, exportable pattern. It's a 4 rather than 5 because the write-up is explicit this is early, with no hard lift numbers yet.</p>" },
+    related: [
+      "GenRec at Netflix — another production system putting an LLM in the recommendation loop, there as a ranker over a catalog-aware head rather than a page-structure generator.",
+      "From Models to Products: LLMs for Recommendation at Spotify Scale — a different grounding strategy (semantic IDs) versus this system's RAG-constrained keyword generation plus ranking-service handoff.",
+      "Enhancing \"You May Also Like\" (YMAL) Systems using LLMs and Word2Vec — a much lighter LLM use (offline metadata enrichment) versus this system's LLM-driven page generation and multi-stage judge evaluation."
+    ],
+    jargon: [
+      ["Generative UI","A user interface generated per-user by a model at request time, rather than assembled from fixed pre-built components."],
+      ["LLM-as-a-judge","Using an LLM to score generated content quality as a scalable substitute for exhaustive human review."],
+      ["Cross-encoder","A model that scores a pair of inputs jointly rather than embedding each separately — more accurate, more expensive than embedding similarity."],
+      ["Teacher-student fine-tuning","Training a smaller 'student' model to imitate a larger 'teacher' model's outputs, making inference cheaper at scale."]
+    ]
+  },
+  {
+    id: "linkedin-premium-product-two-tower-bandits", title: "Matching LinkedIn Members with the Right Premium Products",
+    source: "LinkedIn Engineering", url: "https://www.linkedin.com/blog/engineering/machine-learning/matching-linkedin-members-with-the-right-premium-products",
+    published: "2024-05", added: "2026-09-02", category: "personalization-recsys", novelty: 3, via: "web search",
+    tags: ["two-tower","contextual-bandits","thompson-sampling","multi-armed-bandit","personalization"],
+    tldr: "LinkedIn built a two-tower network plus Neural Thompson Sampling to jointly pick the best Premium product, creative, and channel per member, treating every combination as a bandit arm — +0.7% platform conversion and a 10x jump in experimentation velocity.",
+    business: "<p>LinkedIn offers four Premium tiers across multiple channels and creatives. Optimizing product, creative, and channel choice separately misses interactions between them, and manually authoring/testing every combination doesn't scale to the full option space.</p>",
+    technical: "<ul><li><strong>Bandit framing:</strong> every (product, creative, channel) triplet is one 'arm'; the objective blends lifetime value, conversion probability, and member-reward signals.</li><li><strong>Two-tower architecture:</strong> a member tower (profile, activity, AI signals, context) and an arm tower (LLM-embedded creative text, product/channel one-hots), both pre-computable offline for low-latency serving.</li><li><strong>Deep matching layer:</strong> dense layers combine both embeddings to predict interaction probability.</li><li><strong>Neural Thompson Sampling:</strong> explore/exploit via a last-layer weight approximation, narrowing exploration automatically as confidence grows.</li><li><strong>Training/serving:</strong> retrains every few hours; new arms score immediately without retraining; random-assignment bootstrapping avoids bias; automated A/B gates each update.</li></ul>",
+    impact: "<p><strong>Realized:</strong> platform conversion <strong>+0.7%</strong> without hurting retention; experimentation velocity <strong>10x</strong>, four production experiments across hundreds of creatives in two months.</p><p><strong>Potential:</strong> the team describes a path to Deep Q-Networks for longer-horizon (career-trajectory) optimization, and generative AI to scale creative authoring itself.</p>",
+    verdict: { score: 3, line: "solid contextual-bandit engineering, not a new method", body: "<p>Two-tower retrieval and Thompson Sampling are both well-established; the contribution is combining them into one system jointly optimizing product, creative, and channel as a single bandit action space, with real production lift and a large experimentation-velocity gain.</p>" },
+    related: [
+      "Bandits for Marketing Optimization at Instacart — the same explore/exploit framing applied to marketing spend allocation rather than product/creative/channel selection.",
+      "Enhancing \"You May Also Like\" (YMAL) Systems using LLMs and Word2Vec — a different, simpler use of LLM-derived features inside a classical recommender, versus this system's LLM embeddings inside a bandit arm tower."
+    ],
+    jargon: [
+      ["Multi-armed bandit","A framework for repeatedly choosing among options with unknown reward, balancing exploring new options against exploiting known-good ones."],
+      ["Thompson Sampling","A bandit algorithm sampling from each arm's estimated reward distribution and picking the highest sample."],
+      ["Two-tower model","Two separate encoders mapping inputs into a shared embedding space, often with one side pre-computed offline."]
+    ]
+  },
+  {
+    id: "airbnb-voice-support-ivr-ml", title: "Listening, Learning, and Helping at Scale: How Machine Learning Transforms Airbnb's Voice Support Experience",
+    source: "Airbnb Engineering & Data Science", url: "https://airbnb.tech/ai-ml/listening-learning-and-helping-at-scale-how-machine-learning-transforms-airbnbs-voice-support-experience/",
+    published: "2026-04", added: "2026-09-02", category: "llm-genai", novelty: 3, via: "web search",
+    tags: ["speech-recognition","asr","intent-detection","llm-ranking","customer-support"],
+    tldr: "Airbnb replaced its button-tree phone IVR with a conversational system built from domain-tuned speech recognition, intent classification, LLM-reranked help-article retrieval, and embedding-matched paraphrasing — cutting word error rate from 33% to about 10%.",
+    business: "<p>Rigid menu-tree phone IVR is slow and frustrating when a caller's issue doesn't map cleanly onto a short option list. Airbnb wanted callers to describe issues in their own words and get routed or resolved faster, reducing load on human agents.</p>",
+    technical: "<ul><li><strong>Domain-tuned ASR:</strong> adapted for noisy phone audio, with phrase-list optimization for Airbnb vocabulary (a generic model mishears 'listing' as 'lifting').</li><li><strong>Intent detection:</strong> a Contact Reason Detection model classifies calls (cancellations, refunds, etc.) via a parallelized Issue Detection Service; a separate model detects escalation requests.</li><li><strong>Help-article retrieval:</strong> vector-embedding retrieval followed by <strong>LLM-based reranking</strong> for the caller's specific phrasing.</li><li><strong>Paraphrasing:</strong> embedding-matched nearest-neighbor mapping to UX-writer-authored standardized summaries, rather than live free-form LLM generation, to reduce hallucination risk.</li></ul>",
+    impact: "<p><strong>Realized:</strong> ASR word error rate <strong>33% → ~10%</strong>; intent-detection latency <strong>&lt;50ms</strong>; article retrieval <strong>~60ms</strong>; paraphrasing precision <strong>&gt;90%</strong> (manual eval); increased self-resolution among English-speaking hosts.</p><p><strong>Potential:</strong> the modular pipeline generalizes to other conversational support channels; embedding-matched paraphrasing is a reusable way to get LLM-quality comprehension with lower hallucination risk.</p>",
+    verdict: { score: 3, line: "solid production engineering across a well-understood pipeline shape", body: "<p>Domain-adapted ASR, intent classification, retrieval-plus-reranking, and embedding-matched response selection are each familiar; the contribution is assembling them into a coherent, low-latency pipeline with real per-stage numbers. Matching to human-authored summaries rather than generating text live is a sensible, safety-conscious call for a high-error-cost channel.</p>" },
+    related: [
+      "Advancing Invoice Document Processing at Uber Using GenAI — another operational GenAI system with a human-in-the-loop design, there for back-office documents rather than live conversations.",
+      "Our Early Journey to Transform Instacart's Discovery Recommendations with LLMs — a different application of LLM-judge/reranking-style techniques in a production LLM pipeline."
+    ],
+    jargon: [
+      ["IVR (Interactive Voice Response)","An automated phone system that interacts with callers, traditionally via button-press menus."],
+      ["Word error rate (WER)","The standard speech-recognition accuracy metric, measuring the percentage of words transcribed wrong."],
+      ["Phrase-list optimization","Biasing a speech-recognition model toward correctly transcribing known domain-specific terms."]
+    ]
+  },
+  {
     id: "deepmind-double-blind-ai-evaluations", title: "Piloting the World's First Double-Blind AI Evaluations",
     source: "Google DeepMind", url: "https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/",
     published: "2026-08", added: "2026-09-01", category: "experimentation-causal", novelty: 4, via: "web search",
@@ -1071,7 +1175,7 @@ const ARTICLES = [
   }
 ];
 
-const UPDATED = "2026-09-01";
+const UPDATED = "2026-09-02";
 
 // Lightweight backlog (mostly Snacks Weekly episodes) awaiting full deep-dive write-ups.
 const CATALOG = [
@@ -1081,7 +1185,6 @@ const CATALOG = [
   { id:"airbnb-personal-data-classification", company:"Airbnb", title:"Personal data classification at scale", category:"data-engineering", hook:"Classifying and protecting personal data across a large data estate.", url:null },
   { id:"uber-out-of-app-marketing-personalization", company:"Uber", title:"Out-of-app marketing and personalization", category:"personalization-recsys", hook:"Personalizing out-of-app marketing at Uber scale.", url:null },
   { id:"uber-crm-contextual-bandits-genai-embeddings", company:"Uber", title:"CRM personalization with contextual bandits and generative-AI embeddings", category:"personalization-recsys", hook:"Contextual bandits plus genAI embeddings personalize CRM messaging.", url:null },
-  { id:"linkedin-product-rec-deep-rl", company:"LinkedIn", title:"Product recommendation with deep learning and reinforcement learning", category:"personalization-recsys", hook:"Two-tower plus RL behind LinkedIn Premium product recommendation; official post found but too thin on detail to deepen without fabricating.", url:"https://www.linkedin.com/blog/engineering/machine-learning/matching-linkedin-members-with-the-right-premium-products" },
   { id:"linkedin-job-search-llms", company:"LinkedIn", title:"Reimagining job search with LLMs (intent-aware)", category:"search-ranking", hook:"From keyword-based to flexible, intent-aware job search with LLMs.", url:null },
   { id:"instacart-quasi-experiment-rdd", company:"Instacart", title:"Quasi-experimentation and regression discontinuity design", category:"experimentation-causal", hook:"Using RDD to make decisions when clean A/B tests aren't possible.", url:null },
   { id:"instacart-smart-replacements", company:"Instacart", title:"Smart replacements for out-of-stock products", category:"personalization-recsys", hook:"ML suggests substitutions when an item is unavailable.", url:null },
@@ -1103,9 +1206,12 @@ const CATALOG = [
   { id:"glassdoor-data-quality-anomaly-detection", company:"Glassdoor", title:"Data quality and anomaly detection at petabyte scale", category:"data-engineering", hook:"Data contracts, static analysis, LLM-based logic checks, and anomaly detection.", url:null },
   { id:"thumbtack-recommendations-offline-inference", company:"Thumbtack", title:"Recommendations with two sub-models and offline inference", category:"personalization-recsys", hook:"A two-sub-model recommendation architecture served via offline inference.", url:null },
   { id:"urban-company-causal-inference", company:"Urban Company", title:"Leveraging causal inference for product decisions", category:"experimentation-causal", hook:"Causal inference to guide decisions where experiments are hard.", url:null },
-  { id:"instacart-llm-discovery-recommendations", company:"Instacart", title:"Our Early Journey to Transform Instacart's Discovery Recommendations with LLMs", category:"llm-genai", hook:"An AI-native platform for content generation, evaluation, and retrieval shows early promise for discovery recommendations.", url:"https://tech.instacart.com/our-early-journey-to-transform-instacarts-discovery-recommendations-with-llms-cf4591a8602b" },
   { id:"uber-count-distinct-high-cardinality-pipelines", company:"Uber", title:"Scaling Exact COUNT(DISTINCT) for High-Cardinality Non-Rollup Metrics in Distributed Data Pipelines", category:"data-engineering", hook:"A distributed-pipelines approach to exact (not approximate) COUNT(DISTINCT) at high cardinality without rollups.", url:null },
-  { id:"airbnb-voice-support-ml", company:"Airbnb", title:"Listening, Learning, and Helping at Scale: How ML Transforms Airbnb's Voice Support Experience", category:"llm-genai", hook:"Speech recognition, intent detection, and language models assist human support agents in real time.", url:"https://medium.com/airbnb-engineering/listening-learning-and-helping-at-scale-how-machine-learning-transforms-airbnbs-voice-support-b71f912d4760" }
+  { id:"linkedin-feed-llm-retrieval-gr-ranking", company:"LinkedIn", title:"Engineering the Next Generation of LinkedIn's Feed", category:"search-ranking", hook:"A unified LLM-based dual-encoder retrieval layer plus a Generative Recommender ranking transformer replace a fragmented set of independent retrieval pipelines; +15% recall@10, 30x popularity-embedding correlation.", url:"https://www.linkedin.com/blog/engineering/feed/engineering-the-next-generation-of-linkedins-feed" },
+  { id:"meta-silvertorch-index-as-model-retrieval", company:"Meta", title:"SilverTorch: Index as Model — A New Retrieval Paradigm for Recommendation Systems", category:"search-ranking", hook:"Collapses the traditional embedding-index-plus-scorer retrieval stack into a single learned model.", url:"https://engineering.fb.com/2026/05/26/ml-applications/silvertorch-index-as-model-new-retrieval-paradigm-recommendation-systems/" },
+  { id:"meta-adaptive-ranking-model-inference-scaling", company:"Meta", title:"Meta Adaptive Ranking Model: Bending the Inference Scaling Curve for LLM-Scale Ads", category:"ml-infra-serving", hook:"Replaces one-size-fits-all ranking inference with intelligent per-request routing to serve LLM-scale ads models efficiently.", url:"https://engineering.fb.com/2026/03/31/ml-applications/meta-adaptive-ranking-model-bending-the-inference-scaling-curve-to-serve-llm-scale-models-for-ads/" },
+  { id:"shopify-generative-recommender-hstu", company:"Shopify", title:"The Generative Recommender Behind Shopify's Commerce Engine", category:"personalization-recsys", hook:"An HSTU-based autoregressive transformer learns directly from raw commerce event sequences; up to 7.3x training speedup, +0.94% Shop orders in A/B test.", url:"https://shopify.engineering/generative-recommendations" },
+  { id:"aws-bedrock-agentcore-gateway-governance", company:"Amazon (AWS)", title:"Govern AI Agent Tool Access with Amazon Bedrock AgentCore Gateway", category:"ml-infra-serving", hook:"Governed, auditable tool access for AI agents without consolidating infrastructure into one gateway.", url:"https://aws.amazon.com/blogs/machine-learning/govern-ai-agent-tool-access-with-amazon-bedrock-agentcore-gateway/" }
 ];
 
 // ---- render ----
@@ -1151,7 +1257,12 @@ const REL_LINKS = {
   "How Databricks Feature Store Serves Features with Sub-Second Freshness": "https://www.databricks.com/blog/how-databricks-feature-store-serves-features-sub-second-freshness",
   "Piloting the World's First Double-Blind AI Evaluations": "https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/",
   "Ladder of Evidence in Understanding Effectiveness of New Products": "https://medium.com/@AnalyticsAtMeta/ladder-of-evidence-in-understanding-effectiveness-of-new-products-part-i-ad8dee70906c",
-  "Enhancing \"You May Also Like\" (YMAL) Systems using LLMs and Word2Vec": "https://medium.com/cvs-health-tech-blog/enhancing-you-may-also-like-ymal-systems-using-llms-and-word2vec-0340280019d2"
+  "Enhancing \"You May Also Like\" (YMAL) Systems using LLMs and Word2Vec": "https://medium.com/cvs-health-tech-blog/enhancing-you-may-also-like-ymal-systems-using-llms-and-word2vec-0340280019d2",
+  "How We Eliminated $1M/Year of Wasted AI Agent Spend in One Hour": "https://www.databricks.com/blog/how-we-eliminated-1-million-year-wasted-ai-agent-spend-one-hour",
+  "Reduce RAG Costs on Amazon Bedrock with Query-Aware Compression": "https://aws.amazon.com/blogs/machine-learning/reduce-rag-costs-on-amazon-bedrock-with-query-aware-compression/",
+  "Our Early Journey to Transform Instacart's Discovery Recommendations with LLMs": "https://tech.instacart.com/our-early-journey-to-transform-instacarts-discovery-recommendations-with-llms-cf4591a8602b",
+  "Matching LinkedIn Members with the Right Premium Products": "https://www.linkedin.com/blog/engineering/machine-learning/matching-linkedin-members-with-the-right-premium-products",
+  "Listening, Learning, and Helping at Scale: How Machine Learning Transforms Airbnb's Voice Support Experience": "https://airbnb.tech/ai-ml/listening-learning-and-helping-at-scale-how-machine-learning-transforms-airbnbs-voice-support-experience/"
 };
 function anchor(href, text){ return `<a href="${esc(href)}" target="_blank" rel="noopener">${text}</a>`; }
 function arxivify(h){ return h.replace(/arXiv\s+(\d{4}\.\d{4,5})/g, (m,id)=>`arXiv ${anchor("https://arxiv.org/abs/"+id, id)}`); }

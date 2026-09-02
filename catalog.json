@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-01",
+  "updated": "2026-09-02",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -50,14 +50,6 @@
       "category": "personalization-recsys",
       "hook": "Contextual bandits plus genAI embeddings personalize CRM messaging.",
       "url": null
-    },
-    {
-      "id": "linkedin-product-rec-deep-rl",
-      "company": "LinkedIn",
-      "title": "Product recommendation with deep learning and reinforcement learning",
-      "category": "personalization-recsys",
-      "hook": "The ML architecture (two-tower plus RL) behind LinkedIn Premium product recommendation; official post found (May 2024) but too thin on technical detail in search results to deepen without fabricating \u2014 revisit with a direct fetch.",
-      "url": "https://www.linkedin.com/blog/engineering/machine-learning/matching-linkedin-members-with-the-right-premium-products"
     },
     {
       "id": "linkedin-job-search-llms",
@@ -228,14 +220,6 @@
       "url": null
     },
     {
-      "id": "instacart-llm-discovery-recommendations",
-      "company": "Instacart",
-      "title": "Our Early Journey to Transform Instacart's Discovery Recommendations with LLMs",
-      "category": "llm-genai",
-      "hook": "An AI-native platform for content generation, evaluation, and retrieval; generative models show early promise for discovery recommendations.",
-      "url": "https://tech.instacart.com/our-early-journey-to-transform-instacarts-discovery-recommendations-with-llms-cf4591a8602b"
-    },
-    {
       "id": "uber-count-distinct-high-cardinality-pipelines",
       "company": "Uber",
       "title": "Scaling Exact COUNT(DISTINCT) for High-Cardinality Non-Rollup Metrics in Distributed Data Pipelines",
@@ -244,12 +228,44 @@
       "url": null
     },
     {
-      "id": "airbnb-voice-support-ml",
-      "company": "Airbnb",
-      "title": "Listening, Learning, and Helping at Scale: How ML Transforms Airbnb's Voice Support Experience",
-      "category": "llm-genai",
-      "hook": "Speech recognition, intent detection, and language models assist human support agents in real time.",
-      "url": "https://medium.com/airbnb-engineering/listening-learning-and-helping-at-scale-how-machine-learning-transforms-airbnbs-voice-support-b71f912d4760"
+      "id": "linkedin-feed-llm-retrieval-gr-ranking",
+      "company": "LinkedIn",
+      "title": "Engineering the Next Generation of LinkedIn's Feed",
+      "category": "search-ranking",
+      "hook": "A unified LLM-based dual-encoder retrieval layer plus a Generative Recommender ranking transformer replace a fragmented set of independent retrieval pipelines; +15% recall@10 from percentile-bucketed numeric features, a 30x jump in popularity-embedding correlation.",
+      "url": "https://www.linkedin.com/blog/engineering/feed/engineering-the-next-generation-of-linkedins-feed"
+    },
+    {
+      "id": "meta-silvertorch-index-as-model-retrieval",
+      "company": "Meta",
+      "title": "SilverTorch: Index as Model — A New Retrieval Paradigm for Recommendation Systems",
+      "category": "search-ranking",
+      "hook": "Collapses the traditional embedding-index-plus-scorer retrieval stack into a single learned model.",
+      "url": "https://engineering.fb.com/2026/05/26/ml-applications/silvertorch-index-as-model-new-retrieval-paradigm-recommendation-systems/"
+    },
+    {
+      "id": "meta-adaptive-ranking-model-inference-scaling",
+      "company": "Meta",
+      "title": "Meta Adaptive Ranking Model: Bending the Inference Scaling Curve for LLM-Scale Ads",
+      "category": "ml-infra-serving",
+      "hook": "Replaces one-size-fits-all ranking inference with intelligent per-request routing to serve LLM-scale ads models efficiently.",
+      "url": "https://engineering.fb.com/2026/03/31/ml-applications/meta-adaptive-ranking-model-bending-the-inference-scaling-curve-to-serve-llm-scale-models-for-ads/"
+    },
+    {
+      "id": "shopify-generative-recommender-hstu",
+      "company": "Shopify",
+      "title": "The Generative Recommender Behind Shopify's Commerce Engine",
+      "category": "personalization-recsys",
+      "hook": "An HSTU-based autoregressive transformer learns directly from raw commerce event sequences; RoPE-inspired time encoding, optimized CUDA kernels give up to 7.3x training speedup, +0.94% Shop orders in A/B test.",
+      "url": "https://shopify.engineering/generative-recommendations"
+    },
+    {
+      "id": "aws-bedrock-agentcore-gateway-governance",
+      "company": "Amazon (AWS)",
+      "title": "Govern AI Agent Tool Access with Amazon Bedrock AgentCore Gateway",
+      "category": "ml-infra-serving",
+      "hook": "Governed, auditable tool access for AI agents without consolidating infrastructure into one gateway.",
+      "url": "https://aws.amazon.com/blogs/machine-learning/govern-ai-agent-tool-access-with-amazon-bedrock-agentcore-gateway/"
     }
   ]
 }

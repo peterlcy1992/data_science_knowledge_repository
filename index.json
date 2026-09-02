@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-01",
+  "updated": "2026-09-02",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -13,6 +13,113 @@
     "research-foundational"
   ],
   "articles": [
+    {
+      "id": "databricks-agent-cost-tracing-mcp",
+      "title": "How We Eliminated $1M/Year of Wasted AI Agent Spend in One Hour",
+      "source": "Databricks Blog",
+      "url": "https://www.databricks.com/blog/how-we-eliminated-1-million-year-wasted-ai-agent-spend-one-hour",
+      "published": "2026-09",
+      "added": "2026-09-02",
+      "category": "ml-infra-serving",
+      "tags": [
+        "agent-observability",
+        "mcp",
+        "opentelemetry",
+        "cost-optimization",
+        "tracing",
+        "ai-agents"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-02-databricks-agent-cost-tracing-mcp.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "aws-bedrock-query-aware-rag-compression",
+      "title": "Reduce RAG Costs on Amazon Bedrock with Query-Aware Compression",
+      "source": "AWS Machine Learning Blog",
+      "url": "https://aws.amazon.com/blogs/machine-learning/reduce-rag-costs-on-amazon-bedrock-with-query-aware-compression/",
+      "published": "2026-08",
+      "added": "2026-09-02",
+      "category": "llm-genai",
+      "tags": [
+        "rag",
+        "context-compression",
+        "cost-optimization",
+        "bedrock",
+        "hallucination-reduction",
+        "prompt-compression"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-02-aws-bedrock-query-aware-rag-compression.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "instacart-llm-discovery-shopping-hub",
+      "title": "Our Early Journey to Transform Instacart's Discovery Recommendations with LLMs",
+      "source": "Instacart Tech",
+      "url": "https://tech.instacart.com/our-early-journey-to-transform-instacarts-discovery-recommendations-with-llms-cf4591a8602b",
+      "published": "2026-02",
+      "added": "2026-09-02",
+      "category": "llm-genai",
+      "tags": [
+        "generative-ui",
+        "llm-agents",
+        "rag",
+        "llm-as-judge",
+        "personalization",
+        "discovery"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-02-instacart-llm-discovery-shopping-hub.md",
+      "deep_dived_on": "2026-09-02",
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "linkedin-premium-product-two-tower-bandits",
+      "title": "Matching LinkedIn Members with the Right Premium Products",
+      "source": "LinkedIn Engineering",
+      "url": "https://www.linkedin.com/blog/engineering/machine-learning/matching-linkedin-members-with-the-right-premium-products",
+      "published": "2024-05",
+      "added": "2026-09-02",
+      "category": "personalization-recsys",
+      "tags": [
+        "two-tower",
+        "contextual-bandits",
+        "thompson-sampling",
+        "multi-armed-bandit",
+        "personalization"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-02-linkedin-premium-product-two-tower-bandits.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "airbnb-voice-support-ivr-ml",
+      "title": "Listening, Learning, and Helping at Scale: How Machine Learning Transforms Airbnb's Voice Support Experience",
+      "source": "Airbnb Engineering & Data Science",
+      "url": "https://airbnb.tech/ai-ml/listening-learning-and-helping-at-scale-how-machine-learning-transforms-airbnbs-voice-support-experience/",
+      "published": "2026-04",
+      "added": "2026-09-02",
+      "category": "llm-genai",
+      "tags": [
+        "speech-recognition",
+        "asr",
+        "intent-detection",
+        "llm-ranking",
+        "customer-support",
+        "ivr"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-02-airbnb-voice-support-ivr-ml.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
     {
       "id": "deepmind-double-blind-ai-evaluations",
       "title": "Piloting the World's First Double-Blind AI Evaluations",
