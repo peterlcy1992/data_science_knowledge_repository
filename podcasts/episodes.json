@@ -1,16 +1,16 @@
 {
   "show": "Data Science in the Wild",
-  "rss_show_id": null,
+  "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 3,
+  "next_episode": 4,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
       "episode": 1,
       "season": 1,
       "date": "2026-09-01",
-      "title": "LinkedIn — A Transformer That Ranks Your Feed (Feed SR)",
-      "description": "A deep dive into how LinkedIn replaced its DCNv2 feed ranker with Feed SR — a decoder-only transformer that reads up to 1,000 of a member's past impressions as an ordered sequence, served on a disaggregated CPU/GPU stack with custom kernels. We cover the business context (a 1.2B-member feed whose legacy ranker couldn't model history as a sequence), the technical approach (RoPE positional embeddings, a parallel-DCNv2 scoring head, shared-context batching, and a custom flash-attention CUDA kernel), the honest negative results (why a fine-tuned LLM-ranker and a TransAct-style encoder were tried and rejected), and the realized impact: +2.10% time spent and +3.52% social actions in a production A/B test — at roughly 0.7x the inference energy of the CPU-served incumbent despite being a larger model. Source article: \"An Industrial-Scale Sequential Recommender for LinkedIn Feed Ranking (Feed SR)\" — LinkedIn / arXiv, https://arxiv.org/abs/2602.12354 (published 2026-02).",
+      "title": "LinkedIn \u2014 A Transformer That Ranks Your Feed (Feed SR)",
+      "description": "A deep dive into how LinkedIn replaced its DCNv2 feed ranker with Feed SR \u2014 a decoder-only transformer that reads up to 1,000 of a member's past impressions as an ordered sequence, served on a disaggregated CPU/GPU stack with custom kernels. We cover the business context (a 1.2B-member feed whose legacy ranker couldn't model history as a sequence), the technical approach (RoPE positional embeddings, a parallel-DCNv2 scoring head, shared-context batching, and a custom flash-attention CUDA kernel), the honest negative results (why a fine-tuned LLM-ranker and a TransAct-style encoder were tried and rejected), and the realized impact: +2.10% time spent and +3.52% social actions in a production A/B test \u2014 at roughly 0.7x the inference energy of the CPU-served incumbent despite being a larger model. Source article: \"An Industrial-Scale Sequential Recommender for LinkedIn Feed Ranking (Feed SR)\" \u2014 LinkedIn / arXiv, https://arxiv.org/abs/2602.12354 (published 2026-02).",
       "audio": "podcasts/2026-09-01-linkedin-feed-sr-sequential-recommender.m4a",
       "cover": "podcasts/2026-09-01-linkedin-feed-sr-sequential-recommender.cover.png",
       "rss_status": "not_uploaded"
@@ -19,11 +19,22 @@
       "episode": 2,
       "season": 1,
       "date": "2026-09-01",
-      "title": "Shopify — An AI Agent That Trains Itself (Sidekick's Continual Learning Loop)",
-      "description": "A deep dive into how Shopify rebuilt the improvement loop for Sidekick, its AI agent, as a four-stage flywheel that keeps getting better without perpetually scaling frontier-model spend. We cover the business context (quality that gets expensive fast when you only buy it by upgrading models), and the technique: a human-calibrated quality rubric (validated with Cohen's kappa), an LLM-as-judge tuned with DSPy/GEPA/ACE and — crucially — validated against real production A/B outcomes before it's trusted, automated prompt/tool research, and continual learning via SFT plus GRPO fine-tuning that uses the calibrated judge itself as the reward signal. The payoff: serving cost for a GraphQL agent handling 2,000 requests/min fell roughly 96%, from ~$27M to ~$1M/year. The real lesson is the discipline of calibrating the judge before using it as a reward. Source article: \"Sidekick's Continual Learning Loop\" — Shopify Engineering, https://shopify.engineering/sidekicks-continual-learning-loop (published 2026-08).",
+      "title": "Shopify \u2014 An AI Agent That Trains Itself (Sidekick's Continual Learning Loop)",
+      "description": "A deep dive into how Shopify rebuilt the improvement loop for Sidekick, its AI agent, as a four-stage flywheel that keeps getting better without perpetually scaling frontier-model spend. We cover the business context (quality that gets expensive fast when you only buy it by upgrading models), and the technique: a human-calibrated quality rubric (validated with Cohen's kappa), an LLM-as-judge tuned with DSPy/GEPA/ACE and \u2014 crucially \u2014 validated against real production A/B outcomes before it's trusted, automated prompt/tool research, and continual learning via SFT plus GRPO fine-tuning that uses the calibrated judge itself as the reward signal. The payoff: serving cost for a GraphQL agent handling 2,000 requests/min fell roughly 96%, from ~$27M to ~$1M/year. The real lesson is the discipline of calibrating the judge before using it as a reward. Source article: \"Sidekick's Continual Learning Loop\" \u2014 Shopify Engineering, https://shopify.engineering/sidekicks-continual-learning-loop (published 2026-08).",
       "audio": "podcasts/2026-09-01-shopify-sidekick-continual-learning-loop.m4a",
       "cover": "podcasts/2026-09-01-shopify-sidekick-continual-learning-loop.cover.png",
       "rss_status": "not_uploaded"
+    },
+    {
+      "episode": 3,
+      "season": 1,
+      "date": "2026-09-02",
+      "title": "Instacart \u2014 The Death of the Static Shopping Page",
+      "description": "A deep dive into how Instacart rebuilt its Shopping Hub \u2014 the discovery page shoppers see right after picking a retailer \u2014 around a four-phase generative pipeline instead of a static, manually curated content library. We cover the business problem (personalization that couldn't scale, and a page built by siloed teams that never felt cohesive), the technical approach (an LLM agent that designs page themes top-down, retrieval-augmented keyword generation grounded in the real catalog, layered LLM-judge and embedding-based quality filters, and a cheap distilled classifier that cuts evaluation cost by an estimated 99%), and what the early results show \u2014 and don't yet show \u2014 about putting a generative model in charge of page structure itself. Source article: \"Our Early Journey to Transform Instacart's Discovery Recommendations with LLMs\" \u2014 Instacart Tech, https://tech.instacart.com/our-early-journey-to-transform-instacarts-discovery-recommendations-with-llms-cf4591a8602b (published 2026-02).",
+      "audio": "podcasts/2026-09-02-instacart-llm-discovery-shopping-hub.m4a",
+      "cover": "podcasts/2026-09-02-instacart-llm-discovery-shopping-hub.cover.png",
+      "rss_status": "draft",
+      "rss_episode_id": 3115422
     }
   ]
 }
