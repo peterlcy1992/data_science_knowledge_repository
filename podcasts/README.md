@@ -16,5 +16,16 @@ and the steering prompt in [`../automation/podcast_prompt.md`](../automation/pod
   authenticated in the run environment (see Step 6c "Prerequisites"). When it
   isn't, the day's digest notes the podcast was skipped.
 
+Each episode has a sidecar `YYYY-MM-DD-<id>.md` (title + description) and a
+`YYYY-MM-DD-<id>.cover.png` episode cover, following the show's mono-color
+design with the source company's stylized wordmark.
+
+## Episodes
+
+| # | Episode | Company | Files |
+| --- | --- | --- | --- |
+| 01 | A Transformer That Ranks Your Feed (Feed SR) | LinkedIn | [notes](2026-09-01-linkedin-feed-sr-sequential-recommender.md) · [cover](2026-09-01-linkedin-feed-sr-sequential-recommender.cover.png) |
+| 02 | An AI Agent That Trains Itself (Sidekick) | Shopify | [notes](2026-09-01-shopify-sidekick-continual-learning-loop.md) · [cover](2026-09-01-shopify-sidekick-continual-learning-loop.cover.png) |
+
 Audio files are large; if repository size becomes a concern, switch the daily
 job to keep only the latest file (`latest.m4a`) instead of a dated archive.
