@@ -25,7 +25,6 @@ GraphQL agent handling **2,000 requests/min** fell roughly **96%, from ~$27M to
 ~$1M/year**. The real lesson is the discipline of calibrating the judge *before*
 using it as a reward.
 
-Based on the "Sidekick's Continual Learning Loop" write-up in the Data Science
-Cutting-Edge Knowledge Bank. Source article: Shopify Engineering —
+Source article: "Sidekick's Continual Learning Loop" — Shopify Engineering,
 <https://shopify.engineering/sidekicks-continual-learning-loop> (published
 2026-08).
