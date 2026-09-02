@@ -24,7 +24,6 @@ and rejected), and the realized impact: **+2.10% time spent** and **+3.52%
 social actions** in a production A/B test — at roughly **0.7× the inference
 energy** of the CPU-served incumbent despite being a larger model.
 
-Based on the "An Industrial-Scale Sequential Recommender for LinkedIn Feed
-Ranking (Feed SR)" write-up in the Data Science Cutting-Edge Knowledge Bank.
-Source article: LinkedIn / arXiv — <https://arxiv.org/abs/2602.12354>
+Source article: "An Industrial-Scale Sequential Recommender for LinkedIn Feed
+Ranking (Feed SR)" — LinkedIn / arXiv, <https://arxiv.org/abs/2602.12354>
 (published 2026-02).
