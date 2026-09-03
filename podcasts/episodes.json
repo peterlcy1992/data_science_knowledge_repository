@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 4,
+  "next_episode": 5,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -35,6 +35,17 @@
       "cover": "podcasts/2026-09-02-instacart-llm-discovery-shopping-hub.cover.png",
       "rss_status": "draft",
       "rss_episode_id": 3115422
+    },
+    {
+      "episode": 4,
+      "season": 1,
+      "date": "2026-09-03",
+      "title": "Google \u2014 Ending the Six-Hour Forecast Gap",
+      "description": "A deep dive into WeatherNext 3, Google DeepMind and Google Research's third-generation global weather AI model. We cover the business context (why a forecast that only updates every six hours is a real operational cost for renewable energy, agriculture, aviation, and emergency response), the technical approach (a single Functional Generative Network mesh-transformer that ingests live geostationary satellite imagery to refresh its forecast every hour instead of every six, at roughly five times the resolution of its predecessor), and what the reported accuracy gains \u2014 up to 60% better precipitation forecasts against satellite benchmarks \u2014 actually mean in practice, plus where the write-up leaves real questions open. Source article: \"Introducing WeatherNext 3, Our Most Advanced and Accurate Global Weather AI Model\" \u2014 Google (DeepMind / Google Research), https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-weathernext-3/ (published 2026-09).",
+      "audio": "podcasts/2026-09-03-google-weathernext3-weather-forecasting.m4a",
+      "cover": "podcasts/2026-09-03-google-weathernext3-weather-forecasting.cover.png",
+      "rss_status": "draft",
+      "rss_episode_id": 3119572
     }
   ]
 }

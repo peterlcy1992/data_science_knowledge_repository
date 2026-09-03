@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-02",
+  "updated": "2026-09-03",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -41,14 +41,6 @@
       "title": "Out-of-app marketing and personalization",
       "category": "personalization-recsys",
       "hook": "Personalizing out-of-app marketing at Uber scale.",
-      "url": null
-    },
-    {
-      "id": "uber-crm-contextual-bandits-genai-embeddings",
-      "company": "Uber",
-      "title": "Personalizing CRM communications with contextual bandits and generative-AI embeddings",
-      "category": "personalization-recsys",
-      "hook": "Contextual bandits plus genAI embeddings personalize CRM messaging.",
       "url": null
     },
     {
@@ -228,17 +220,9 @@
       "url": null
     },
     {
-      "id": "linkedin-feed-llm-retrieval-gr-ranking",
-      "company": "LinkedIn",
-      "title": "Engineering the Next Generation of LinkedIn's Feed",
-      "category": "search-ranking",
-      "hook": "A unified LLM-based dual-encoder retrieval layer plus a Generative Recommender ranking transformer replace a fragmented set of independent retrieval pipelines; +15% recall@10 from percentile-bucketed numeric features, a 30x jump in popularity-embedding correlation.",
-      "url": "https://www.linkedin.com/blog/engineering/feed/engineering-the-next-generation-of-linkedins-feed"
-    },
-    {
       "id": "meta-silvertorch-index-as-model-retrieval",
       "company": "Meta",
-      "title": "SilverTorch: Index as Model — A New Retrieval Paradigm for Recommendation Systems",
+      "title": "SilverTorch: Index as Model \u2014 A New Retrieval Paradigm for Recommendation Systems",
       "category": "search-ranking",
       "hook": "Collapses the traditional embedding-index-plus-scorer retrieval stack into a single learned model.",
       "url": "https://engineering.fb.com/2026/05/26/ml-applications/silvertorch-index-as-model-new-retrieval-paradigm-recommendation-systems/"
@@ -252,20 +236,84 @@
       "url": "https://engineering.fb.com/2026/03/31/ml-applications/meta-adaptive-ranking-model-bending-the-inference-scaling-curve-to-serve-llm-scale-models-for-ads/"
     },
     {
-      "id": "shopify-generative-recommender-hstu",
-      "company": "Shopify",
-      "title": "The Generative Recommender Behind Shopify's Commerce Engine",
+      "id": "zillow-home-embeddings-similar-homes",
+      "company": "Zillow",
+      "title": "Home Embeddings for Similar Home Recommendations",
       "category": "personalization-recsys",
-      "hook": "An HSTU-based autoregressive transformer learns directly from raw commerce event sequences; RoPE-inspired time encoding, optimized CUDA kernels give up to 7.3x training speedup, +0.94% Shop orders in A/B test.",
-      "url": "https://shopify.engineering/generative-recommendations"
+      "hook": "Siamese-network listing embeddings blend collaborative and content signals for similar-home recommendations, with cold-start handling.",
+      "url": "https://www.zillow.com/tech/embedding-similar-home-recommendation/"
     },
     {
-      "id": "aws-bedrock-agentcore-gateway-governance",
-      "company": "Amazon (AWS)",
-      "title": "Govern AI Agent Tool Access with Amazon Bedrock AgentCore Gateway",
+      "id": "zillow-serving-ml-models-at-scale",
+      "company": "Zillow",
+      "title": "Serving Machine Learning Models Efficiently at Scale at Zillow",
       "category": "ml-infra-serving",
-      "hook": "Governed, auditable tool access for AI agents without consolidating infrastructure into one gateway.",
-      "url": "https://aws.amazon.com/blogs/machine-learning/govern-ai-agent-tool-access-with-amazon-bedrock-agentcore-gateway/"
+      "hook": "Zillow's approach to efficient large-scale model serving infrastructure.",
+      "url": "https://www.zillow.com/tech/serving-machine-learning-models-efficiently-at-scale-at-zillow/"
+    },
+    {
+      "id": "grab-trust-counter-fraud-detection",
+      "company": "Grab",
+      "title": "Using Grab's Trust Counter Service to Detect Fraud Successfully",
+      "category": "data-engineering",
+      "hook": "Real-time counter-based rule evaluation detects fraud across billions of daily requests.",
+      "url": "https://engineering.grab.com/using-grabs-trust-counter-service-to-detect-fraud-successfully"
+    },
+    {
+      "id": "grab-iceberg-data-lake-adoption",
+      "company": "Grab",
+      "title": "Adopting Apache Iceberg for a petabyte-scale data lake",
+      "category": "data-engineering",
+      "hook": "Why and how Grab rolled out Iceberg as its default table format at scale.",
+      "url": null
+    },
+    {
+      "id": "whatnot-whatamix-blendable-feed",
+      "company": "Whatnot",
+      "title": "Whatamix: Blendable feed construction",
+      "category": "personalization-recsys",
+      "hook": "A DAG-based orchestration framework with interchangeable nodes (retrieval, feature enrichment, scoring, blending) for building feed logic across use cases.",
+      "url": "https://medium.com/whatnot-engineering/whatamix-blendable-feed-construction-2c94c21f6635"
+    },
+    {
+      "id": "cvs-complementary-product-bundles-gnn-gpt4",
+      "company": "CVS Health",
+      "title": "AI in CVS Front Store E-commerce: Building a Complementary Product Bundle Recommender",
+      "category": "personalization-recsys",
+      "hook": "A GNN plus GPT-4 pipeline identifies complementary products for bundle recommendations across a 25,000+ product catalog.",
+      "url": "https://medium.com/cvs-health-tech-blog/ai-in-cvs-front-store-e-commerce-building-a-complementary-product-bundle-recommender-dc6c71dee682"
+    },
+    {
+      "id": "expedia-generative-and-traditional-ai",
+      "company": "Expedia",
+      "title": "Elevating Travel Experiences with AI",
+      "category": "llm-genai",
+      "hook": "Blending generative AI (dynamic content/chat) with traditional AI (recommendation/prediction) across 70PB of traveler data.",
+      "url": "https://medium.com/expedia-group-tech/elevating-travel-experiences-with-ai-acdb2cf2ec13"
+    },
+    {
+      "id": "linkedin-jude-llm-job-recommendations",
+      "company": "LinkedIn",
+      "title": "JUDE: LLM-based representation learning for LinkedIn job recommendations",
+      "category": "personalization-recsys",
+      "hook": "LLM-based representation learning purpose-built for job recommendation ranking.",
+      "url": "https://www.linkedin.com/blog/engineering/ai/jude-llm-based-representation-learning-for-linkedin-job-recommendations"
+    },
+    {
+      "id": "coinbase-sequence-features-ml",
+      "company": "Coinbase",
+      "title": "How Coinbase Builds Sequence Features for Machine Learning",
+      "category": "data-engineering",
+      "hook": "A production-ready sequence-feature pipeline framework built jointly by ML Platform, ML Risk, Recommendations, and Data Platform teams.",
+      "url": "https://www.coinbase.com/blog/how-coinbase-builds-sequence-features-for-machine-learning"
+    },
+    {
+      "id": "nubank-scaling-predictive-intelligence",
+      "company": "Nubank",
+      "title": "Scaling predictive intelligence to accelerate Nubank's AI-First vision",
+      "category": "ml-infra-serving",
+      "hook": "Nubank's approach to scaling predictive ML systems org-wide.",
+      "url": null
     }
   ]
 }

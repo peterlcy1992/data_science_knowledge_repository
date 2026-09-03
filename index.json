@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-02",
+  "updated": "2026-09-03",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -13,6 +13,209 @@
     "research-foundational"
   ],
   "articles": [
+    {
+      "id": "google-weathernext3-weather-forecasting",
+      "title": "Introducing WeatherNext 3, Our Most Advanced and Accurate Global Weather AI Model",
+      "source": "Google (DeepMind / Google Research)",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-weathernext-3/",
+      "published": "2026-09",
+      "added": "2026-09-03",
+      "category": "forecasting-timeseries",
+      "tags": [
+        "weather-forecasting",
+        "foundation-model",
+        "satellite-data",
+        "generative-network",
+        "geospatial"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-03-google-weathernext3-weather-forecasting.md",
+      "deep_dived_on": "2026-09-03",
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "google-timesfm3-multivariate-forecasting",
+      "title": "TimesFM-3: A Zero-Shot Foundation Model for Multivariate Forecasting",
+      "source": "Google Research",
+      "url": "https://research.google/blog/timesfm-3-a-zero-shot-foundation-model-for-multivariate-forecasting/",
+      "published": "2026-08",
+      "added": "2026-09-03",
+      "category": "forecasting-timeseries",
+      "tags": [
+        "foundation-model",
+        "time-series",
+        "zero-shot",
+        "multivariate-forecasting",
+        "transformer"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-03-google-timesfm3-multivariate-forecasting.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "google-methane-emissions-vision-transformer",
+      "title": "Mapping Global Methane Emissions from Space with Deep Learning",
+      "source": "Google Research (with NASA JPL / EMIT)",
+      "url": "https://research.google/blog/mapping-global-methane-emissions-from-space-with-deep-learning/",
+      "published": "2026-09",
+      "added": "2026-09-03",
+      "category": "cv-multimodal",
+      "tags": [
+        "vision-transformer",
+        "remote-sensing",
+        "hyperspectral-imaging",
+        "climate",
+        "synthetic-training-data"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-03-google-methane-emissions-vision-transformer.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "google-gemini-agentic-video-understanding",
+      "title": "Introducing Agentic Video Understanding with Gemini",
+      "source": "Google (Gemini models team)",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/",
+      "published": "2026-09",
+      "added": "2026-09-03",
+      "category": "cv-multimodal",
+      "tags": [
+        "agentic-ai",
+        "video-understanding",
+        "multimodal",
+        "tool-use",
+        "gemini"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-03-google-gemini-agentic-video-understanding.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "meta-second-brain-expert-ai-agent",
+      "title": "An Organizational Second Brain: Building an AI That Learns From Experts",
+      "source": "Engineering at Meta",
+      "url": "https://engineering.fb.com/2026/09/02/ml-applications/organizational-second-brain-ai-learns-from-experts/",
+      "published": "2026-09",
+      "added": "2026-09-03",
+      "category": "llm-genai",
+      "tags": [
+        "llm-agents",
+        "knowledge-management",
+        "rag",
+        "self-improving-systems",
+        "compliance"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-03-meta-second-brain-expert-ai-agent.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "databricks-discovery-bank-hyperpersonalization",
+      "title": "How Discovery Bank Delivers Hyper-Personalized Banking at Scale: Behavioral AI, Governed Data, and Real-Time Decisioning",
+      "source": "Databricks Blog",
+      "url": "https://www.databricks.com/blog/how-discovery-bank-delivers-hyper-personalized-banking-scale-behavioral-ai-governed-data-and",
+      "published": "2026-09",
+      "added": "2026-09-03",
+      "category": "personalization-recsys",
+      "tags": [
+        "next-best-action",
+        "behavioral-ai",
+        "feature-governance",
+        "real-time-decisioning",
+        "fintech"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-03-databricks-discovery-bank-hyperpersonalization.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "linkedin-feed-llm-retrieval-gr-ranking",
+      "title": "Engineering the Next Generation of LinkedIn's Feed",
+      "source": "LinkedIn Engineering Blog",
+      "url": "https://www.linkedin.com/blog/engineering/feed/engineering-the-next-generation-of-linkedins-feed",
+      "published": "2026-03",
+      "added": "2026-09-03",
+      "category": "search-ranking",
+      "tags": [
+        "generative-recommender",
+        "dual-encoder-retrieval",
+        "feed-ranking",
+        "llm-embeddings",
+        "sequential-modeling"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-03-linkedin-feed-llm-retrieval-gr-ranking.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "shopify-generative-recommender-hstu",
+      "title": "The Generative Recommender Behind Shopify's Commerce Engine",
+      "source": "Shopify Engineering",
+      "url": "https://shopify.engineering/generative-recommendations",
+      "published": "2026-02",
+      "added": "2026-09-03",
+      "category": "personalization-recsys",
+      "tags": [
+        "hstu",
+        "generative-recommenders",
+        "sequential-modeling",
+        "negative-sampling",
+        "semantic-ids"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-03-shopify-generative-recommender-hstu.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "aws-bedrock-agentcore-gateway-governance",
+      "title": "Govern AI Agent Tool Access with Amazon Bedrock AgentCore Gateway",
+      "source": "AWS Machine Learning Blog",
+      "url": "https://aws.amazon.com/blogs/machine-learning/govern-ai-agent-tool-access-with-amazon-bedrock-agentcore-gateway/",
+      "published": "2026-08",
+      "added": "2026-09-03",
+      "category": "ml-infra-serving",
+      "tags": [
+        "ai-agents",
+        "governance",
+        "access-control",
+        "bedrock",
+        "agentcore"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-03-aws-bedrock-agentcore-gateway-governance.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "uber-crm-contextual-bandits-genai-embeddings",
+      "title": "Enhancing Personalized CRM Communication with Contextual Bandit Strategies",
+      "source": "Uber Engineering Blog",
+      "url": "https://www.uber.com/blog/enhancing-personalized-crm/",
+      "published": "2025-03",
+      "added": "2026-09-03",
+      "category": "personalization-recsys",
+      "tags": [
+        "contextual-bandits",
+        "crm-personalization",
+        "llm-embeddings",
+        "exploration-exploitation"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-03-uber-crm-contextual-bandits-genai-embeddings.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
     {
       "id": "databricks-agent-cost-tracing-mcp",
       "title": "How We Eliminated $1M/Year of Wasted AI Agent Spend in One Hour",
