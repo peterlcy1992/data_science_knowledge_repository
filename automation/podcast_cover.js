@@ -177,6 +177,32 @@ const html = `<!doctype html><html><head><meta charset="utf-8"><style>
   const page = await browser.newPage({ viewport:{width:S,height:S}, deviceScaleFactor:2 });
   await page.goto('file://' + tmp);
   await page.waitForTimeout(120);
+  // Shrink-to-fit: the title is a fixed 230px by default, which overflows the
+  // card both horizontally (a single long word, e.g. "WEATHERNEXT", wider than
+  // the box) and vertically (a long multi-word title wrapping to 4-5 lines runs
+  // past the footer and off the bottom of the canvas). Shrink font-size until
+  // both dimensions fit; if it still doesn't fit at the floor size, allow
+  // mid-word breaking as a last-resort safety net instead of letting
+  // overflow:hidden silently clip the text off-canvas.
+  await page.evaluate(() => {
+    const h1 = document.querySelector('h1');
+    const type = document.getElementById('type');
+    const foot = document.getElementById('foot');
+    const maxHeight = foot.getBoundingClientRect().top - type.getBoundingClientRect().top - 40;
+    const floorSize = 40;
+    const designMinSize = 90;
+    let size = parseFloat(getComputedStyle(h1).fontSize);
+    const overflows = () => h1.scrollWidth > h1.clientWidth || type.scrollHeight > maxHeight;
+    // Shrink down to the design floor first; if that's not enough (very long
+    // titles), keep shrinking past it down to an absolute floor rather than
+    // let anything run off-canvas.
+    while (overflows() && size > designMinSize) { size -= 4; h1.style.fontSize = size + 'px'; }
+    while (overflows() && size > floorSize) { size -= 4; h1.style.fontSize = size + 'px'; }
+    if (h1.scrollWidth > h1.clientWidth) {
+      h1.style.overflowWrap = 'anywhere';
+      h1.style.wordBreak = 'break-word';
+    }
+  });
   fs.mkdirSync(path.dirname(path.resolve(out)), { recursive: true });
   await page.screenshot({ path: out, clip:{x:0,y:0,width:S,height:S} });
   await browser.close();
