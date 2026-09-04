@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-03",
+  "updated": "2026-09-04",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -13,6 +13,131 @@
     "research-foundational"
   ],
   "articles": [
+    {
+      "id": "meta-silvertorch-index-as-model-retrieval",
+      "title": "SilverTorch: Index as Model — A New Retrieval Paradigm for Recommendation Systems",
+      "source": "Engineering at Meta",
+      "url": "https://engineering.fb.com/2026/05/26/ml-applications/silvertorch-index-as-model-new-retrieval-paradigm-recommendation-systems/",
+      "published": "2026-05",
+      "added": "2026-09-04",
+      "category": "search-ranking",
+      "tags": [
+        "retrieval",
+        "gpu-serving",
+        "ann-search",
+        "index-as-model",
+        "recommendation-infrastructure"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-04-meta-silvertorch-index-as-model-retrieval.md",
+      "deep_dived_on": "2026-09-04",
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "swiggy-predicted-lifetime-value-multitask-mlp",
+      "title": "Swiggy's In-House Predicted Lifetime Value Model for Customer Acquisition",
+      "source": "Swiggy (via InfoQ)",
+      "url": "https://www.infoq.com/news/2026/09/swiggy-pltv-multitask-mlp/",
+      "published": "2026-09",
+      "added": "2026-09-04",
+      "category": "personalization-recsys",
+      "tags": [
+        "pltv",
+        "multi-task-learning",
+        "marketing-optimization",
+        "customer-acquisition",
+        "ads-bidding"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-04-swiggy-predicted-lifetime-value-multitask-mlp.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "wantedly-retention-focused-recommendation-job-matching",
+      "title": "Not All Matches Are Equally Valuable: An Online Experiment of Retention-Focused Recommendation in a Job-Matching Platform",
+      "source": "Wantedly (arXiv paper)",
+      "url": "https://arxiv.org/abs/2609.01652",
+      "published": "2026-09",
+      "added": "2026-09-04",
+      "category": "experimentation-causal",
+      "tags": [
+        "recsys",
+        "churn",
+        "online-experiment",
+        "job-matching",
+        "reranking",
+        "ab-testing"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-04-wantedly-retention-focused-recommendation-job-matching.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "zillow-home-embeddings-similar-homes",
+      "title": "Home Embeddings for Similar Home Recommendations",
+      "source": "Zillow Tech Hub",
+      "url": "https://www.zillow.com/tech/embedding-similar-home-recommendation/",
+      "published": "2025-12",
+      "added": "2026-09-04",
+      "category": "personalization-recsys",
+      "tags": [
+        "embeddings",
+        "siamese-network",
+        "cold-start",
+        "real-estate",
+        "similarity-search"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-04-zillow-home-embeddings-similar-homes.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "grab-iceberg-data-lake-adoption",
+      "title": "Scaling Grab's Data Lake: Our Journey to Apache Iceberg Adoption",
+      "source": "Grab Engineering",
+      "url": "https://engineering.grab.com/our-journey-to-apache-iceberg-adoption",
+      "published": "2026-07",
+      "added": "2026-09-04",
+      "category": "data-engineering",
+      "tags": [
+        "apache-iceberg",
+        "data-lake",
+        "lakehouse",
+        "table-format",
+        "migration"
+      ],
+      "novelty": 2,
+      "file": "articles/2026-09-04-grab-iceberg-data-lake-adoption.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "nubank-scaling-predictive-intelligence",
+      "title": "Scaling Predictive Intelligence to Accelerate Nubank's AI-First Vision",
+      "source": "Building Nubank",
+      "url": "https://building.nubank.com/unlocking-financial-insights-how-nubank-powers-personalized-experiences-with-foundation-models/",
+      "published": "2026-08",
+      "added": "2026-09-04",
+      "category": "research-foundational",
+      "tags": [
+        "foundation-model",
+        "transformer",
+        "tabular-data",
+        "transaction-modeling",
+        "fintech"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-04-nubank-scaling-predictive-intelligence.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
     {
       "id": "google-weathernext3-weather-forecasting",
       "title": "Introducing WeatherNext 3, Our Most Advanced and Accurate Global Weather AI Model",
