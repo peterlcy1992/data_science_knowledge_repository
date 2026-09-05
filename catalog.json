@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-04",
+  "updated": "2026-09-05",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -132,14 +132,6 @@
       "url": null
     },
     {
-      "id": "expedia-generative-traditional-ai-travel",
-      "company": "Expedia",
-      "title": "Combining generative and traditional AI for travel",
-      "category": "llm-genai",
-      "hook": "GenAI for open-ended tasks, traditional models for structured, mission-critical ones.",
-      "url": null
-    },
-    {
       "id": "amazon-price-experimentation",
       "company": "Amazon",
       "title": "Improving price experimentation in the Amazon Store",
@@ -220,28 +212,12 @@
       "url": null
     },
     {
-      "id": "meta-adaptive-ranking-model-inference-scaling",
-      "company": "Meta",
-      "title": "Meta Adaptive Ranking Model: Bending the Inference Scaling Curve for LLM-Scale Ads",
-      "category": "ml-infra-serving",
-      "hook": "Replaces one-size-fits-all ranking inference with intelligent per-request routing to serve LLM-scale ads models efficiently.",
-      "url": "https://engineering.fb.com/2026/03/31/ml-applications/meta-adaptive-ranking-model-bending-the-inference-scaling-curve-to-serve-llm-scale-models-for-ads/"
-    },
-    {
       "id": "zillow-serving-ml-models-at-scale",
       "company": "Zillow",
       "title": "Serving Machine Learning Models Efficiently at Scale at Zillow",
       "category": "ml-infra-serving",
       "hook": "Zillow's approach to efficient large-scale model serving infrastructure.",
       "url": "https://www.zillow.com/tech/serving-machine-learning-models-efficiently-at-scale-at-zillow/"
-    },
-    {
-      "id": "grab-trust-counter-fraud-detection",
-      "company": "Grab",
-      "title": "Using Grab's Trust Counter Service to Detect Fraud Successfully",
-      "category": "data-engineering",
-      "hook": "Real-time counter-based rule evaluation detects fraud across billions of daily requests.",
-      "url": "https://engineering.grab.com/using-grabs-trust-counter-service-to-detect-fraud-successfully"
     },
     {
       "id": "whatnot-whatamix-blendable-feed",
@@ -258,14 +234,6 @@
       "category": "personalization-recsys",
       "hook": "A GNN plus GPT-4 pipeline identifies complementary products for bundle recommendations across a 25,000+ product catalog.",
       "url": "https://medium.com/cvs-health-tech-blog/ai-in-cvs-front-store-e-commerce-building-a-complementary-product-bundle-recommender-dc6c71dee682"
-    },
-    {
-      "id": "expedia-generative-and-traditional-ai",
-      "company": "Expedia",
-      "title": "Elevating Travel Experiences with AI",
-      "category": "llm-genai",
-      "hook": "Blending generative AI (dynamic content/chat) with traditional AI (recommendation/prediction) across 70PB of traveler data.",
-      "url": "https://medium.com/expedia-group-tech/elevating-travel-experiences-with-ai-acdb2cf2ec13"
     },
     {
       "id": "linkedin-jude-llm-job-recommendations",
@@ -292,12 +260,20 @@
       "url": "https://careersatdoordash.com/blog/doordash-dashclip-multimodal-models-for-generating-semantic-embeddings/"
     },
     {
-      "id": "pinterest-ad-relevance-realtime-context-sequential",
-      "company": "Pinterest",
-      "title": "Enhancing Ad Relevance: Integrating Real-Time Context into Sequential Recommender Models",
-      "category": "personalization-recsys",
-      "hook": "A hybrid inference architecture fuses real-time context with long-term user history into sequential ad-recommender models, reporting a 3x-10x Recall@K increase.",
-      "url": "https://medium.com/pinterest-engineering/enhancing-ad-relevance-integrating-real-time-context-into-sequential-recommender-models-bc3a2f9b682e"
+      "id": "stripe-ml-flywheel-card-testing",
+      "company": "Stripe",
+      "title": "The ML Flywheel: How We Continually Improve Our Models to Reduce Card Testing",
+      "category": "data-engineering",
+      "hook": "A continual retraining flywheel keeps Stripe Radar's fraud models adapting as card-testing attack patterns shift.",
+      "url": "https://stripe.com/blog/the-ml-flywheel-how-we-continually-improve-our-models-to-reduce-card-testing"
+    },
+    {
+      "id": "etsy-deep-learning-search-ranking",
+      "company": "Etsy",
+      "title": "Deep Learning for Search Ranking at Etsy",
+      "category": "search-ranking",
+      "hook": "Etsy's Code as Craft blog on moving search ranking from classical learning-to-rank to deep learning models.",
+      "url": "https://www.etsy.com/codeascraft/deep-learning-for-search-ranking-at-etsy"
     }
   ]
 }

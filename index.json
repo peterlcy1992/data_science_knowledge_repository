@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-04",
+  "updated": "2026-09-05",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -13,6 +13,180 @@
     "research-foundational"
   ],
   "articles": [
+    {
+      "id": "shopify-river-vulnerability-remediation",
+      "title": "How River Takes Security Work from a Fix to Merge",
+      "source": "Shopify Engineering",
+      "url": "https://shopify.engineering/river-vulnerability-remediation",
+      "published": "2026-09",
+      "added": "2026-09-05",
+      "category": "llm-genai",
+      "tags": [
+        "ai-agents",
+        "vulnerability-remediation",
+        "security",
+        "ci-cd",
+        "autonomous-agents",
+        "slack-native"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-05-shopify-river-vulnerability-remediation.md",
+      "deep_dived_on": "2026-09-05",
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "databricks-proteus-gpu-kernel-generation",
+      "title": "Achieving Extreme Efficiency through Specialized GPU Kernel Generation",
+      "source": "Databricks Blog",
+      "url": "https://www.databricks.com/blog/achieving-extreme-efficiency-through-specialized-gpu-kernel-generation",
+      "published": "2026-09",
+      "added": "2026-09-05",
+      "category": "ml-infra-serving",
+      "tags": [
+        "gpu-kernels",
+        "agentic-search",
+        "inference-optimization",
+        "triton",
+        "vllm",
+        "evolutionary-search",
+        "validation"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-05-databricks-proteus-gpu-kernel-generation.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "intuit-ewok-agentic-disaster-recovery",
+      "title": "How Intuit Built an Agentic Disaster Recovery Assistant with Amazon Bedrock",
+      "source": "AWS Machine Learning Blog",
+      "url": "https://aws.amazon.com/blogs/machine-learning/how-intuit-built-an-agentic-disaster-recovery-assistant-with-amazon-bedrock/",
+      "published": "2026-09",
+      "added": "2026-09-05",
+      "category": "ml-infra-serving",
+      "tags": [
+        "ai-agents",
+        "disaster-recovery",
+        "bedrock",
+        "guardrails",
+        "agentcore",
+        "on-call-tooling",
+        "langchain"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-05-intuit-ewok-agentic-disaster-recovery.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "linkedin-follows-llm-semantic-retrieval-ranking",
+      "title": "Rebuilding LinkedIn's Follows Recommendations with LLM-Based Semantic Retrieval and Ranking",
+      "source": "LinkedIn Engineering Blog",
+      "url": "https://www.linkedin.com/blog/engineering/ai/rebuilding-linkedins-follows-recommendations-with-llm-based-semantic-retrieval-and-ranking",
+      "published": "2026-08",
+      "added": "2026-09-05",
+      "category": "personalization-recsys",
+      "tags": [
+        "llm-embeddings",
+        "bi-encoder",
+        "cold-start",
+        "lora",
+        "faiss",
+        "semantic-retrieval",
+        "contrastive-learning"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-05-linkedin-follows-llm-semantic-retrieval-ranking.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "meta-adaptive-ranking-model-inference-scaling",
+      "title": "Meta Adaptive Ranking Model: Bending the Inference Scaling Curve for LLM-Scale Ads",
+      "source": "Engineering at Meta",
+      "url": "https://engineering.fb.com/2026/03/31/ml-applications/meta-adaptive-ranking-model-bending-the-inference-scaling-curve-to-serve-llm-scale-models-for-ads/",
+      "published": "2026-03",
+      "added": "2026-09-05",
+      "category": "ml-infra-serving",
+      "tags": [
+        "ads-ranking",
+        "fp8-quantization",
+        "model-system-codesign",
+        "inference-routing",
+        "mixture-of-experts",
+        "embedding-sharding"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-05-meta-adaptive-ranking-model-inference-scaling.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "grab-trust-counter-fraud-detection",
+      "title": "Using Grab's Trust Counter Service to Detect Fraud Successfully",
+      "source": "Grab Engineering",
+      "url": "https://engineering.grab.com/using-grabs-trust-counter-service-to-detect-fraud-successfully",
+      "published": "2019-10",
+      "added": "2026-09-05",
+      "category": "data-engineering",
+      "tags": [
+        "fraud-detection",
+        "self-service-rules",
+        "real-time-counters",
+        "scylladb",
+        "streaming",
+        "trust-and-safety"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-05-grab-trust-counter-fraud-detection.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "expedia-generative-and-traditional-ai",
+      "title": "Elevating Travel Experiences with AI",
+      "source": "Expedia Group Technology",
+      "url": "https://medium.com/expedia-group-tech/elevating-travel-experiences-with-ai-acdb2cf2ec13",
+      "published": "2024-12",
+      "added": "2026-09-05",
+      "category": "llm-genai",
+      "tags": [
+        "generative-ai",
+        "personalization",
+        "hybrid-ai-architecture",
+        "product-strategy",
+        "travel"
+      ],
+      "novelty": 2,
+      "file": "articles/2026-09-05-expedia-generative-and-traditional-ai.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "pinterest-ad-relevance-realtime-context-sequential",
+      "title": "Enhancing Ad Relevance: Integrating Real-Time Context into Sequential Recommender Models",
+      "source": "Pinterest Engineering Blog",
+      "url": "https://medium.com/pinterest-engineering/enhancing-ad-relevance-integrating-real-time-context-into-sequential-recommender-models-bc3a2f9b682e",
+      "published": "2026-05",
+      "added": "2026-09-05",
+      "category": "personalization-recsys",
+      "tags": [
+        "sequential-recommender",
+        "real-time-context",
+        "ads-retrieval",
+        "hybrid-inference",
+        "recall-at-k",
+        "transformer"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-05-pinterest-ad-relevance-realtime-context-sequential.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
     {
       "id": "meta-silvertorch-index-as-model-retrieval",
       "title": "SilverTorch: Index as Model — A New Retrieval Paradigm for Recommendation Systems",
