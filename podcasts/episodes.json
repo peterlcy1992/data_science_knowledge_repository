@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 6,
+  "next_episode": 7,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -57,6 +57,17 @@
       "cover": "podcasts/2026-09-04-meta-silvertorch-index-as-model-retrieval.cover.png",
       "rss_status": "draft",
       "rss_episode_id": 3124168
+    },
+    {
+      "episode": 6,
+      "season": 1,
+      "date": "2026-09-05",
+      "title": "Shopify \u2014 An AI Agent That Verifies Its Own Work",
+      "description": "A deep dive into River, the AI agent Shopify built to close the gap between \"a security patch was written\" and \"the vulnerability is actually gone from production.\" We cover the business problem (patches that pass CI without anyone re-checking whether the underlying vulnerability still exists, and a backlog that grows because reconciling state across the codebase, CI, Slack, and the vulnerability tracker is slow, manual work), the technical approach (a Slack-native agent that treats every prior ticket status as an unverified hypothesis, re-derives ground truth from the live repository before acting, replays and rebases stalled upgrades while preserving unrelated changes, and escalates only with one precise, evidence-backed question \u2014 with guarantees like deduplication and closure verification enforced in code rather than in prompts), and the realized impact: an open-issue backlog cut by about 70% and a security-patch merge rate that rose from roughly 10% to 80% within River's first 11 days. Source article: \"How River Takes Security Work from a Fix to Merge\" \u2014 Shopify Engineering, https://shopify.engineering/river-vulnerability-remediation (published 2026-09).",
+      "audio": "podcasts/2026-09-05-shopify-river-vulnerability-remediation.m4a",
+      "cover": "podcasts/2026-09-05-shopify-river-vulnerability-remediation.cover.png",
+      "rss_status": "draft",
+      "rss_episode_id": 3127005
     }
   ]
 }
