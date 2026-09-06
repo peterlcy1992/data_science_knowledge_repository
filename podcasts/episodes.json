@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 7,
+  "next_episode": 8,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -68,6 +68,17 @@
       "cover": "podcasts/2026-09-05-shopify-river-vulnerability-remediation.cover.png",
       "rss_status": "draft",
       "rss_episode_id": 3127005
+    },
+    {
+      "episode": 7,
+      "season": 1,
+      "date": "2026-09-06",
+      "title": "Airbnb \u2014 A Transformer That Reads Your Whole Travel History",
+      "description": "A deep dive into JourneyFormer, the transformer Airbnb built to replace hundreds of hand-crafted \"what this guest likes\" statistics with a model that reads a guest's raw event history directly. We cover the business problem (aggregate features that scale poorly and throw away order, recency, and co-occurrence information a raw sequence preserves, against histories that are long, exploratory, and have very sparse booking labels), the technical approach (splitting history into a 7-year non-view sequence and a 21-day view sequence, a 4-layer transformer that surprisingly performs better without feed-forward sublayers, hierarchical multi-level location embeddings, and throughput tricks that cut training time roughly 4x), and the realized impact: a 1.48% offline ranking-quality gain and, in a 3-week production test, measurable lifts in bookers, booked nights, and views across both search ranking and email ranking \u2014 including a 5% jump in email views. Source article: \"JourneyFormer: Encoding Airbnb Guest Journey with Sequence Modeling\" \u2014 Airbnb Tech Blog / arXiv (KDD 2026), https://arxiv.org/abs/2606.19108 (published 2026-06).",
+      "audio": "podcasts/2026-09-06-airbnb-journeyformer-guest-sequence-search-ranking.m4a",
+      "cover": "podcasts/2026-09-06-airbnb-journeyformer-guest-sequence-search-ranking.cover.png",
+      "rss_status": "draft",
+      "rss_episode_id": 3128544
     }
   ]
 }
