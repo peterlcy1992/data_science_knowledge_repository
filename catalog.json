@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-05",
+  "updated": "2026-09-06",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -212,14 +212,6 @@
       "url": null
     },
     {
-      "id": "zillow-serving-ml-models-at-scale",
-      "company": "Zillow",
-      "title": "Serving Machine Learning Models Efficiently at Scale at Zillow",
-      "category": "ml-infra-serving",
-      "hook": "Zillow's approach to efficient large-scale model serving infrastructure.",
-      "url": "https://www.zillow.com/tech/serving-machine-learning-models-efficiently-at-scale-at-zillow/"
-    },
-    {
       "id": "whatnot-whatamix-blendable-feed",
       "company": "Whatnot",
       "title": "Whatamix: Blendable feed construction",
@@ -234,14 +226,6 @@
       "category": "personalization-recsys",
       "hook": "A GNN plus GPT-4 pipeline identifies complementary products for bundle recommendations across a 25,000+ product catalog.",
       "url": "https://medium.com/cvs-health-tech-blog/ai-in-cvs-front-store-e-commerce-building-a-complementary-product-bundle-recommender-dc6c71dee682"
-    },
-    {
-      "id": "linkedin-jude-llm-job-recommendations",
-      "company": "LinkedIn",
-      "title": "JUDE: LLM-based representation learning for LinkedIn job recommendations",
-      "category": "personalization-recsys",
-      "hook": "LLM-based representation learning purpose-built for job recommendation ranking.",
-      "url": "https://www.linkedin.com/blog/engineering/ai/jude-llm-based-representation-learning-for-linkedin-job-recommendations"
     },
     {
       "id": "coinbase-sequence-features-ml",
@@ -260,20 +244,12 @@
       "url": "https://careersatdoordash.com/blog/doordash-dashclip-multimodal-models-for-generating-semantic-embeddings/"
     },
     {
-      "id": "stripe-ml-flywheel-card-testing",
-      "company": "Stripe",
-      "title": "The ML Flywheel: How We Continually Improve Our Models to Reduce Card Testing",
-      "category": "data-engineering",
-      "hook": "A continual retraining flywheel keeps Stripe Radar's fraud models adapting as card-testing attack patterns shift.",
-      "url": "https://stripe.com/blog/the-ml-flywheel-how-we-continually-improve-our-models-to-reduce-card-testing"
-    },
-    {
-      "id": "etsy-deep-learning-search-ranking",
-      "company": "Etsy",
-      "title": "Deep Learning for Search Ranking at Etsy",
-      "category": "search-ranking",
-      "hook": "Etsy's Code as Craft blog on moving search ranking from classical learning-to-rank to deep learning models.",
-      "url": "https://www.etsy.com/codeascraft/deep-learning-for-search-ranking-at-etsy"
+      "id": "doordash-ask-doordash-part4-agent-platform",
+      "company": "DoorDash",
+      "title": "Building Ask DoorDash (Part 4): A Platform for Building and Evolving Agents",
+      "category": "llm-genai",
+      "hook": "The internal platform and infrastructure DoorDash built to let teams create and iterate on domain-specific conversational agents.",
+      "url": "https://careersatdoordash.com/blog/building-ask-doordash-part-four-a-platform-for-building_and_evolving_agents/"
     }
   ]
 }

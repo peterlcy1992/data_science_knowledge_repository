@@ -331,6 +331,159 @@ const CATS = {
 
 const ARTICLES = [
 {
+    id: "airbnb-journeyformer-guest-sequence-search-ranking", title: "JourneyFormer: Encoding Airbnb Guest Journey with Sequence Modeling",
+    source: "Airbnb Tech Blog / arXiv (KDD 2026)", url: "https://arxiv.org/abs/2606.19108",
+    published: "2026-06", added: "2026-09-06", category: "personalization-recsys", novelty: 4, via: "full-text fetch",
+    tags: ["sequence-modeling","transformer","search-ranking","s2cell","embeddings","ablation","kdd"],
+    tldr: "Airbnb replaced hand-crafted aggregate features of guest history with JourneyFormer, a 4-layer transformer encoding up to 7 years of booking/review events and 21 days of browsing as two sequences. It shipped +1.48% offline NDCG and, in a 3-week online A/B test, +0.55–0.90% on bookers/booked-nights/views for search ranking and a +5.04% lift in email views for email ranking.",
+    business: "<p>Airbnb's search ranker long captured \"what a guest likes\" through hundreds of hand-engineered aggregate statistics computed over a guest's history — an approach that became harder to scale and threw away order, recency, and co-occurrence information a raw event sequence preserves. Guest journeys are unusually hard to model directly: sequences span years, mix rare high-value booking events with abundant low-signal browsing, and the label of interest (an eventual booking) is extremely sparse relative to views.</p>",
+    technical: "<ul><li><strong>Two sequences:</strong> a long-term stream of non-view events (bookings, reviews, cancellations) from the past 7 years capped at 80 events, and a short-term stream of views from the past 21 days capped at 200 events.</li><li><strong>Location:</strong> all 14 S2Cell hierarchy levels used simultaneously to capture coarse and fine-grained geography together.</li><li><strong>Encoder:</strong> a 4-layer transformer, 128-dim embeddings, causal self-attention — with feed-forward sublayers removed, which counterintuitively improved performance in this sparse-label, long-sequence regime. Output embeddings are downscaled to 32-d for storage.</li><li><strong>Labels:</strong> 7-day booking-attribution window, capped at 4 searches per guest per day.</li><li><strong>Training throughput:</strong> search batching, sequence bucketization, and sparse computation combined for roughly a 4x speedup over a naive implementation.</li></ul>",
+    impact: "<p><strong>Realized (offline):</strong> NDCG +0.44% (long-term only), +1.30% (short-term only), +1.48% (combined) vs. baseline.</p><p><strong>Realized (online, 3-week A/B):</strong> search ranking +0.55% bookers, +0.82% booked nights, +0.90% views (p&lt;0.01); email ranking +0.16% bookers, +0.23% booked nights, +5.04% email views.</p><p><strong>Potential:</strong> gains held for at least 30 days post-training with under 0.1% decline, suggesting the representation tolerates a relaxed retraining cadence.</p>",
+    verdict: { score: 4, line: "a strong production-first take on sequence modeling for ranking", body: "<p>Transformers over user event sequences aren't new, but the specific engineering choices are genuinely interesting: dropping feed-forward layers is not something you'd guess a priori, and the explicit long/short sequence split with different retention windows is a sensible answer to \"guest journeys are long and sparse\" — a problem a lot of \"just throw a transformer at it\" write-ups gloss over.</p>" },
+    related: [
+      "Learning to Rank for Maps at Airbnb — same team's prior ranking work; JourneyFormer extends the user-representation side of that pipeline.",
+      "An Industrial-Scale Sequential Recommender for LinkedIn Feed Ranking (Feed SR) — a comparable decoder-only transformer over user history for feed ranking rather than search.",
+      "Towards Generalizable and Efficient Large-Scale Generative Recommenders — a contrasting generative-retrieval take on large-scale sequence modeling, useful for comparison."
+    ],
+    jargon: [
+      ["S2Cell","Google's hierarchical geospatial indexing scheme dividing the Earth into a quadtree of cells at multiple zoom levels, letting one location be represented at coarse and fine granularity at once."],
+      ["Causal masking","An attention constraint preventing a sequence position from seeing any position after it, preserving correct temporal order of information flow."]
+    ]
+  },
+  {
+    id: "nvidia-speculative-decoding-model-codesign", title: "Co-Designing AI Models Using Speculative Decoding for Faster LLM Inference",
+    source: "NVIDIA Technical Blog", url: "https://developer.nvidia.com/blog/co-designing-ai-models-using-speculative-decoding-for-faster-llm-inference/",
+    published: "2026-09", added: "2026-09-06", category: "ml-infra-serving", novelty: 4, via: "full-text fetch",
+    tags: ["speculative-decoding","llm-inference","draft-models","eagle","mtp","throughput-latency","benchmarking"],
+    tldr: "NVIDIA lays out concrete, quantitative guidelines for choosing and tuning a speculative-decoding draft mechanism (external draft models, EAGLE-3, MTP, DFlash, DSpark, or n-gram methods), backed by benchmarks on SPEED-Bench with Qwen 3.5 122B as the target — including a formula for ideal draft length given a model's attention-head ratio.",
+    business: "<p>Autoregressive LLM decoding generates one token per forward pass, under-utilizing GPU compute at low batch sizes. Speculative decoding — verifying several candidate tokens per pass instead of one — is now a standard lever for cutting inference cost, but teams face a genuinely hard choice: which draft mechanism to use, and how long a draft to generate, for a given target model and latency budget.</p>",
+    technical: "<ul><li><strong>Six draft mechanisms compared:</strong> external draft models (highest acceptance length, but 100B–10T+ training tokens), EAGLE-3 (extra decoder layers, 1–10B tokens), MTP (co-trained, ships with checkpoint, but serial generation), DFlash (parallel KV-fusion generation, cheaper overhead than MTP), DSpark (DFlash + Markov-correction head), and n-gram/suffix matching (training-free).</li><li><strong>Five guidelines:</strong> push draft length to keep the verification GEMM compute-bound; when attention dominates set draft length D = 128/G − 1 (G = query heads per KV head); align draft length to 128-token attention-kernel tile boundaries; only grow draft length at low latency if acceptance gains justify it; pick the draft mechanism by weighing acceptance length against training/deployment cost.</li></ul>",
+    impact: "<p><strong>Realized:</strong> on SPEED-Bench with Qwen 3.5 122B as target, external drafts (35B and 4B) reached acceptance length ≥5–6, while MTP and DFlash plateaued lower but far cheaper to train; DFlash's one-shot parallel generation cuts per-round overhead versus MTP's serial steps.</p><p><strong>Potential:</strong> the D = 128/G − 1 formula and tile-alignment rule generalize to any GQA-based LLM, letting teams compute an initial draft-length target directly rather than sweeping it empirically.</p>",
+    verdict: { score: 4, line: "a practical systems study, not a new algorithm", body: "<p>None of the six draft mechanisms is new — EAGLE, MTP, and n-gram speculative decoding are all established. What's genuinely useful is the head-to-head comparison plus the closed-form draft-length formula tied to a model's GQA ratio and attention-kernel tiling, saving teams weeks of empirical tuning.</p>" },
+    related: [
+      "Achieving Extreme Efficiency through Specialized GPU Kernel Generation — a complementary inference-optimization lever (kernel-level GPU efficiency) that composes with the decoding-algorithm lever here.",
+      "Meta Adaptive Ranking Model: Bending the Inference Scaling Curve for LLM-Scale Ads — another \"make LLM-scale inference cheap in production\" story, focused on quantization and routing instead of speculative decoding."
+    ],
+    jargon: [
+      ["Acceptance length (AL)","The average number of draft tokens the target model confirms as correct per verification round; higher AL means fewer expensive target-model passes per generated token."],
+      ["Grouped-query attention (GQA)","An attention variant where multiple query heads share one key/value head, reducing KV-cache memory; the query-to-KV-head ratio (G) directly affects how compute-bound a given draft length is."]
+    ]
+  },
+  {
+    id: "etsy-context-engineering-employee-qa", title: "Context Engineering Case Studies: Etsy-Specific Question Answering",
+    source: "Etsy Engineering (Code as Craft)", url: "https://www.etsy.com/codeascraft/context-engineering-case-studies-etsy-specific-question-answering",
+    published: "2026-07", added: "2026-09-06", category: "llm-genai", novelty: 3, via: "web search",
+    tags: ["context-engineering","prompt-engineering","hallucination-detection","rag","employee-tools","evaluation"],
+    tldr: "Etsy piloted LLM question answering over Etsy-specific documents (employee travel/expense policy, then seller/employee forum posts) and found context engineering worked reasonably well versus fine-tuning — with one technique standing out for catching hallucinations: requiring the model to cite the exact source snippet behind each answer.",
+    business: "<p>Employee and seller onboarding at Etsy's scale runs into the same wall repeatedly: policies and procedures live scattered across wikis, formal documents, and community forum threads, and a fast, reliable, self-serve answer channel is expensive to build with static docs or a human support queue — unless the answers can be trusted not to hallucinate.</p>",
+    technical: "<ul><li><strong>Approach chosen:</strong> context/prompt engineering (frozen weights, task-specific documents supplied at inference time) over fine-tuning, tested with OpenAI's o-series and Google's Gemini family.</li><li><strong>Case study 1:</strong> the Travel &amp; Entertainment policy section, a well-circumscribed domain, evaluated against 40 manually curated Q&amp;A pairs.</li><li><strong>Case study 2:</strong> mining seller/employee community-forum posts for common seller-onboarding questions — messier, more conversational source material.</li><li><strong>What didn't reliably help:</strong> uncertainty framing, added context, and asking for explanations.</li><li><strong>What did help:</strong> requiring the model to quote its exact source snippet — a strong signal for flagging likely hallucinations when no real snippet supports the claim.</li></ul>",
+    impact: "<p><strong>Realized:</strong> prompt/context engineering worked \"reasonably well\" as a lower-cost alternative to fine-tuning across both piloted domains; source-snippet citation is identified as a practical, low-cost hallucination-detection signal. Specific accuracy numbers on the 40-question benchmark were not disclosed.</p><p><strong>Potential:</strong> the negative results (which prompting tricks didn't help) are as valuable as the positive one for any team defaulting to \"add more prompting tricks\" without validating each against a held-out benchmark.</p>",
+    verdict: { score: 3, line: "solid, honestly-reported production engineering, not a new technique", body: "<p>Citing source snippets to catch hallucinations is a known RAG-adjacent pattern, not a novel invention. What makes this worth reading is Etsy's willingness to report which \"obvious\" prompting tricks did not reliably help — a kind of negative result underrepresented in company engineering blogs.</p>" },
+    related: [
+      "Reduce RAG Costs on Amazon Bedrock with Query-Aware Compression — another team's approach to grounding and hallucination control in a RAG pipeline, at much larger scale.",
+      "Our Early Journey to Transform Instacart's Discovery Recommendations with LLMs — also layers an LLM-as-judge over generated content to catch quality/faithfulness failures before they reach users.",
+      "Sidekick's Continual Learning Loop — a much heavier-weight approach (calibrated LLM-judge plus RL) to the same underlying trust problem."
+    ],
+    jargon: [
+      ["Context engineering","Deliberately curating and structuring the text supplied to an LLM at inference time to steer its output, as an alternative to changing the model's weights."],
+      ["Hallucination","An LLM generating a plausible-sounding but factually incorrect or fabricated statement — especially dangerous in a policy-answering context."]
+    ]
+  },
+  {
+    id: "doordash-ask-doordash-grounded-shopping-interface", title: "Building Ask DoorDash (Part 5): A Grounded Interface For Shopping Agents",
+    source: "DoorDash Engineering", url: "https://careersatdoordash.com/blog/building-ask-doordash-part-5-a-grounded-interface-for-shopping-agents/",
+    published: "2026-08", added: "2026-09-06", category: "llm-genai", novelty: 3, via: "web search",
+    tags: ["ai-agents","conversational-commerce","artifact-architecture","ui-generation","agent-memory","mcp"],
+    tldr: "DoorDash's course correction after building a conversational shopping assistant: consumers wanted a shopping surface, not a chat window that happens to contain shopping widgets — so the team built a versioned \"artifact\" architecture (shopping lists, store cards) that decouples what consumers see and edit from what the agent reasons over.",
+    business: "<p>Ask DoorDash is DoorDash's conversational shopping assistant, by this point handling millions of conversations across restaurant discovery, grocery shopping, and reservations. This installment addresses a UX lesson: purely conversational interfaces are a poor fit for shopping, because consumers expect to see and directly manipulate real, purchasable items rather than describe every change in natural language.</p>",
+    technical: "<ul><li><strong>Artifact architecture:</strong> interactive widgets (shopping lists, store cards) are versioned objects with stable IDs rather than one-off chat-message content.</li><li><strong>Direct edits:</strong> consumers edit artifacts between turns via a \"Gateway\" layer without routing every small edit through the LLM agent; the agent reads the latest version on its next turn.</li><li><strong>Fast/slow path split:</strong> a simple deterministic edit updates the artifact immediately; a change requiring reasoning triggers a new agent turn.</li><li><strong>Underlying system:</strong> a multi-agent design (orchestrator routing to domain agents), grounded in live commerce data via MCP tools, plus a layered memory system persisting context across turns.</li></ul>",
+    impact: "<p><strong>Realized:</strong> the artifact architecture directly addresses the earlier chat-only design's UX failure — consumers can traverse and manipulate real, image-based shopping components. DoorDash's broader case-study numbers for the grocery agent's memory system report ~24% higher relative checkout conversion, +17% average basket size, and -7% conversational turns (describing the memory system, not this artifact change specifically).</p><p><strong>Potential:</strong> versioned, directly user-editable \"artifacts\" as shared state between a UI and an LLM agent, with a fast path for deterministic edits, is reusable for any conversational-commerce product needing both chat and direct structured-state manipulation.</p>",
+    verdict: { score: 3, line: "a well-articulated but incremental UX pattern for agentic products", body: "<p>Generative UI and \"agent proposes, user edits directly\" patterns are active across the industry; DoorDash's contribution is a clear, concrete architectural vocabulary for a problem most conversational-commerce teams eventually hit — a useful reference design more than a genuinely new idea.</p>" },
+    related: [
+      "Our Early Journey to Transform Instacart's Discovery Recommendations with LLMs — a similar generative-UI approach to commerce discovery, with a comparable agent-vs-user-control tension.",
+      "How Intuit Built an Agentic Disaster Recovery Assistant with Amazon Bedrock — a different domain but a similar theme of grounding an agent against live, authoritative state."
+    ],
+    jargon: [
+      ["Artifact (in this context)","A versioned, stable-ID UI object (like a shopping list) that both user and AI agent can read and modify, serving as shared ground truth."],
+      ["Model Context Protocol (MCP)","An open protocol for connecting LLM agents to external tools and live data sources in a standardized way."]
+    ]
+  },
+  {
+    id: "linkedin-jude-llm-job-recommendations", title: "JUDE: LLM-Based Representation Learning for LinkedIn Job Recommendations",
+    source: "LinkedIn Engineering Blog", url: "https://www.linkedin.com/blog/engineering/ai/jude-llm-based-representation-learning-for-linkedin-job-recommendations",
+    published: "2025-05", added: "2026-09-06", category: "personalization-recsys", novelty: 4, via: "full-text fetch",
+    tags: ["llm-embeddings","two-tower","lora","job-recommendations","multi-task-learning","contrastive-learning","deepspeed"],
+    tldr: "LinkedIn replaced hand-tuned smaller models and brittle taxonomies with JUDE, a two-tower architecture built on LoRA-fine-tuned LLM embeddings, shipping +2.07% qualified applications and +1.91% total applications, with a 5.13% drop in the dismiss-to-apply ratio — the team's largest single-model metric improvement in half a year.",
+    business: "<p>LinkedIn's job-recommendation system serves over a billion members against tens of millions of active postings, previously leaning on standardized features, smaller imprecise ML models, and hard-to-maintain manual taxonomies. The team wanted representations capturing the actual semantic content of a job or profile, at real-time responsiveness for this scale.</p>",
+    technical: "<ul><li><strong>Two-tower architecture:</strong> both towers derived from a shared base LLM via LoRA fine-tuning applied to Query-Key-Value matrices in attention blocks, with specialized prompt templates per input type (job description, profile, resume).</li><li><strong>Lightweight top layers</strong> keep semantic heavy-lifting with the fine-tuned LLM rather than a downstream MLP; both encoder-decoder and decoder-only bases explored, plus mean vs. last-token pooling.</li><li><strong>Three combined losses:</strong> binary cross-entropy, contrastive InfoNCE for retrieval, and a VP-matrix loss for outlier robustness; supervision mixes relevance labels and engagement (application) labels.</li><li><strong>Infra:</strong> Flash Attention 2, custom CUDA kernels, bfloat16, gradient checkpointing, multi-node H100s with DeepSpeed ZeRO-style partitioning.</li><li><strong>Serving:</strong> change-detection cut inference volume ~6x, keeping p95 nearline latency under 300ms.</li></ul>",
+    impact: "<p><strong>Realized:</strong> +2.07% qualified applications, +1.91% total job applications, -5.13% dismiss-to-apply ratio — the largest metric improvement from a single model change the talent-initiatives team had observed in that half-year.</p><p><strong>Potential:</strong> the 6x inference-volume reduction via change detection is broadly reusable for any large-scale embedding-serving system where entities change far less often than they're queried.</p>",
+    verdict: { score: 4, line: "a strong, well-engineered production LLM-embedding system", body: "<p>LLM-based two-tower retrieval is now a fairly common pattern, so the core idea isn't new. What elevates this is the three-loss training design and the serving-side change-detection optimization — the detail that separates a fine-tuned-LLM-embeddings demo from one that survives production cost constraints.</p>" },
+    related: [
+      "Rebuilding LinkedIn's Follows Recommendations with LLM-Based Semantic Retrieval and Ranking — the same company applying a very similar LLM-embedding-plus-bi-encoder recipe to a different surface.",
+      "Matching LinkedIn Members with the Right Premium Products — an earlier, non-LLM two-tower approach at LinkedIn, useful context for how far the backbone has evolved."
+    ],
+    jargon: [
+      ["LoRA (Low-Rank Adaptation)","A parameter-efficient fine-tuning technique that freezes most pretrained weights and injects small trainable low-rank matrices into specific layers, cutting the compute needed to fine-tune."],
+      ["InfoNCE loss","A contrastive loss training embeddings so matching pairs sit close together in embedding space while non-matching pairs are pushed apart, commonly used for retrieval."]
+    ]
+  },
+  {
+    id: "stripe-ml-flywheel-card-testing", title: "The ML Flywheel: How We Continually Improve Our Models to Reduce Card Testing",
+    source: "Stripe Engineering", url: "https://stripe.com/blog/the-ml-flywheel-how-we-continually-improve-our-models-to-reduce-card-testing",
+    published: "2024-12", added: "2026-09-06", category: "data-engineering", novelty: 3, via: "full-text fetch",
+    tags: ["fraud-detection","card-testing","continual-retraining","foundation-models","real-time-scoring","mlops"],
+    tldr: "Stripe describes a three-tier, continually-retrained ML system (Radar) that estimates platform-wide card-testing prevalence, localizes where attacks are happening, and scores individual transactions in real time — reporting an 80% reduction in successful card-testing attacks over two years, even as payment volume grew past $1 trillion annually.",
+    business: "<p>Card testing validates stolen or guessed card numbers via small test transactions before using confirmed-valid cards for fraud. Because attackers shift tactics quickly, a static fraud model decays fast; Stripe needed a defense retrainable roughly as fast as attacks evolve, without over-blocking legitimate traffic that merely resembles an attack.</p>",
+    technical: "<ul><li><strong>Layer 1 (Macro):</strong> estimates overall card-testing prevalence platform-wide, informing daily risk-posture updates.</li><li><strong>Layer 2 (Meso):</strong> identifies where attacks concentrate (business, issuer, surface), distinguishing attacks from legitimate spikes.</li><li><strong>Layer 3 (Micro):</strong> individual transaction classifiers scoring fraud probability in real time.</li><li><strong>The flywheel:</strong> labeling (attack intelligence + pattern discovery + expert review) → feature engineering via Shepherd (built with Airbnb) → testing via Flyte orchestration and blue-green deployment → immediate redeployment during incident response. Foundation models layer on top to catch subtler cross-transaction patterns.</li></ul>",
+    impact: "<p><strong>Realized:</strong> an 80% reduction in successful card-testing attacks over two years, achieved despite total payment volume growing past $1 trillion annually, while maintaining low false-positive rates.</p><p><strong>Potential:</strong> the macro/meso/micro decomposition generalizes to any adversarial, adaptive-attacker domain (account takeover, promo abuse, spam), since each tier can be retrained on the cadence appropriate to how fast that layer's signal shifts.</p>",
+    verdict: { score: 3, line: "solid, mature MLOps applied to an adversarial domain", body: "<p>Multi-tier fraud detection and rapid-retraining flywheels are well-established patterns; the value here is the concrete operational detail — a shared feature platform built jointly with Airbnb, Flyte-based blue-green deployment, and an explicit incident-response fast path.</p>" },
+    related: [
+      "Using Grab's Trust Counter Service to Detect Fraud Successfully — a lighter-weight, rules-first real-time fraud architecture for a related trust-and-safety problem.",
+      "Leveraging Graph Technology for Real-Time Fraud Detection and Prevention at Booking.com — another real-time fraud system using graph-based entity relationships instead of tiered classifiers."
+    ],
+    jargon: [
+      ["Card testing","A fraud technique validating stolen or guessed card numbers via small test transactions before larger fraud or resale."],
+      ["Blue-green deployment","A release strategy running new and old system versions side by side, switching traffic only once the new version is validated."]
+    ]
+  },
+  {
+    id: "etsy-deep-learning-search-ranking", title: "Deep Learning for Search Ranking at Etsy",
+    source: "Etsy Engineering (Code as Craft)", url: "https://www.etsy.com/codeascraft/deep-learning-for-search-ranking-at-etsy",
+    published: "2022", added: "2026-09-06", category: "search-ranking", novelty: 2, via: "web search",
+    tags: ["deep-and-cross-network","mmoe","multi-task-learning","learning-to-rank","gbdt-migration"],
+    tldr: "Etsy migrated production search ranking from a gradient-boosted decision tree to a unified deep learning model combining a Deep & Cross Network (DCN) with a Multi-gate Mixture-of-Experts (MMoE) head — a roughly year-long migration now saving hundreds of thousands of dollars annually in compute.",
+    business: "<p>Etsy's marketplace search had long run on a GBDT ranking model — mature but architecturally limited: it doesn't naturally support multiple prediction objectives sharing one model, and scales feature-representation learning less gracefully than a neural network. As ranking needs grew more multi-objective, Etsy migrated to a unified deep learning architecture.</p>",
+    technical: "<ul><li><strong>Feature representation layer:</strong> converts raw numerical, categorical, and high-cardinality ID features for query/user/listing into dense representations, including text embeddings and sequence encodings.</li><li><strong>Deep &amp; Cross Network (DCN):</strong> explicitly learns feature crosses alongside a standard deep component.</li><li><strong>MMoE head:</strong> shared expert sub-networks plus per-task gating, letting some experts specialize per-task while others share representations, reducing negative transfer across objectives.</li><li>The migration from production GBDT to this ranker took about a year start to launch.</li></ul>",
+    impact: "<p><strong>Realized:</strong> the unified deep learning ranker saves hundreds of thousands of dollars annually in training and serving compute versus the prior GBDT system.</p><p><strong>Potential:</strong> the MMoE-on-DCN pattern is a reusable template for any marketplace search team moving from single-objective trees to multi-objective neural ranking.</p>",
+    verdict: { score: 2, line: "a well-executed, standard migration to established architectures", body: "<p>DCN and MMoE are both well-established, widely published architectures that were already industry-standard multi-task ranking building blocks by the time of this migration. Valuable as a concrete \"how one marketplace executed the GBDT-to-DNN migration\" case study, not as new technique.</p>" },
+    related: [
+      "Enhancing Ad Relevance: Integrating Real-Time Context into Sequential Recommender Models — another marketplace's multi-task, multi-signal ranking architecture, for comparison against DCN+MMoE."
+    ],
+    jargon: [
+      ["Deep & Cross Network (DCN)","A neural architecture explicitly computing feature crosses at each layer alongside a standard deep network, in a differentiable, end-to-end trainable way."],
+      ["Multi-gate Mixture-of-Experts (MMoE)","A multi-task architecture with shared expert sub-networks and a learned per-task gating network, letting each task draw a different weighted combination of experts."]
+    ]
+  },
+  {
+    id: "zillow-serving-ml-models-at-scale", title: "Serving Machine Learning Models Efficiently at Scale at Zillow",
+    source: "Zillow Tech Hub", url: "https://www.zillow.com/tech/serving-machine-learning-models-efficiently-at-scale-at-zillow/",
+    published: "2022-11", added: "2026-09-06", category: "ml-infra-serving", novelty: 2, via: "web search",
+    tags: ["model-serving","knative","kserve","kubernetes","request-batching","inference-infrastructure"],
+    tldr: "Zillow built a centralized ML model-serving platform on Knative and KServe, giving practitioners a self-service way to deploy models while the platform team owns shared, performant infrastructure — reporting 20-40% p50/long-tail latency improvements over the vendor solutions it replaced.",
+    business: "<p>As Zillow's AI teams grew, each tended to build its own bespoke path to production for serving models, duplicating infrastructure work and producing inconsistent performance and operational practices. Zillow needed a single centralized serving platform balancing self-service for practitioners with one place for the platform team to invest in performance.</p>",
+    technical: "<ul><li><strong>Knative</strong> (Kubernetes-based serverless) solved most, not all, ML-serving pain points: autoscaling, revision management, request routing.</li><li><strong>KServe</strong> layered on top adds ML-specific capabilities: a custom model server, request batching, and separated pre/post-processing \"transformer\" components.</li><li><strong>Design:</strong> a flow/DAG paradigm mirroring the natural step structure of an ML pipeline (feature transformation, inference, post-processing), echoing Kubeflow/MLflow/Airflow philosophy applied to the serving path.</li></ul>",
+    impact: "<p><strong>Realized:</strong> 20-40% improvements in p50 and long-tail serving latencies versus the vendor-based solutions replaced, attributed to combining Knative's serverless autoscaling with KServe's ML-specific optimizations.</p><p><strong>Potential:</strong> the core lesson — general serverless solves most but not all ML-serving needs, with the gap filled by an ML-specific layer — is a useful decision framework for any infra team evaluating this stack.</p>",
+    verdict: { score: 2, line: "a solid infrastructure write-up using established open-source tooling", body: "<p>Knative and KServe are both established open-source projects, not Zillow inventions; the value is the concrete adoption story and reported latency numbers from combining them, useful evidence rather than a novel infrastructure contribution.</p>" },
+    related: [
+      "How Databricks Feature Store Serves Features with Sub-Second Freshness — a complementary piece of the serving stack (feature side) tackling a similar low-latency infrastructure problem.",
+      "In-House LLM Serving at Netflix — a more recent, LLM-specific take on the same underlying standardized-efficient-serving problem."
+    ],
+    jargon: [
+      ["Knative","An open-source Kubernetes-based platform for serverless applications, providing autoscaling and request routing without teams managing that infrastructure themselves."],
+      ["KServe","An open-source model-serving framework on Kubernetes/Knative adding ML-specific capabilities like standardized inference protocols and request batching."]
+    ]
+  },
+  {
     id: "shopify-river-vulnerability-remediation", title: "How River Takes Security Work from a Fix to Merge",
     source: "Shopify Engineering", url: "https://shopify.engineering/river-vulnerability-remediation",
     published: "2026-09", added: "2026-09-05", category: "llm-genai", novelty: 4, via: "full-text fetch",
@@ -1671,7 +1824,7 @@ const ARTICLES = [
   }
 ];
 
-const UPDATED = "2026-09-05";
+const UPDATED = "2026-09-06";
 
 // Lightweight backlog (mostly Snacks Weekly episodes) awaiting full deep-dive write-ups.
 const CATALOG = [
@@ -1701,14 +1854,11 @@ const CATALOG = [
   { id:"thumbtack-recommendations-offline-inference", company:"Thumbtack", title:"Recommendations with two sub-models and offline inference", category:"personalization-recsys", hook:"A two-sub-model recommendation architecture served via offline inference.", url:null },
   { id:"urban-company-causal-inference", company:"Urban Company", title:"Leveraging causal inference for product decisions", category:"experimentation-causal", hook:"Causal inference to guide decisions where experiments are hard.", url:null },
   { id:"uber-count-distinct-high-cardinality-pipelines", company:"Uber", title:"Scaling Exact COUNT(DISTINCT) for High-Cardinality Non-Rollup Metrics in Distributed Data Pipelines", category:"data-engineering", hook:"A distributed-pipelines approach to exact (not approximate) COUNT(DISTINCT) at high cardinality without rollups.", url:null },
-  { id:"zillow-serving-ml-models-at-scale", company:"Zillow", title:"Serving Machine Learning Models Efficiently at Scale at Zillow", category:"ml-infra-serving", hook:"Zillow's approach to efficient large-scale model serving infrastructure.", url:"https://www.zillow.com/tech/serving-machine-learning-models-efficiently-at-scale-at-zillow/" },
   { id:"whatnot-whatamix-blendable-feed", company:"Whatnot", title:"Whatamix: Blendable feed construction", category:"personalization-recsys", hook:"A DAG-based orchestration framework with interchangeable nodes (retrieval, feature enrichment, scoring, blending) for building feed logic across use cases.", url:"https://medium.com/whatnot-engineering/whatamix-blendable-feed-construction-2c94c21f6635" },
   { id:"cvs-complementary-product-bundles-gnn-gpt4", company:"CVS Health", title:"AI in CVS Front Store E-commerce: Building a Complementary Product Bundle Recommender", category:"personalization-recsys", hook:"A GNN plus GPT-4 pipeline identifies complementary products for bundle recommendations across a 25,000+ product catalog.", url:"https://medium.com/cvs-health-tech-blog/ai-in-cvs-front-store-e-commerce-building-a-complementary-product-bundle-recommender-dc6c71dee682" },
-  { id:"linkedin-jude-llm-job-recommendations", company:"LinkedIn", title:"JUDE: LLM-based representation learning for LinkedIn job recommendations", category:"personalization-recsys", hook:"LLM-based representation learning purpose-built for job recommendation ranking.", url:"https://www.linkedin.com/blog/engineering/ai/jude-llm-based-representation-learning-for-linkedin-job-recommendations" },
   { id:"coinbase-sequence-features-ml", company:"Coinbase", title:"How Coinbase Builds Sequence Features for Machine Learning", category:"data-engineering", hook:"A production-ready sequence-feature pipeline framework built jointly by ML Platform, ML Risk, Recommendations, and Data Platform teams.", url:"https://www.coinbase.com/blog/how-coinbase-builds-sequence-features-for-machine-learning" },
   { id:"doordash-dashclip-multimodal-ad-embeddings", company:"DoorDash", title:"DashCLIP: Leveraging multimodal models for generating semantic embeddings", category:"personalization-recsys", hook:"A two-stage contrastive framework aligning product images, text, and search queries in one embedding space to power ads retrieval, ranking, and relevance.", url:"https://careersatdoordash.com/blog/doordash-dashclip-multimodal-models-for-generating-semantic-embeddings/" },
-  { id:"stripe-ml-flywheel-card-testing", company:"Stripe", title:"The ML Flywheel: How We Continually Improve Our Models to Reduce Card Testing", category:"data-engineering", hook:"A continual retraining flywheel keeps Stripe Radar's fraud models adapting as card-testing attack patterns shift.", url:"https://stripe.com/blog/the-ml-flywheel-how-we-continually-improve-our-models-to-reduce-card-testing" },
-  { id:"etsy-deep-learning-search-ranking", company:"Etsy", title:"Deep Learning for Search Ranking at Etsy", category:"search-ranking", hook:"Etsy's Code as Craft blog on moving search ranking from classical learning-to-rank to deep learning models.", url:"https://www.etsy.com/codeascraft/deep-learning-for-search-ranking-at-etsy" }
+  { id:"doordash-ask-doordash-part4-agent-platform", company:"DoorDash", title:"Building Ask DoorDash (Part 4): A Platform for Building and Evolving Agents", category:"llm-genai", hook:"The internal platform and infrastructure DoorDash built to let teams create and iterate on domain-specific conversational agents.", url:"https://careersatdoordash.com/blog/building-ask-doordash-part-four-a-platform-for-building_and_evolving_agents/" }
 ];
 
 // ---- render ----
@@ -1781,7 +1931,16 @@ const REL_LINKS = {
   "Rebuilding LinkedIn's Follows Recommendations with LLM-Based Semantic Retrieval and Ranking": "https://www.linkedin.com/blog/engineering/ai/rebuilding-linkedins-follows-recommendations-with-llm-based-semantic-retrieval-and-ranking",
   "Meta Adaptive Ranking Model: Bending the Inference Scaling Curve for LLM-Scale Ads": "https://engineering.fb.com/2026/03/31/ml-applications/meta-adaptive-ranking-model-bending-the-inference-scaling-curve-to-serve-llm-scale-models-for-ads/",
   "Using Grab's Trust Counter Service to Detect Fraud Successfully": "https://engineering.grab.com/using-grabs-trust-counter-service-to-detect-fraud-successfully",
-  "Enhancing Ad Relevance: Integrating Real-Time Context into Sequential Recommender Models": "https://medium.com/pinterest-engineering/enhancing-ad-relevance-integrating-real-time-context-into-sequential-recommender-models-bc3a2f9b682e"
+  "Enhancing Ad Relevance: Integrating Real-Time Context into Sequential Recommender Models": "https://medium.com/pinterest-engineering/enhancing-ad-relevance-integrating-real-time-context-into-sequential-recommender-models-bc3a2f9b682e",
+  "JourneyFormer: Encoding Airbnb Guest Journey with Sequence Modeling": "https://arxiv.org/abs/2606.19108",
+  "Learning to Rank for Maps at Airbnb": "https://medium.com/airbnb-engineering/improving-search-ranking-for-maps-13b03f2c2cca",
+  "Co-Designing AI Models Using Speculative Decoding for Faster LLM Inference": "https://developer.nvidia.com/blog/co-designing-ai-models-using-speculative-decoding-for-faster-llm-inference/",
+  "Context Engineering Case Studies: Etsy-Specific Question Answering": "https://www.etsy.com/codeascraft/context-engineering-case-studies-etsy-specific-question-answering",
+  "Building Ask DoorDash (Part 5): A Grounded Interface For Shopping Agents": "https://careersatdoordash.com/blog/building-ask-doordash-part-5-a-grounded-interface-for-shopping-agents/",
+  "JUDE: LLM-Based Representation Learning for LinkedIn Job Recommendations": "https://www.linkedin.com/blog/engineering/ai/jude-llm-based-representation-learning-for-linkedin-job-recommendations",
+  "The ML Flywheel: How We Continually Improve Our Models to Reduce Card Testing": "https://stripe.com/blog/the-ml-flywheel-how-we-continually-improve-our-models-to-reduce-card-testing",
+  "Deep Learning for Search Ranking at Etsy": "https://www.etsy.com/codeascraft/deep-learning-for-search-ranking-at-etsy",
+  "Serving Machine Learning Models Efficiently at Scale at Zillow": "https://www.zillow.com/tech/serving-machine-learning-models-efficiently-at-scale-at-zillow/"
 };
 function anchor(href, text){ return `<a href="${esc(href)}" target="_blank" rel="noopener">${text}</a>`; }
 function arxivify(h){ return h.replace(/arXiv\s+(\d{4}\.\d{4,5})/g, (m,id)=>`arXiv ${anchor("https://arxiv.org/abs/"+id, id)}`); }

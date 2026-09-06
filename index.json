@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-05",
+  "updated": "2026-09-06",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -13,6 +13,180 @@
     "research-foundational"
   ],
   "articles": [
+    {
+      "id": "airbnb-journeyformer-guest-sequence-search-ranking",
+      "title": "JourneyFormer: Encoding Airbnb Guest Journey with Sequence Modeling",
+      "source": "Airbnb Tech Blog / arXiv (KDD 2026)",
+      "url": "https://arxiv.org/abs/2606.19108",
+      "published": "2026-06",
+      "added": "2026-09-06",
+      "category": "personalization-recsys",
+      "tags": [
+        "sequence-modeling",
+        "transformer",
+        "search-ranking",
+        "s2cell",
+        "embeddings",
+        "ablation",
+        "kdd"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-06-airbnb-journeyformer-guest-sequence-search-ranking.md",
+      "deep_dived_on": "2026-09-06",
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "nvidia-speculative-decoding-model-codesign",
+      "title": "Co-Designing AI Models Using Speculative Decoding for Faster LLM Inference",
+      "source": "NVIDIA Technical Blog",
+      "url": "https://developer.nvidia.com/blog/co-designing-ai-models-using-speculative-decoding-for-faster-llm-inference/",
+      "published": "2026-09",
+      "added": "2026-09-06",
+      "category": "ml-infra-serving",
+      "tags": [
+        "speculative-decoding",
+        "llm-inference",
+        "draft-models",
+        "eagle",
+        "mtp",
+        "throughput-latency",
+        "benchmarking"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-06-nvidia-speculative-decoding-model-codesign.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "etsy-context-engineering-employee-qa",
+      "title": "Context Engineering Case Studies: Etsy-Specific Question Answering",
+      "source": "Etsy Engineering (Code as Craft)",
+      "url": "https://www.etsy.com/codeascraft/context-engineering-case-studies-etsy-specific-question-answering",
+      "published": "2026-07",
+      "added": "2026-09-06",
+      "category": "llm-genai",
+      "tags": [
+        "context-engineering",
+        "prompt-engineering",
+        "hallucination-detection",
+        "rag",
+        "employee-tools",
+        "evaluation"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-06-etsy-context-engineering-employee-qa.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "doordash-ask-doordash-grounded-shopping-interface",
+      "title": "Building Ask DoorDash (Part 5): A Grounded Interface For Shopping Agents",
+      "source": "DoorDash Engineering",
+      "url": "https://careersatdoordash.com/blog/building-ask-doordash-part-5-a-grounded-interface-for-shopping-agents/",
+      "published": "2026-08",
+      "added": "2026-09-06",
+      "category": "llm-genai",
+      "tags": [
+        "ai-agents",
+        "conversational-commerce",
+        "artifact-architecture",
+        "ui-generation",
+        "agent-memory",
+        "mcp"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-06-doordash-ask-doordash-grounded-shopping-interface.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "linkedin-jude-llm-job-recommendations",
+      "title": "JUDE: LLM-Based Representation Learning for LinkedIn Job Recommendations",
+      "source": "LinkedIn Engineering Blog",
+      "url": "https://www.linkedin.com/blog/engineering/ai/jude-llm-based-representation-learning-for-linkedin-job-recommendations",
+      "published": "2025-05",
+      "added": "2026-09-06",
+      "category": "personalization-recsys",
+      "tags": [
+        "llm-embeddings",
+        "two-tower",
+        "lora",
+        "job-recommendations",
+        "multi-task-learning",
+        "contrastive-learning",
+        "deepspeed"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-06-linkedin-jude-llm-job-recommendations.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "stripe-ml-flywheel-card-testing",
+      "title": "The ML Flywheel: How We Continually Improve Our Models to Reduce Card Testing",
+      "source": "Stripe Engineering",
+      "url": "https://stripe.com/blog/the-ml-flywheel-how-we-continually-improve-our-models-to-reduce-card-testing",
+      "published": "2024-12",
+      "added": "2026-09-06",
+      "category": "data-engineering",
+      "tags": [
+        "fraud-detection",
+        "card-testing",
+        "continual-retraining",
+        "foundation-models",
+        "real-time-scoring",
+        "mlops"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-06-stripe-ml-flywheel-card-testing.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "etsy-deep-learning-search-ranking",
+      "title": "Deep Learning for Search Ranking at Etsy",
+      "source": "Etsy Engineering (Code as Craft)",
+      "url": "https://www.etsy.com/codeascraft/deep-learning-for-search-ranking-at-etsy",
+      "published": "2022",
+      "added": "2026-09-06",
+      "category": "search-ranking",
+      "tags": [
+        "deep-and-cross-network",
+        "mmoe",
+        "multi-task-learning",
+        "learning-to-rank",
+        "gbdt-migration"
+      ],
+      "novelty": 2,
+      "file": "articles/2026-09-06-etsy-deep-learning-search-ranking.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "zillow-serving-ml-models-at-scale",
+      "title": "Serving Machine Learning Models Efficiently at Scale at Zillow",
+      "source": "Zillow Tech Hub",
+      "url": "https://www.zillow.com/tech/serving-machine-learning-models-efficiently-at-scale-at-zillow/",
+      "published": "2022-11",
+      "added": "2026-09-06",
+      "category": "ml-infra-serving",
+      "tags": [
+        "model-serving",
+        "knative",
+        "kserve",
+        "kubernetes",
+        "request-batching",
+        "inference-infrastructure"
+      ],
+      "novelty": 2,
+      "file": "articles/2026-09-06-zillow-serving-ml-models-at-scale.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
     {
       "id": "shopify-river-vulnerability-remediation",
       "title": "How River Takes Security Work from a Fix to Merge",
