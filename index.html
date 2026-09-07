@@ -331,6 +331,163 @@ const CATS = {
 
 const ARTICLES = [
 {
+    id: "databricks-big-book-agentops", title: "Announcing the Databricks Big Book of AgentOps",
+    source: "Databricks Blog", url: "https://www.databricks.com/blog/announcing-databricks-big-book-agentops",
+    published: "2026-09", added: "2026-09-07", category: "ml-infra-serving", novelty: 3, via: "full-text fetch",
+    tags: ["agentops","ai-agents","governance","mlflow","unity-catalog","evaluation","cost-management"],
+    tldr: "Databricks packaged its field experience running production AI agents into an \"AgentOps\" playbook mapping four agent architectures to four deployment patterns and a seven-phase lifecycle, built on MLflow, Unity Catalog, and Unity Gateway — backed by customer numbers from FactSet, DXC, ICE, and Block.",
+    business: "<p>Teams moving AI agents from demos into production hit questions that don't have clean answers: is the agent producing the right result, can you trace what tools and data it touched, how do you control access to sensitive actions? Agents differ from ordinary LLM calls because they choose tools dynamically and execute multi-step workflows autonomously, multiplying the failure surface across quality, cost, governance, and compliance at once.</p>",
+    technical: "<ul><li><strong>Four agent architectures</strong> from deterministic chains through single-agent dynamic decisions to multi-agent coordination, each with different operational requirements.</li><li><strong>Four deployment patterns</strong>, single workspace to multi-account enterprise topology.</li><li><strong>A seven-phase lifecycle</strong> covering team formation, use-case selection, infrastructure, and governance.</li><li><strong>Platform primitives:</strong> MLflow for evaluation/tracing/versioning; Unity Catalog for governed discovery, permissions, and lineage; Unity Gateway for fine-grained model/tool traffic control.</li></ul><p>Central advice: start with one well-defined use case with clear success metrics before reaching for multi-agent orchestration — \"too broad a use case\" and \"an unnecessary reasoning loop\" are flagged as the top anti-patterns stalling pilots.</p>",
+    impact: "<p><strong>Realized (customer case studies):</strong> FactSet's text-to-code agent — 44% accuracy improvement; DXC — three production agents, 30% reduction in platform TCO; Intercontinental Exchange — governed text-to-SQL agent at 77% syntactic accuracy / 96% execution matches; Block — US$10M in productivity gains from an agent system for seller operations.</p><p><strong>Potential:</strong> a shared operational vocabulary for reasoning about agent maturity across an enterprise, the way SRE practice does for services.</p>",
+    verdict: { score: 3, line: "a well-packaged consolidation, not a new technique", body: "<p>This is Databricks naming and productizing practices that Uber, DoorDash, and AWS platform teams have converged on independently — cost tracing, governance gateways, phased rollout. The genuine value is turning tribal knowledge into a citable framework with real customer numbers, not a novel architecture. Predictably, the framework also nudges toward Databricks' own stack as the reference implementation.</p>" },
+    related: [
+      "How We Eliminated $1M/Year of Wasted AI Agent Spend in One Hour — the same company's earlier, narrower cost-tracing case study that this playbook generalizes.",
+      "Running a Software Factory Efficiently at Uber Scale — independent convergence on cost/latency governance for internal coding agents.",
+      "Govern AI Agent Tool Access with Amazon Bedrock AgentCore Gateway — AWS's parallel take on the access-control problem Unity Gateway addresses here."
+    ],
+    jargon: [
+      ["Unity Catalog / Unity Gateway","Databricks' governance layer for tracking who and what — including an agent — can see or call which data and tools, with an audit trail."],
+      ["MLflow tracing","Instrumentation recording every step an agent took (tool calls, retrieved documents, intermediate reasoning) so a failure can be replayed and diagnosed."]
+    ]
+  },
+  {
+    id: "airbnb-llm-eval-fast-iteration", title: "From Weeks to a Day: How We Made LLM Evaluation Fast Enough to Iterate On",
+    source: "Airbnb Tech Blog", url: "https://airbnb.tech/ai-ml/from-weeks-to-a-day-how-we-made-llm-evaluation-fast-enough-to-iterate-on/",
+    published: "2026-07", added: "2026-09-07", category: "llm-genai", novelty: 4, via: "full-text fetch",
+    tags: ["llm-evaluation","lora","caching","determinism","iteration-speed","mlops"],
+    tldr: "Airbnb cut the eval cycle for production LLM systems from weeks to a day by splitting evaluation noise into aleatoric vs. epistemic uncertainty, caching deterministically, patching behavior with sub-hour rank<50 LoRA micro-adapters instead of full retrains, and validating end-to-end.",
+    business: "<p>Iterating on production LLM systems at Airbnb was bottlenecked by how long it took to know whether a change actually helped, not by model quality. Evaluation runs were noisy enough that teams couldn't distinguish genuine improvement from run-to-run variance, and one iteration of \"change something, wait for the eval, interpret the result\" took on the order of weeks — the feedback loop where product velocity on LLM features actually dies.</p>",
+    technical: "<ul><li><strong>Diagnostic framing:</strong> split noise into aleatoric (the task itself is ambiguous) vs. epistemic (the model or judge is unreliable). Roughly three-quarters of LLM-generated references differed across labeling runs; the same judge drifted about 1% run-over-run.</li><li><strong>Deterministic evaluation foundation:</strong> per-sample caching of references and judge scores, keyed by sample ID and configuration — more than half of model outputs across candidates turned out to be identical strings, making caching highly effective.</li><li><strong>Micro adapters:</strong> rank&lt;50 LoRA patches trained in under an hour on one GPU, with three lifecycle rules — fuse co-triggering patches, retrain on accumulation, unload unused patches.</li><li><strong>End-to-end validation:</strong> representative inputs run through the full production pipeline under the deterministic framework, catching integration bugs component tests miss.</li></ul>",
+    impact: "<p><strong>Realized:</strong> evaluation cycle time dropped from weeks to about a day, enabling same-day iteration on LLM system changes.</p><p><strong>Potential:</strong> the pattern (cache what's deterministic, patch what's small, validate what's integrated) generalizes to any team gating releases on slow, noisy LLM evals — the fix is almost entirely classical software-engineering discipline applied to a domain that looks like it needs ML-specific tooling.</p>",
+    verdict: { score: 4, line: "a genuinely useful production pattern, not just \"add caching\"", body: "<p>Decomposing eval noise into aleatoric vs. epistemic before deciding what to fix is a real methodological contribution most teams skip on their way to just re-running evals more and hoping. The micro-LoRA-adapter-for-fast-patching idea is the most novel piece — using rank&lt;50 LoRA as a low-latency behavior patch with an explicit fuse/retrain/unload lifecycle, rather than a fine-tuning technique for capability, is a clever repurposing I haven't seen written up elsewhere with this level of detail.</p>" },
+    related: [
+      "Sidekick's Continual Learning Loop — another team investing in calibrating an LLM-as-judge before trusting it, the shared prerequisite both write-ups treat as non-negotiable.",
+      "Context Engineering Case Studies: Etsy-Specific Question Answering — a complementary evaluation angle focused on hallucination detection rather than iteration speed."
+    ],
+    jargon: [
+      ["Aleatoric vs. epistemic uncertainty","Aleatoric is noise from the task itself being ambiguous (even a perfect judge would disagree with itself); epistemic is noise from the judge or model being imperfect."],
+      ["LoRA","A way to fine-tune a small number of extra parameters instead of the whole model, making the update cheap and fast to train and swap in or out."]
+    ]
+  },
+  {
+    id: "stripe-kai-knowledge-ai-platform", title: "Meet Stripe's Knowledge AI Platform",
+    source: "Stripe Engineering (stripe.dev)", url: "https://stripe.dev/blog/meet-stripes-knowledge-ai-platform",
+    published: "2026-07", added: "2026-09-07", category: "llm-genai", novelty: 3, via: "full-text fetch",
+    tags: ["ai-agents","agent-platform","langchain","deepagents","sandboxing","internal-tools","adoption"],
+    tldr: "Stripe's \"Kai\" agent platform for non-engineers connects to 1,000+ internal tools through a Kubernetes-sandboxed execution layer, after two earlier attempts (a no-code builder, repurposed coding agents) failed to hold up — reporting 83% weekly-active adoption and large sales-productivity lifts within weeks.",
+    business: "<p>Stripe's coding agents had already transformed engineering workflows, but non-technical employees — sales, finance, technical account managers — had no equivalent. Two earlier attempts didn't hold up: a NoCode Agent Builder sprawled to 4,000+ agents of inconsistent quality nobody owned, and repurposed coding agents ran into security requirements and an unsustainable support burden. The gap wasn't model capability — it was a platform meeting Stripe's data-security bar while staying usable by non-coders.</p>",
+    technical: "<ul><li><strong>Surface-agnostic APIs:</strong> the same agent reachable via web app, Slack, Chrome extensions, and embedded APIs inside other internal tools.</li><li><strong>AgentStudio:</strong> a control plane letting domain experts build, test, and monitor their own agents and tool selections, with usage/quality metrics tracked per agent.</li><li><strong>Execution environment:</strong> built on LangChain's deepagents, running on Kubernetes with per-session sandboxes and multi-tenant virtual filesystems, sustaining extended sessions (932+ turns documented) via state management that avoids context degradation.</li></ul><p>Connects to 1,000+ internal skills/tools spanning BI dashboards, project management, and services like Zoom and Google Workspace.</p>",
+    impact: "<p><strong>Realized:</strong> 83% weekly-active usage within ~2 weeks of an April launch, adoption across nearly all of GTM. Account executives using Kai: 2x the sales activity, 17% more opportunities, 26% more revenue opportunities, 39% more deals closed. New hires onboarded \"Kai-native\" used it 2.7x more; power users closed 80% more value than low users. 25,000 hours/year shifted from admin work to revenue-generating work; 5,000+ daily sessions on data analysis.</p><p><strong>Potential:</strong> a reusable pattern (surface-agnostic access + a studio for domain experts + a governed sandboxed runtime) for orgs past the NoCode-agent-sprawl phase.</p>",
+    verdict: { score: 3, line: "strong production engineering on an increasingly well-trodden pattern", body: "<p>The three-layer architecture now rhymes closely with what DoorDash and Shopify have published about their own internal agent platforms. What's distinctive is the adoption and revenue data — most agent-platform write-ups report engineering metrics (latency, cost); Stripe reports GTM outcomes, useful for anyone building the business case, even if the causal story (agent access vs. selection effects among early adopters) isn't fully disentangled.</p>" },
+    related: [
+      "Building Ask DoorDash (Part 4): A Platform for Building and Evolving Agents — the same \"shared platform, pluggable domain agents\" architecture, for a customer-facing rather than internal surface.",
+      "Running a Software Factory Efficiently at Uber Scale — a comparable internal-agent-platform story focused on cost/routing rather than adoption/revenue.",
+      "Gisting: Compressing LLM Agent Context to Increase Throughput and Cut Cost — addresses the same long-session context-degradation problem from a different angle."
+    ],
+    jargon: [
+      ["deepagents (LangChain)","An open-source framework for building agents that plan, use tools, and maintain state across long multi-step sessions rather than single-turn exchanges."],
+      ["Per-session sandbox","An isolated environment so one user's agent session can't see or affect another's data or files, even sharing the same platform."]
+    ]
+  },
+  {
+    id: "doordash-mind-the-gap-multivertical-recsys", title: "Mind the Gap: Using LLMs to Bridge Behavioral Silos in Multi-Vertical Recommendations",
+    source: "DoorDash Engineering / arXiv", url: "https://arxiv.org/abs/2606.06779",
+    published: "2026-06", added: "2026-09-07", category: "personalization-recsys", novelty: 4, via: "full-text fetch",
+    tags: ["llm-features","rag","cold-start","multi-task-learning","cross-vertical","ranking"],
+    tldr: "DoorDash uses an LLM-driven hierarchical RAG pipeline to derive taxonomic user-affinity features from restaurant order history and transfer them into data-sparse verticals like grocery and retail, feeding a production multi-task ranking model to close the cross-vertical cold-start gap.",
+    business: "<p>DoorDash's expansion into grocery and retail inherited a structural disadvantage: those verticals lack the years of dense order history that make restaurant recommendations work well. A user with hundreds of restaurant orders may have ordered groceries only a handful of times, so per-vertical models see grocery as near-cold-start even for long-tenured users. Waiting for data to accumulate is slow and costly in lost personalization quality.</p>",
+    technical: "<ul><li><strong>Hierarchical RAG pipeline</strong> reads a user's restaurant order history and search queries and derives multi-level taxonomic features (structured categories, not raw text).</li><li><strong>LLM synthesis</strong> turns these into sparse, high-dimensional features encoding long-term cross-vertical affinities and short-term intent from recent search behavior.</li><li><strong>Integration:</strong> features feed directly into DoorDash's existing production Multi-Task Learning ranking model — transfer happens at the feature layer, the rest of the ranking stack is unchanged.</li></ul>",
+    impact: "<p><strong>Realized:</strong> offline and online evaluation showed the approach \"significantly improves personalization and engagement in emerging business verticals\" (specific lift percentages not disclosed).</p><p><strong>Potential:</strong> a general recipe for any multi-vertical platform expanding into a new category to bootstrap personalization using an LLM's cross-category reasoning, instead of accepting a multi-year cold start per vertical.</p>",
+    verdict: { score: 4, line: "a clean, generalizable answer to a real cross-vertical cold-start problem", body: "<p>Using an LLM as a cross-domain feature-transfer mechanism — reading dense behavior in one vertical and emitting structured taxonomic features usable in a sparse one — is an elegant reframing of cold-start as feature-layer transfer learning rather than model-layer transfer. That keeps the blast radius small (existing MTL ranker, existing serving path), probably why it shipped. Not conceptually unprecedented, but the LLM-synthesized-taxonomic-feature approach is a distinctive, production-pragmatic choice over shared embeddings or joint training.</p>" },
+    related: [
+      "JUDE: LLM-Based Representation Learning for LinkedIn Job Recommendations — another case of LLM-derived representations feeding a production ranking model, via embeddings rather than taxonomic features.",
+      "Enhancing \"You May Also Like\" (YMAL) Systems using LLMs and Word2Vec — a lighter-weight precedent for LLM output as recommendation features alongside classical embeddings.",
+      "Swiggy's In-House Predicted Lifetime Value Model for Customer Acquisition — shares the multi-task ranking architecture this paper feeds into, in a different marketplace-personalization context."
+    ],
+    jargon: [
+      ["Hierarchical RAG","Retrieval-augmented generation applied at multiple taxonomy levels (e.g., cuisine → dish type → item) rather than a single flat retrieval step, preserving category structure."],
+      ["Cold start","Making good recommendations for a user/item with little interaction history — here specifically \"cold\" within one vertical despite being well-known in another."]
+    ]
+  },
+  {
+    id: "whatnot-whatamix-blendable-feed", title: "Whatamix: Blendable Feed Construction",
+    source: "Whatnot Engineering", url: "https://medium.com/whatnot-engineering/whatamix-blendable-feed-construction-2c94c21f6635",
+    published: "2025-11", added: "2026-09-07", category: "personalization-recsys", novelty: 3, via: "web search",
+    tags: ["dag-orchestration","feed-construction","retrieval","blending","ab-testing","reusability"],
+    tldr: "Whatnot built Whatamix, a DAG-based orchestration layer representing each feed-construction stage — retrieval, feature hydration, scoring, filtering, blending — as a reusable node, letting teams assemble new feeds from existing nodes instead of writing bespoke pipelines per surface.",
+    business: "<p>Whatnot runs multiple distinct feeds mixing live shopping streams, video, and product content; before Whatamix each feed's construction logic was largely bespoke, causing duplicated engineering effort, inconsistent observability/A-B-testing support, and slow iteration whenever a team wanted a new candidate source or blending rule.</p>",
+    technical: "<ul><li><strong>DAG model:</strong> retrieval, feature hydration, scoring, filtering, and blending as modular, interchangeable nodes.</li><li><strong>Auto-parallelism:</strong> independent branches (e.g., retrieval from unrelated candidate sources) run asynchronously automatically since the DAG structure makes independence explicit.</li><li><strong>Built-in cross-cutting concerns:</strong> observability (metrics/logging per node), A/B testing via configurable \"feed params\" per experiment arm, and node-level error handling.</li><li>Teams build self-contained sub-DAGs and contribute reusable nodes back to a shared library.</li></ul>",
+    impact: "<p><strong>Realized:</strong> new feed logic assembled from existing nodes rather than built from scratch; independent retrieval branches parallelize automatically; every feed built on Whatamix inherits consistent observability and experimentation support (no specific latency/engagement metrics disclosed).</p><p><strong>Potential:</strong> a shared feed-construction substrate lowering the marginal cost of launching or iterating on a new discovery surface.</p>",
+    verdict: { score: 3, line: "solid platform engineering, a known pattern applied well", body: "<p>DAG-based orchestration of retrieval/scoring/blending is well-established in large-scale recommender infrastructure — Meta and LinkedIn have published variations. Whatamix's contribution is a clean implementation for a mid-size company's multi-feed reality, with practical wins (auto-parallelism, built-in experimentation) rather than a new algorithmic idea.</p>" },
+    related: [
+      "Engineering the Next Generation of LinkedIn's Feed — a much larger-scale feed-ranking rebuild sharing the retrieval → ranking → blending pipeline shape.",
+      "From Scoring to Spelling: Rebuilding Ads Retrieval at Instacart — another retrieval-pipeline rebuild focused on modularity and reuse."
+    ],
+    jargon: [
+      ["DAG","A set of steps with dependencies but no cycles, letting the system automatically parallelize independent steps."],
+      ["Feed params","Configuration values varied per A/B test arm to change a DAG node's behavior without changing code."]
+    ]
+  },
+  {
+    id: "coinbase-sequence-features-ml", title: "How Coinbase Builds Sequence Features for Machine Learning",
+    source: "Coinbase Blog", url: "https://www.coinbase.com/blog/how-coinbase-builds-sequence-features-for-machine-learning",
+    published: "2025-09", added: "2026-09-07", category: "data-engineering", novelty: 3, via: "web search",
+    tags: ["feature-store","tecton","streaming","sequence-features","fraud-detection","recommendations","lstm","transformer"],
+    tldr: "Coinbase built a declarative framework — jointly owned by ML Platform, ML Risk, Recommendations, and Data Platform — where engineers declare a topic, event schema, and sequence semantics, and the system auto-generates the streaming sources and Tecton feature views, feeding fraud and recommendation models built on LSTMs and Transformers.",
+    business: "<p>Fraud detection and recommendation models both benefit from features that capture behavior as an ordered sequence rather than flattened aggregates, but building a production streaming pipeline for a new sequence feature was previously a bespoke, multi-team effort each time — slow enough that teams either skipped sequence features or shipped them late.</p>",
+    technical: "<ul><li><strong>Declarative spec:</strong> engineers declare topic, event schema, and sequence semantics; the framework auto-creates data sources and corresponding Tecton feature views.</li><li><strong>Stack:</strong> Tecton (feature store) + Databricks (batch/streaming compute) capturing login sessions and trading activity in real time, serving features at millisecond latency.</li><li><strong>Downstream models:</strong> LSTMs and Transformers consuming these sequences for fraud detection and personalized recommendations.</li></ul>",
+    impact: "<p><strong>Realized:</strong> improved model performance for both fraud detection and recommender systems; sequence features are now \"among the top contributors to model performance globally at Coinbase,\" with tens of millions of dollars in business impact over the past year (not broken down by model/metric).</p><p><strong>Potential:</strong> a reusable declarative pattern removing the need for a bespoke streaming pipeline per new sequence-feature use case.</p>",
+    verdict: { score: 3, line: "good engineering, declarative feature generation over a known stack", body: "<p>Declarative feature specification over an existing feature store (Tecton) and compute layer (Databricks) is an incremental, valuable abstraction rather than a new modeling or serving technique. The \"tens of millions of dollars\" and \"top global contributor\" framing is a strong realized-value signal, but without a metric breakdown it's hard to assess how much is attributable to the framework versus the underlying LSTM/Transformer sequence modeling it feeds.</p>" },
+    related: [
+      "How Databricks Feature Store Serves Features with Sub-Second Freshness — a parallel real-time feature-serving story on an architecturally similar stack.",
+      "Using Grab's Trust Counter Service to Detect Fraud Successfully — a different real-time feature approach aimed at the same fraud-detection problem.",
+      "An Industrial-Scale Sequential Recommender for LinkedIn Feed Ranking (Feed SR) — shares the sequence-as-transformer-input modeling approach these features feed."
+    ],
+    jargon: [
+      ["Tecton","A commercial feature store platform managing defining, computing, and serving ML features (including streaming/real-time ones) with a declarative API."],
+      ["Sequence feature","A model input preserving the order and timing of past events, rather than collapsing them into a single aggregate number."]
+    ]
+  },
+  {
+    id: "doordash-ask-doordash-part4-agent-platform", title: "Building Ask DoorDash (Part 4): A Platform for Building and Evolving Agents",
+    source: "DoorDash Engineering", url: "https://careersatdoordash.com/blog/building-ask-doordash-part-four-a-platform-for-building_and_evolving_agents/",
+    published: "2026-07", added: "2026-09-07", category: "llm-genai", novelty: 4, via: "web search",
+    tags: ["ai-agents","agent-platform","conversational-commerce","latency","evaluation","gateway"],
+    tldr: "DoorDash's shared platform underneath Ask DoorDash separates domain-specific agent behavior from common execution infrastructure, cutting the time to add a new domain agent from ~2 months to ~1 week (~10x) and letting model upgrades ship within a week of release, cutting p50 turn latency by 35% then a further 40%.",
+    business: "<p>Ask DoorDash launched with Restaurant and Grocery agents in roughly two months, but building each domain agent from scratch meant re-solving the same execution, evaluation, and infrastructure problems every time. The team judged the platform on two outcomes: how fast new features/domains could be added, and how fast quality/cost/latency improvements (like a new model release) could be evaluated and released.</p>",
+    technical: "<ul><li><strong>Core move:</strong> separate domain-specific agent behavior from shared execution and production capabilities used across every domain agent.</li><li><strong>Gateway component</strong> handles streaming communication between agents and clients, decoupling domain logic from transport/session management.</li><li>New domains plug into the shared substrate instead of reimplementing streaming, evaluation, and deployment tooling.</li></ul>",
+    impact: "<p><strong>Realized:</strong> 2M+ conversations handled since launch. Adding the Reservations domain agent took ~1 week vs. ~2 months for the initial build — a ~10x speedup. Two successive LLM upgrades, evaluated and shipped within ~1 week of release each, cut p50 turn latency by 35% and then a further 40%, with no drop in quality scores.</p><p><strong>Potential:</strong> once a shared execution/evaluation layer exists, both \"add a new business domain\" and \"adopt a new model\" become platform operations rather than one-off projects.</p>",
+    verdict: { score: 4, line: "the clearest quantified case yet for \"build the platform, not just the agent\"", body: "<p>DoorDash's own before/after numbers (two months vs. one week) are an unusually concrete data point for the shared-platform claim, and the latency wins from fast model-upgrade adoption are a genuinely strong result for an evaluation/deployment pipeline. The architecture itself (shared gateway + execution layer, pluggable domain logic) isn't conceptually new — the novelty is in how cleanly the write-up ties platform investment to measured velocity and latency outcomes.</p>" },
+    related: [
+      "Building Ask DoorDash (Part 5): A Grounded Interface For Shopping Agents — the next installment in the same series, covering the UI-generation layer built on top of this platform.",
+      "Meet Stripe's Knowledge AI Platform — a comparable shared-platform-plus-pluggable-agents architecture for internal employees rather than customers.",
+      "Delegating Engineering Work to Cloud-Based Agents (Flux) — the same company's platform approach to a different agent surface."
+    ],
+    jargon: [
+      ["p50 turn latency","The median time for the agent to respond to one conversation turn (one round-trip of user message to agent response)."],
+      ["Gateway (agent platform)","A shared component handling the mechanics of streaming a conversation between client and agent, so domain agents don't each need their own connection-handling code."]
+    ]
+  },
+  {
+    id: "cvs-complementary-product-bundles-gnn-gpt4", title: "AI in CVS Front Store E-commerce: Building a Complementary Product Bundle Recommender",
+    source: "CVS Health Tech Blog", url: "https://medium.com/cvs-health-tech-blog/ai-in-cvs-front-store-e-commerce-building-a-complementary-product-bundle-recommender-dc6c71dee682",
+    published: "2024-09", added: "2026-09-07", category: "personalization-recsys", novelty: 3, via: "web search",
+    tags: ["graph-neural-networks","gpt-4","llm-as-judge","bundle-recommendation","e-commerce"],
+    tldr: "CVS pairs a Graph Neural Network with GPT-4 to find complementary products across a 25,000+ item catalog — GPT-4 both proposes candidate complements and scores each resulting bundle on Relevance and Synergy (1–5) as an automated quality gate before launch.",
+    business: "<p>Recommending complementary products at CVS scale means reasoning across tens of thousands of front-store SKUs spanning very different categories, where co-purchase data is sparse for most item pairs and collaborative filtering struggles to generalize. The team needed to identify plausible complements even for rarely-co-occurring pairs, while passing internal quality bars and CVS's AI governance review.</p>",
+    technical: "<ul><li><strong>GNN</strong> over product co-occurrence/catalog metadata capturing structural relationships across the catalog.</li><li><strong>GPT-4 as generator:</strong> for a source product, asked which other catalog products are complementary, surfacing candidates pure co-occurrence data would miss.</li><li><strong>GPT-4 as judge:</strong> scores each bundle (1 source + 2 recommendations) 1–5 on Relevance (each item individually complementary) and Synergy (all items work together as a set) — an automated quality gate before production.</li><li>Went through CVS's AI governance review process before deployment.</li></ul>",
+    impact: "<p><strong>Realized:</strong> the pipeline is reported effective at generating high-quality bundles per the Relevance/Synergy scoring (specific offline/online lift metrics not available in the source material reviewed).</p><p><strong>Potential:</strong> a general recipe for cold-start-heavy bundle/cross-sell recommendation — LLM world knowledge for candidates a co-occurrence model would miss, plus a second LLM pass as a scalable quality judge instead of human review of every bundle.</p>",
+    verdict: { score: 3, line: "a sensible, if now-familiar, GNN + LLM-judge combination", body: "<p>Using an LLM as both candidate generator and evaluator for recommendation bundles is a pattern that's become increasingly common across this bank (Instacart's discovery pipeline, Shopify's Sidekick both lean on LLM-as-judge for quality gating). The GNN pairing is a reasonable, well-scoped design, but the write-up doesn't disclose enough architectural or evaluation detail to assess how much quality comes from the graph model versus the GPT-4 layer.</p>" },
+    related: [
+      "Enhancing \"You May Also Like\" (YMAL) Systems using LLMs and Word2Vec — the same company's earlier, lighter-weight combination of embeddings and LLM features.",
+      "Our Early Journey to Transform Instacart's Discovery Recommendations with LLMs — shares the LLM-as-judge quality-gating pattern for a different recommendation surface."
+    ],
+    jargon: [
+      ["Graph Neural Network (GNN)","A model architecture learning from graph-structured data (products as nodes, relationships like co-purchase as edges), capturing relational patterns flat tabular models miss."],
+      ["LLM-as-judge","Using an LLM to score another system's output against defined criteria, as a scalable substitute for human review."]
+    ]
+  },
+  {
     id: "airbnb-journeyformer-guest-sequence-search-ranking", title: "JourneyFormer: Encoding Airbnb Guest Journey with Sequence Modeling",
     source: "Airbnb Tech Blog / arXiv (KDD 2026)", url: "https://arxiv.org/abs/2606.19108",
     published: "2026-06", added: "2026-09-06", category: "personalization-recsys", novelty: 4, via: "full-text fetch",
@@ -1824,7 +1981,7 @@ const ARTICLES = [
   }
 ];
 
-const UPDATED = "2026-09-06";
+const UPDATED = "2026-09-07";
 
 // Lightweight backlog (mostly Snacks Weekly episodes) awaiting full deep-dive write-ups.
 const CATALOG = [
@@ -1854,11 +2011,11 @@ const CATALOG = [
   { id:"thumbtack-recommendations-offline-inference", company:"Thumbtack", title:"Recommendations with two sub-models and offline inference", category:"personalization-recsys", hook:"A two-sub-model recommendation architecture served via offline inference.", url:null },
   { id:"urban-company-causal-inference", company:"Urban Company", title:"Leveraging causal inference for product decisions", category:"experimentation-causal", hook:"Causal inference to guide decisions where experiments are hard.", url:null },
   { id:"uber-count-distinct-high-cardinality-pipelines", company:"Uber", title:"Scaling Exact COUNT(DISTINCT) for High-Cardinality Non-Rollup Metrics in Distributed Data Pipelines", category:"data-engineering", hook:"A distributed-pipelines approach to exact (not approximate) COUNT(DISTINCT) at high cardinality without rollups.", url:null },
-  { id:"whatnot-whatamix-blendable-feed", company:"Whatnot", title:"Whatamix: Blendable feed construction", category:"personalization-recsys", hook:"A DAG-based orchestration framework with interchangeable nodes (retrieval, feature enrichment, scoring, blending) for building feed logic across use cases.", url:"https://medium.com/whatnot-engineering/whatamix-blendable-feed-construction-2c94c21f6635" },
-  { id:"cvs-complementary-product-bundles-gnn-gpt4", company:"CVS Health", title:"AI in CVS Front Store E-commerce: Building a Complementary Product Bundle Recommender", category:"personalization-recsys", hook:"A GNN plus GPT-4 pipeline identifies complementary products for bundle recommendations across a 25,000+ product catalog.", url:"https://medium.com/cvs-health-tech-blog/ai-in-cvs-front-store-e-commerce-building-a-complementary-product-bundle-recommender-dc6c71dee682" },
-  { id:"coinbase-sequence-features-ml", company:"Coinbase", title:"How Coinbase Builds Sequence Features for Machine Learning", category:"data-engineering", hook:"A production-ready sequence-feature pipeline framework built jointly by ML Platform, ML Risk, Recommendations, and Data Platform teams.", url:"https://www.coinbase.com/blog/how-coinbase-builds-sequence-features-for-machine-learning" },
   { id:"doordash-dashclip-multimodal-ad-embeddings", company:"DoorDash", title:"DashCLIP: Leveraging multimodal models for generating semantic embeddings", category:"personalization-recsys", hook:"A two-stage contrastive framework aligning product images, text, and search queries in one embedding space to power ads retrieval, ranking, and relevance.", url:"https://careersatdoordash.com/blog/doordash-dashclip-multimodal-models-for-generating-semantic-embeddings/" },
-  { id:"doordash-ask-doordash-part4-agent-platform", company:"DoorDash", title:"Building Ask DoorDash (Part 4): A Platform for Building and Evolving Agents", category:"llm-genai", hook:"The internal platform and infrastructure DoorDash built to let teams create and iterate on domain-specific conversational agents.", url:"https://careersatdoordash.com/blog/building-ask-doordash-part-four-a-platform-for-building_and_evolving_agents/" }
+  { id:"nova-verification-agent-harness-recsys-architecture", company:"NOVA (arXiv paper)", title:"NOVA: A Verification-Aware Agent Harness for Architecture Evolution in Industrial Recommender Systems", category:"personalization-recsys", hook:"An agent harness that proposes and verifies architecture changes to production recommender systems instead of a human doing manual ablation studies.", url:"https://arxiv.org/pdf/2606.27243" },
+  { id:"agentx-self-iteration-industrial-recsys", company:"AgentX (arXiv paper)", title:"AgentX: Towards Agent-Driven Self-Iteration of Industrial Recommender Systems", category:"personalization-recsys", hook:"An agent-driven loop for recommender systems to propose, test, and adopt their own improvements with less manual iteration.", url:"https://arxiv.org/pdf/2606.26859" },
+  { id:"doordash-llms-content-embeddings-search-recommendations", company:"DoorDash", title:"Using LLMs to build content embeddings for search and recommendations", category:"personalization-recsys", hook:"LLM-generated merchant and item profiles bootstrap content embeddings that improve semantic search, recommendations, and cold-start discovery across DoorDash's verticals.", url:"https://careersatdoordash.com/blog/doordash-llms-to-build-content-embeddings-for-search-and-recommendations/" },
+  { id:"meta-zgateway-zippydb-proxy", company:"Meta", title:"ZGateway: Learnings from Putting a Proxy in Front of ZippyDB", category:"data-engineering", hook:"A stateless proxy tier handling 1B+ ops/sec and ~40% of ZippyDB traffic with only ~6% overhead — core-infra rather than ML-first, kept as a lower-priority lead.", url:"https://engineering.fb.com/2026/09/03/core-infra/zgateway-proxy-zippydb-meta/" }
 ];
 
 // ---- render ----
@@ -1940,7 +2097,15 @@ const REL_LINKS = {
   "JUDE: LLM-Based Representation Learning for LinkedIn Job Recommendations": "https://www.linkedin.com/blog/engineering/ai/jude-llm-based-representation-learning-for-linkedin-job-recommendations",
   "The ML Flywheel: How We Continually Improve Our Models to Reduce Card Testing": "https://stripe.com/blog/the-ml-flywheel-how-we-continually-improve-our-models-to-reduce-card-testing",
   "Deep Learning for Search Ranking at Etsy": "https://www.etsy.com/codeascraft/deep-learning-for-search-ranking-at-etsy",
-  "Serving Machine Learning Models Efficiently at Scale at Zillow": "https://www.zillow.com/tech/serving-machine-learning-models-efficiently-at-scale-at-zillow/"
+  "Serving Machine Learning Models Efficiently at Scale at Zillow": "https://www.zillow.com/tech/serving-machine-learning-models-efficiently-at-scale-at-zillow/",
+  "Announcing the Databricks Big Book of AgentOps": "https://www.databricks.com/blog/announcing-databricks-big-book-agentops",
+  "From Weeks to a Day: How We Made LLM Evaluation Fast Enough to Iterate On": "https://airbnb.tech/ai-ml/from-weeks-to-a-day-how-we-made-llm-evaluation-fast-enough-to-iterate-on/",
+  "Meet Stripe's Knowledge AI Platform": "https://stripe.dev/blog/meet-stripes-knowledge-ai-platform",
+  "Mind the Gap: Using LLMs to Bridge Behavioral Silos in Multi-Vertical Recommendations": "https://arxiv.org/abs/2606.06779",
+  "Whatamix: Blendable Feed Construction": "https://medium.com/whatnot-engineering/whatamix-blendable-feed-construction-2c94c21f6635",
+  "How Coinbase Builds Sequence Features for Machine Learning": "https://www.coinbase.com/blog/how-coinbase-builds-sequence-features-for-machine-learning",
+  "Building Ask DoorDash (Part 4): A Platform for Building and Evolving Agents": "https://careersatdoordash.com/blog/building-ask-doordash-part-four-a-platform-for-building_and_evolving_agents/",
+  "AI in CVS Front Store E-commerce: Building a Complementary Product Bundle Recommender": "https://medium.com/cvs-health-tech-blog/ai-in-cvs-front-store-e-commerce-building-a-complementary-product-bundle-recommender-dc6c71dee682"
 };
 function anchor(href, text){ return `<a href="${esc(href)}" target="_blank" rel="noopener">${text}</a>`; }
 function arxivify(h){ return h.replace(/arXiv\s+(\d{4}\.\d{4,5})/g, (m,id)=>`arXiv ${anchor("https://arxiv.org/abs/"+id, id)}`); }

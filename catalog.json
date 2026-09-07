@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-06",
+  "updated": "2026-09-07",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -212,30 +212,6 @@
       "url": null
     },
     {
-      "id": "whatnot-whatamix-blendable-feed",
-      "company": "Whatnot",
-      "title": "Whatamix: Blendable feed construction",
-      "category": "personalization-recsys",
-      "hook": "A DAG-based orchestration framework with interchangeable nodes (retrieval, feature enrichment, scoring, blending) for building feed logic across use cases.",
-      "url": "https://medium.com/whatnot-engineering/whatamix-blendable-feed-construction-2c94c21f6635"
-    },
-    {
-      "id": "cvs-complementary-product-bundles-gnn-gpt4",
-      "company": "CVS Health",
-      "title": "AI in CVS Front Store E-commerce: Building a Complementary Product Bundle Recommender",
-      "category": "personalization-recsys",
-      "hook": "A GNN plus GPT-4 pipeline identifies complementary products for bundle recommendations across a 25,000+ product catalog.",
-      "url": "https://medium.com/cvs-health-tech-blog/ai-in-cvs-front-store-e-commerce-building-a-complementary-product-bundle-recommender-dc6c71dee682"
-    },
-    {
-      "id": "coinbase-sequence-features-ml",
-      "company": "Coinbase",
-      "title": "How Coinbase Builds Sequence Features for Machine Learning",
-      "category": "data-engineering",
-      "hook": "A production-ready sequence-feature pipeline framework built jointly by ML Platform, ML Risk, Recommendations, and Data Platform teams.",
-      "url": "https://www.coinbase.com/blog/how-coinbase-builds-sequence-features-for-machine-learning"
-    },
-    {
       "id": "doordash-dashclip-multimodal-ad-embeddings",
       "company": "DoorDash",
       "title": "DashCLIP: Leveraging multimodal models for generating semantic embeddings",
@@ -244,12 +220,36 @@
       "url": "https://careersatdoordash.com/blog/doordash-dashclip-multimodal-models-for-generating-semantic-embeddings/"
     },
     {
-      "id": "doordash-ask-doordash-part4-agent-platform",
+      "id": "nova-verification-agent-harness-recsys-architecture",
+      "company": "NOVA (arXiv paper)",
+      "title": "NOVA: A Verification-Aware Agent Harness for Architecture Evolution in Industrial Recommender Systems",
+      "category": "personalization-recsys",
+      "hook": "An agent harness that proposes and verifies architecture changes to production recommender systems instead of a human doing manual ablation studies.",
+      "url": "https://arxiv.org/pdf/2606.27243"
+    },
+    {
+      "id": "agentx-self-iteration-industrial-recsys",
+      "company": "AgentX (arXiv paper)",
+      "title": "AgentX: Towards Agent-Driven Self-Iteration of Industrial Recommender Systems",
+      "category": "personalization-recsys",
+      "hook": "An agent-driven loop for recommender systems to propose, test, and adopt their own improvements with less manual iteration.",
+      "url": "https://arxiv.org/pdf/2606.26859"
+    },
+    {
+      "id": "doordash-llms-content-embeddings-search-recommendations",
       "company": "DoorDash",
-      "title": "Building Ask DoorDash (Part 4): A Platform for Building and Evolving Agents",
-      "category": "llm-genai",
-      "hook": "The internal platform and infrastructure DoorDash built to let teams create and iterate on domain-specific conversational agents.",
-      "url": "https://careersatdoordash.com/blog/building-ask-doordash-part-four-a-platform-for-building_and_evolving_agents/"
+      "title": "Using LLMs to build content embeddings for search and recommendations",
+      "category": "personalization-recsys",
+      "hook": "LLM-generated merchant and item profiles bootstrap content embeddings that improve semantic search, recommendations, and cold-start discovery across DoorDash's verticals.",
+      "url": "https://careersatdoordash.com/blog/doordash-llms-to-build-content-embeddings-for-search-and-recommendations/"
+    },
+    {
+      "id": "meta-zgateway-zippydb-proxy",
+      "company": "Meta",
+      "title": "ZGateway: Learnings from Putting a Proxy in Front of ZippyDB",
+      "category": "data-engineering",
+      "hook": "A stateless proxy tier handling 1B+ ops/sec and ~40% of ZippyDB traffic with only ~6% overhead — core-infra rather than ML-first, kept as a lower-priority lead.",
+      "url": "https://engineering.fb.com/2026/09/03/core-infra/zgateway-proxy-zippydb-meta/"
     }
   ]
 }
