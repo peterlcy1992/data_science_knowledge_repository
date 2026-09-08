@@ -331,6 +331,387 @@ const CATS = {
 
 const ARTICLES = [
 {
+  "id": "netease-autolr-agentic-recsys-launch-review",
+  "title": "AutoLR: Automating the Path from Research to Launch Review in Industrial Recommender Systems",
+  "source": "NetEase / arXiv",
+  "url": "https://arxiv.org/abs/2609.04871",
+  "published": "2026-09",
+  "added": "2026-09-08",
+  "category": "personalization-recsys",
+  "novelty": 4,
+  "via": "web search",
+  "tags": [
+    "ai-agents",
+    "recommender-systems",
+    "agentic-harness",
+    "llm-orchestration",
+    "launch-review",
+    "production-audit",
+    "cost-efficiency"
+  ],
+  "tldr": "NetEase built AutoLR, an agentic harness running the full lifecycle of improving DASHEN's recommenders — proposal, offline eval, online A/B, and Launch Review sign-off. Across 1,586 audited evaluations it drove nine approved launches at ~RMB 3–4 LLM cost per iteration, while the authors also name a specific reliability failure mode (the \"KEEP ratchet\") in their own system.",
+  "business": "<p>Improving an industrial recommender is an iterative research-and-engineering loop, not a single decision: propose a change, implement it, train a candidate, evaluate offline, and — if it clears the bar — submit to Launch Review, the gate that approves full-traffic deployment. At NetEase this loop is run by hand for DASHEN's feed and immersive-video surfaces, with each cycle spanning multiple days of manual coordination between idea generation, feasibility checking, GPU training, and metric interpretation.</p>",
+  "technical": "<ul><li><strong>Multi-expert proposal council:</strong> role-specialized agents independently draft proposals, then go through roundtable synthesis, adversarial review, and coordinator synthesis into a structured candidate set with declared edit surfaces and falsifiable hypotheses.</li><li><strong>Evidence-weighted direction selector:</strong> a deterministic (not bandit-based) selector builds a bounded candidate window, has the council rerank within it, then applies a memory-based gate using historical success rates before committing to GPU training.</li><li><strong>Layered knowledge system:</strong> external research, production-system knowledge, DASHEN domain knowledge, and experiment memory are retrieved separately per agent role rather than concatenated into one shared context.</li><li><strong>Deterministic controllers:</strong> LLM agents only propose; every state-changing action (repository verification, job execution, metric extraction, guardrails, persistence) is handled by machine-validated services — \"LLM outputs are proposals, not state transitions.\"</li></ul><p>An audit reconstructed 1,586 completed evaluations from 4,250 ledger records; routine iterations were migrated from Claude Opus-class models to a mixed DeepSeek-V4-Pro/Flash stack, running at RMB 3–4 of LLM API cost per iteration.</p>",
+  "impact": "<p><strong>Realized:</strong> nine production Launch Review records show AutoLR candidates approved for online A/B testing and rolled out to full traffic, summing (descriptively, not as pooled treatment effects) to +5.75% content-consumption penetration, +10.83% total consumption time, and +5.55% total valid views.</p><p><strong>Potential — and an honest limitation:</strong> the authors name the \"KEEP ratchet\" — a failure mode where a noise-driven, not-actually-better candidate gets promoted to become the new baseline, silently degrading the bar for future experiments. In the audited configuration, noise calibration was disabled and no version-matched profile was kept, leaving the system exposed. They list protocol-matched repeats, fail-closed calibration, and immutable lineage as priority fixes.</p>",
+  "verdict": {
+    "score": 4,
+    "line": "a rare production audit of an agentic-recsys system, warts included",
+    "body": "<p>Agent-driven recommender iteration is a small but growing genre, but most write-ups describe an architecture and report wins. AutoLR is framed as an audit of a running system — the authors reconstructed 4,250 ledger records and used that audit to name a specific bug in their own promotion logic rather than only reporting successes. That self-critical accounting is uncommon and worth more to other teams than another \"agent beats baseline\" result. The architectural ideas themselves are each reasonable rather than fundamentally new, which is why this lands at 4 rather than 5.</p>"
+  },
+  "related": [
+    "NOVA: A Verification-Aware Agent Harness for Architecture Evolution in Industrial Recommender Systems — a closely related agent-harness approach verifying architecture changes instead of relying on manual ablations; AutoLR's deterministic/LLM split addresses a similar trust problem differently.",
+    "AgentX: Towards Agent-Driven Self-Iteration of Industrial Recommender Systems — another agent-driven self-iteration loop, useful to compare against AutoLR's non-bandit direction selection and explicit Launch Review gate.",
+    "How We Eliminated $1M/Year of Wasted AI Agent Spend in One Hour — a different flavor of keeping agents honest and cheap in production, focused on cost tracing rather than experiment integrity."
+  ],
+  "jargon": [
+    [
+      "Launch Review",
+      "NetEase's internal approval gate a model candidate must pass before full-traffic rollout, distinct from offline evaluation."
+    ],
+    [
+      "KEEP ratchet",
+      "The paper's name for a failure mode where a noisy, not-actually-better candidate gets promoted to become the new baseline, silently degrading the quality bar for every experiment that follows."
+    ],
+    [
+      "Thompson sampling / Bayesian bandits",
+      "Standard exploration/exploitation methods the authors deliberately avoided in favor of a deterministic, auditable selector."
+    ]
+  ]
+},
+{
+  "id": "nvidia-nemoclaw-memory-driven-agent",
+  "title": "Building a Memory-Driven Agent with NVIDIA NemoClaw",
+  "source": "NVIDIA Technical Blog",
+  "url": "https://developer.nvidia.com/blog/building-a-memory-driven-agent-with-nvidia-nemoclaw",
+  "published": "2026-09",
+  "added": "2026-09-08",
+  "category": "llm-genai",
+  "novelty": 3,
+  "via": "web search",
+  "tags": [
+    "ai-agents",
+    "agent-memory",
+    "sandboxing",
+    "benchmarking",
+    "enterprise-ai",
+    "context-management"
+  ],
+  "tldr": "NVIDIA built a memory-driven \"Chief of Staff\" agent on NemoClaw that keeps a structured, human-readable self-model instead of re-deriving context via RAG. On NVIDIA's own Agent Memory Benchmark (186 questions), the self-model scored 90.9% overall vs. 82.8% for an agentic-RAG baseline, with the widest gap (100% vs. 60%) on tracking facts that changed over time.",
+  "business": "<p>Enterprise agents operating over long stretches of daily work — tracking meetings, obligations, and shifting priorities across people and projects — struggle when their only memory is retrieval over a growing pile of raw messages. Agentic RAG can find relevant snippets but doesn't resolve which snippet is the current truth once facts change, and gives the agent no persistent, inspectable belief state.</p>",
+  "technical": "<ul><li><strong>Self model:</strong> a human-readable Markdown structure storing derived interpretations of people, projects, priorities, and working patterns, kept separate from raw evidence.</li><li><strong>SQLite ledger:</strong> an append-only record of obligations, rankings, corrections, and audit events.</li><li><strong>Intent gate:</strong> deterministic code weighs obligations tied to stated priorities over short-term urgency; tier sizes and ranking order are enforced by code, not the LLM.</li><li><strong>Correction loop:</strong> repeated user corrections fold into a readable, editable preference policy without retraining.</li><li><strong>OpenShell sandbox:</strong> isolates file system, process, and network access, keeping credentials outside the sandbox boundary.</li></ul><p>Evaluated against an agentic-RAG baseline on NVIDIA Nemotron 3 Ultra, using NVIDIA's own 186-question Agent Memory Benchmark.</p>",
+  "impact": "<p><strong>Realized:</strong> self model vs. baseline — overall accuracy 90.9% vs. 82.8%; tracking changed facts 100% vs. 60%; hard questions 87.1% vs. 67.7%; entity disambiguation 86.7% vs. 66.7%. No comparison against other commercial agent-memory frameworks is reported, only against NVIDIA's own RAG baseline.</p>",
+  "verdict": {
+    "score": 3,
+    "line": "a clean, well-instrumented take on an established idea",
+    "body": "<p>Structured, editable agent memory separate from a raw evidence store isn't new — it echoes prior \"memory as knowledge graph / scratchpad\" approaches. What NVIDIA adds is a concrete deterministic-vs-LLM division of labor and a purpose-built benchmark quantifying the gap against plain agentic RAG. The 40-point jump on tracking changed facts is a useful data point, but it's measured on a benchmark and baseline NVIDIA itself built — a demonstration of the architecture's internal logic more than an independently validated result.</p>"
+  },
+  "related": [
+    "An Organizational Second Brain: Building an AI That Learns From Experts — Meta's take on persistent organizational knowledge for an AI agent, a useful contrast in how two large AI labs approach long-horizon enterprise agent memory around the same time.",
+    "Gisting: Compressing LLM Agent Context to Increase Throughput and Cut Cost — addresses a related but distinct problem: keeping an agent's working context small and cheap, versus NemoClaw's persistent long-term memory."
+  ],
+  "jargon": [
+    [
+      "Agentic RAG",
+      "Retrieval-augmented generation where an agent decides at each step what to search for, rather than a single fixed retrieval pass before generation."
+    ],
+    [
+      "Self model",
+      "This article's term for the agent's structured, editable summary of current beliefs, as distinct from the raw evidence those beliefs are derived from."
+    ],
+    [
+      "MCP (Model Context Protocol)",
+      "A standard interface letting an LLM agent call external tools and data sources uniformly."
+    ]
+  ]
+},
+{
+  "id": "aws-bedrock-agentcore-whatsapp-ordering-assistant",
+  "title": "Deploy a Multimodal WhatsApp Ordering Assistant with Amazon Bedrock AgentCore",
+  "source": "AWS Machine Learning Blog",
+  "url": "https://aws.amazon.com/blogs/machine-learning/deploy-a-multimodal-whatsapp-ordering-assistant-with-amazon-bedrock-agentcore/",
+  "published": "2026-09",
+  "added": "2026-09-08",
+  "category": "llm-genai",
+  "novelty": 3,
+  "via": "web search",
+  "tags": [
+    "ai-agents",
+    "agentcore",
+    "multimodal",
+    "whatsapp",
+    "voice-ai",
+    "mcp",
+    "reference-architecture",
+    "quick-service-restaurant"
+  ],
+  "tldr": "AWS published a reference architecture for a quick-service-restaurant ordering assistant running entirely inside WhatsApp — handling text, voice notes, and live voice calls through one business number — built on three containerized Bedrock AgentCore agents, Amazon Nova 2 Lite/Sonic, and shared cross-channel memory keyed by hashed phone numbers.",
+  "business": "<p>Quick-service restaurants typically run separate ordering systems for app, website, phone line, and counter, each starting from scratch with no memory of the customer's history elsewhere. AWS frames the fix as consolidating onto WhatsApp — roughly two billion users — so a customer who texts today and calls tomorrow is recognized as the same person over one number.</p>",
+  "technical": "<ul><li><strong>WhatsApp interface layer:</strong> Meta's Cloud API webhook is the only public endpoint; events are queued via Amazon SQS to acknowledge fast regardless of downstream processing time.</li><li><strong>Agent runtime layer:</strong> three separate containerized agents on Bedrock AgentCore — text, voice note, and live voice call — rather than one monolithic agent. Amazon Nova 2 Lite handles text via the Converse API; Amazon Nova 2 Sonic handles speech-to-speech; live calls relay over WebRTC through Kinesis Video Streams' TURN service.</li><li><strong>Backend layer:</strong> a REST API with DynamoDB storage and Amazon Location Service, reached via AgentCore Gateway using MCP rather than direct Lambda calls.</li><li><strong>Cross-channel memory:</strong> AgentCore Memory shared across all three agents, keyed by a hashed (E.164 + secret pepper) phone number so raw numbers aren't the join key.</li></ul><p>This is a build-it-yourself reference architecture, not a report on a named customer deployment — no latency, adoption, or order-volume figures are given; container build time is estimated at 8–12 minutes per agent.</p>",
+  "impact": "<p><strong>Realized:</strong> none reported — architectural guidance, not a production case study.</p><p><strong>Potential:</strong> a fairly complete worked example of several AgentCore building blocks used together (Gateway, Memory, per-modality runtimes) behind one conversational surface, useful as a template for any business consolidating multi-channel customer interaction with continuity across text and voice.</p>",
+  "verdict": {
+    "score": 3,
+    "line": "a solid reference architecture, not a production case study",
+    "body": "<p>Multimodal conversational commerce over WhatsApp and MCP-based tool access are now fairly standard AgentCore patterns. What's worth cataloging is that it's a clean, complete worked example combining Memory, Gateway, and per-modality agent separation in one place — genuinely useful as a template, but it loses points on novelty because it's vendor reference content without a named customer or reported metrics.</p>"
+  },
+  "related": [
+    "How Intuit Built an Agentic Disaster Recovery Assistant with Amazon Bedrock — a real named-customer deployment on the same Bedrock agent stack, useful as a contrast since it reports production outcomes.",
+    "Govern AI Agent Tool Access with Amazon Bedrock AgentCore Gateway — covers the governance side of the same AgentCore Gateway/MCP pattern used here.",
+    "Reduce RAG Costs on Amazon Bedrock with Query-Aware Compression — another AWS Bedrock reference-architecture post from the same general period."
+  ],
+  "jargon": [
+    [
+      "Bedrock AgentCore",
+      "AWS's managed runtime for deploying and operating LLM-based agents, including memory, tool access (Gateway), and identity/governance features."
+    ],
+    [
+      "WebRTC / TURN",
+      "Real-time communication protocols for streaming audio/video; TURN relays traffic when a direct peer-to-peer connection isn't possible."
+    ],
+    [
+      "E.164 / pepper hashing",
+      "E.164 is the international phone-number format; hashing it with a secret app-wide pepper lets the system match customers across channels without storing raw numbers as the lookup key."
+    ]
+  ]
+},
+{
+  "id": "databricks-southern-company-scout-storm-intelligence",
+  "title": "Southern Company's SCOUT: Completing the Storm Intelligence Story",
+  "source": "Databricks Blog",
+  "url": "https://www.databricks.com/blog/southern-companys-scout-completing-storm-intelligence-story",
+  "published": "2026-09",
+  "added": "2026-09-08",
+  "category": "data-engineering",
+  "novelty": 2,
+  "via": "web search",
+  "tags": [
+    "lakehouse",
+    "unity-catalog",
+    "real-time-data",
+    "utilities",
+    "disaster-response",
+    "data-governance",
+    "operational-analytics"
+  ],
+  "tldr": "Southern Company built SCOUT, a real-time storm-operations app on Databricks, closing the gap between pre-storm forecasting (SPEAR) and post-storm analysis (RAMP) with live outage, customer, GIS, weather, terrain, and crew data in one governed lakehouse. 1,139 employees adopted it, with 250+ using it during a single peak storm day in June.",
+  "business": "<p>Southern Company already had pre-storm forecasting (SPEAR) and post-storm reliability analysis (RAMP) automated. The gap was the active storm itself, when dispatchers and field crews had to pull data from multiple disconnected legacy systems under time pressure — a real operational cost during restoration. SCOUT closes that gap with one real-time operational view spanning Southern Company's operating businesses.</p>",
+  "technical": "<ul><li><strong>Delta Lake</strong> stores outage, customer, GIS, weather, terrain, and operational-hierarchy data in one unified lakehouse.</li><li><strong>Lakehouse warehouses</strong> serve real-time queries refreshed roughly every minute.</li><li><strong>Unity Catalog</strong> provides centralized, role-based, service-principal-driven governance across operating businesses.</li><li><strong>Collaborative notebooks and Genie Code</strong> accelerated building custom features like restoration-effort charts.</li></ul><p>Example of the platform's query power: identifying every customer running a car wash, their transformers, and related infrastructure — a cross-system query that used to require manual lookups — was completed in roughly two hours.</p>",
+  "impact": "<p><strong>Realized:</strong> 1,139 employees across Southern Company's operating businesses adopted SCOUT, with 250+ using it concurrently during a single peak storm day in June; won the 2025 S.E.E. Industry Excellence Award.</p><p><strong>Potential:</strong> exploring AI-assisted (human-in-control) dispatch recommendations and Skydio autonomous-drone integration for live damage assessment streamed directly into SCOUT.</p>",
+  "verdict": {
+    "score": 2,
+    "line": "a strong operational win, but standard lakehouse engineering",
+    "body": "<p>No new modeling technique or algorithm here — this is consolidating fragmented operational data onto a governed lakehouse and building a real-time app layer on top, a pattern Databricks has published many times before. What earns this a place is the concrete, credible adoption numbers and the honest advisory-only framing of the AI dispatch extension — good practice, but incremental engineering rather than a new technique.</p>"
+  },
+  "related": [
+    "How Databricks Feature Store Serves Features with Sub-Second Freshness — the same lakehouse-as-real-time-operational-system theme applied to ML feature serving instead of storm operations.",
+    "How Discovery Bank Delivers Hyper-Personalized Banking at Scale — another Databricks customer story combining governed data (Unity Catalog) with an operational, customer-facing application layer.",
+    "Introducing WeatherNext 3 — a complementary piece of the same broader problem (weather-driven operational response), though about the forecasting model itself rather than the operational data platform consuming it."
+  ],
+  "jargon": [
+    [
+      "Lakehouse",
+      "A data architecture combining data-lake storage flexibility with data-warehouse transactional guarantees, serving both analytics and operational applications."
+    ],
+    [
+      "Unity Catalog",
+      "Databricks' governance layer for managing data access, lineage, and permissions centrally."
+    ],
+    [
+      "Service principal",
+      "A non-human identity used to grant an application or pipeline scoped, auditable access to data."
+    ]
+  ]
+},
+{
+  "id": "doordash-dashclip-multimodal-ad-embeddings",
+  "title": "DashCLIP: Leveraging Multimodal Models for Generating Semantic Embeddings for DoorDash",
+  "source": "DoorDash / arXiv",
+  "url": "https://arxiv.org/abs/2504.07110",
+  "published": "2025-04",
+  "added": "2026-09-08",
+  "category": "personalization-recsys",
+  "novelty": 4,
+  "via": "web search",
+  "discovered_via": "Snacks Weekly on Data Science podcast",
+  "tags": [
+    "multimodal",
+    "contrastive-learning",
+    "clip",
+    "ads-retrieval",
+    "semantic-embeddings",
+    "llm-curated-data"
+  ],
+  "tldr": "DoorDash built DashCLIP, a two-encoder contrastive framework aligning product images, text, and search queries in one embedding space for ads retrieval, ranking, and relevance — training its query encoder on an LLM-curated relevance dataset instead of engagement history, beating CLIP/BLIP/FLAVA offline and delivering a reported CTR/CVR uplift after deployment.",
+  "business": "<p>DoorDash's ads systems need a shared representation comparing what a product is (image and text) against what a user wants (a free-text query), across retrieval, ranking, and relevance. Off-the-shelf models like CLIP are trained on general web data, not DoorDash's catalog and query distribution, and don't capture nuanced entity relationships like cuisine, ingredients, or dietary attributes that matter for food and retail delivery search.</p>",
+  "technical": "<ul><li><strong>Product encoder:</strong> uni-modal and multi-modal encoders aligned via contrastive learning over DoorDash's own image-text product data.</li><li><strong>Query encoder:</strong> trained on an LLM-curated relevance dataset rather than click/engagement history — the paper's key departure from typical two-tower ads retrieval, avoiding popularity bias and cold-start blindness.</li></ul><p>At inference, a query embedding drives K-nearest-neighbor search against the product embedding space to produce ranked candidates for downstream ranking/relevance stages. DashCLIP outperformed CLIP, BLIP, and FLAVA baselines offline; exact metric deltas weren't available in the sources reviewed.</p>",
+  "impact": "<p><strong>Realized:</strong> offline, DashCLIP outperformed CLIP/BLIP/FLAVA on relevance and categorization tasks; after deployment, DoorDash reported a \"significant uplift\" in CTR and CVR for personalized ads (exact percentages unavailable in sources reviewed).</p><p><strong>Potential:</strong> embeddings are reusable across retrieval, ranking, and relevance simultaneously, and the LLM-curated training signal directly targets cold-start products with little or no engagement history.</p>",
+  "verdict": {
+    "score": 4,
+    "line": "the LLM-curated query encoder is the real contribution",
+    "body": "<p>CLIP-style multimodal alignment is well-trodden ground. What's genuinely interesting is training the query encoder on LLM-curated relevance judgments instead of engagement logs — directly targeting popularity bias and cold-start blindness without a separate cold-start model. A clean, transferable idea for any marketplace with sparse or skewed query-product engagement data.</p>"
+  },
+  "related": [
+    "Using LLMs to Build Content Embeddings for Search and Recommendations — the sibling DoorDash effort applying the same content-over-engagement philosophy to text-only merchant/item profiles; the two systems tackle cold-start from image+text and pure-text angles respectively.",
+    "MAPS at Netflix — another large-scale multimodal embedding system, applied to artwork/asset personalization rather than ads retrieval.",
+    "Enhancing Ad Relevance: Integrating Real-Time Context into Sequential Recommender Models — a different technical approach (sequential + real-time context) to the same underlying ads-relevance problem."
+  ],
+  "jargon": [
+    [
+      "Contrastive learning",
+      "Training that pulls matching pairs closer in embedding space while pushing mismatched pairs apart, without needing explicit relevance labels for every pair."
+    ],
+    [
+      "Two-tower model",
+      "An architecture with two separate encoders mapping inputs into the same embedding space for fast similarity search."
+    ],
+    [
+      "Cold-start",
+      "The problem of making good matches for new products or queries with little or no historical engagement data."
+    ]
+  ]
+},
+{
+  "id": "doordash-llms-content-embeddings-search-recommendations",
+  "title": "Using LLMs to Build Content Embeddings for Search and Recommendations",
+  "source": "DoorDash Engineering",
+  "url": "https://careersatdoordash.com/blog/doordash-llms-to-build-content-embeddings-for-search-and-recommendations/",
+  "published": "2026-05",
+  "added": "2026-09-08",
+  "category": "personalization-recsys",
+  "novelty": 4,
+  "via": "web search",
+  "discovered_via": "Snacks Weekly on Data Science podcast",
+  "tags": [
+    "llm-generated-profiles",
+    "embeddings",
+    "semantic-search",
+    "cold-start",
+    "metaflow",
+    "llm-as-judge",
+    "matryoshka-representation-learning"
+  ],
+  "tldr": "DoorDash replaced behavioral, co-visitation-based content embeddings with ones built from LLM-generated merchant and item profiles, finding the input representation mattered far more than the embedding model — a 31.22% Hit@5 gain vs. only 5.92% from a stronger model alone — and shipped the result across search, homepage carousels, and co-purchase recommendations.",
+  "business": "<p>DoorDash's search and recommendation quality across food, grocery, retail, and gifting was stuck in a circular dependency: personalization quality depended on embedding quality, which depended on data quality. Behavioral embeddings from co-visitation broke down because DoorDash sessions are intentful and brief rather than exploratory; pure content-metadata was often too sparse or inconsistent to embed well.</p>",
+  "technical": "<ul><li><strong>Profile generation:</strong> a vision-language model writes text descriptions from item images, combined with structured metadata into a comprehensive profile per entity.</li><li><strong>Orchestration:</strong> Metaflow runs a daily ETL aggregating order history, ratings, and metadata, triggering incremental embedding inference — only re-embedding entities whose content changed.</li><li><strong>Model finding:</strong> MiniLM on raw metadata → gemini-embedding-001 on raw metadata improved Hit@5 by only 5.92%; MiniLM on LLM-generated profiles improved Hit@5 by 31.22% — roughly 5x the gain from a better model alone. Shipped gemini-embedding-001 at 256 dimensions via Matryoshka Representation Learning.</li><li><strong>Evaluation:</strong> an LLM-as-a-judge harness decomposes similarity into facet-level comparisons (cuisine, preparation, ingredients, dietary constraints) instead of large-scale human annotation.</li></ul><p>Feeds item/store semantic search (with a fine-tuned Qwen 3 reranker), co-purchase carousels, and generative personalized homepage carousels.</p>",
+  "impact": "<p><strong>Realized, search:</strong> null search rate −3.65%; core search conversion +0.66%; dish-query nDCG +7.8%; 7-day active customer share +0.0724%.</p><p><strong>Realized, homepage:</strong> order rate +2.4%; reorder rate +0.164%; variable profit per order +0.32%; offline precision@10 68%→85%.</p><p><strong>Acknowledged limitation:</strong> the content-first approach breaks down for consumer representations — \"a consumer's identity lives in behavior\" — which the team says still requires situational context conditioning to recover.</p>",
+  "verdict": {
+    "score": 4,
+    "line": "the “input beats model” finding is the transferable lesson",
+    "body": "<p>Using an LLM to enrich sparse metadata before embedding isn't new, but the quantified comparison (31.22% vs. 5.92% Hit@5 gain from better input vs. better model) is a genuinely useful, generalizable data point: spend effort on input quality before reaching for a bigger embedding model. Combined with an honest acknowledgment of where the approach doesn't work, this is more valuable than a typical win-only case study.</p>"
+  },
+  "related": [
+    "DashCLIP: Leveraging Multimodal Models for Generating Semantic Embeddings — the sibling DoorDash effort applying the same philosophy to image+text ads embeddings via LLM-curated relevance data.",
+    "Our Early Journey to Transform Instacart's Discovery Recommendations with LLMs — another grocery/food-delivery company using LLM-generated content to drive discovery.",
+    "Enhancing \"You May Also Like\" (YMAL) Systems using LLMs and Word2Vec — a different retailer's take on combining LLM-derived signal with classical embedding techniques."
+  ],
+  "jargon": [
+    [
+      "Hit@5",
+      "An offline retrieval metric measuring how often the correct/relevant item appears in the top 5 results."
+    ],
+    [
+      "Matryoshka Representation Learning (MRL)",
+      "A training technique producing embeddings usable at multiple dimensionalities without retraining."
+    ],
+    [
+      "Co-visitation",
+      "A classic recommendation signal based on items frequently browsed or bought together in the same session."
+    ]
+  ]
+},
+{
+  "id": "meta-zgateway-zippydb-proxy",
+  "title": "ZGateway: Learnings from Putting a Proxy in Front of ZippyDB",
+  "source": "Engineering at Meta",
+  "url": "https://engineering.fb.com/2026/09/03/core-infra/zgateway-proxy-zippydb-meta/",
+  "published": "2026-09",
+  "added": "2026-09-08",
+  "category": "data-engineering",
+  "novelty": 3,
+  "via": "web search",
+  "tags": [
+    "database-proxy",
+    "connection-scaling",
+    "load-shedding",
+    "tenant-isolation",
+    "service-mesh",
+    "reliability"
+  ],
+  "tldr": "Meta built ZGateway, a stateless proxy in front of ZippyDB, to break an unsustainable many-to-many connection mesh between 1M+ client hosts and the database fleet. It now carries 1B+ ops/sec and ~40% of ZippyDB traffic at ~6% overhead, cutting per-host connections by ~97–98% and total persistent connections by ~19x.",
+  "business": "<p>ZippyDB was accessed directly by over a million client hosts across hundreds of teams, creating a dense many-to-many mesh of mostly-idle TLS connections consuming memory, CPU, and file descriptors on both ends. A routing bug once caused every client to open a connection per shard, breaching file-descriptor limits and sending the fleet into a reboot loop. Because client population and database fleet size grow independently, the direct-connection model had no natural ceiling.</p>",
+  "technical": "<ul><li><strong>Stateless proxy tier</strong> discovered via ServiceRouter; clients hold sticky regional connections instead of connecting to database hosts directly.</li><li><strong>Batching & coalescing:</strong> requests to the same destination merge into single backend RPCs; identical concurrent key requests coalesce into one fetch, preventing hot-key stampedes.</li><li><strong>Tenant isolation:</strong> Discriminant Load Shedding buckets requests by tenant/priority, draining round-robin so one misbehaving tenant doesn't affect others; CPU/memory concurrency governed by AIMD feedback loops.</li><li><strong>Load balancing:</strong> a control-plane balancer normalizes per-host CPU against tier averages and adjusts ServiceRouter weights.</li><li><strong>Cross-region resilience:</strong> global routing tables, mega-regions, and explicit backup-ring declarations.</li><li><strong>Caching:</strong> in-process hot-read caches with change-data-capture invalidation and per-key fill locks.</li></ul>",
+  "impact": "<p><strong>Realized:</strong> 1B+ ops/sec, ~40% of ZippyDB traffic (projected to exceed 60%) at ~6% overhead; ~97–98% per-host connection reduction, ~19x total persistent connection reduction; in a controlled overload test above 90% CPU across ~1,350 tenant buckets, only 6 buckets shed traffic while the rest executed 99.9%+ of requests with zero rejections.</p><p><strong>Potential:</strong> agent-operated heuristics replacing hand-tuned control loops, latency-critical co-location beside ZServer hosts, and splitting ZGateway across independent fault domains.</p>",
+  "verdict": {
+    "score": 3,
+    "line": "not ML, but a rigorously quantified infra pattern worth knowing",
+    "body": "<p>Kept in this bank as a lower-priority but genuinely useful lead: the proxy-in-front-of-a-distributed-database pattern is well established (PgBouncer, Meta's own Tao/Mcrouter). What earns this a 3 is the specificity and honesty of the numbers — a real production overload test with named tenant-bucket counts and goodput figures. Any team running a serving layer behind a distributed database at scale will recognize the exact failure mode this addresses.</p>"
+  },
+  "related": [
+    "SilverTorch: Index as Model — A New Retrieval Paradigm for Recommendation Systems — a different Meta infra rethink from the same broader period, collapsing a multi-service retrieval stack into one GPU-native model rather than adding a proxy layer.",
+    "How Databricks Feature Store Serves Features with Sub-Second Freshness — a complementary problem (serving ML features at low latency and scale) with similar connection- and load-management challenges.",
+    "How Coinbase Builds Sequence Features for Machine Learning — another data-infrastructure piece on scaling a streaming/serving data layer."
+  ],
+  "jargon": [
+    [
+      "Stateless proxy",
+      "A proxy holding no client-specific session state, so any instance can handle any request, making the tier easy to scale and fail over."
+    ],
+    [
+      "AIMD",
+      "A feedback-control algorithm (also used by TCP congestion control) that increases a resource limit gradually but cuts it sharply on overload signs."
+    ],
+    [
+      "Thundering herd",
+      "Many concurrent requests missing a cache simultaneously and hitting the backend at once; fill locks prevent this by letting one request fetch while others wait."
+    ]
+  ]
+},
+{
+  "id": "amazon-price-experimentation",
+  "title": "The Science of Price Experiments in the Amazon Store",
+  "source": "Amazon Science",
+  "url": "https://www.amazon.science/blog/the-science-of-price-experiments-in-the-amazon-store",
+  "published": "2023-04",
+  "added": "2026-09-08",
+  "category": "experimentation-causal",
+  "novelty": 3,
+  "via": "web search",
+  "discovered_via": "Snacks Weekly on Data Science podcast",
+  "tags": [
+    "pricing",
+    "ab-testing",
+    "switchback-experiments",
+    "causal-forests",
+    "spillover-effects",
+    "variance-reduction"
+  ],
+  "tldr": "Because Amazon's nondiscriminatory pricing means every visitor sees the same price at the same time, the Amazon Store can't run classic customer-randomized price A/B tests. Amazon Science describes product-randomized designs — switchback, crossover, spillover-aware clustering — and a causal-forest estimator, reporting standard-error reductions of 60%, 40–50%, and 37% respectively.",
+  "business": "<p>Standard A/B testing randomizes customers; that's unavailable for Amazon pricing since nondiscriminatory pricing means two customers can't be shown two different prices for the same item at the same moment. Pricing Labs instead randomizes treatment over time and across products, introducing carryover (does a reverted price treatment still affect behavior?) and spillover (does treating one product change demand for a substitute still in control?) problems classic A/B testing doesn't face.</p>",
+  "technical": "<ul><li><strong>Time-bound / triggered experiments:</strong> simple fixed-window designs, sometimes synchronized to external events to reduce predictable-demand noise.</li><li><strong>Switchback (random-days) design:</strong> each product randomly gets treatment/control status day-by-day, letting it serve as its own control — 60% standard-error reduction vs. non-switchback.</li><li><strong>Crossover design with blackout periods:</strong> treatment/control swap between groups mid-experiment, discarding post-swap data to let carryover fade — 40–50% standard-error reduction.</li><li><strong>Spillover mitigation:</strong> a substitutability graph built from a year of demand-correlation data plus catalog classification, with inverse probability weighting and cluster-based unit treatment — 37% spillover-bias reduction.</li><li><strong>HPTE estimator:</strong> detrend historical data, filter outliers by quantile cutoffs, use causal forests to match comparable products across groups, then bootstrap for variance.</li></ul>",
+  "impact": "<p><strong>Realized:</strong> 60% standard-error reduction from switchback design, 40–50% from crossover design, 37% spillover-bias reduction from substitutability clustering — all methodological gains enabling more precise, less biased pricing decisions with smaller samples; no specific revenue figure is reported.</p><p><strong>Potential:</strong> the product/unit-randomized-plus-spillover-modeling pattern is directly transportable to any marketplace facing the same nondiscriminatory-pricing constraint, and the causal-forest HPTE estimator is reusable well beyond pricing.</p>",
+  "verdict": {
+    "score": 3,
+    "line": "well-executed applied causal inference, not a new method",
+    "body": "<p>None of the individual techniques are new to the causal-inference literature — switchback/crossover designs and causal forests are established tools. What makes it worth including is the concrete quantification of how much each design choice helps, and the clear articulation of why nondiscriminatory pricing forces this whole family of designs — a constraint far broader than Amazon alone.</p>"
+  },
+  "related": [
+    "The Quest to Understand Metric Movements — a different causal-inference problem (attributing observed metric shifts to root causes after the fact) rather than designing an experiment up front, but both are about trustworthy causal estimates from noisy marketplace data."
+  ],
+  "jargon": [
+    [
+      "Nondiscriminatory pricing",
+      "Every customer sees the same price for the same product at the same time, ruling out simultaneous customer-segment price tests."
+    ],
+    [
+      "Switchback design",
+      "The same unit alternates between treatment and control at different time points, rather than being permanently assigned to one group."
+    ],
+    [
+      "Causal forest",
+      "An extension of random forests estimating how a treatment effect varies across subgroups, rather than just a single average effect."
+    ]
+  ]
+},
+{
     id: "databricks-big-book-agentops", title: "Announcing the Databricks Big Book of AgentOps",
     source: "Databricks Blog", url: "https://www.databricks.com/blog/announcing-databricks-big-book-agentops",
     published: "2026-09", added: "2026-09-07", category: "ml-infra-serving", novelty: 3, via: "full-text fetch",
@@ -1981,7 +2362,7 @@ const ARTICLES = [
   }
 ];
 
-const UPDATED = "2026-09-07";
+const UPDATED = "2026-09-08";
 
 // Lightweight backlog (mostly Snacks Weekly episodes) awaiting full deep-dive write-ups.
 const CATALOG = [
@@ -2001,7 +2382,6 @@ const CATALOG = [
   { id:"oda-ab-testing-culture", company:"Oda", title:"A/B testing practices and experimentation culture", category:"experimentation-causal", hook:"How Oda builds a culture that supports experimentation.", url:null },
   { id:"lyft-interference-bias-mmv", company:"Lyft", title:"Interference bias and Marketplace Marginal Values (MMV)", category:"experimentation-causal", hook:"MMVs correct interference bias in marketplace experiments.", url:null },
   { id:"lyft-realtime-spatial-temporal-forecasting", company:"Lyft", title:"Real-time spatial-temporal forecasting: classical vs deep models", category:"forecasting-timeseries", hook:"Choosing between classical time-series and DNNs for real-time forecasting.", url:null },
-  { id:"amazon-price-experimentation", company:"Amazon", title:"Improving price experimentation in the Amazon Store", category:"experimentation-causal", hook:"Better experimental design for pricing decisions.", url:"https://creators.spotify.com/pod/profile/pan-wu/episodes/Improving-Price-Experimentation-at-Amazon-Amazon-e2ilod8" },
   { id:"microsoft-double-machine-learning", company:"Microsoft", title:"Causal inference with Double Machine Learning", category:"experimentation-causal", hook:"Double ML answers high-stakes questions without a clean experiment.", url:null },
   { id:"mercadolibre-geo-experimentation", company:"Mercado Libre", title:"Geo experimentation", category:"experimentation-causal", hook:"Region-level experiments where user-level randomization fails.", url:"https://creators.spotify.com/pod/profile/pan-wu/episodes/2023-11-13-Geo-Experimentation-Mercado-Libre-e2brq2p" },
   { id:"yelp-video-review-moderation", company:"Yelp", title:"Moderating video reviews with ML", category:"cv-multimodal", hook:"Detecting inappropriate content to keep video reviews trustworthy.", url:null },
@@ -2011,11 +2391,16 @@ const CATALOG = [
   { id:"thumbtack-recommendations-offline-inference", company:"Thumbtack", title:"Recommendations with two sub-models and offline inference", category:"personalization-recsys", hook:"A two-sub-model recommendation architecture served via offline inference.", url:null },
   { id:"urban-company-causal-inference", company:"Urban Company", title:"Leveraging causal inference for product decisions", category:"experimentation-causal", hook:"Causal inference to guide decisions where experiments are hard.", url:null },
   { id:"uber-count-distinct-high-cardinality-pipelines", company:"Uber", title:"Scaling Exact COUNT(DISTINCT) for High-Cardinality Non-Rollup Metrics in Distributed Data Pipelines", category:"data-engineering", hook:"A distributed-pipelines approach to exact (not approximate) COUNT(DISTINCT) at high cardinality without rollups.", url:null },
-  { id:"doordash-dashclip-multimodal-ad-embeddings", company:"DoorDash", title:"DashCLIP: Leveraging multimodal models for generating semantic embeddings", category:"personalization-recsys", hook:"A two-stage contrastive framework aligning product images, text, and search queries in one embedding space to power ads retrieval, ranking, and relevance.", url:"https://careersatdoordash.com/blog/doordash-dashclip-multimodal-models-for-generating-semantic-embeddings/" },
   { id:"nova-verification-agent-harness-recsys-architecture", company:"NOVA (arXiv paper)", title:"NOVA: A Verification-Aware Agent Harness for Architecture Evolution in Industrial Recommender Systems", category:"personalization-recsys", hook:"An agent harness that proposes and verifies architecture changes to production recommender systems instead of a human doing manual ablation studies.", url:"https://arxiv.org/pdf/2606.27243" },
   { id:"agentx-self-iteration-industrial-recsys", company:"AgentX (arXiv paper)", title:"AgentX: Towards Agent-Driven Self-Iteration of Industrial Recommender Systems", category:"personalization-recsys", hook:"An agent-driven loop for recommender systems to propose, test, and adopt their own improvements with less manual iteration.", url:"https://arxiv.org/pdf/2606.26859" },
-  { id:"doordash-llms-content-embeddings-search-recommendations", company:"DoorDash", title:"Using LLMs to build content embeddings for search and recommendations", category:"personalization-recsys", hook:"LLM-generated merchant and item profiles bootstrap content embeddings that improve semantic search, recommendations, and cold-start discovery across DoorDash's verticals.", url:"https://careersatdoordash.com/blog/doordash-llms-to-build-content-embeddings-for-search-and-recommendations/" },
-  { id:"meta-zgateway-zippydb-proxy", company:"Meta", title:"ZGateway: Learnings from Putting a Proxy in Front of ZippyDB", category:"data-engineering", hook:"A stateless proxy tier handling 1B+ ops/sec and ~40% of ZippyDB traffic with only ~6% overhead — core-infra rather than ML-first, kept as a lower-priority lead.", url:"https://engineering.fb.com/2026/09/03/core-infra/zgateway-proxy-zippydb-meta/" }
+  { id:"coinbase-automating-risk-model-retrain-agentic-skills", company:"Coinbase", title:"Automating Risk Model Retrain Loop with Agentic Skills", category:"ml-infra-serving", hook:"Coding-agent-powered 'Agentic Skills' automate a three-stage risk-model improvement loop (trend analysis, feature enrichment, retraining), with a human-reviewed artifact gating each stage.", url:"https://www.coinbase.com/blog/automating-risk-model-retrain-loop-with-agentic-skills" },
+  { id:"meta-ranking-engineer-agent-rea-ads", company:"Meta", title:"Ranking Engineer Agent (REA): The Autonomous AI Agent Accelerating Meta's Ads Ranking Innovation", category:"personalization-recsys", hook:"An autonomous agent that proposes and evaluates ads-ranking model changes, in the same agent-driven-recsys-iteration vein as NOVA, AgentX, and AutoLR.", url:"https://engineering.fb.com/2026/03/17/developer-tools/ranking-engineer-agent-rea-autonomous-ai-system-accelerating-meta-ads-ranking-innovation/" },
+  { id:"databricks-governance-knowledge-context-ontology-lakehouse", company:"Databricks", title:"Governance Beyond Security: Knowledge, Context & Ontology on the Lakehouse", category:"data-engineering", hook:"Extends lakehouse governance past access control into knowledge graphs, business context, and ontology for AI-ready data.", url:"https://www.databricks.com/blog/governance-beyond-security-knowledge-context-ontology-lakehouse" },
+  { id:"aws-agentcore-memory-lifecycle-policies", company:"AWS", title:"Designing Lifecycle Policies for AgentCore Memory", category:"ml-infra-serving", hook:"Scoring, consolidating, and pruning agent memories on a nightly Step Functions workflow to keep long-running agent memory manageable.", url:"https://aws.amazon.com/blogs/machine-learning/designing-lifecycle-policies-for-agentcore-memory/" },
+  { id:"aws-physical-ai-cosmos3-sagemaker-hyperpod", company:"AWS / NVIDIA", title:"Build a Physical AI Model Factory with NVIDIA Cosmos 3 on SageMaker HyperPod", category:"cv-multimodal", hook:"Reference architecture for synthetic data generation, post-training, and closed-loop evaluation of physical/robotics AI models.", url:"https://aws.amazon.com/blogs/machine-learning/build-a-physical-ai-model-factory-with-nvidia-cosmos-3-on-sagemaker-hyperpod/" },
+  { id:"nvidia-jetson-frontier-reasoning-edge-deployment", company:"NVIDIA", title:"Frontier Reasoning Reaches the Edge: Deploying and Optimizing Models on NVIDIA Jetson", category:"ml-infra-serving", hook:"Deploying reasoning and agentic AI models on edge hardware, addressing model-size and compute constraints on Jetson devices.", url:"https://developer.nvidia.com/blog/frontier-reasoning-reaches-the-edge-how-to-deploy-and-optimize-models-on-nvidia-jetson/" },
+  { id:"spotify-xirp-agentic-dev-environment", company:"Spotify", title:"Xirp: A Vendor-Neutral Agentic Development Environment", category:"ml-infra-serving", hook:"A vendor-neutral environment managing agent coding sessions across Claude Code, Gemini CLI, and OpenAI Codex, adopted by 1,300+ Spotify engineers.", url:null },
+  { id:"doordash-beyond-single-agents-collaborative-ecosystem", company:"DoorDash", title:"Beyond Single Agents: How DoorDash Is Building a Collaborative AI Ecosystem", category:"ml-infra-serving", hook:"Evolving DoorDash's internal agent platform from deterministic workflows to a dynamic, multi-agent AI system.", url:"https://careersatdoordash.com/blog/beyond-single-agents-doordash-building-collaborative-ai-ecosystem/" }
 ];
 
 // ---- render ----
@@ -2105,7 +2490,15 @@ const REL_LINKS = {
   "Whatamix: Blendable Feed Construction": "https://medium.com/whatnot-engineering/whatamix-blendable-feed-construction-2c94c21f6635",
   "How Coinbase Builds Sequence Features for Machine Learning": "https://www.coinbase.com/blog/how-coinbase-builds-sequence-features-for-machine-learning",
   "Building Ask DoorDash (Part 4): A Platform for Building and Evolving Agents": "https://careersatdoordash.com/blog/building-ask-doordash-part-four-a-platform-for-building_and_evolving_agents/",
-  "AI in CVS Front Store E-commerce: Building a Complementary Product Bundle Recommender": "https://medium.com/cvs-health-tech-blog/ai-in-cvs-front-store-e-commerce-building-a-complementary-product-bundle-recommender-dc6c71dee682"
+  "AI in CVS Front Store E-commerce: Building a Complementary Product Bundle Recommender": "https://medium.com/cvs-health-tech-blog/ai-in-cvs-front-store-e-commerce-building-a-complementary-product-bundle-recommender-dc6c71dee682",
+  "AutoLR: Automating the Path from Research to Launch Review in Industrial Recommender Systems": "https://arxiv.org/abs/2609.04871",
+  "Building a Memory-Driven Agent with NVIDIA NemoClaw": "https://developer.nvidia.com/blog/building-a-memory-driven-agent-with-nvidia-nemoclaw",
+  "Deploy a Multimodal WhatsApp Ordering Assistant with Amazon Bedrock AgentCore": "https://aws.amazon.com/blogs/machine-learning/deploy-a-multimodal-whatsapp-ordering-assistant-with-amazon-bedrock-agentcore/",
+  "Southern Company's SCOUT: Completing the Storm Intelligence Story": "https://www.databricks.com/blog/southern-companys-scout-completing-storm-intelligence-story",
+  "DashCLIP: Leveraging Multimodal Models for Generating Semantic Embeddings": "https://arxiv.org/abs/2504.07110",
+  "Using LLMs to Build Content Embeddings for Search and Recommendations": "https://careersatdoordash.com/blog/doordash-llms-to-build-content-embeddings-for-search-and-recommendations/",
+  "ZGateway: Learnings from Putting a Proxy in Front of ZippyDB": "https://engineering.fb.com/2026/09/03/core-infra/zgateway-proxy-zippydb-meta/",
+  "The Science of Price Experiments in the Amazon Store": "https://www.amazon.science/blog/the-science-of-price-experiments-in-the-amazon-store"
 };
 function anchor(href, text){ return `<a href="${esc(href)}" target="_blank" rel="noopener">${text}</a>`; }
 function arxivify(h){ return h.replace(/arXiv\s+(\d{4}\.\d{4,5})/g, (m,id)=>`arXiv ${anchor("https://arxiv.org/abs/"+id, id)}`); }

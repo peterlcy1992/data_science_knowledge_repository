@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 9,
+  "next_episode": 10,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -90,6 +90,17 @@
       "cover": "podcasts/2026-09-07-airbnb-llm-eval-fast-iteration.cover.png",
       "rss_status": "draft",
       "rss_episode_id": 3130781
+    },
+    {
+      "episode": 9,
+      "season": 1,
+      "date": "2026-09-08",
+      "title": "NetEase \u2014 The Agent That Audits Its Own Recommender",
+      "description": "A deep dive into AutoLR, the agentic harness NetEase built to run the entire lifecycle of improving a production recommender \u2014 from proposal generation through offline evaluation to online A/B testing and final Launch Review sign-off \u2014 for the feed and immersive-video surfaces of its gaming-community app DASHEN. We cover the business problem (a multi-day, manually-coordinated research-and-engineering loop standing between an idea and a shipped model change), the technical approach (a multi-expert proposal council that debates and adversarially reviews candidates, a deterministic evidence-weighted selector instead of a classic exploration/exploitation bandit, and a hard separation between LLM-generated proposals and machine-validated state transitions), and the realized impact: nine Launch-Review-approved production launches and a system that ran at roughly RMB 3\u20134 of LLM cost per iteration. We also dig into the paper's most unusual contribution \u2014 a self-audit that surfaces a named reliability failure mode, the \"KEEP ratchet,\" where a noise-driven promotion can quietly corrupt the experiment baseline for everyone downstream. Source article: \"AutoLR: Automating the Path from Research to Launch Review in Industrial Recommender Systems\" \u2014 NetEase / arXiv, https://arxiv.org/abs/2609.04871 (published 2026-09).",
+      "audio": "podcasts/2026-09-08-netease-autolr-agentic-recsys-launch-review.m4a",
+      "cover": "podcasts/2026-09-08-netease-autolr-agentic-recsys-launch-review.cover.png",
+      "rss_status": "draft",
+      "rss_episode_id": 3134625
     }
   ]
 }

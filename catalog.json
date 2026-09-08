@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-07",
+  "updated": "2026-09-08",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -132,14 +132,6 @@
       "url": null
     },
     {
-      "id": "amazon-price-experimentation",
-      "company": "Amazon",
-      "title": "Improving price experimentation in the Amazon Store",
-      "category": "experimentation-causal",
-      "hook": "Better experimental design for pricing decisions.",
-      "url": "https://creators.spotify.com/pod/profile/pan-wu/episodes/Improving-Price-Experimentation-at-Amazon-Amazon-e2ilod8"
-    },
-    {
       "id": "microsoft-double-machine-learning",
       "company": "Microsoft",
       "title": "Causal inference with Double Machine Learning when A/B testing isn't possible",
@@ -212,14 +204,6 @@
       "url": null
     },
     {
-      "id": "doordash-dashclip-multimodal-ad-embeddings",
-      "company": "DoorDash",
-      "title": "DashCLIP: Leveraging multimodal models for generating semantic embeddings",
-      "category": "personalization-recsys",
-      "hook": "A two-stage contrastive framework aligning product images, text, and search queries in one embedding space to power ads retrieval, ranking, and relevance.",
-      "url": "https://careersatdoordash.com/blog/doordash-dashclip-multimodal-models-for-generating-semantic-embeddings/"
-    },
-    {
       "id": "nova-verification-agent-harness-recsys-architecture",
       "company": "NOVA (arXiv paper)",
       "title": "NOVA: A Verification-Aware Agent Harness for Architecture Evolution in Industrial Recommender Systems",
@@ -236,20 +220,68 @@
       "url": "https://arxiv.org/pdf/2606.26859"
     },
     {
-      "id": "doordash-llms-content-embeddings-search-recommendations",
-      "company": "DoorDash",
-      "title": "Using LLMs to build content embeddings for search and recommendations",
-      "category": "personalization-recsys",
-      "hook": "LLM-generated merchant and item profiles bootstrap content embeddings that improve semantic search, recommendations, and cold-start discovery across DoorDash's verticals.",
-      "url": "https://careersatdoordash.com/blog/doordash-llms-to-build-content-embeddings-for-search-and-recommendations/"
+      "id": "coinbase-automating-risk-model-retrain-agentic-skills",
+      "company": "Coinbase",
+      "title": "Automating Risk Model Retrain Loop with Agentic Skills",
+      "category": "ml-infra-serving",
+      "hook": "Coding-agent-powered 'Agentic Skills' automate a three-stage risk-model improvement loop (trend analysis, feature enrichment, retraining), with a human-reviewed artifact gating each stage.",
+      "url": "https://www.coinbase.com/blog/automating-risk-model-retrain-loop-with-agentic-skills"
     },
     {
-      "id": "meta-zgateway-zippydb-proxy",
+      "id": "meta-ranking-engineer-agent-rea-ads",
       "company": "Meta",
-      "title": "ZGateway: Learnings from Putting a Proxy in Front of ZippyDB",
+      "title": "Ranking Engineer Agent (REA): The Autonomous AI Agent Accelerating Meta's Ads Ranking Innovation",
+      "category": "personalization-recsys",
+      "hook": "An autonomous agent that proposes and evaluates ads-ranking model changes, in the same agent-driven-recsys-iteration vein as NOVA, AgentX, and AutoLR.",
+      "url": "https://engineering.fb.com/2026/03/17/developer-tools/ranking-engineer-agent-rea-autonomous-ai-system-accelerating-meta-ads-ranking-innovation/"
+    },
+    {
+      "id": "databricks-governance-knowledge-context-ontology-lakehouse",
+      "company": "Databricks",
+      "title": "Governance Beyond Security: Knowledge, Context & Ontology on the Lakehouse",
       "category": "data-engineering",
-      "hook": "A stateless proxy tier handling 1B+ ops/sec and ~40% of ZippyDB traffic with only ~6% overhead — core-infra rather than ML-first, kept as a lower-priority lead.",
-      "url": "https://engineering.fb.com/2026/09/03/core-infra/zgateway-proxy-zippydb-meta/"
+      "hook": "Extends lakehouse governance past access control into knowledge graphs, business context, and ontology for AI-ready data.",
+      "url": "https://www.databricks.com/blog/governance-beyond-security-knowledge-context-ontology-lakehouse"
+    },
+    {
+      "id": "aws-agentcore-memory-lifecycle-policies",
+      "company": "AWS",
+      "title": "Designing Lifecycle Policies for AgentCore Memory",
+      "category": "ml-infra-serving",
+      "hook": "Scoring, consolidating, and pruning agent memories on a nightly Step Functions workflow to keep long-running agent memory manageable.",
+      "url": "https://aws.amazon.com/blogs/machine-learning/designing-lifecycle-policies-for-agentcore-memory/"
+    },
+    {
+      "id": "aws-physical-ai-cosmos3-sagemaker-hyperpod",
+      "company": "AWS / NVIDIA",
+      "title": "Build a Physical AI Model Factory with NVIDIA Cosmos 3 on SageMaker HyperPod",
+      "category": "cv-multimodal",
+      "hook": "Reference architecture for synthetic data generation, post-training, and closed-loop evaluation of physical/robotics AI models.",
+      "url": "https://aws.amazon.com/blogs/machine-learning/build-a-physical-ai-model-factory-with-nvidia-cosmos-3-on-sagemaker-hyperpod/"
+    },
+    {
+      "id": "nvidia-jetson-frontier-reasoning-edge-deployment",
+      "company": "NVIDIA",
+      "title": "Frontier Reasoning Reaches the Edge: Deploying and Optimizing Models on NVIDIA Jetson",
+      "category": "ml-infra-serving",
+      "hook": "Deploying reasoning and agentic AI models on edge hardware, addressing model-size and compute constraints on Jetson devices.",
+      "url": "https://developer.nvidia.com/blog/frontier-reasoning-reaches-the-edge-how-to-deploy-and-optimize-models-on-nvidia-jetson/"
+    },
+    {
+      "id": "spotify-xirp-agentic-dev-environment",
+      "company": "Spotify",
+      "title": "Xirp: A Vendor-Neutral Agentic Development Environment",
+      "category": "ml-infra-serving",
+      "hook": "A vendor-neutral environment managing agent coding sessions across Claude Code, Gemini CLI, and OpenAI Codex, adopted by 1,300+ Spotify engineers.",
+      "url": null
+    },
+    {
+      "id": "doordash-beyond-single-agents-collaborative-ecosystem",
+      "company": "DoorDash",
+      "title": "Beyond Single Agents: How DoorDash Is Building a Collaborative AI Ecosystem",
+      "category": "ml-infra-serving",
+      "hook": "Evolving DoorDash's internal agent platform from deterministic workflows to a dynamic, multi-agent AI system.",
+      "url": "https://careersatdoordash.com/blog/beyond-single-agents-doordash-building-collaborative-ai-ecosystem/"
     }
   ]
 }
