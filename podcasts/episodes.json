@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 10,
+  "next_episode": 11,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -101,6 +101,17 @@
       "cover": "podcasts/2026-09-08-netease-autolr-agentic-recsys-launch-review.cover.png",
       "rss_status": "draft",
       "rss_episode_id": 3134625
+    },
+    {
+      "episode": 10,
+      "season": 1,
+      "date": "2026-09-09",
+      "title": "Tencent \u2014 Teaching a Recommender to Reason About Cold Starts",
+      "description": "A deep dive into TGR, Tencent's push to bring a generative, LLM-style paradigm into its production recommenders \u2014 which serve hundreds of millions of users through the classic retrieval/pre-ranking/ranking/reranking pipeline \u2014 along three coupled fronts. We cover the business problem (each pipeline stage optimized separately, capping how much any one stage can improve relevance and revenue, with little room for LLM-style semantic reasoning), the technical approach (a Transformer ranker, CCFormer, that keeps the familiar per-item scoring shape while changing its internal feature representation; end-to-end slate generation via BARGE and HiGR using prefix-structured semantic IDs decoded coarse-to-fine; and TGR-Reason, which computes reasoning tokens offline and injects them at serving time instead of paying for chain-of-thought at runtime), and the realized impact: gains ranging from +3.57% CTR and +1.71% ad revenue up to a 477.8% relative improvement on a cold-start metric, all measured on live production traffic. Source article: \"TGR: Advancing Industrial Recommendation from Generative-Paradigm Ranking toward Unified Generation and Reasoning\" \u2014 Tencent / arXiv, https://arxiv.org/abs/2609.00986 (published 2026-09).",
+      "audio": "podcasts/2026-09-09-tencent-tgr-unified-generation-reasoning-recsys.m4a",
+      "cover": "podcasts/2026-09-09-tencent-tgr-unified-generation-reasoning-recsys.cover.png",
+      "rss_status": "draft",
+      "rss_episode_id": 3137565
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-08",
+  "updated": "2026-09-09",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -13,6 +13,196 @@
     "research-foundational"
   ],
   "articles": [
+    {
+      "id": "tencent-tgr-unified-generation-reasoning-recsys",
+      "title": "TGR: Advancing Industrial Recommendation from Generative-Paradigm Ranking toward Unified Generation and Reasoning",
+      "source": "Tencent / arXiv",
+      "url": "https://arxiv.org/abs/2609.00986",
+      "published": "2026-09",
+      "added": "2026-09-09",
+      "category": "personalization-recsys",
+      "tags": [
+        "generative-recommendation",
+        "semantic-ids",
+        "transformer",
+        "ads-ranking",
+        "cold-start",
+        "reasoning",
+        "tencent"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-09-tencent-tgr-unified-generation-reasoning-recsys.md",
+      "deep_dived_on": "2026-09-09",
+      "sourced_via": "web search"
+    },
+    {
+      "id": "bytedance-rest-sequence-transformer-ads-ranking",
+      "title": "From Language to Behavior: Scaling Sequence Transformers for Industrial Recommendation Ranking with Rec-Native Designs",
+      "source": "ByteDance (TikTok Shop Ads) / arXiv",
+      "url": "https://arxiv.org/abs/2609.01240",
+      "published": "2026-09",
+      "added": "2026-09-09",
+      "category": "personalization-recsys",
+      "tags": [
+        "sequence-transformer",
+        "ads-ranking",
+        "rotary-embeddings",
+        "latency-optimization",
+        "tiktok-shop",
+        "bytedance"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-09-bytedance-rest-sequence-transformer-ads-ranking.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "how-fast-do-agents-rot-long-horizon-degradation",
+      "title": "How Fast Do Agents Rot? An Empirical Study of Long-Horizon Degradation in LLM Agents for Production Decision-Making",
+      "source": "Microsoft / arXiv",
+      "url": "https://arxiv.org/abs/2609.01660",
+      "published": "2026-09",
+      "added": "2026-09-09",
+      "category": "llm-genai",
+      "tags": [
+        "ai-agents",
+        "reliability",
+        "long-horizon-tasks",
+        "evaluation",
+        "benchmarking",
+        "production-decision-making"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-09-how-fast-do-agents-rot-long-horizon-degradation.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "uber-m3db-subcluster-shard-placement",
+      "title": "From Chaos to Control: Addressing Shard Distribution Challenges in M3DB with Subclusters",
+      "source": "Uber Engineering",
+      "url": "https://www.uber.com/us/en/blog/from-chaos-to-control/",
+      "published": "2026-09",
+      "added": "2026-09-09",
+      "category": "ml-infra-serving",
+      "tags": [
+        "distributed-systems",
+        "time-series-database",
+        "sharding",
+        "observability-infra",
+        "m3db",
+        "reliability"
+      ],
+      "novelty": 2,
+      "file": "articles/2026-09-09-uber-m3db-subcluster-shard-placement.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "dxrg-llm-trading-agents-production-record",
+      "title": "What LLM Trading Agents Actually Do in Production: A Six-Month, Population-Scale Record from Two Fleets",
+      "source": "DXRG.ai / arXiv",
+      "url": "https://arxiv.org/abs/2609.05663",
+      "published": "2026-09",
+      "added": "2026-09-09",
+      "category": "llm-genai",
+      "tags": [
+        "ai-agents",
+        "algorithmic-trading",
+        "production-measurement",
+        "risk-management",
+        "empirical-study",
+        "onchain"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-09-dxrg-llm-trading-agents-production-record.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "netflix-fm-intent-session-intent-recommendation",
+      "title": "FM-Intent: Predicting User Session Intent with Hierarchical Multi-Task Learning",
+      "source": "Netflix Technology Blog",
+      "url": "https://netflixtechblog.com/fm-intent-predicting-user-session-intent-with-hierarchical-multi-task-learning-94c75e18f4b8",
+      "published": "2025-05",
+      "added": "2026-09-09",
+      "category": "personalization-recsys",
+      "tags": [
+        "multi-task-learning",
+        "session-intent",
+        "foundation-model",
+        "transformer",
+        "user-modeling",
+        "netflix"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-09-netflix-fm-intent-session-intent-recommendation.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "nova-verification-aware-agent-harness-recsys",
+      "title": "NOVA: A Verification-Aware Agent Harness for Architecture Evolution in Industrial Recommender Systems",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2606.27243",
+      "published": "2026-06",
+      "added": "2026-09-09",
+      "category": "personalization-recsys",
+      "tags": [
+        "ai-agents",
+        "agentic-harness",
+        "recommender-systems",
+        "architecture-search",
+        "production-audit",
+        "ads-ranking"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-09-nova-verification-aware-agent-harness-recsys.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "agentx-agent-driven-self-iteration-recsys",
+      "title": "AgentX: Towards Agent-Driven Self-Iteration of Industrial Recommender Systems",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2606.26859",
+      "published": "2026-06",
+      "added": "2026-09-09",
+      "category": "personalization-recsys",
+      "tags": [
+        "ai-agents",
+        "self-iteration",
+        "recommender-systems",
+        "closed-loop-experimentation",
+        "agentic-harness"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-09-agentx-agent-driven-self-iteration-recsys.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "aws-agentcore-memory-lifecycle-policies",
+      "title": "Designing Lifecycle Policies for AgentCore Memory",
+      "source": "AWS Machine Learning Blog",
+      "url": "https://aws.amazon.com/blogs/machine-learning/designing-lifecycle-policies-for-agentcore-memory/",
+      "published": "2026-09",
+      "added": "2026-09-09",
+      "category": "ml-infra-serving",
+      "tags": [
+        "ai-agents",
+        "agent-memory",
+        "aws-bedrock-agentcore",
+        "step-functions",
+        "memory-management",
+        "gdpr"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-09-aws-agentcore-memory-lifecycle-policies.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
     {
       "id": "netease-autolr-agentic-recsys-launch-review",
       "title": "AutoLR: Automating the Path from Research to Launch Review in Industrial Recommender Systems",

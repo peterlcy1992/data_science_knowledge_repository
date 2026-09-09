@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-08",
+  "updated": "2026-09-09",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -9,14 +9,6 @@
       "title": "Content recommendation with contextual bandits and reward engineering",
       "category": "personalization-recsys",
       "hook": "Proxy reward functions and offline models drive recommendation via contextual bandits.",
-      "url": null
-    },
-    {
-      "id": "netflix-session-intent-multitask",
-      "company": "Netflix",
-      "title": "Predicting user session intent with hierarchical multi-task learning",
-      "category": "personalization-recsys",
-      "hook": "A hierarchical multi-task architecture personalizes the session in real time.",
       "url": null
     },
     {
@@ -204,22 +196,6 @@
       "url": null
     },
     {
-      "id": "nova-verification-agent-harness-recsys-architecture",
-      "company": "NOVA (arXiv paper)",
-      "title": "NOVA: A Verification-Aware Agent Harness for Architecture Evolution in Industrial Recommender Systems",
-      "category": "personalization-recsys",
-      "hook": "An agent harness that proposes and verifies architecture changes to production recommender systems instead of a human doing manual ablation studies.",
-      "url": "https://arxiv.org/pdf/2606.27243"
-    },
-    {
-      "id": "agentx-self-iteration-industrial-recsys",
-      "company": "AgentX (arXiv paper)",
-      "title": "AgentX: Towards Agent-Driven Self-Iteration of Industrial Recommender Systems",
-      "category": "personalization-recsys",
-      "hook": "An agent-driven loop for recommender systems to propose, test, and adopt their own improvements with less manual iteration.",
-      "url": "https://arxiv.org/pdf/2606.26859"
-    },
-    {
       "id": "coinbase-automating-risk-model-retrain-agentic-skills",
       "company": "Coinbase",
       "title": "Automating Risk Model Retrain Loop with Agentic Skills",
@@ -242,14 +218,6 @@
       "category": "data-engineering",
       "hook": "Extends lakehouse governance past access control into knowledge graphs, business context, and ontology for AI-ready data.",
       "url": "https://www.databricks.com/blog/governance-beyond-security-knowledge-context-ontology-lakehouse"
-    },
-    {
-      "id": "aws-agentcore-memory-lifecycle-policies",
-      "company": "AWS",
-      "title": "Designing Lifecycle Policies for AgentCore Memory",
-      "category": "ml-infra-serving",
-      "hook": "Scoring, consolidating, and pruning agent memories on a nightly Step Functions workflow to keep long-running agent memory manageable.",
-      "url": "https://aws.amazon.com/blogs/machine-learning/designing-lifecycle-policies-for-agentcore-memory/"
     },
     {
       "id": "aws-physical-ai-cosmos3-sagemaker-hyperpod",
@@ -282,6 +250,46 @@
       "category": "ml-infra-serving",
       "hook": "Evolving DoorDash's internal agent platform from deterministic workflows to a dynamic, multi-agent AI system.",
       "url": "https://careersatdoordash.com/blog/beyond-single-agents-doordash-building-collaborative-ai-ecosystem/"
+    },
+    {
+      "id": "pinterest-mcp-ecosystem-ai-agents",
+      "company": "Pinterest",
+      "title": "Building an MCP Ecosystem at Pinterest",
+      "category": "ml-infra-serving",
+      "hook": "Domain-specific MCP servers (Presto, Spark, Airflow) plus a central registry and human-in-the-loop guardrails let AI agents safely automate engineering tasks, growing to 66,000 monthly invocations.",
+      "url": "https://medium.com/pinterest-engineering/building-an-mcp-ecosystem-at-pinterest-d881eb4c16f1"
+    },
+    {
+      "id": "coinbase-mux-multi-agent-coding-tool",
+      "company": "Coinbase",
+      "title": "Coding Had a Concurrency Problem: How Mux Helped Solve It",
+      "category": "ml-infra-serving",
+      "hook": "An internal multi-agent orchestration tool that grew from one engineer's side project to 600+ users across Coinbase, addressing the concurrency problem of running many coding agents at once.",
+      "url": "https://www.coinbase.com/blog/coding-had-a-concurrency-problem-how-mux-helped-solve-it"
+    },
+    {
+      "id": "linkedin-slm-serving-semantic-job-search",
+      "company": "LinkedIn",
+      "title": "Scaling Up Efficient Small Language Models Serving and Deployment for Semantic Job Search",
+      "category": "ml-infra-serving",
+      "hook": "A decoder-only Small Language Model with 40% pruning and ~10x context compression lifts semantic job-search serving throughput roughly 10x on GPUs.",
+      "url": "https://arxiv.org/abs/2510.22101"
+    },
+    {
+      "id": "meta-kernelevolve-ranking-engineer-agent-infra",
+      "company": "Meta",
+      "title": "KernelEvolve: How Meta's Ranking Engineer Agent Optimizes AI Infrastructure",
+      "category": "ml-infra-serving",
+      "hook": "The infrastructure/kernel-optimization counterpart to Meta's Ranking Engineer Agent (REA), applying agentic search to low-level AI infra rather than ranking model architecture.",
+      "url": "https://engineering.fb.com/2026/04/02/developer-tools/kernelevolve-how-metas-ranking-engineer-agent-optimizes-ai-infrastructure/"
+    },
+    {
+      "id": "databricks-customerlake-agentic-cdp",
+      "company": "Databricks",
+      "title": "Introducing CustomerLake: The Agentic CDP Embedded in Databricks",
+      "category": "data-engineering",
+      "hook": "An agentic Customer Data Platform natively embedded in the lakehouse, with autonomous Profile and Campaign agents built on governed data.",
+      "url": "https://www.databricks.com/blog/introducing-customerlake-agentic-cdp"
     }
   ]
 }
