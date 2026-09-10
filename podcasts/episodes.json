@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 11,
+  "next_episode": 12,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -112,6 +112,17 @@
       "cover": "podcasts/2026-09-09-tencent-tgr-unified-generation-reasoning-recsys.cover.png",
       "rss_status": "draft",
       "rss_episode_id": 3137565
+    },
+    {
+      "episode": 11,
+      "season": 1,
+      "date": "2026-09-10",
+      "title": "NVIDIA \u2014 One Checkpoint, Three Jobs for Robots",
+      "description": "A deep dive into how AWS and NVIDIA built a reference architecture for training physical AI \u2014 robots and autonomous vehicles \u2014 as a continuous, closed-loop \"model factory\" instead of a one-time training run split across fragmented GPU clusters. We cover the business problem (physical AI needs a perpetual loop of real-world data ingestion, synthetic data generation, post-training, and simulation evaluation, and running each stage on its own dedicated GPU cluster wastes capacity and adds expensive data movement), the technical approach (NVIDIA Cosmos 3's unified token stream carrying video, images, actions, audio, and text through one sequence; a Mixture-of-Transformers design pairing a reasoner and generator tower; and the elegant trick that the same checkpoint becomes a world model, an action-labeling model, or a deployed robot policy purely by changing which tokens start as noise, all running on one shared, persistent SageMaker HyperPod cluster), and what the reported scaling numbers actually show \u2014 near-linear multi-node training efficiency and roughly 1% checkpoint overhead, reported as reproducible methodology rather than leaderboard bragging rights. Source article: \"Build a Physical AI Model Factory with NVIDIA Cosmos 3 on SageMaker HyperPod\" \u2014 AWS Machine Learning Blog / NVIDIA, https://aws.amazon.com/blogs/machine-learning/build-a-physical-ai-model-factory-with-nvidia-cosmos-3-on-sagemaker-hyperpod/ (published 2026).",
+      "audio": "podcasts/2026-09-10-aws-physical-ai-cosmos3-sagemaker-hyperpod.m4a",
+      "cover": "podcasts/2026-09-10-aws-physical-ai-cosmos3-sagemaker-hyperpod.cover.png",
+      "rss_status": "draft",
+      "rss_episode_id": 3140018
     }
   ]
 }
