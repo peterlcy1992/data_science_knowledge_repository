@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-09",
+  "updated": "2026-09-10",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -13,6 +13,176 @@
     "research-foundational"
   ],
   "articles": [
+    {
+      "id": "databricks-customerlake-agentic-cdp",
+      "title": "Introducing CustomerLake: The Agentic CDP Embedded in Databricks",
+      "source": "Databricks Blog",
+      "url": "https://www.databricks.com/blog/introducing-customerlake-agentic-cdp",
+      "published": "2026",
+      "added": "2026-09-10",
+      "category": "data-engineering",
+      "tags": [
+        "customer-data-platform",
+        "ai-agents",
+        "unity-catalog",
+        "identity-resolution",
+        "martech",
+        "lakehouse"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-10-databricks-customerlake-agentic-cdp.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "pinterest-mcp-ecosystem-ai-agents",
+      "title": "Building an MCP Ecosystem at Pinterest",
+      "source": "Pinterest Engineering Blog",
+      "url": "https://medium.com/pinterest-engineering/building-an-mcp-ecosystem-at-pinterest-d881eb4c16f1",
+      "published": "2026-03",
+      "added": "2026-09-10",
+      "category": "ml-infra-serving",
+      "tags": [
+        "mcp",
+        "ai-agents",
+        "internal-tooling",
+        "security",
+        "developer-productivity",
+        "pinterest"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-10-pinterest-mcp-ecosystem-ai-agents.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "aws-physical-ai-cosmos3-sagemaker-hyperpod",
+      "title": "Build a Physical AI Model Factory with NVIDIA Cosmos 3 on SageMaker HyperPod",
+      "source": "AWS Machine Learning Blog / NVIDIA",
+      "url": "https://aws.amazon.com/blogs/machine-learning/build-a-physical-ai-model-factory-with-nvidia-cosmos-3-on-sagemaker-hyperpod/",
+      "published": "2026",
+      "added": "2026-09-10",
+      "category": "cv-multimodal",
+      "tags": [
+        "physical-ai",
+        "robotics",
+        "world-models",
+        "sagemaker-hyperpod",
+        "mixture-of-transformers",
+        "synthetic-data"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-10-aws-physical-ai-cosmos3-sagemaker-hyperpod.md",
+      "deep_dived_on": "2026-09-10",
+      "sourced_via": "web search"
+    },
+    {
+      "id": "databricks-governance-knowledge-context-ontology-lakehouse",
+      "title": "Governance Beyond Security: Knowledge, Context & Ontology on the Lakehouse",
+      "source": "Databricks Blog",
+      "url": "https://www.databricks.com/blog/governance-beyond-security-knowledge-context-ontology-lakehouse",
+      "published": "2026",
+      "added": "2026-09-10",
+      "category": "data-engineering",
+      "tags": [
+        "data-governance",
+        "unity-catalog",
+        "ontology",
+        "ai-agents",
+        "data-quality",
+        "lakehouse"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-10-databricks-governance-knowledge-context-ontology-lakehouse.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "meta-ranking-engineer-agent-rea-ads",
+      "title": "Ranking Engineer Agent (REA): The Autonomous AI Agent Accelerating Meta's Ads Ranking Innovation",
+      "source": "Engineering at Meta",
+      "url": "https://engineering.fb.com/2026/03/17/developer-tools/ranking-engineer-agent-rea-autonomous-ai-system-accelerating-meta-ads-ranking-innovation/",
+      "published": "2026-03",
+      "added": "2026-09-10",
+      "category": "personalization-recsys",
+      "tags": [
+        "ai-agents",
+        "ads-ranking",
+        "ml-experimentation",
+        "agentic-harness",
+        "meta",
+        "automl"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-10-meta-ranking-engineer-agent-rea-ads.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "meta-coral-llm-agent-recsys-harness",
+      "title": "CORAL: An LLM-Native Harness for Production Recommender Systems",
+      "source": "Meta AI / arXiv",
+      "url": "https://arxiv.org/abs/2609.02730",
+      "published": "2026-09",
+      "added": "2026-09-10",
+      "category": "personalization-recsys",
+      "tags": [
+        "ai-agents",
+        "agentic-harness",
+        "recommender-systems",
+        "production-optimization",
+        "closed-loop",
+        "in-context-learning"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-10-meta-coral-llm-agent-recsys-harness.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "databricks-ltap-unify-oltp-olap-agents",
+      "title": "The 40-Year-Old Database Rule Agents Just Broke: How LTAP Unifies OLTP and OLAP Workloads",
+      "source": "Databricks Blog",
+      "url": "https://www.databricks.com/blog/40-year-old-database-rule-agents-just-broke-how-ltap-unifies-oltp-and-olap-workloads",
+      "published": "2026-09",
+      "added": "2026-09-10",
+      "category": "data-engineering",
+      "tags": [
+        "lakehouse",
+        "oltp",
+        "olap",
+        "lakebase",
+        "postgres",
+        "ai-agents",
+        "data-architecture"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-10-databricks-ltap-unify-oltp-olap-agents.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "aws-qwen-sagemaker-hyperpod-vllm",
+      "title": "Deploying Qwen3.8-2.4T-A95B on Amazon SageMaker HyperPod with vLLM",
+      "source": "AWS Machine Learning Blog",
+      "url": "https://aws.amazon.com/blogs/machine-learning/deploying-qwen3-8-2-4t-a95b-on-amazon-sagemaker-hyperpod-with-vllm/",
+      "published": "2026-09",
+      "added": "2026-09-10",
+      "category": "ml-infra-serving",
+      "tags": [
+        "llm-serving",
+        "vllm",
+        "sagemaker-hyperpod",
+        "mixture-of-experts",
+        "speculative-decoding",
+        "quantization",
+        "blackwell"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-10-aws-qwen-sagemaker-hyperpod-vllm.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
     {
       "id": "tencent-tgr-unified-generation-reasoning-recsys",
       "title": "TGR: Advancing Industrial Recommendation from Generative-Paradigm Ranking toward Unified Generation and Reasoning",
@@ -904,7 +1074,7 @@
     },
     {
       "id": "meta-silvertorch-index-as-model-retrieval",
-      "title": "SilverTorch: Index as Model \u2014 A New Retrieval Paradigm for Recommendation Systems",
+      "title": "SilverTorch: Index as Model — A New Retrieval Paradigm for Recommendation Systems",
       "source": "Engineering at Meta",
       "url": "https://engineering.fb.com/2026/05/26/ml-applications/silvertorch-index-as-model-new-retrieval-paradigm-recommendation-systems/",
       "published": "2026-05",

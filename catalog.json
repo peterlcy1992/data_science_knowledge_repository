@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-09",
+  "updated": "2026-09-10",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -204,30 +204,6 @@
       "url": "https://www.coinbase.com/blog/automating-risk-model-retrain-loop-with-agentic-skills"
     },
     {
-      "id": "meta-ranking-engineer-agent-rea-ads",
-      "company": "Meta",
-      "title": "Ranking Engineer Agent (REA): The Autonomous AI Agent Accelerating Meta's Ads Ranking Innovation",
-      "category": "personalization-recsys",
-      "hook": "An autonomous agent that proposes and evaluates ads-ranking model changes, in the same agent-driven-recsys-iteration vein as NOVA, AgentX, and AutoLR.",
-      "url": "https://engineering.fb.com/2026/03/17/developer-tools/ranking-engineer-agent-rea-autonomous-ai-system-accelerating-meta-ads-ranking-innovation/"
-    },
-    {
-      "id": "databricks-governance-knowledge-context-ontology-lakehouse",
-      "company": "Databricks",
-      "title": "Governance Beyond Security: Knowledge, Context & Ontology on the Lakehouse",
-      "category": "data-engineering",
-      "hook": "Extends lakehouse governance past access control into knowledge graphs, business context, and ontology for AI-ready data.",
-      "url": "https://www.databricks.com/blog/governance-beyond-security-knowledge-context-ontology-lakehouse"
-    },
-    {
-      "id": "aws-physical-ai-cosmos3-sagemaker-hyperpod",
-      "company": "AWS / NVIDIA",
-      "title": "Build a Physical AI Model Factory with NVIDIA Cosmos 3 on SageMaker HyperPod",
-      "category": "cv-multimodal",
-      "hook": "Reference architecture for synthetic data generation, post-training, and closed-loop evaluation of physical/robotics AI models.",
-      "url": "https://aws.amazon.com/blogs/machine-learning/build-a-physical-ai-model-factory-with-nvidia-cosmos-3-on-sagemaker-hyperpod/"
-    },
-    {
       "id": "nvidia-jetson-frontier-reasoning-edge-deployment",
       "company": "NVIDIA",
       "title": "Frontier Reasoning Reaches the Edge: Deploying and Optimizing Models on NVIDIA Jetson",
@@ -250,14 +226,6 @@
       "category": "ml-infra-serving",
       "hook": "Evolving DoorDash's internal agent platform from deterministic workflows to a dynamic, multi-agent AI system.",
       "url": "https://careersatdoordash.com/blog/beyond-single-agents-doordash-building-collaborative-ai-ecosystem/"
-    },
-    {
-      "id": "pinterest-mcp-ecosystem-ai-agents",
-      "company": "Pinterest",
-      "title": "Building an MCP Ecosystem at Pinterest",
-      "category": "ml-infra-serving",
-      "hook": "Domain-specific MCP servers (Presto, Spark, Airflow) plus a central registry and human-in-the-loop guardrails let AI agents safely automate engineering tasks, growing to 66,000 monthly invocations.",
-      "url": "https://medium.com/pinterest-engineering/building-an-mcp-ecosystem-at-pinterest-d881eb4c16f1"
     },
     {
       "id": "coinbase-mux-multi-agent-coding-tool",
@@ -284,12 +252,20 @@
       "url": "https://engineering.fb.com/2026/04/02/developer-tools/kernelevolve-how-metas-ranking-engineer-agent-optimizes-ai-infrastructure/"
     },
     {
-      "id": "databricks-customerlake-agentic-cdp",
-      "company": "Databricks",
-      "title": "Introducing CustomerLake: The Agentic CDP Embedded in Databricks",
+      "id": "uber-compute-platform-horizontal-scaling-controller",
+      "company": "Uber",
+      "title": "From One Horizontal Scaling Controller to Many: Evolving Uber's Compute Platform",
+      "category": "ml-infra-serving",
+      "hook": "Evolving Uber's internal compute platform from a single horizontal-scaling controller to multiple, addressing scaling bottlenecks as workloads (including ML) grew.",
+      "url": null
+    },
+    {
+      "id": "grab-data-mesh-automated-dpi-reliability",
+      "company": "Grab",
+      "title": "Data Mesh at Grab (Part III): Operationalizing Data Reliability with Automated DPIs",
       "category": "data-engineering",
-      "hook": "An agentic Customer Data Platform natively embedded in the lakehouse, with autonomous Profile and Campaign agents built on governed data.",
-      "url": "https://www.databricks.com/blog/introducing-customerlake-agentic-cdp"
+      "hook": "Turns data-contract breaches into structured Data Production Issues with triage, diagnosis, ownership routing, and auto-healing/human resolution.",
+      "url": "https://engineering.grab.com/data-mesh-at-grab-part-three"
     }
   ]
 }
