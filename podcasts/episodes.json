@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 12,
+  "next_episode": 13,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -123,6 +123,17 @@
       "cover": "podcasts/2026-09-10-aws-physical-ai-cosmos3-sagemaker-hyperpod.cover.png",
       "rss_status": "draft",
       "rss_episode_id": 3140018
+    },
+    {
+      "episode": 12,
+      "season": 1,
+      "date": "2026-09-11",
+      "title": "Netflix \u2014 One Model, One Pass, Your Whole Homepage",
+      "description": "A deep dive into how Netflix replaced its traditional multi-stage homepage recommender \u2014 separate systems for candidate retrieval, ranking, and row layout \u2014 with a single transformer that generates the entire structured, multi-row homepage in one pass. We cover the business problem (stitching together multiple separately-trained models to build one coherent homepage adds engineering complexity and serving latency, while still needing to handle cold start, freshness, and business-rule placement constraints in production), the technical approach (treating the user's history and request context as a prompt and autoregressively generating the whole homepage as the response, trained with an LLM-style recipe of pretraining on historical homepages followed by post-training via either weighted binary classification or reinforcement learning), and what the reported results actually show \u2014 a substantial lift on the core engagement metric alongside a 20% cut in end-to-end serving latency, plus the surprising offline finding that enriching the prompt beat simply scaling up the model, and that reinforcement learning increased homepage diversity as a side effect even though diversity was never an explicit training objective. Source article: \"GenPage: Towards End-to-End Generative Homepage Construction at Netflix\" \u2014 Netflix / arXiv, accepted RecSys 2026, https://arxiv.org/abs/2606.31031 (published 2026-06).",
+      "audio": "podcasts/2026-09-11-netflix-genpage-generative-homepage-construction.m4a",
+      "cover": "podcasts/2026-09-11-netflix-genpage-generative-homepage-construction.cover.png",
+      "rss_status": "draft",
+      "rss_episode_id": 3143035
     }
   ]
 }
