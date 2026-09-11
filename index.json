@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-10",
+  "updated": "2026-09-11",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -13,6 +13,178 @@
     "research-foundational"
   ],
   "articles": [
+    {
+      "id": "linkedin-job-search-llms",
+      "title": "Building the Next Generation of Job Search at LinkedIn",
+      "source": "LinkedIn Engineering Blog",
+      "url": "https://www.linkedin.com/blog/engineering/ai/building-the-next-generation-of-job-search-at-linkedin",
+      "published": "2026",
+      "added": "2026-09-11",
+      "category": "search-ranking",
+      "tags": [
+        "semantic-search",
+        "llm",
+        "embeddings",
+        "cross-encoder",
+        "distillation",
+        "job-search",
+        "linkedin"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-11-linkedin-semantic-job-search-llm-cross-encoder.md",
+      "deep_dived_on": null,
+      "discovered_via": "Snacks Weekly on Data Science podcast",
+      "sourced_via": "web search"
+    },
+    {
+      "id": "coinbase-mux-multi-agent-coding-tool",
+      "title": "Coding Had a Concurrency Problem: How Mux Helped Solve It",
+      "source": "Coinbase Engineering Blog",
+      "url": "https://www.coinbase.com/blog/coding-had-a-concurrency-problem-how-mux-helped-solve-it",
+      "published": "2026-05",
+      "added": "2026-09-11",
+      "category": "ml-infra-serving",
+      "tags": [
+        "ai-agents",
+        "developer-productivity",
+        "internal-tooling",
+        "multi-agent",
+        "coding-agents",
+        "coinbase"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-11-coinbase-mux-multi-agent-coding-tool.md",
+      "deep_dived_on": null,
+      "discovered_via": "Snacks Weekly on Data Science podcast",
+      "sourced_via": "web search"
+    },
+    {
+      "id": "lyft-interference-bias-mmv",
+      "title": "Using Marketplace Marginal Values to Address Interference Bias",
+      "source": "Lyft Engineering Blog",
+      "url": "https://eng.lyft.com/using-marketplace-marginal-values-to-address-interference-bias-a11aff6e670f",
+      "published": "2025-01",
+      "added": "2026-09-11",
+      "category": "experimentation-causal",
+      "tags": [
+        "experimentation",
+        "causal-inference",
+        "interference-bias",
+        "two-sided-marketplace",
+        "ab-testing",
+        "lyft"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-11-lyft-marketplace-marginal-values-interference-bias.md",
+      "deep_dived_on": null,
+      "discovered_via": "Snacks Weekly on Data Science podcast",
+      "sourced_via": "web search"
+    },
+    {
+      "id": "instacart-smart-replacements",
+      "title": "How Instacart Uses Machine Learning to Suggest Replacements for Out-of-Stock Products",
+      "source": "Instacart Tech Blog",
+      "url": "https://tech.instacart.com/how-instacart-uses-machine-learning-to-suggest-replacements-for-out-of-stock-products-8f80d03bb5af",
+      "published": "2026-07",
+      "added": "2026-09-11",
+      "category": "personalization-recsys",
+      "tags": [
+        "recommendation",
+        "retrieval-ranking",
+        "cold-start",
+        "catalog-attributes",
+        "grocery",
+        "instacart"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-11-instacart-ml-replacement-recommendations.md",
+      "deep_dived_on": null,
+      "discovered_via": "Snacks Weekly on Data Science podcast",
+      "sourced_via": "web search"
+    },
+    {
+      "id": "uber-eats-search-pipeline-latency-rebuild",
+      "title": "Halving the Time: How Uber Eats Rebuilt Its Search Pipeline",
+      "source": "Uber Engineering Blog",
+      "url": "https://www.uber.com/en/blog/uber-eats-search-pipeline/",
+      "published": "2026-09",
+      "added": "2026-09-11",
+      "category": "search-ranking",
+      "tags": [
+        "search-latency",
+        "retrieval",
+        "ranking",
+        "embeddings",
+        "ads-serving",
+        "agentic-debugging",
+        "uber-eats"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-11-uber-eats-search-pipeline-latency-rebuild.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "grab-agentic-analytics-autonomy-ladder",
+      "title": "How AI is Transforming Analytics at Grab",
+      "source": "Grab Tech (Engineering Blog)",
+      "url": "https://engineering.grab.com/how-ai-is-transforming-analytics",
+      "published": "2026-08",
+      "added": "2026-09-11",
+      "category": "llm-genai",
+      "tags": [
+        "ai-agents",
+        "analytics-automation",
+        "autonomy-levels",
+        "data-catalog",
+        "governance",
+        "grab"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-11-grab-agentic-analytics-autonomy-ladder.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "netflix-genpage-generative-homepage-construction",
+      "title": "GenPage: Towards End-to-End Generative Homepage Construction at Netflix",
+      "source": "Netflix (arXiv preprint, accepted RecSys 2026)",
+      "url": "https://arxiv.org/abs/2606.31031",
+      "published": "2026-06",
+      "added": "2026-09-11",
+      "category": "personalization-recsys",
+      "tags": [
+        "generative-recommendation",
+        "homepage-ranking",
+        "transformers",
+        "reinforcement-learning",
+        "netflix"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-11-netflix-genpage-generative-homepage-construction.md",
+      "deep_dived_on": "2026-09-11",
+      "sourced_via": "web search"
+    },
+    {
+      "id": "measuring-agents-in-production-survey",
+      "title": "Measuring Agents in Production",
+      "source": "ICML 2026 (oral)",
+      "url": "https://arxiv.org/abs/2512.04123",
+      "published": "2025-12",
+      "added": "2026-09-11",
+      "category": "research-foundational",
+      "tags": [
+        "llm-agents",
+        "production-ml",
+        "empirical-study",
+        "evaluation",
+        "reliability"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-11-measuring-agents-in-production-survey.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
     {
       "id": "databricks-customerlake-agentic-cdp",
       "title": "Introducing CustomerLake: The Agentic CDP Embedded in Databricks",
@@ -1074,7 +1246,7 @@
     },
     {
       "id": "meta-silvertorch-index-as-model-retrieval",
-      "title": "SilverTorch: Index as Model — A New Retrieval Paradigm for Recommendation Systems",
+      "title": "SilverTorch: Index as Model \u2014 A New Retrieval Paradigm for Recommendation Systems",
       "source": "Engineering at Meta",
       "url": "https://engineering.fb.com/2026/05/26/ml-applications/silvertorch-index-as-model-new-retrieval-paradigm-recommendation-systems/",
       "published": "2026-05",

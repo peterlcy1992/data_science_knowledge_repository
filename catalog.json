@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-10",
+  "updated": "2026-09-11",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -36,27 +36,11 @@
       "url": null
     },
     {
-      "id": "linkedin-job-search-llms",
-      "company": "LinkedIn",
-      "title": "Reimagining job search with LLMs (intent-aware)",
-      "category": "search-ranking",
-      "hook": "From keyword-based to flexible, intent-aware job search with LLMs.",
-      "url": null
-    },
-    {
       "id": "instacart-quasi-experiment-rdd",
       "company": "Instacart",
       "title": "Quasi-experimentation and regression discontinuity design",
       "category": "experimentation-causal",
       "hook": "Using RDD to make decisions when clean A/B tests aren't possible.",
-      "url": null
-    },
-    {
-      "id": "instacart-smart-replacements",
-      "company": "Instacart",
-      "title": "Smart replacements for out-of-stock products",
-      "category": "personalization-recsys",
-      "hook": "ML suggests substitutions when an item is unavailable.",
       "url": null
     },
     {
@@ -105,14 +89,6 @@
       "title": "A/B testing practices and experimentation culture",
       "category": "experimentation-causal",
       "hook": "How Oda builds a culture that supports experimentation.",
-      "url": null
-    },
-    {
-      "id": "lyft-interference-bias-mmv",
-      "company": "Lyft",
-      "title": "Tackling interference bias with Marketplace Marginal Values (MMV)",
-      "category": "experimentation-causal",
-      "hook": "MMVs correct interference bias in marketplace experiments.",
       "url": null
     },
     {
@@ -228,14 +204,6 @@
       "url": "https://careersatdoordash.com/blog/beyond-single-agents-doordash-building-collaborative-ai-ecosystem/"
     },
     {
-      "id": "coinbase-mux-multi-agent-coding-tool",
-      "company": "Coinbase",
-      "title": "Coding Had a Concurrency Problem: How Mux Helped Solve It",
-      "category": "ml-infra-serving",
-      "hook": "An internal multi-agent orchestration tool that grew from one engineer's side project to 600+ users across Coinbase, addressing the concurrency problem of running many coding agents at once.",
-      "url": "https://www.coinbase.com/blog/coding-had-a-concurrency-problem-how-mux-helped-solve-it"
-    },
-    {
       "id": "linkedin-slm-serving-semantic-job-search",
       "company": "LinkedIn",
       "title": "Scaling Up Efficient Small Language Models Serving and Deployment for Semantic Job Search",
@@ -266,6 +234,22 @@
       "category": "data-engineering",
       "hook": "Turns data-contract breaches into structured Data Production Issues with triage, diagnosis, ownership routing, and auto-healing/human resolution.",
       "url": "https://engineering.grab.com/data-mesh-at-grab-part-three"
+    },
+    {
+      "id": "snap-casper-ai-teammates",
+      "company": "Snap",
+      "title": "Casper: Snap's fleet of friendly AI teammates",
+      "category": "llm-genai",
+      "hook": "Internal AI agent teammates deployed across Snap engineering workflows.",
+      "url": "https://eng.snap.com/blog"
+    },
+    {
+      "id": "uber-agent-identity-trust-platform",
+      "company": "Uber",
+      "title": "Solving the Identity Crisis for AI Agents",
+      "category": "ml-infra-serving",
+      "hook": "Cryptographic identity, delegation chains, and a unified policy plane for governing autonomous agents at Uber scale.",
+      "url": "https://www.uber.com/us/en/blog/solving-the-agent-identity-crisis/"
     }
   ]
 }
