@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 13,
+  "next_episode": 14,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -134,6 +134,17 @@
       "cover": "podcasts/2026-09-11-netflix-genpage-generative-homepage-construction.cover.png",
       "rss_status": "draft",
       "rss_episode_id": 3143035
+    },
+    {
+      "episode": 13,
+      "season": 1,
+      "date": "2026-09-12",
+      "title": "Uber \u2014 Who's Really Behind Your AI Agent's Actions?",
+      "description": "A deep dive into how Uber built a cryptographic identity system for AI agents that solves a problem traditional identity models were never designed for: agents that \"act for or in the place of another.\" We cover the business problem (an on-call Investigation Agent modifies a monitoring configuration, but when something goes wrong, nobody can trace the action back to the human engineer ultimately responsible, because the chain of who-asked-whom disappears across hops), the technical approach (a Security Token Service issuing short-lived JWTs that embed the *entire* actor chain \u2014 not just the last caller \u2014 using an OAuth 2.0 Token Exchange\u2013inspired pattern layered on SPIFFE/SPIRE cryptographic workload identity, enforced at an MCP Gateway), and the realized payoff: sub-40ms p99 token-exchange latency at production scale across thousands of internal agents, with a roadmap toward dynamic access control and a unified enforcement plane. Source article: \"Solving the Identity Crisis for AI Agents\" \u2014 Uber Engineering Blog, https://www.uber.com/us/en/blog/solving-the-agent-identity-crisis/ (published 2026-05).",
+      "audio": "podcasts/2026-09-12-uber-agent-identity-crisis-trust-platform.m4a",
+      "cover": "podcasts/2026-09-12-uber-agent-identity-crisis-trust-platform.cover.png",
+      "rss_status": "draft",
+      "rss_episode_id": 3145205
     }
   ]
 }
