@@ -1,16 +1,8 @@
 {
   "version": 1,
-  "updated": "2026-09-11",
+  "updated": "2026-09-12",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
-    {
-      "id": "netflix-contextual-bandits-reward-engineering",
-      "company": "Netflix",
-      "title": "Content recommendation with contextual bandits and reward engineering",
-      "category": "personalization-recsys",
-      "hook": "Proxy reward functions and offline models drive recommendation via contextual bandits.",
-      "url": null
-    },
     {
       "id": "airbnb-conversational-ai-guardrails",
       "company": "Airbnb",
@@ -49,14 +41,6 @@
       "title": "Covariate selection in causal inference",
       "category": "experimentation-causal",
       "hook": "Choosing covariates well to get unbiased causal estimates.",
-      "url": null
-    },
-    {
-      "id": "meta-global-feature-importance",
-      "company": "Meta",
-      "title": "Feature selection at scale with Global Feature Importance",
-      "category": "research-foundational",
-      "hook": "Selecting features across huge model inputs via a global importance method.",
       "url": null
     },
     {
@@ -228,28 +212,12 @@
       "url": null
     },
     {
-      "id": "grab-data-mesh-automated-dpi-reliability",
-      "company": "Grab",
-      "title": "Data Mesh at Grab (Part III): Operationalizing Data Reliability with Automated DPIs",
-      "category": "data-engineering",
-      "hook": "Turns data-contract breaches into structured Data Production Issues with triage, diagnosis, ownership routing, and auto-healing/human resolution.",
-      "url": "https://engineering.grab.com/data-mesh-at-grab-part-three"
-    },
-    {
       "id": "snap-casper-ai-teammates",
       "company": "Snap",
       "title": "Casper: Snap's fleet of friendly AI teammates",
       "category": "llm-genai",
       "hook": "Internal AI agent teammates deployed across Snap engineering workflows.",
       "url": "https://eng.snap.com/blog"
-    },
-    {
-      "id": "uber-agent-identity-trust-platform",
-      "company": "Uber",
-      "title": "Solving the Identity Crisis for AI Agents",
-      "category": "ml-infra-serving",
-      "hook": "Cryptographic identity, delegation chains, and a unified policy plane for governing autonomous agents at Uber scale.",
-      "url": "https://www.uber.com/us/en/blog/solving-the-agent-identity-crisis/"
     }
   ]
 }

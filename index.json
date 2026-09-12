@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-11",
+  "updated": "2026-09-12",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -13,6 +13,180 @@
     "research-foundational"
   ],
   "articles": [
+    {
+      "id": "nvidia-nim-nemotron3-ultra-serving-optimization",
+      "title": "How Full-Stack NIM Optimizations Deliver 2.5x More Users on Nemotron 3 Ultra",
+      "source": "NVIDIA Developer Blog",
+      "url": "https://developer.nvidia.com/blog/how-full-stack-nim-optimizations-deliver-2-5x-more-users-on-nemotron-3-ultra/",
+      "published": "2026-09",
+      "added": "2026-09-12",
+      "category": "ml-infra-serving",
+      "tags": [
+        "inference-optimization",
+        "nim",
+        "nemotron",
+        "speculative-decoding",
+        "kv-cache",
+        "tensor-parallelism",
+        "mixture-of-experts",
+        "blackwell"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-12-nvidia-nim-nemotron3-ultra-serving-optimization.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "aws-devops-agent-agentcore-evaluations-monitoring",
+      "title": "Monitoring Production Agent Lifecycle with AWS DevOps Agent and AgentCore Evaluations",
+      "source": "AWS Machine Learning Blog",
+      "url": "https://aws.amazon.com/blogs/machine-learning/monitoring-production-agent-lifecycle-with-aws-devops-agent-and-agentcore-evaluations/",
+      "published": "2026-09",
+      "added": "2026-09-12",
+      "category": "llm-genai",
+      "tags": [
+        "agentops",
+        "agentcore",
+        "llm-as-judge",
+        "observability",
+        "multi-agent",
+        "swarm",
+        "incident-response"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-12-aws-devops-agent-agentcore-evaluations-monitoring.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "amazon-science-ml-research-agents-compression-overfitting",
+      "title": "What Fits (Into Few Tokens) Doesn't Overfit: Compression and Generalization in ML Research Agents",
+      "source": "Amazon Science",
+      "url": "https://www.amazon.science/blog/why-dont-machine-learning-research-agents-overfit",
+      "published": "2026-06",
+      "added": "2026-09-12",
+      "category": "research-foundational",
+      "tags": [
+        "ml-research-agents",
+        "overfitting",
+        "generalization",
+        "compression",
+        "minimum-description-length",
+        "agentic-benchmarking"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-12-amazon-science-ml-research-agents-compression-overfitting.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "confluent-agentic-soc-streaming-investigation",
+      "title": "Building an Agentic SOC on a Stream",
+      "source": "Confluent Blog",
+      "url": "https://www.confluent.io/blog/building-an-agentic-soc-on-a-stream",
+      "published": "2026-09",
+      "added": "2026-09-12",
+      "category": "llm-genai",
+      "tags": [
+        "agentic-ai",
+        "security-operations",
+        "streaming",
+        "kafka",
+        "flink",
+        "multi-agent",
+        "alert-triage"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-12-confluent-agentic-soc-streaming-investigation.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "grab-data-mesh-dpi-automated-reliability",
+      "title": "Data Mesh at Grab (Part III): Operationalizing Data Reliability with Automated DPIs",
+      "source": "Grab Engineering Blog",
+      "url": "https://engineering.grab.com/data-mesh-at-grab-part-three",
+      "published": "2026-08",
+      "added": "2026-09-12",
+      "category": "data-engineering",
+      "tags": [
+        "data-mesh",
+        "data-quality",
+        "data-contracts",
+        "incident-automation",
+        "observability",
+        "grab"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-12-grab-data-mesh-dpi-automated-reliability.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "uber-agent-identity-crisis-trust-platform",
+      "title": "Solving the Identity Crisis for AI Agents",
+      "source": "Uber Engineering Blog",
+      "url": "https://www.uber.com/us/en/blog/solving-the-agent-identity-crisis/",
+      "published": "2026-05",
+      "added": "2026-09-12",
+      "category": "ml-infra-serving",
+      "tags": [
+        "agent-identity",
+        "security",
+        "spiffe-spire",
+        "mcp",
+        "delegation",
+        "policy-enforcement",
+        "uber"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-12-uber-agent-identity-crisis-trust-platform.md",
+      "deep_dived_on": "2026-09-12",
+      "sourced_via": "full-text fetch",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "netflix-reward-innovation-long-term-satisfaction",
+      "title": "Reward Innovation for Long-Term Member Satisfaction",
+      "source": "Netflix Research (RecSys 2023)",
+      "url": "https://dl.acm.org/doi/10.1145/3604915.3608873",
+      "published": "2023-09",
+      "added": "2026-09-12",
+      "category": "personalization-recsys",
+      "tags": [
+        "contextual-bandits",
+        "reward-engineering",
+        "long-term-satisfaction",
+        "offline-evaluation",
+        "netflix"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-12-netflix-reward-innovation-long-term-satisfaction.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "meta-global-feature-importance-collective-models",
+      "title": "Collective Wisdom of Models: Advanced Feature Importance Techniques at Meta",
+      "source": "Analytics at Meta (Medium)",
+      "url": "https://medium.com/@AnalyticsAtMeta/collective-wisdom-of-models-advanced-feature-importance-techniques-at-meta-1a7a8d2f9e27",
+      "published": "2025-04",
+      "added": "2026-09-12",
+      "category": "research-foundational",
+      "tags": [
+        "feature-selection",
+        "feature-importance",
+        "model-aggregation",
+        "meta"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-12-meta-global-feature-importance-collective-models.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
     {
       "id": "linkedin-job-search-llms",
       "title": "Building the Next Generation of Job Search at LinkedIn",
@@ -1246,7 +1420,7 @@
     },
     {
       "id": "meta-silvertorch-index-as-model-retrieval",
-      "title": "SilverTorch: Index as Model \u2014 A New Retrieval Paradigm for Recommendation Systems",
+      "title": "SilverTorch: Index as Model — A New Retrieval Paradigm for Recommendation Systems",
       "source": "Engineering at Meta",
       "url": "https://engineering.fb.com/2026/05/26/ml-applications/silvertorch-index-as-model-new-retrieval-paradigm-recommendation-systems/",
       "published": "2026-05",
