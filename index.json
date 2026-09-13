@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-12",
+  "updated": "2026-09-13",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -13,6 +13,180 @@
     "research-foundational"
   ],
   "articles": [
+    {
+      "id": "google-toolgrad-tool-use-dataset-generation",
+      "title": "ToolGrad: Efficient Tool-Use Dataset Generation with Textual \"Gradients\"",
+      "source": "Google Research",
+      "url": "https://research.google/blog/toolgrad-efficient-tool-use-dataset-generation-with-textual-gradients/",
+      "published": "2026-09",
+      "added": "2026-09-13",
+      "category": "llm-genai",
+      "tags": [
+        "tool-use",
+        "function-calling",
+        "synthetic-data",
+        "agents",
+        "textgrad",
+        "dataset-generation"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-13-google-toolgrad-tool-use-dataset-generation.md",
+      "deep_dived_on": "2026-09-13",
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "bytedance-sequenceo1-ultra-long-sequence-recsys",
+      "title": "SequenceO1: End-to-End Ultra-Long (100K) Sequence Modeling in Recommendation with Low-Rank Caching",
+      "source": "ByteDance (arXiv / RecSys'26 Industry Track)",
+      "url": "https://arxiv.org/abs/2609.08443",
+      "published": "2026-09",
+      "added": "2026-09-13",
+      "category": "personalization-recsys",
+      "tags": [
+        "sequence-modeling",
+        "long-sequence",
+        "recommendation",
+        "douyin",
+        "attention",
+        "caching",
+        "industrial-recsys"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-13-bytedance-sequenceo1-ultra-long-sequence-recsys.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "meta-auto-recsys-autonomous-research-agents",
+      "title": "Auto-RecSys: Harnessing Autonomous Research Agents for Industry-Scale Recommender Systems",
+      "source": "Meta (arXiv)",
+      "url": "https://arxiv.org/abs/2609.10922",
+      "published": "2026-09",
+      "added": "2026-09-13",
+      "category": "ml-infra-serving",
+      "tags": [
+        "autonomous-agents",
+        "recsys",
+        "research-automation",
+        "llm-agents",
+        "mlops",
+        "self-evolving-systems"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-13-meta-auto-recsys-autonomous-research-agents.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "airbnb-automation-platform-v2-conversational-ai-guardrails",
+      "title": "Automation Platform v2: Improving Conversational AI at Airbnb",
+      "source": "Airbnb Tech Blog",
+      "url": "https://medium.com/airbnb-engineering/automation-platform-v2-improving-conversational-ai-at-airbnb-d86c9386e0cb",
+      "published": "2026-04",
+      "added": "2026-09-13",
+      "category": "llm-genai",
+      "tags": [
+        "conversational-ai",
+        "guardrails",
+        "customer-support",
+        "llm-agents",
+        "context-management",
+        "airbnb"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-13-airbnb-automation-platform-v2-conversational-ai-guardrails.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "lyft-realtime-spatial-temporal-forecasting",
+      "title": "Real-Time Spatial Temporal Forecasting @ Lyft",
+      "source": "Lyft Engineering Blog",
+      "url": "https://eng.lyft.com/real-time-spatial-temporal-forecasting-lyft-fa90b3f3ec24",
+      "published": "2025-05",
+      "added": "2026-09-13",
+      "category": "forecasting-timeseries",
+      "tags": [
+        "forecasting",
+        "spatial-temporal",
+        "marketplace",
+        "classical-time-series",
+        "deep-learning-tradeoffs",
+        "lyft"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-13-lyft-realtime-spatial-temporal-forecasting.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "thumbtack-recommendations-two-submodels-offline-inference",
+      "title": "How We Personalized Recommendations for Professionals on Thumbtack",
+      "source": "Thumbtack Engineering",
+      "url": "https://medium.com/thumbtack-engineering/how-we-personalized-recommendations-for-professionals-on-thumbtack-40131b57c3a9",
+      "published": "2024-06",
+      "added": "2026-09-13",
+      "category": "personalization-recsys",
+      "tags": [
+        "recommendations",
+        "boosted-trees",
+        "offline-inference",
+        "marketplace",
+        "personalization",
+        "thumbtack"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-13-thumbtack-recommendations-two-submodels-offline-inference.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "glassdoor-data-quality-petabyte-scale",
+      "title": "Data Quality at Petabyte Scale: Building Trust in the Data Lifecycle",
+      "source": "Glassdoor Engineering Blog",
+      "url": "https://medium.com/glassdoor-engineering/data-quality-at-petabyte-scale-building-trust-in-the-data-lifecycle-7052361307a4",
+      "published": "2025-02",
+      "added": "2026-09-13",
+      "category": "data-engineering",
+      "tags": [
+        "data-quality",
+        "anomaly-detection",
+        "data-contracts",
+        "schema-registry",
+        "llm-validation",
+        "glassdoor"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-13-glassdoor-data-quality-petabyte-scale.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "mercadolibre-geo-experimentation-geolift",
+      "title": "Harnessing the Power of Geo-Experimentation: How Mercado Libre Measures the Effectiveness of Its Third-Party Media Strategies Using GeoLift",
+      "source": "Tecnología de Mercado Libre",
+      "url": "https://medium.com/mercadolibre-tech/harnessing-the-power-of-geo-experimentation-how-mercado-libre-measures-the-effectiveness-of-its-f68b38857c4b",
+      "published": "2023-06",
+      "added": "2026-09-13",
+      "category": "experimentation-causal",
+      "tags": [
+        "geo-experimentation",
+        "causal-inference",
+        "geolift",
+        "synthetic-control",
+        "media-measurement",
+        "mercadolibre"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-13-mercadolibre-geo-experimentation-geolift.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
     {
       "id": "nvidia-nim-nemotron3-ultra-serving-optimization",
       "title": "How Full-Stack NIM Optimizations Deliver 2.5x More Users on Nemotron 3 Ultra",

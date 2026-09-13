@@ -1,16 +1,8 @@
 {
   "version": 1,
-  "updated": "2026-09-12",
+  "updated": "2026-09-13",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
-    {
-      "id": "airbnb-conversational-ai-guardrails",
-      "company": "Airbnb",
-      "title": "Upgrading conversational AI with LLMs, context management, and a guardrail framework",
-      "category": "llm-genai",
-      "hook": "Structured workflows plus LLM reasoning, kept controlled by a guardrail framework.",
-      "url": null
-    },
     {
       "id": "airbnb-personal-data-classification",
       "company": "Airbnb",
@@ -76,28 +68,12 @@
       "url": null
     },
     {
-      "id": "lyft-realtime-spatial-temporal-forecasting",
-      "company": "Lyft",
-      "title": "Real-time spatial-temporal forecasting: classical vs deep models",
-      "category": "forecasting-timeseries",
-      "hook": "Choosing between classical time-series and DNNs for real-time forecasting.",
-      "url": null
-    },
-    {
       "id": "microsoft-double-machine-learning",
       "company": "Microsoft",
       "title": "Causal inference with Double Machine Learning when A/B testing isn't possible",
       "category": "experimentation-causal",
       "hook": "Double ML answers high-stakes questions without a clean experiment.",
       "url": null
-    },
-    {
-      "id": "mercadolibre-geo-experimentation",
-      "company": "Mercado Libre",
-      "title": "Geo experimentation",
-      "category": "experimentation-causal",
-      "hook": "Region-level experiments where user-level randomization fails.",
-      "url": "https://creators.spotify.com/pod/profile/pan-wu/episodes/2023-11-13-Geo-Experimentation-Mercado-Libre-e2brq2p"
     },
     {
       "id": "yelp-video-review-moderation",
@@ -121,22 +97,6 @@
       "title": "Promotion-aware demand forecasting",
       "category": "forecasting-timeseries",
       "hook": "Handling the outsized effect of promotions in grocery forecasting.",
-      "url": null
-    },
-    {
-      "id": "glassdoor-data-quality-anomaly-detection",
-      "company": "Glassdoor",
-      "title": "Data quality and anomaly detection at petabyte scale",
-      "category": "data-engineering",
-      "hook": "Data contracts, static analysis, LLM-based logic checks, and anomaly detection.",
-      "url": null
-    },
-    {
-      "id": "thumbtack-recommendations-offline-inference",
-      "company": "Thumbtack",
-      "title": "Recommendations with two sub-models and offline inference",
-      "category": "personalization-recsys",
-      "hook": "A two-sub-model recommendation architecture served via offline inference.",
       "url": null
     },
     {
@@ -218,6 +178,78 @@
       "category": "llm-genai",
       "hook": "Internal AI agent teammates deployed across Snap engineering workflows.",
       "url": "https://eng.snap.com/blog"
+    },
+    {
+      "id": "faire-autoscience-agent-driven-ml-exploration",
+      "company": "Faire",
+      "title": "Autoscience: How We Built Agent-Driven ML Exploration at Faire",
+      "category": "ml-infra-serving",
+      "hook": "An LLM-agent system that autonomously proposes, trains, and scores ML model changes to explore features/architectures/hyperparameters faster than a human team.",
+      "url": "https://craft.faire.com/autoscience-how-we-built-agent-driven-ml-exploration-at-faire-f3183e7deb29"
+    },
+    {
+      "id": "airbnb-travel-destination-recommendations-explore",
+      "company": "Airbnb",
+      "title": "Recommending Travel Destinations to Help Users Explore",
+      "category": "personalization-recsys",
+      "hook": "Sequence-modeling + multi-task learning (with geolocation) destination recommender for users still forming trip intent.",
+      "url": "https://airbnb.tech/ai-ml/recommending-travel-destinations-to-help-users-explore/"
+    },
+    {
+      "id": "booking-scaling-experimentation-quality",
+      "company": "Booking.com",
+      "title": "Scaling Experimentation Quality at Booking.com",
+      "category": "experimentation-causal",
+      "hook": "Treats 'Experimentation Quality' as a first-class KPI, with self-serve power calculators, SRM alarms, and guardrail dashboards.",
+      "url": "https://booking.ai/scaling-experimentation-quality-at-booking-com-726152ee4ef0"
+    },
+    {
+      "id": "netflix-llm-judge-show-synopses",
+      "company": "Netflix",
+      "title": "Evaluating Netflix Show Synopses with LLM-as-a-Judge",
+      "category": "llm-genai",
+      "hook": "Multi-dimensional (precision/factuality/tone/clarity) LLM-judge system with tiered rationales and 5x consensus sampling, calibrated to creative writers.",
+      "url": "https://netflixtechblog.com/evaluating-netflix-show-synopses-with-llm-as-a-judge-6269251e6f28"
+    },
+    {
+      "id": "glassdoor-two-tower-candidate-generation",
+      "company": "Glassdoor",
+      "title": "Improving Embedding-Based Candidate Generation with a Two-Tower Model",
+      "category": "personalization-recsys",
+      "hook": "Replaces off-the-shelf pretrained embeddings with a two-tower net trained on user-post interactions for candidate generation.",
+      "url": "https://medium.com/glassdoor-engineering/improving-embedding-based-candidate-generation-for-recommender-systems-with-a-two-tower-model-c222123beb7f"
+    },
+    {
+      "id": "flipkart-unified-ranking-ads-organic",
+      "company": "Flipkart",
+      "title": "The Science of Unified Ranking: Integrating Ads and Organic Recommendations",
+      "category": "search-ranking",
+      "hook": "Replaces a pinned-slot ads/organic heuristic with one unified ranking model, lifting organic orders 1.36% and ad revenue 3.4%.",
+      "url": "https://medium.com/flipkart-engineering/the-science-of-unified-ranking-integrating-ads-and-organic-recommendations-8cc24113ef21"
+    },
+    {
+      "id": "uber-airport-driver-availability-forecasting",
+      "company": "Uber",
+      "title": "Forecasting Models to Improve Driver Availability at Airports",
+      "category": "forecasting-timeseries",
+      "hook": "ETR and earnings-per-hour forecasts help drivers in the airport FIFO queue decide whether to wait; airports are ~15% of Uber's global mobility gross bookings.",
+      "url": "https://www.uber.com/us/en/blog/forecasting-models-to-improve-availability-at-airports/"
+    },
+    {
+      "id": "microsoft-llm-taxonomy-unstructured-text",
+      "company": "Microsoft",
+      "title": "From Chaos to Clarity: Building Taxonomies from Unstructured Text Using LLMs",
+      "category": "llm-genai",
+      "hook": "Two complementary LLM methodologies (bottom-up semantic clustering vs. top-down iterative category induction) for building taxonomies with minimal manual labeling.",
+      "url": "https://medium.com/data-science-at-microsoft/from-chaos-to-clarity-building-taxonomies-from-unstructured-text-using-large-language-models-c1303db3adb1"
+    },
+    {
+      "id": "razorpay-bumblebee-multiagent-fraud-detection",
+      "company": "Razorpay",
+      "title": "Bumblebee: The Multi-Agent AI That Changed Fraud Detection at Razorpay",
+      "category": "data-engineering",
+      "hook": "Orchestrator + specialized sub-agents flag risky merchants in under 90 seconds, replacing ~800 hrs/month of manual review, lifting accuracy from 88% to 99%+.",
+      "url": "https://engineering.razorpay.com/meet-bumblebee-the-multi-agent-ai-architecture-that-changed-fraud-detection-at-razorpay-c2b6d5704f51"
     }
   ]
 }
