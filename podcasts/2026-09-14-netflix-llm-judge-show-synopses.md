@@ -1,0 +1,5 @@
+# Netflix — Grading the Graders: Can an AI Judge Your Synopsis?
+
+Every show on Netflix lives or dies a little by its synopsis — the couple of sentences that decide whether you press play. With a catalog too vast for humans to proofread line by line, Netflix built a team of AI "judges" to score synopses on tone, clarity, precision, and factual accuracy, each specializing in its own dimension rather than trying to do it all at once. To make sure those judges could actually be trusted, the team calibrated them against 600 hand-labeled examples through eight rounds of work with real creative writers — and didn't stop until the AI's agreement with expert writers matched how much the writers agreed with *each other*. The payoff: judged quality scores turn out to predict real viewer behavior, like whether people actually click play and how often they abandon a title early, letting Netflix catch a weak synopsis months before a show even launches.
+
+Source article: "Evaluating Netflix Show Synopses with LLM-as-a-Judge" — Netflix Technology Blog, https://netflixtechblog.com/evaluating-netflix-show-synopses-with-llm-as-a-judge-6269251e6f28 (published 2026-04).
