@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-13",
+  "updated": "2026-09-14",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -188,28 +188,12 @@
       "url": "https://craft.faire.com/autoscience-how-we-built-agent-driven-ml-exploration-at-faire-f3183e7deb29"
     },
     {
-      "id": "airbnb-travel-destination-recommendations-explore",
-      "company": "Airbnb",
-      "title": "Recommending Travel Destinations to Help Users Explore",
-      "category": "personalization-recsys",
-      "hook": "Sequence-modeling + multi-task learning (with geolocation) destination recommender for users still forming trip intent.",
-      "url": "https://airbnb.tech/ai-ml/recommending-travel-destinations-to-help-users-explore/"
-    },
-    {
       "id": "booking-scaling-experimentation-quality",
       "company": "Booking.com",
       "title": "Scaling Experimentation Quality at Booking.com",
       "category": "experimentation-causal",
       "hook": "Treats 'Experimentation Quality' as a first-class KPI, with self-serve power calculators, SRM alarms, and guardrail dashboards.",
       "url": "https://booking.ai/scaling-experimentation-quality-at-booking-com-726152ee4ef0"
-    },
-    {
-      "id": "netflix-llm-judge-show-synopses",
-      "company": "Netflix",
-      "title": "Evaluating Netflix Show Synopses with LLM-as-a-Judge",
-      "category": "llm-genai",
-      "hook": "Multi-dimensional (precision/factuality/tone/clarity) LLM-judge system with tiered rationales and 5x consensus sampling, calibrated to creative writers.",
-      "url": "https://netflixtechblog.com/evaluating-netflix-show-synopses-with-llm-as-a-judge-6269251e6f28"
     },
     {
       "id": "glassdoor-two-tower-candidate-generation",
@@ -220,22 +204,6 @@
       "url": "https://medium.com/glassdoor-engineering/improving-embedding-based-candidate-generation-for-recommender-systems-with-a-two-tower-model-c222123beb7f"
     },
     {
-      "id": "flipkart-unified-ranking-ads-organic",
-      "company": "Flipkart",
-      "title": "The Science of Unified Ranking: Integrating Ads and Organic Recommendations",
-      "category": "search-ranking",
-      "hook": "Replaces a pinned-slot ads/organic heuristic with one unified ranking model, lifting organic orders 1.36% and ad revenue 3.4%.",
-      "url": "https://medium.com/flipkart-engineering/the-science-of-unified-ranking-integrating-ads-and-organic-recommendations-8cc24113ef21"
-    },
-    {
-      "id": "uber-airport-driver-availability-forecasting",
-      "company": "Uber",
-      "title": "Forecasting Models to Improve Driver Availability at Airports",
-      "category": "forecasting-timeseries",
-      "hook": "ETR and earnings-per-hour forecasts help drivers in the airport FIFO queue decide whether to wait; airports are ~15% of Uber's global mobility gross bookings.",
-      "url": "https://www.uber.com/us/en/blog/forecasting-models-to-improve-availability-at-airports/"
-    },
-    {
       "id": "microsoft-llm-taxonomy-unstructured-text",
       "company": "Microsoft",
       "title": "From Chaos to Clarity: Building Taxonomies from Unstructured Text Using LLMs",
@@ -244,12 +212,60 @@
       "url": "https://medium.com/data-science-at-microsoft/from-chaos-to-clarity-building-taxonomies-from-unstructured-text-using-large-language-models-c1303db3adb1"
     },
     {
-      "id": "razorpay-bumblebee-multiagent-fraud-detection",
-      "company": "Razorpay",
-      "title": "Bumblebee: The Multi-Agent AI That Changed Fraud Detection at Razorpay",
-      "category": "data-engineering",
-      "hook": "Orchestrator + specialized sub-agents flag risky merchants in under 90 seconds, replacing ~800 hrs/month of manual review, lifting accuracy from 88% to 99%+.",
-      "url": "https://engineering.razorpay.com/meet-bumblebee-the-multi-agent-ai-architecture-that-changed-fraud-detection-at-razorpay-c2b6d5704f51"
+      "id": "doordash-autoeval-llm-search-evaluation",
+      "company": "DoorDash",
+      "title": "How DoorDash Leverages LLMs to Evaluate Search Result Pages",
+      "category": "search-ranking",
+      "hook": "AutoEval uses LLMs and a whole-page-relevance metric to cut search relevance judgment turnaround by 98% and unlock a 9x capacity increase over human evaluation.",
+      "url": "https://careersatdoordash.com/blog/doordash-llms-to-evaluate-search-result-pages/"
+    },
+    {
+      "id": "aws-agentic-resource-discovery-open-spec",
+      "company": "AWS",
+      "title": "Agentic Resource Discovery (ARD): An Open Specification for Agent Discovery",
+      "category": "ml-infra-serving",
+      "hook": "AWS backs an open cross-environment discovery standard (ARD) as a federation layer over its own Agent Registry for governing AI agents, tools, and skills at scale.",
+      "url": "https://aws.amazon.com/blogs/machine-learning/agentic-resource-discovery-ard-an-open-specification-for-agent-discovery/"
+    },
+    {
+      "id": "aws-agent-evaluation-metric-multiturn",
+      "company": "AWS",
+      "title": "Agent Evaluation Metric for Multi-Turn Conversations",
+      "category": "llm-genai",
+      "hook": "A metric/methodology for evaluating agentic systems across multi-turn conversations rather than single-shot responses.",
+      "url": "https://aws.amazon.com/blogs/machine-learning/agent-evaluation-metric-for-multi-turn-conversations/"
+    },
+    {
+      "id": "aws-model-agnostic-pii-detection-llms",
+      "company": "AWS",
+      "title": "Model-Agnostic PII Detection with LLMs",
+      "category": "llm-genai",
+      "hook": "An LLM-based approach to detecting personally identifiable information that works across different underlying models.",
+      "url": "https://aws.amazon.com/blogs/machine-learning/model-agnostic-pii-detection-with-llms/"
+    },
+    {
+      "id": "arxiv-agentic-group-shilling-attack-recsys",
+      "company": "arXiv (academic)",
+      "title": "An Efficient and Effective Agentic Group Shilling Attack on Recommender Systems",
+      "category": "personalization-recsys",
+      "hook": "Uses coordinated LLM agents to mount a more effective 'shilling' (fake-profile) attack on recommender systems, with implications for recsys robustness and defense.",
+      "url": "https://arxiv.org/abs/2609.09551"
+    },
+    {
+      "id": "instacart-storefront-pro-personalization",
+      "company": "Instacart",
+      "title": "Storefront Pro's Latest Personalization Capabilities",
+      "category": "personalization-recsys",
+      "hook": "New personalization capabilities for retailer storefronts spanning search-to-checkout merchandising relevance.",
+      "url": null
+    },
+    {
+      "id": "nvidia-bionemo-structure-prediction-inference",
+      "company": "NVIDIA",
+      "title": "High-Throughput Structure Prediction with BioNeMo Inference Runtime",
+      "category": "ml-infra-serving",
+      "hook": "Accelerates biomolecular structure prediction at proteome scale through an optimized inference pipeline, illustrating domain-specialized inference-runtime design.",
+      "url": "https://developer.nvidia.com/blog/high-throughput-structure-prediction-with-bionemo-inference-runtime/"
     }
   ]
 }

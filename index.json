@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-13",
+  "updated": "2026-09-14",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -13,6 +13,221 @@
     "research-foundational"
   ],
   "articles": [
+    {
+      "id": "kuaishou-unirec-cross-stage-recommendation-fusion",
+      "title": "UniRec: Cross-stage Multi-Task Fusion with Preference Alignment for Cascaded Recommender Systems",
+      "source": "Kuaishou Technology (arXiv)",
+      "url": "https://arxiv.org/abs/2609.11052",
+      "published": "2026-09",
+      "added": "2026-09-14",
+      "category": "personalization-recsys",
+      "tags": [
+        "cascaded-ranking",
+        "pre-ranking",
+        "multi-task-fusion",
+        "preference-alignment",
+        "short-video",
+        "kuaishou",
+        "reinforcement-learning"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-14-kuaishou-unirec-cross-stage-recommendation-fusion.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "pinterest-scaling-conditional-learned-retrieval-home-feed",
+      "title": "Scaling Conditional Learned Retrieval for Pinterest Home Feed",
+      "source": "Pinterest Engineering Blog",
+      "url": "https://medium.com/pinterest-engineering/scaling-conditional-learned-retrieval-for-pinterest-home-feed-ecfba7e5a426",
+      "published": "2026-08",
+      "added": "2026-09-14",
+      "category": "personalization-recsys",
+      "tags": [
+        "two-tower",
+        "candidate-generation",
+        "conditional-retrieval",
+        "embeddings",
+        "home-feed"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-14-pinterest-scaling-conditional-learned-retrieval-home-feed.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "aws-sagemaker-prefix-aware-routing-llm-latency",
+      "title": "Reduce LLM Latency with Prefix-Aware Routing on Amazon SageMaker Inference",
+      "source": "AWS Machine Learning Blog",
+      "url": "https://aws.amazon.com/blogs/machine-learning/reduce-llm-latency-with-prefix-aware-routing-on-amazon-sagemaker-inference/",
+      "published": "2026-09",
+      "added": "2026-09-14",
+      "category": "ml-infra-serving",
+      "tags": [
+        "llm-serving",
+        "kv-cache",
+        "load-balancing",
+        "sagemaker",
+        "inference-optimization",
+        "latency"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-14-aws-sagemaker-prefix-aware-routing-llm-latency.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "nvidia-epd-disaggregation-multimodal-serving",
+      "title": "When to Use Encode-Prefill-Decode Disaggregation to Accelerate Multimodal Model Serving",
+      "source": "NVIDIA Technical Blog",
+      "url": "https://developer.nvidia.com/blog/when-to-use-encode-prefill-decode-disaggregation-to-accelerate-multimodal-model-serving/",
+      "published": "2026-09",
+      "added": "2026-09-14",
+      "category": "ml-infra-serving",
+      "tags": [
+        "multimodal-serving",
+        "disaggregated-inference",
+        "vision-transformer",
+        "nixl",
+        "gpu-scheduling",
+        "throughput-latency"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-14-nvidia-epd-disaggregation-multimodal-serving.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "ecdysis-runtime-harness-training-llm-agents",
+      "title": "Ecdysis: Efficient and Effective Training of Runtime Harnesses for LLM Agents",
+      "source": "arXiv",
+      "url": "https://arxiv.org/abs/2609.11677",
+      "published": "2026-09",
+      "added": "2026-09-14",
+      "category": "llm-genai",
+      "tags": [
+        "ai-agents",
+        "harness-evolution",
+        "agentic-training",
+        "failure-analysis",
+        "reasoning",
+        "generalization"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-14-ecdysis-runtime-harness-training-llm-agents.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "airbnb-travel-destination-recommendations-explore",
+      "title": "Recommending Travel Destinations to Help Users Explore",
+      "source": "Airbnb Tech Blog",
+      "url": "https://airbnb.tech/ai-ml/recommending-travel-destinations-to-help-users-explore/",
+      "published": "2026-06",
+      "added": "2026-09-14",
+      "category": "personalization-recsys",
+      "tags": [
+        "destination-recommendation",
+        "sequence-modeling",
+        "transformer",
+        "multi-task-learning",
+        "geolocation",
+        "cold-start"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-14-airbnb-travel-destination-recommendations-explore.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "netflix-llm-judge-show-synopses",
+      "title": "Evaluating Netflix Show Synopses with LLM-as-a-Judge",
+      "source": "Netflix Technology Blog",
+      "url": "https://netflixtechblog.com/evaluating-netflix-show-synopses-with-llm-as-a-judge-6269251e6f28",
+      "published": "2026-04",
+      "added": "2026-09-14",
+      "category": "llm-genai",
+      "tags": [
+        "llm-as-judge",
+        "evaluation",
+        "content-quality",
+        "consensus-sampling",
+        "human-calibration",
+        "creative-writing"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-14-netflix-llm-judge-show-synopses.md",
+      "deep_dived_on": "2026-09-14",
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "flipkart-unified-ranking-ads-organic",
+      "title": "The Science of Unified Ranking: Integrating Ads and Organic Recommendations",
+      "source": "Flipkart Tech Blog",
+      "url": "https://blog.flipkart.tech/the-science-of-unified-ranking-integrating-ads-and-organic-recommendations-8cc24113ef21",
+      "published": "2026",
+      "added": "2026-09-14",
+      "category": "search-ranking",
+      "tags": [
+        "ads-ranking",
+        "unified-ranking",
+        "feature-engineering",
+        "cross-features",
+        "learning-to-rank",
+        "e-commerce"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-14-flipkart-unified-ranking-ads-organic.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "uber-airport-driver-availability-forecasting",
+      "title": "Forecasting Models to Improve Driver Availability at Airports",
+      "source": "Uber Engineering Blog",
+      "url": "https://www.uber.com/us/en/blog/forecasting-models-to-improve-availability-at-airports/",
+      "published": "2026",
+      "added": "2026-09-14",
+      "category": "forecasting-timeseries",
+      "tags": [
+        "demand-forecasting",
+        "marketplace",
+        "transformer",
+        "gaussian-mixture-models",
+        "streaming",
+        "airports"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-14-uber-airport-driver-availability-forecasting.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "razorpay-bumblebee-multiagent-fraud-detection",
+      "title": "Bumblebee: The Multi-Agent AI That Changed Fraud Detection at Razorpay",
+      "source": "Razorpay Engineering",
+      "url": "https://engineering.razorpay.com/meet-bumblebee-the-multi-agent-ai-architecture-that-changed-fraud-detection-at-razorpay-c2b6d5704f51",
+      "published": "2026",
+      "added": "2026-09-14",
+      "category": "data-engineering",
+      "tags": [
+        "multi-agent",
+        "fraud-detection",
+        "merchant-risk",
+        "orchestration",
+        "llm-agents",
+        "caching"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-14-razorpay-bumblebee-multiagent-fraud-detection.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
     {
       "id": "google-toolgrad-tool-use-dataset-generation",
       "title": "ToolGrad: Efficient Tool-Use Dataset Generation with Textual \"Gradients\"",
