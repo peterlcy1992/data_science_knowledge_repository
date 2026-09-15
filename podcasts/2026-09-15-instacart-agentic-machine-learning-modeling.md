@@ -1,0 +1,5 @@
+# Instacart — Can an AI Agent Out-Model Your Best Data Scientist?
+
+Instacart's machine learning engineers ran an experiment most teams are quietly wondering about: what happens when you let a coding agent loose not just on your pipeline code, but on the actual modeling work — picking features, trying architectures, tuning hyperparameters — for models that have already been optimized by humans for months? The results were a genuine surprise in places: on some of Instacart's most mature, hardest-to-improve production models, agent-driven runs delivered 3-5% offline error reductions among their most promising attempts, holding up against a battery of randomization checks before anyone trusted them. But the team is just as candid about the other side — agents with broad permissions in a modeling environment are a real safety surface, not a hypothetical one, and they're recommending sandboxing and compliance awareness even after their own trial runs went mostly smoothly.
+
+Source article: "Agentic Machine Learning Modeling at Instacart" — Instacart Tech Blog, https://tech.instacart.com/agentic-machine-learning-modeling-at-instacart-fb3ecd295ee7 (published 2026-09).
