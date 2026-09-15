@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-14",
+  "updated": "2026-09-15",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -13,6 +13,111 @@
     "research-foundational"
   ],
   "articles": [
+    {
+      "id": "pinterest-evolving-embedding-retrieval-platform",
+      "title": "Evolving Pinterest's Embedding Retrieval Platform",
+      "source": "Pinterest Engineering Blog",
+      "url": "https://medium.com/pinterest-engineering/evolving-pinterests-embedding-retrieval-platform-aede4e831e01",
+      "published": "2026-09",
+      "added": "2026-09-15",
+      "category": "search-ranking",
+      "tags": [
+        "embedding-retrieval",
+        "quantization",
+        "multi-embedding",
+        "two-tower",
+        "ann-search",
+        "cost-efficiency"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-15-pinterest-evolving-embedding-retrieval-platform.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "instacart-agentic-machine-learning-modeling",
+      "title": "Agentic Machine Learning Modeling at Instacart",
+      "source": "Instacart Tech Blog (tech-at-instacart)",
+      "url": "https://tech.instacart.com/agentic-machine-learning-modeling-at-instacart-fb3ecd295ee7",
+      "published": "2026-09",
+      "added": "2026-09-15",
+      "category": "llm-genai",
+      "tags": [
+        "agentic-ai",
+        "ml-engineering",
+        "coding-agents",
+        "applied-science",
+        "safety",
+        "sandboxing"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-15-instacart-agentic-machine-learning-modeling.md",
+      "deep_dived_on": "2026-09-15",
+      "sourced_via": "web search"
+    },
+    {
+      "id": "linkedin-slm-serving-semantic-job-search",
+      "title": "Scaling Up Efficient Small Language Models Serving and Deployment for Semantic Job Search",
+      "source": "LinkedIn / arXiv",
+      "url": "https://arxiv.org/abs/2510.22101",
+      "published": "2025-10",
+      "added": "2026-09-15",
+      "category": "ml-infra-serving",
+      "tags": [
+        "small-language-models",
+        "model-compression",
+        "pruning",
+        "context-compression",
+        "gpu-serving",
+        "semantic-search"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-15-linkedin-slm-serving-semantic-job-search.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "glassdoor-two-tower-candidate-generation",
+      "title": "Improving Embedding-Based Candidate Generation for Recommender Systems with a Two-Tower Model",
+      "source": "Glassdoor Engineering Blog",
+      "url": "https://medium.com/glassdoor-engineering/improving-embedding-based-candidate-generation-for-recommender-systems-with-a-two-tower-model-c222123beb7f",
+      "published": "2026-03",
+      "added": "2026-09-15",
+      "category": "personalization-recsys",
+      "tags": [
+        "two-tower",
+        "candidate-generation",
+        "embeddings",
+        "feed-ranking",
+        "community"
+      ],
+      "novelty": 2,
+      "file": "articles/2026-09-15-glassdoor-two-tower-candidate-generation.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "doordash-autoeval-llm-search-evaluation",
+      "title": "How DoorDash Leverages LLMs to Evaluate Search Result Pages",
+      "source": "DoorDash Engineering Blog",
+      "url": "https://careersatdoordash.com/blog/doordash-llms-to-evaluate-search-result-pages/",
+      "published": "2026-05",
+      "added": "2026-09-15",
+      "category": "search-ranking",
+      "tags": [
+        "llm-as-judge",
+        "search-evaluation",
+        "whole-page-relevance",
+        "human-in-the-loop"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-15-doordash-autoeval-llm-search-evaluation.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
     {
       "id": "kuaishou-unirec-cross-stage-recommendation-fusion",
       "title": "UniRec: Cross-stage Multi-Task Fusion with Preference Alignment for Cascaded Recommender Systems",

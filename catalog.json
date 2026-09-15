@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-14",
+  "updated": "2026-09-15",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -148,14 +148,6 @@
       "url": "https://careersatdoordash.com/blog/beyond-single-agents-doordash-building-collaborative-ai-ecosystem/"
     },
     {
-      "id": "linkedin-slm-serving-semantic-job-search",
-      "company": "LinkedIn",
-      "title": "Scaling Up Efficient Small Language Models Serving and Deployment for Semantic Job Search",
-      "category": "ml-infra-serving",
-      "hook": "A decoder-only Small Language Model with 40% pruning and ~10x context compression lifts semantic job-search serving throughput roughly 10x on GPUs.",
-      "url": "https://arxiv.org/abs/2510.22101"
-    },
-    {
       "id": "meta-kernelevolve-ranking-engineer-agent-infra",
       "company": "Meta",
       "title": "KernelEvolve: How Meta's Ranking Engineer Agent Optimizes AI Infrastructure",
@@ -196,28 +188,12 @@
       "url": "https://booking.ai/scaling-experimentation-quality-at-booking-com-726152ee4ef0"
     },
     {
-      "id": "glassdoor-two-tower-candidate-generation",
-      "company": "Glassdoor",
-      "title": "Improving Embedding-Based Candidate Generation with a Two-Tower Model",
-      "category": "personalization-recsys",
-      "hook": "Replaces off-the-shelf pretrained embeddings with a two-tower net trained on user-post interactions for candidate generation.",
-      "url": "https://medium.com/glassdoor-engineering/improving-embedding-based-candidate-generation-for-recommender-systems-with-a-two-tower-model-c222123beb7f"
-    },
-    {
       "id": "microsoft-llm-taxonomy-unstructured-text",
       "company": "Microsoft",
       "title": "From Chaos to Clarity: Building Taxonomies from Unstructured Text Using LLMs",
       "category": "llm-genai",
       "hook": "Two complementary LLM methodologies (bottom-up semantic clustering vs. top-down iterative category induction) for building taxonomies with minimal manual labeling.",
       "url": "https://medium.com/data-science-at-microsoft/from-chaos-to-clarity-building-taxonomies-from-unstructured-text-using-large-language-models-c1303db3adb1"
-    },
-    {
-      "id": "doordash-autoeval-llm-search-evaluation",
-      "company": "DoorDash",
-      "title": "How DoorDash Leverages LLMs to Evaluate Search Result Pages",
-      "category": "search-ranking",
-      "hook": "AutoEval uses LLMs and a whole-page-relevance metric to cut search relevance judgment turnaround by 98% and unlock a 9x capacity increase over human evaluation.",
-      "url": "https://careersatdoordash.com/blog/doordash-llms-to-evaluate-search-result-pages/"
     },
     {
       "id": "aws-agentic-resource-discovery-open-spec",
@@ -266,6 +242,22 @@
       "category": "ml-infra-serving",
       "hook": "Accelerates biomolecular structure prediction at proteome scale through an optimized inference pipeline, illustrating domain-specialized inference-runtime design.",
       "url": "https://developer.nvidia.com/blog/high-throughput-structure-prediction-with-bionemo-inference-runtime/"
+    },
+    {
+      "id": "doordash-small-language-models-search-ads",
+      "company": "DoorDash",
+      "title": "Using small language models to serve more relevant DoorDash search ads",
+      "category": "search-ranking",
+      "hook": "Fine-tuned LLM generates offline relevance labels at scale; a distilled bi-encoder SLM (64-dim embeddings) serves low-latency online predictions, 97% validation accuracy, +5.2% Precision@2 over the prior GBDT model.",
+      "url": "https://careersatdoordash.com/blog/small-language-models-to-serve-more-relevant-doordash-search-ads/"
+    },
+    {
+      "id": "coupang-accelerating-ai-journey-llms",
+      "company": "Coupang",
+      "title": "Accelerating Coupang's AI Journey with LLMs",
+      "category": "llm-genai",
+      "hook": "Coupang engineering's account of scaling LLM adoption across search, ads, catalog, and recommendations, moving from classical ML to LLM-driven workflows.",
+      "url": "https://medium.com/coupang-engineering/accelerating-coupangs-ai-journey-with-llms-2817d55004d3"
     }
   ]
 }
