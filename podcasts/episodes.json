@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 17,
+  "next_episode": 18,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -178,6 +178,17 @@
       "cover": "podcasts/2026-09-15-instacart-agentic-machine-learning-modeling.cover.png",
       "rss_status": "draft",
       "rss_episode_id": 3155646
+    },
+    {
+      "episode": 17,
+      "season": 1,
+      "date": "2026-09-16",
+      "title": "Spotify \u2014 Why Bayesian A/B Testing Doesn't Pay Off",
+      "description": "Bayesian A/B testing gets pitched as more intuitive, safer to peek at early, and automatically smarter about multiple metrics \u2014 so why didn't Spotify adopt it? This episode walks through Spotify's own math: under the flat priors most platforms actually ship, Bayesian and frequentist testing produce numerically identical results, and the \"advantages\" people cite either require infrastructure most teams don't have (calibrated priors, Bayes-factor stopping, hundreds of historical experiments) or quietly reduce to standard frequentist practice anyway. We cover the business context (why experimentation trustworthiness matters more than framework fashion), the statistical reasoning (posterior equivalence, the winner's curse, decision theory), and what it means for teams facing the same \"should we go Bayesian?\" question. Source article: \"Why Spotify Is Not Using Bayesian A/B Testing\" \u2014 Spotify Engineering, https://engineering.atspotify.com/2026/9/why-spotify-is-not-using-bayesian-a-b-testing (published 2026-09).",
+      "audio": "podcasts/2026-09-16-spotify-bayesian-ab-testing-critique.m4a",
+      "cover": "podcasts/2026-09-16-spotify-bayesian-ab-testing-critique.cover.png",
+      "rss_status": "draft",
+      "rss_episode_id": 3158747
     }
   ]
 }

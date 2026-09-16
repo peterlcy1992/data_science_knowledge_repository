@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-15",
+  "updated": "2026-09-16",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -13,6 +13,128 @@
     "research-foundational"
   ],
   "articles": [
+    {
+      "id": "spotify-bayesian-ab-testing-critique",
+      "title": "Why Spotify Is Not Using Bayesian A/B Testing",
+      "source": "Spotify Engineering",
+      "url": "https://engineering.atspotify.com/2026/9/why-spotify-is-not-using-bayesian-a-b-testing",
+      "published": "2026-09",
+      "added": "2026-09-16",
+      "category": "experimentation-causal",
+      "tags": [
+        "ab-testing",
+        "bayesian-statistics",
+        "experimentation-platform",
+        "frequentist-methods",
+        "group-sequential-testing"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-16-spotify-bayesian-ab-testing-critique.md",
+      "deep_dived_on": "2026-09-16",
+      "sourced_via": "web search"
+    },
+    {
+      "id": "uber-eats-halving-search-latency",
+      "title": "Halving the Time: How Uber Eats Rebuilt Its Search Pipeline",
+      "source": "Uber Engineering Blog",
+      "url": "https://www.uber.com/us/en/blog/uber-eats-search-pipeline/",
+      "published": "2026-09",
+      "added": "2026-09-16",
+      "category": "search-ranking",
+      "tags": [
+        "search-latency",
+        "microbatching",
+        "embeddings",
+        "ranking",
+        "ads-serving",
+        "gpu-serving"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-16-uber-eats-halving-search-latency.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "nvidia-speculative-decoding-codesign",
+      "title": "Co-Designing AI Models Using Speculative Decoding for Faster LLM Inference",
+      "source": "NVIDIA Technical Blog",
+      "url": "https://developer.nvidia.com/blog/co-designing-ai-models-using-speculative-decoding-for-faster-llm-inference",
+      "published": "2026-09",
+      "added": "2026-09-16",
+      "category": "ml-infra-serving",
+      "tags": [
+        "speculative-decoding",
+        "llm-inference",
+        "eagle3",
+        "quantization",
+        "gpu-serving"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-16-nvidia-speculative-decoding-codesign.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "aws-agent-evaluation-metric-multiturn",
+      "title": "Agent Evaluation Metric for Multi-Turn Conversations",
+      "source": "AWS Machine Learning Blog",
+      "url": "https://aws.amazon.com/blogs/machine-learning/agent-evaluation-metric-for-multi-turn-conversations/",
+      "published": "2026-09",
+      "added": "2026-09-16",
+      "category": "llm-genai",
+      "tags": [
+        "agent-evaluation",
+        "multi-turn",
+        "llm-as-judge",
+        "error-attribution",
+        "observability"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-16-aws-agent-evaluation-metric-multiturn.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "doordash-small-language-models-search-ads",
+      "title": "Using Small Language Models to Serve More Relevant DoorDash Search Ads",
+      "source": "DoorDash Engineering Blog",
+      "url": "https://careersatdoordash.com/blog/small-language-models-to-serve-more-relevant-doordash-search-ads/",
+      "published": "2026",
+      "added": "2026-09-16",
+      "category": "search-ranking",
+      "tags": [
+        "small-language-models",
+        "knowledge-distillation",
+        "bi-encoder",
+        "ads-ranking",
+        "low-latency-serving"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-16-doordash-small-language-models-search-ads.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "booking-scaling-experimentation-quality",
+      "title": "Scaling Experimentation Quality at Booking.com",
+      "source": "Booking.com ML & DS Blog",
+      "url": "https://booking.ai/scaling-experimentation-quality-at-booking-com-726152ee4ef0",
+      "published": "2026-03",
+      "added": "2026-09-16",
+      "category": "experimentation-causal",
+      "tags": [
+        "experimentation-platform",
+        "ab-testing",
+        "organizational-scaling",
+        "quality-metrics"
+      ],
+      "novelty": 2,
+      "file": "articles/2026-09-16-booking-scaling-experimentation-quality.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
     {
       "id": "pinterest-evolving-embedding-retrieval-platform",
       "title": "Evolving Pinterest's Embedding Retrieval Platform",
@@ -488,7 +610,7 @@
     {
       "id": "mercadolibre-geo-experimentation-geolift",
       "title": "Harnessing the Power of Geo-Experimentation: How Mercado Libre Measures the Effectiveness of Its Third-Party Media Strategies Using GeoLift",
-      "source": "Tecnología de Mercado Libre",
+      "source": "Tecnolog\u00eda de Mercado Libre",
       "url": "https://medium.com/mercadolibre-tech/harnessing-the-power-of-geo-experimentation-how-mercado-libre-measures-the-effectiveness-of-its-f68b38857c4b",
       "published": "2023-06",
       "added": "2026-09-13",
@@ -1914,7 +2036,7 @@
     },
     {
       "id": "meta-silvertorch-index-as-model-retrieval",
-      "title": "SilverTorch: Index as Model — A New Retrieval Paradigm for Recommendation Systems",
+      "title": "SilverTorch: Index as Model \u2014 A New Retrieval Paradigm for Recommendation Systems",
       "source": "Engineering at Meta",
       "url": "https://engineering.fb.com/2026/05/26/ml-applications/silvertorch-index-as-model-new-retrieval-paradigm-recommendation-systems/",
       "published": "2026-05",
