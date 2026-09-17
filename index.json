@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-16",
+  "updated": "2026-09-17",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -13,6 +13,133 @@
     "research-foundational"
   ],
   "articles": [
+    {
+      "id": "coinbase-agentic-risk-model-retrain-loop",
+      "title": "Automating Risk Model Retrain Loop with Agentic Skills",
+      "source": "Coinbase Blog",
+      "url": "https://www.coinbase.com/blog/automating-risk-model-retrain-loop-with-agentic-skills",
+      "published": "2026-07",
+      "added": "2026-09-17",
+      "category": "ml-infra-serving",
+      "tags": [
+        "agentic-skills",
+        "coding-agents",
+        "model-retraining",
+        "fraud-detection",
+        "mlops",
+        "observability"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-17-coinbase-agentic-risk-model-retrain-loop.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "faire-autoscience-agent-driven-ml-exploration",
+      "title": "Autoscience: How We Built Agent-Driven ML Exploration at Faire",
+      "source": "The Craft (Faire Engineering Blog)",
+      "url": "https://craft.faire.com/autoscience-how-we-built-agent-driven-ml-exploration-at-faire-f3183e7deb29",
+      "published": "2026-07",
+      "added": "2026-09-17",
+      "category": "ml-infra-serving",
+      "tags": [
+        "agentic-ml",
+        "experimentation",
+        "model-iteration",
+        "guardrails",
+        "autoresearch"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-17-faire-autoscience-agent-driven-ml-exploration.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "microsoft-taxonomies-unstructured-text-llms",
+      "title": "From Chaos to Clarity: Building Taxonomies from Unstructured Text Using LLMs",
+      "source": "Data Science + AI at Microsoft (Medium)",
+      "url": "https://medium.com/data-science-at-microsoft/from-chaos-to-clarity-building-taxonomies-from-unstructured-text-using-large-language-models-c1303db3adb1",
+      "published": "2026-01",
+      "added": "2026-09-17",
+      "category": "llm-genai",
+      "tags": [
+        "taxonomy-generation",
+        "text-clustering",
+        "embeddings",
+        "topic-modeling",
+        "llm-labeling"
+      ],
+      "novelty": 2,
+      "file": "articles/2026-09-17-microsoft-taxonomies-unstructured-text-llms.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "yelp-video-review-moderation",
+      "title": "Moderating Inappropriate Video Content at Yelp",
+      "source": "Yelp Engineering Blog",
+      "url": "https://engineeringblog.yelp.com/2024/03/moderating-inappropriate-video-content-at-yelp.html",
+      "published": "2024-03",
+      "added": "2026-09-17",
+      "category": "cv-multimodal",
+      "tags": [
+        "content-moderation",
+        "video-classification",
+        "trust-and-safety",
+        "frame-sampling",
+        "deep-learning"
+      ],
+      "novelty": 2,
+      "file": "articles/2026-09-17-yelp-video-review-moderation.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "airbnb-insight-miner-agent-harness-scientific-judgement",
+      "title": "Beyond the Model: Engineering AI Infra with Scientific Judgement",
+      "source": "Airbnb Tech Blog",
+      "url": "https://airbnb.tech/ai-ml/beyond-the-model-engineering-ai-infra-with-scientific-judgement/",
+      "published": "2026-09",
+      "added": "2026-09-17",
+      "category": "llm-genai",
+      "tags": [
+        "agent-harness",
+        "unstructured-data-analysis",
+        "prompt-engineering",
+        "contrastive-labeling",
+        "ai-infra",
+        "insight-mining"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-17-airbnb-insight-miner-agent-harness-scientific-judgement.md",
+      "deep_dived_on": "2026-09-17",
+      "sourced_via": "web search"
+    },
+    {
+      "id": "aws-sagemaker-feature-store-updaterecord-partial-writes",
+      "title": "Amazon SageMaker Feature Store Introduces UpdateRecord for Feature-Level Writes",
+      "source": "AWS Machine Learning Blog",
+      "url": "https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-feature-store-introduces-updaterecord-for-feature-level-writes/",
+      "published": "2026-09",
+      "added": "2026-09-17",
+      "category": "ml-infra-serving",
+      "tags": [
+        "feature-store",
+        "sagemaker",
+        "partial-writes",
+        "feature-pipelines",
+        "concurrency",
+        "dynamodb"
+      ],
+      "novelty": 2,
+      "file": "articles/2026-09-17-aws-sagemaker-feature-store-updaterecord-partial-writes.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
     {
       "id": "spotify-bayesian-ab-testing-critique",
       "title": "Why Spotify Is Not Using Bayesian A/B Testing",

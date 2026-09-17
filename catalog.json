@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-16",
+  "updated": "2026-09-17",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -76,14 +76,6 @@
       "url": null
     },
     {
-      "id": "yelp-video-review-moderation",
-      "company": "Yelp",
-      "title": "Moderating video reviews with ML",
-      "category": "cv-multimodal",
-      "hook": "Detecting inappropriate content to keep video reviews trustworthy.",
-      "url": null
-    },
-    {
       "id": "picnic-scalable-demand-forecasting",
       "company": "Picnic",
       "title": "Scalable demand forecasting for online groceries",
@@ -114,14 +106,6 @@
       "category": "data-engineering",
       "hook": "A distributed-pipelines approach to computing exact (not approximate) COUNT(DISTINCT) at high cardinality without rollups.",
       "url": null
-    },
-    {
-      "id": "coinbase-automating-risk-model-retrain-agentic-skills",
-      "company": "Coinbase",
-      "title": "Automating Risk Model Retrain Loop with Agentic Skills",
-      "category": "ml-infra-serving",
-      "hook": "Coding-agent-powered 'Agentic Skills' automate a three-stage risk-model improvement loop (trend analysis, feature enrichment, retraining), with a human-reviewed artifact gating each stage.",
-      "url": "https://www.coinbase.com/blog/automating-risk-model-retrain-loop-with-agentic-skills"
     },
     {
       "id": "nvidia-jetson-frontier-reasoning-edge-deployment",
@@ -170,22 +154,6 @@
       "category": "llm-genai",
       "hook": "Internal AI agent teammates deployed across Snap engineering workflows.",
       "url": "https://eng.snap.com/blog"
-    },
-    {
-      "id": "faire-autoscience-agent-driven-ml-exploration",
-      "company": "Faire",
-      "title": "Autoscience: How We Built Agent-Driven ML Exploration at Faire",
-      "category": "ml-infra-serving",
-      "hook": "An LLM-agent system that autonomously proposes, trains, and scores ML model changes to explore features/architectures/hyperparameters faster than a human team.",
-      "url": "https://craft.faire.com/autoscience-how-we-built-agent-driven-ml-exploration-at-faire-f3183e7deb29"
-    },
-    {
-      "id": "microsoft-llm-taxonomy-unstructured-text",
-      "company": "Microsoft",
-      "title": "From Chaos to Clarity: Building Taxonomies from Unstructured Text Using LLMs",
-      "category": "llm-genai",
-      "hook": "Two complementary LLM methodologies (bottom-up semantic clustering vs. top-down iterative category induction) for building taxonomies with minimal manual labeling.",
-      "url": "https://medium.com/data-science-at-microsoft/from-chaos-to-clarity-building-taxonomies-from-unstructured-text-using-large-language-models-c1303db3adb1"
     },
     {
       "id": "aws-agentic-resource-discovery-open-spec",
@@ -250,6 +218,22 @@
       "category": "llm-genai",
       "hook": "A scalable-memory framework that aligns LLM judges with human expert feedback, cutting judge error 74-89% on the worst-aligned evaluation dimensions using only ~50 labeled examples.",
       "url": "https://www.databricks.com/blog/using-memalign-improve-evaluation-traditional-machine-learning-genie-code"
+    },
+    {
+      "id": "grab-bench-evaluating-ai-production-work",
+      "company": "Grab",
+      "title": "Grab Bench: Evaluating AI on Grab-shaped production work",
+      "category": "llm-genai",
+      "hook": "Internal agent/model evaluation harness with task-specific scoring, hidden test cases, and row-level failure taxonomy \u2014 built because public leaderboards miss the quiet production failures that matter.",
+      "url": "https://engineering.grab.com/grab-bench-evaluating-ai"
+    },
+    {
+      "id": "grab-agent-platform-llm-kit-part-1",
+      "company": "Grab",
+      "title": "Agent platform (Part 1): How we help Grab build and run AI agents at scale",
+      "category": "ml-infra-serving",
+      "hook": "LLM-Kit, Grab's internal agent framework (500+ services, 50+ MCP servers, a company-wide LLM gateway), built after \"everything around the agent took longer than the agent itself.\"",
+      "url": "https://engineering.grab.com/how-grab-builds-and-runs-ai-agents-at-scale"
     }
   ]
 }
