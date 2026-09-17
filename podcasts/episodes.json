@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 18,
+  "next_episode": 19,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -189,6 +189,17 @@
       "cover": "podcasts/2026-09-16-spotify-bayesian-ab-testing-critique.cover.png",
       "rss_status": "draft",
       "rss_episode_id": 3158747
+    },
+    {
+      "episode": 18,
+      "season": 1,
+      "date": "2026-09-17",
+      "title": "Airbnb \u2014 Turning Scientific Method Into AI Infrastructure",
+      "description": "Airbnb needed to understand the rare, risky edge cases a new AI customer-service assistant might run into \u2014 the kind of thing that used to take a data scientist months of manually reading through support transcripts, one judgment call at a time. So Airbnb built Insight Miner: an agent harness that doesn't just run an LLM over the data, but wraps it in an explicit scientific-methodology layer \u2014 extract, embed, cluster, then classify \u2014 so the process of investigation, not just the answer, is reproducible and auditable by someone other than the original analyst. We walk through how the harness is built, why \"methodology as infrastructure\" is the real idea here rather than any single new technique, and how investigations that used to take months now take days \u2014 with usage spreading from a handful of data scientists to dozens of non-technical teams across the company. Source article: \"Beyond the Model: Engineering AI Infra with Scientific Judgement\" \u2014 Airbnb Tech Blog, https://airbnb.tech/ai-ml/beyond-the-model-engineering-ai-infra-with-scientific-judgement/ (published 2026-09).",
+      "audio": "podcasts/2026-09-17-airbnb-insight-miner-agent-harness-scientific-judgement.m4a",
+      "cover": "podcasts/2026-09-17-airbnb-insight-miner-agent-harness-scientific-judgement.cover.png",
+      "rss_status": "draft",
+      "rss_episode_id": 3161999
     }
   ]
 }

@@ -1,0 +1,5 @@
+# Airbnb — Turning Scientific Method Into AI Infrastructure
+
+Airbnb needed to understand the rare, risky edge cases a new AI customer-service assistant might run into — the kind of thing that used to take a data scientist months of manually reading through support transcripts, one judgment call at a time. So Airbnb built Insight Miner: an agent harness that doesn't just run an LLM over the data, but wraps it in an explicit scientific-methodology layer — extract, embed, cluster, then classify — so the *process* of investigation, not just the answer, is reproducible and auditable by someone other than the original analyst. We walk through how the harness is built, why "methodology as infrastructure" is the real idea here rather than any single new technique, and how investigations that used to take months now take days — with usage spreading from a handful of data scientists to dozens of non-technical teams across the company.
+
+Source article: "Beyond the Model: Engineering AI Infra with Scientific Judgement" — Airbnb Tech Blog, https://airbnb.tech/ai-ml/beyond-the-model-engineering-ai-infra-with-scientific-judgement/ (published 2026-09).
