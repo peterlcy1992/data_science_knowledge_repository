@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-17",
+  "updated": "2026-09-18",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -13,6 +13,180 @@
     "research-foundational"
   ],
   "articles": [
+    {
+      "id": "meta-kernelevolve-ranking-engineer-agent-infra",
+      "title": "KernelEvolve: How Meta's Ranking Engineer Agent Optimizes AI Infrastructure",
+      "source": "Engineering at Meta",
+      "url": "https://engineering.fb.com/2026/04/02/developer-tools/kernelevolve-how-metas-ranking-engineer-agent-optimizes-ai-infrastructure/",
+      "published": "2026-04",
+      "added": "2026-09-18",
+      "category": "ml-infra-serving",
+      "tags": [
+        "agentic-ai",
+        "kernel-optimization",
+        "gpu-kernels",
+        "monte-carlo-tree-search",
+        "code-generation",
+        "hardware-heterogeneity"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-18-meta-kernelevolve-ranking-engineer-agent-infra.md",
+      "deep_dived_on": "2026-09-18",
+      "sourced_via": "full-text fetch",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "arxiv-aura-agentic-diagnosis-refinement-recsys",
+      "title": "AURA: Agentic Diagnosis and Refinement for Production Recommender Systems at Scale",
+      "source": "arXiv (GenAIECommerce'26 workshop, RecSys 2026)",
+      "url": "https://arxiv.org/abs/2609.16625",
+      "published": "2026-09",
+      "added": "2026-09-18",
+      "category": "personalization-recsys",
+      "tags": [
+        "agentic-ai",
+        "recommender-systems",
+        "diagnosis",
+        "self-improving-systems",
+        "production-recsys",
+        "streaming-media"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-18-arxiv-aura-agentic-diagnosis-refinement-recsys.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "databricks-memalign-llm-judges",
+      "title": "Using MemAlign to Improve Evaluation of Traditional Machine Learning in Genie Code",
+      "source": "Databricks Blog",
+      "url": "https://www.databricks.com/blog/using-memalign-improve-evaluation-traditional-machine-learning-genie-code",
+      "published": "2026-05",
+      "added": "2026-09-18",
+      "category": "llm-genai",
+      "tags": [
+        "llm-as-judge",
+        "evaluation",
+        "episodic-memory",
+        "few-shot-calibration",
+        "code-generation",
+        "notebooks"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-18-databricks-memalign-llm-judges.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "doordash-vera-data-agent",
+      "title": "Inside Vera, DoorDash's Data Agent",
+      "source": "DoorDash Engineering Blog",
+      "url": "https://careersatdoordash.com/blog/inside-vera-doordashs-data-agent/",
+      "published": "2026-09",
+      "added": "2026-09-18",
+      "category": "llm-genai",
+      "tags": [
+        "data-agent",
+        "agent-harness",
+        "text-to-sql",
+        "claude-code",
+        "codex",
+        "business-analytics",
+        "evaluation"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-18-doordash-vera-data-agent.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "stripe-harbor-ai-assisted-prototyping",
+      "title": "Harbor: Stripe's AI-Assisted Prototyping Tool",
+      "source": "Stripe Dot Dev Blog",
+      "url": "https://stripe.dev/blog/harbor-stripes-ai-assisted-prototyping-tool",
+      "published": "2026-09",
+      "added": "2026-09-18",
+      "category": "llm-genai",
+      "tags": [
+        "ai-agents",
+        "prototyping",
+        "mcp",
+        "design-tools",
+        "developer-productivity",
+        "in-browser-compilation"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-18-stripe-harbor-ai-assisted-prototyping.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "grab-agent-platform-llm-kit-part-1",
+      "title": "Agent Platform (Part 1): How We Help Grab Build and Run AI Agents at Scale",
+      "source": "Grab Engineering Blog",
+      "url": "https://engineering.grab.com/how-grab-builds-and-runs-ai-agents-at-scale",
+      "published": "2026-07",
+      "added": "2026-09-18",
+      "category": "ml-infra-serving",
+      "tags": [
+        "agent-platform",
+        "mcp",
+        "llm-gateway",
+        "observability",
+        "internal-tooling",
+        "langgraph"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-18-grab-agent-platform-llm-kit-part-1.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "doordash-simulation-evaluation-flywheel-llm-chatbots",
+      "title": "A Simulation and Evaluation Flywheel to Develop LLM Chatbots",
+      "source": "DoorDash Engineering Blog",
+      "url": "https://careersatdoordash.com/blog/doordash-simulation-evaluation-flywheel-to-develop-llm-chatbots-at-scale/",
+      "published": "2026-03",
+      "added": "2026-09-18",
+      "category": "llm-genai",
+      "tags": [
+        "llm-simulation",
+        "synthetic-users",
+        "chatbot-evaluation",
+        "llm-as-judge",
+        "customer-support",
+        "multi-turn"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-18-doordash-simulation-evaluation-flywheel-llm-chatbots.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "instacart-scaling-personalized-marketing-multi-tenant",
+      "title": "Scaling Personalized Marketing for Multi-Tenant Commerce Platforms",
+      "source": "Instacart Tech Blog (tech-at-instacart)",
+      "url": "https://tech.instacart.com/scaling-personalized-marketing-for-multi-tenant-commerce-platforms-816f0c6a046b",
+      "published": "2026-05",
+      "added": "2026-09-18",
+      "category": "personalization-recsys",
+      "tags": [
+        "personalization",
+        "multi-tenant-architecture",
+        "marketing-automation",
+        "configuration-driven",
+        "retail",
+        "storefront-pro"
+      ],
+      "novelty": 2,
+      "file": "articles/2026-09-18-instacart-scaling-personalized-marketing-multi-tenant.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
     {
       "id": "coinbase-agentic-risk-model-retrain-loop",
       "title": "Automating Risk Model Retrain Loop with Agentic Skills",

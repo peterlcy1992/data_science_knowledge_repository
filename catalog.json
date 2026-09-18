@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-17",
+  "updated": "2026-09-18",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -132,14 +132,6 @@
       "url": "https://careersatdoordash.com/blog/beyond-single-agents-doordash-building-collaborative-ai-ecosystem/"
     },
     {
-      "id": "meta-kernelevolve-ranking-engineer-agent-infra",
-      "company": "Meta",
-      "title": "KernelEvolve: How Meta's Ranking Engineer Agent Optimizes AI Infrastructure",
-      "category": "ml-infra-serving",
-      "hook": "The infrastructure/kernel-optimization counterpart to Meta's Ranking Engineer Agent (REA), applying agentic search to low-level AI infra rather than ranking model architecture.",
-      "url": "https://engineering.fb.com/2026/04/02/developer-tools/kernelevolve-how-metas-ranking-engineer-agent-optimizes-ai-infrastructure/"
-    },
-    {
       "id": "uber-compute-platform-horizontal-scaling-controller",
       "company": "Uber",
       "title": "From One Horizontal Scaling Controller to Many: Evolving Uber's Compute Platform",
@@ -180,14 +172,6 @@
       "url": "https://arxiv.org/abs/2609.09551"
     },
     {
-      "id": "instacart-storefront-pro-personalization",
-      "company": "Instacart",
-      "title": "Storefront Pro's Latest Personalization Capabilities",
-      "category": "personalization-recsys",
-      "hook": "New personalization capabilities for retailer storefronts spanning search-to-checkout merchandising relevance.",
-      "url": null
-    },
-    {
       "id": "nvidia-bionemo-structure-prediction-inference",
       "company": "NVIDIA",
       "title": "High-Throughput Structure Prediction with BioNeMo Inference Runtime",
@@ -204,22 +188,6 @@
       "url": "https://medium.com/coupang-engineering/accelerating-coupangs-ai-journey-with-llms-2817d55004d3"
     },
     {
-      "id": "doordash-simulation-evaluation-flywheel-llm-chatbots",
-      "company": "DoorDash",
-      "title": "A Simulation and Evaluation Flywheel to Develop LLM Chatbots",
-      "category": "llm-genai",
-      "hook": "An offline simulator generates realistic multi-turn customer conversations to automatically evaluate and improve DoorDash's support chatbot without involving real customers.",
-      "url": "https://careersatdoordash.com/blog/doordash-simulation-evaluation-flywheel-to-develop-llm-chatbots-at-scale/"
-    },
-    {
-      "id": "databricks-memalign-llm-judges",
-      "company": "Databricks",
-      "title": "Using MemAlign to Improve Evaluation of Traditional Machine Learning in Genie Code",
-      "category": "llm-genai",
-      "hook": "A scalable-memory framework that aligns LLM judges with human expert feedback, cutting judge error 74-89% on the worst-aligned evaluation dimensions using only ~50 labeled examples.",
-      "url": "https://www.databricks.com/blog/using-memalign-improve-evaluation-traditional-machine-learning-genie-code"
-    },
-    {
       "id": "grab-bench-evaluating-ai-production-work",
       "company": "Grab",
       "title": "Grab Bench: Evaluating AI on Grab-shaped production work",
@@ -228,12 +196,20 @@
       "url": "https://engineering.grab.com/grab-bench-evaluating-ai"
     },
     {
-      "id": "grab-agent-platform-llm-kit-part-1",
-      "company": "Grab",
-      "title": "Agent platform (Part 1): How we help Grab build and run AI agents at scale",
-      "category": "ml-infra-serving",
-      "hook": "LLM-Kit, Grab's internal agent framework (500+ services, 50+ MCP servers, a company-wide LLM gateway), built after \"everything around the agent took longer than the agent itself.\"",
-      "url": "https://engineering.grab.com/how-grab-builds-and-runs-ai-agents-at-scale"
+      "id": "aws-agentcore-evaluations-framework-agnostic",
+      "company": "AWS",
+      "title": "Evaluate Any Agent Framework with Amazon Bedrock AgentCore Evaluations",
+      "category": "llm-genai",
+      "hook": "Decouples agent evaluation from the agent framework by scoring any agent that emits OpenTelemetry telemetry (LangGraph, LlamaIndex, OpenAI Agents SDK, Google ADK, Claude Agent SDK, Strands).",
+      "url": "https://aws.amazon.com/blogs/machine-learning/evaluate-any-agent-framework-with-amazon-bedrock-agentcore-evaluations/"
+    },
+    {
+      "id": "stripe-minions-one-shot-coding-agents",
+      "company": "Stripe",
+      "title": "Minions: Stripe's One-Shot, End-to-End Coding Agents",
+      "category": "llm-genai",
+      "hook": "A different Stripe internal-tooling agent (companion to Harbor) built for one-shot, end-to-end coding tasks rather than interactive prototyping.",
+      "url": "https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents"
     }
   ]
 }

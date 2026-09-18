@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 19,
+  "next_episode": 20,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -200,6 +200,17 @@
       "cover": "podcasts/2026-09-17-airbnb-insight-miner-agent-harness-scientific-judgement.cover.png",
       "rss_status": "draft",
       "rss_episode_id": 3161999
+    },
+    {
+      "episode": 19,
+      "season": 1,
+      "date": "2026-09-18",
+      "title": "Meta \u2014 The Agent That Writes Its Own GPU Kernels",
+      "description": "A deep dive into KernelEvolve, the system Meta built to close a widening gap: the number of GPU and accelerator kernels a company needs optimized grows multiplicatively across hardware generations, model architectures, and operator types, while expert kernel engineers \u2014 the people who could tune them by hand \u2014 don't scale nearly as fast. We cover the business problem (thousands of configurations across NVIDIA and AMD GPUs, Meta's own MTIA chips, and CPUs, each needing its own hand-tuned kernel), the technical approach (an LLM synthesizer that writes candidate kernels across multiple languages, a Monte Carlo tree search engine that explores hundreds of variants per kernel instead of generating just one, a knowledge base that compounds what it learns across sessions, and a final stage that turns successful optimization runs into training data for smaller specialist models), and the realized payoff: over 60% inference throughput improvement on NVIDIA GPUs for a production ads model, over 25% training throughput improvement on Meta's own chips, and kernel optimization work that used to take weeks of expert time now running in hours. Source article: \"KernelEvolve: How Meta's Ranking Engineer Agent Optimizes AI Infrastructure\" \u2014 Engineering at Meta, https://engineering.fb.com/2026/04/02/developer-tools/kernelevolve-how-metas-ranking-engineer-agent-optimizes-ai-infrastructure/ (published 2026-04).",
+      "audio": "podcasts/2026-09-18-meta-kernelevolve-ranking-engineer-agent-infra.m4a",
+      "cover": "podcasts/2026-09-18-meta-kernelevolve-ranking-engineer-agent-infra.cover.png",
+      "rss_status": "draft",
+      "rss_episode_id": 3164681
     }
   ]
 }
