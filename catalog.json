@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-18",
+  "updated": "2026-09-19",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -9,14 +9,6 @@
       "title": "Personal data classification at scale",
       "category": "data-engineering",
       "hook": "Classifying and protecting personal data across a large data estate.",
-      "url": null
-    },
-    {
-      "id": "uber-out-of-app-marketing-personalization",
-      "company": "Uber",
-      "title": "Out-of-app marketing and personalization",
-      "category": "personalization-recsys",
-      "hook": "Personalizing out-of-app marketing at Uber scale.",
       "url": null
     },
     {
@@ -52,14 +44,6 @@
       "url": null
     },
     {
-      "id": "walmart-bayesian-structural-time-series",
-      "company": "Walmart",
-      "title": "Bayesian Structural Time Series for causal impact measurement",
-      "category": "experimentation-causal",
-      "hook": "Measuring the impact of a product taxonomy change with BSTS.",
-      "url": null
-    },
-    {
       "id": "oda-ab-testing-culture",
       "company": "Oda",
       "title": "A/B testing practices and experimentation culture",
@@ -73,14 +57,6 @@
       "title": "Causal inference with Double Machine Learning when A/B testing isn't possible",
       "category": "experimentation-causal",
       "hook": "Double ML answers high-stakes questions without a clean experiment.",
-      "url": null
-    },
-    {
-      "id": "picnic-scalable-demand-forecasting",
-      "company": "Picnic",
-      "title": "Scalable demand forecasting for online groceries",
-      "category": "forecasting-timeseries",
-      "hook": "ML models for demand forecasting at an online grocer.",
       "url": null
     },
     {
@@ -192,7 +168,7 @@
       "company": "Grab",
       "title": "Grab Bench: Evaluating AI on Grab-shaped production work",
       "category": "llm-genai",
-      "hook": "Internal agent/model evaluation harness with task-specific scoring, hidden test cases, and row-level failure taxonomy \u2014 built because public leaderboards miss the quiet production failures that matter.",
+      "hook": "Internal agent/model evaluation harness with task-specific scoring, hidden test cases, and row-level failure taxonomy — built because public leaderboards miss the quiet production failures that matter.",
       "url": "https://engineering.grab.com/grab-bench-evaluating-ai"
     },
     {
@@ -210,6 +186,46 @@
       "category": "llm-genai",
       "hook": "A different Stripe internal-tooling agent (companion to Harbor) built for one-shot, end-to-end coding tasks rather than interactive prototyping.",
       "url": "https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents"
+    },
+    {
+      "id": "coinbase-slack-ai-coworkers",
+      "company": "Coinbase",
+      "title": "Engineering AI 'coworkers' that live in Slack",
+      "category": "llm-genai",
+      "hook": "Software you @mention in Slack like a coworker that remembers past discussions, follows up on dropped threads, and pushes back when asked to do something it shouldn't.",
+      "url": null
+    },
+    {
+      "id": "grab-ml-predictive-autoscaling-flink",
+      "company": "Grab",
+      "title": "Machine-learning predictive autoscaling for Flink",
+      "category": "ml-infra-serving",
+      "hook": "A time-series forecasting model plus a regression-based resource predictor that scales Flink TaskManager CPU ahead of Kafka demand spikes, cutting cloud CPU cost by roughly 35%.",
+      "url": "https://engineering.grab.com/ml-predictive-autoscaling-for-flink"
+    },
+    {
+      "id": "pinterest-decade-ai-platform",
+      "company": "Pinterest",
+      "title": "A Decade of AI Platform at Pinterest",
+      "category": "ml-infra-serving",
+      "hook": "A retrospective on how Pinterest's internal ML platform evolved over ten years to support its current recommendation and ads systems.",
+      "url": "https://medium.com/pinterest-engineering/a-decade-of-ai-platform-at-pinterest-4e3b37c0f758"
+    },
+    {
+      "id": "spotify-honk-background-coding-agent",
+      "company": "Spotify",
+      "title": "1,500+ PRs Later: Spotify's Journey with Its Background Coding Agent (Honk)",
+      "category": "llm-genai",
+      "hook": "The background coding agent whose adoption is the direct driver behind the throughput increase examined in Spotify's later AI-quality-at-velocity post.",
+      "url": "https://engineering.atspotify.com/2025/11/spotifys-background-coding-agent-part-1"
+    },
+    {
+      "id": "instacart-clementine-conversational-shopping-agent",
+      "company": "Instacart",
+      "title": "Clementine: turning a conversation or recipe into a ready-to-buy cart",
+      "category": "llm-genai",
+      "hook": "Instacart's new AI shopping assistant that generates or sources recipes, reads photographed grocery lists, and assembles a personalized cart — launch announced, engineering write-up not yet published.",
+      "url": "https://company.instacart.com/pressreleases/meet-clementine-instacart-s-ai-shopping-assistant-that-takes-what-s-for-dinner-off-your-plate"
     }
   ]
 }

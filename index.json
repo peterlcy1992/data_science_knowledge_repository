@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-18",
+  "updated": "2026-09-19",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -13,6 +13,109 @@
     "research-foundational"
   ],
   "articles": [
+    {
+      "id": "spotify-ai-coding-quality-velocity",
+      "title": "AI Changed How Spotify Builds: What We Learned (and Fixed) About Quality at Higher Velocity",
+      "source": "Spotify Engineering",
+      "url": "https://engineering.atspotify.com/2026/9/ai-changed-how-spotify-builds-what-we-learned-and-fixed-about-quality-at-higher-velocity",
+      "published": "2026-09",
+      "added": "2026-09-19",
+      "category": "llm-genai",
+      "tags": [
+        "agentic-coding",
+        "engineering-velocity",
+        "quality-engineering",
+        "reliability",
+        "ai-coding-agents"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-19-spotify-ai-coding-quality-velocity.md",
+      "deep_dived_on": "2026-09-19",
+      "sourced_via": "web search"
+    },
+    {
+      "id": "stripe-fraud-data-ai-startups",
+      "title": "What Stripe Data Shows About Fraud at AI Startups",
+      "source": "Stripe",
+      "url": "https://stripe.com/blog/what-stripe-data-shows-about-fraud-at-ai-startups",
+      "published": "2026-09",
+      "added": "2026-09-19",
+      "category": "data-engineering",
+      "tags": [
+        "fraud-detection",
+        "risk-scoring",
+        "multi-account-abuse",
+        "network-signals",
+        "trust-and-safety"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-19-stripe-fraud-data-ai-startups.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "walmart-bayesian-structural-time-series",
+      "title": "Decoding Causal Incrementality in E-Commerce: Leveraging Bayesian Structural Time Series Model with a Real-World Example",
+      "source": "Walmart Global Tech Blog",
+      "url": "https://medium.com/walmartglobaltech/decoding-causal-incrementality-in-e-commerce-leveraging-bayesian-structural-time-series-model-with-f7eaf7267d69",
+      "published": "2025-01",
+      "added": "2026-09-19",
+      "category": "experimentation-causal",
+      "tags": [
+        "bayesian-structural-time-series",
+        "causal-impact",
+        "counterfactual",
+        "incrementality",
+        "taxonomy-change"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-19-walmart-bayesian-structural-time-series.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "picnic-scalable-demand-forecasting",
+      "title": "Running Demand Forecasting Machine Learning Models at Scale",
+      "source": "Picnic Engineering",
+      "url": "https://jobs.picnic.app/en/blogs/running-demand-forecasting-machine-learning-models-at-scale",
+      "published": "2023-12",
+      "added": "2026-09-19",
+      "category": "forecasting-timeseries",
+      "tags": [
+        "demand-forecasting",
+        "temporal-fusion-transformer",
+        "mlops",
+        "data-drift",
+        "production-ml"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-19-picnic-scalable-demand-forecasting.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "uber-out-of-app-marketing-personalization",
+      "title": "Personalized Marketing at Scale: Uber's Out-of-App Recommendation System",
+      "source": "Uber Engineering",
+      "url": "https://www.uber.com/blog/personalized-marketing-at-scale/",
+      "published": "2024-06",
+      "added": "2026-09-19",
+      "category": "personalization-recsys",
+      "tags": [
+        "out-of-app-marketing",
+        "candidate-retrieval",
+        "learning-to-rank",
+        "embeddings",
+        "feature-store"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-19-uber-out-of-app-marketing-personalization.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
     {
       "id": "meta-kernelevolve-ranking-engineer-agent-infra",
       "title": "KernelEvolve: How Meta's Ranking Engineer Agent Optimizes AI Infrastructure",
@@ -911,7 +1014,7 @@
     {
       "id": "mercadolibre-geo-experimentation-geolift",
       "title": "Harnessing the Power of Geo-Experimentation: How Mercado Libre Measures the Effectiveness of Its Third-Party Media Strategies Using GeoLift",
-      "source": "Tecnolog\u00eda de Mercado Libre",
+      "source": "Tecnología de Mercado Libre",
       "url": "https://medium.com/mercadolibre-tech/harnessing-the-power-of-geo-experimentation-how-mercado-libre-measures-the-effectiveness-of-its-f68b38857c4b",
       "published": "2023-06",
       "added": "2026-09-13",
@@ -2337,7 +2440,7 @@
     },
     {
       "id": "meta-silvertorch-index-as-model-retrieval",
-      "title": "SilverTorch: Index as Model \u2014 A New Retrieval Paradigm for Recommendation Systems",
+      "title": "SilverTorch: Index as Model — A New Retrieval Paradigm for Recommendation Systems",
       "source": "Engineering at Meta",
       "url": "https://engineering.fb.com/2026/05/26/ml-applications/silvertorch-index-as-model-new-retrieval-paradigm-recommendation-systems/",
       "published": "2026-05",
