@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 20,
+  "next_episode": 21,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -211,6 +211,17 @@
       "cover": "podcasts/2026-09-18-meta-kernelevolve-ranking-engineer-agent-infra.cover.png",
       "rss_status": "draft",
       "rss_episode_id": 3164681
+    },
+    {
+      "episode": 20,
+      "season": 1,
+      "date": "2026-09-20",
+      "title": "AI Research \u2014 How a Coordinated AI Swarm Rigs Your Recommendations",
+      "description": "A deep dive into AGAS, a new attack that uses a coordinated swarm of AI agents to manipulate what a recommendation system shows you. Instead of one bot spamming fake reviews, a central \"Coordinator\" directs a team of role-switching worker agents \u2014 some probing how the system reacts, some quietly building a believable rating history, and one, only once fully trusted, delivering the actual push for the target product. We cover the business problem (fake-profile \"shilling\" attacks are getting cheaper and more humanlike thanks to AI agents), the technical approach (the Coordinator's adaptive strategies, the workers' four rotating roles, and why going dormant on purpose is itself a tactic), and the results: the attack was dramatically more effective at promoting a target item, far better at evading existing fraud detectors, and vastly cheaper to run than prior AI-driven attacks \u2014 while barely disturbing the experience for everyone else on the platform. Source article: \"An Efficient and Effective Agentic Group Shilling Attack on Recommender Systems\" \u2014 arXiv (academic), https://arxiv.org/abs/2609.09551 (published 2026-09).",
+      "audio": "podcasts/2026-09-20-arxiv-agentic-group-shilling-attack-recsys.m4a",
+      "cover": "podcasts/2026-09-20-arxiv-agentic-group-shilling-attack-recsys.cover.png",
+      "rss_status": "draft",
+      "rss_episode_id": 3168060
     }
   ]
 }
