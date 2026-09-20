@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-19",
+  "updated": "2026-09-20",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -13,6 +13,110 @@
     "research-foundational"
   ],
   "articles": [
+    {
+      "id": "deepmind-autoregressive-ranking-arr",
+      "title": "Autoregressive Ranking: Bridging the Gap Between Dual and Cross Encoders",
+      "source": "arXiv (Google DeepMind, UMass Amherst, UT Austin)",
+      "url": "https://arxiv.org/abs/2601.05588",
+      "published": "2026-01",
+      "added": "2026-09-20",
+      "category": "search-ranking",
+      "tags": [
+        "generative-retrieval",
+        "learning-to-rank",
+        "dual-encoder",
+        "cross-encoder",
+        "llm-ranking"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-20-deepmind-autoregressive-ranking-arr.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-agentic-group-shilling-attack-recsys",
+      "title": "An Efficient and Effective Agentic Group Shilling Attack on Recommender Systems",
+      "source": "arXiv (academic)",
+      "url": "https://arxiv.org/abs/2609.09551",
+      "published": "2026-09",
+      "added": "2026-09-20",
+      "category": "personalization-recsys",
+      "tags": [
+        "adversarial-ml",
+        "shilling-attack",
+        "multi-agent",
+        "recsys-robustness",
+        "security"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-20-arxiv-agentic-group-shilling-attack-recsys.md",
+      "deep_dived_on": "2026-09-20",
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "snap-casper-ai-teammates",
+      "title": "Casper: Snap's Fleet of Friendly AI Teammates",
+      "source": "Snap Engineering",
+      "url": "https://eng.snap.com/casper",
+      "published": "2026-09",
+      "added": "2026-09-20",
+      "category": "llm-genai",
+      "tags": [
+        "agentic-coding",
+        "coding-agents",
+        "identity-and-permissions",
+        "developer-productivity",
+        "mcp"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-20-snap-casper-ai-teammates.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "stripe-minions-one-shot-coding-agents",
+      "title": "Minions: Stripe's One-Shot End-to-End Coding Agents",
+      "source": "Stripe.dev",
+      "url": "https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents",
+      "published": "2026-02",
+      "added": "2026-09-20",
+      "category": "llm-genai",
+      "tags": [
+        "agentic-coding",
+        "coding-agents",
+        "mcp",
+        "developer-productivity",
+        "legacy-codebase"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-20-stripe-minions-one-shot-coding-agents.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "nvidia-jetson-frontier-reasoning-edge-deployment",
+      "title": "Frontier Reasoning Reaches the Edge: How to Deploy and Optimize Models on NVIDIA Jetson",
+      "source": "NVIDIA Developer Blog",
+      "url": "https://developer.nvidia.com/blog/frontier-reasoning-reaches-the-edge-how-to-deploy-and-optimize-models-on-nvidia-jetson/",
+      "published": "2026-09",
+      "added": "2026-09-20",
+      "category": "ml-infra-serving",
+      "tags": [
+        "edge-inference",
+        "speculative-decoding",
+        "quantization",
+        "jetson",
+        "reasoning-models"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-20-nvidia-jetson-frontier-reasoning-edge-deployment.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
     {
       "id": "spotify-ai-coding-quality-velocity",
       "title": "AI Changed How Spotify Builds: What We Learned (and Fixed) About Quality at Higher Velocity",

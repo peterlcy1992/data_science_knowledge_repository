@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-19",
+  "updated": "2026-09-20",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -84,14 +84,6 @@
       "url": null
     },
     {
-      "id": "nvidia-jetson-frontier-reasoning-edge-deployment",
-      "company": "NVIDIA",
-      "title": "Frontier Reasoning Reaches the Edge: Deploying and Optimizing Models on NVIDIA Jetson",
-      "category": "ml-infra-serving",
-      "hook": "Deploying reasoning and agentic AI models on edge hardware, addressing model-size and compute constraints on Jetson devices.",
-      "url": "https://developer.nvidia.com/blog/frontier-reasoning-reaches-the-edge-how-to-deploy-and-optimize-models-on-nvidia-jetson/"
-    },
-    {
       "id": "spotify-xirp-agentic-dev-environment",
       "company": "Spotify",
       "title": "Xirp: A Vendor-Neutral Agentic Development Environment",
@@ -116,14 +108,6 @@
       "url": null
     },
     {
-      "id": "snap-casper-ai-teammates",
-      "company": "Snap",
-      "title": "Casper: Snap's fleet of friendly AI teammates",
-      "category": "llm-genai",
-      "hook": "Internal AI agent teammates deployed across Snap engineering workflows.",
-      "url": "https://eng.snap.com/blog"
-    },
-    {
       "id": "aws-agentic-resource-discovery-open-spec",
       "company": "AWS",
       "title": "Agentic Resource Discovery (ARD): An Open Specification for Agent Discovery",
@@ -138,14 +122,6 @@
       "category": "llm-genai",
       "hook": "An LLM-based approach to detecting personally identifiable information that works across different underlying models.",
       "url": "https://aws.amazon.com/blogs/machine-learning/model-agnostic-pii-detection-with-llms/"
-    },
-    {
-      "id": "arxiv-agentic-group-shilling-attack-recsys",
-      "company": "arXiv (academic)",
-      "title": "An Efficient and Effective Agentic Group Shilling Attack on Recommender Systems",
-      "category": "personalization-recsys",
-      "hook": "Uses coordinated LLM agents to mount a more effective 'shilling' (fake-profile) attack on recommender systems, with implications for recsys robustness and defense.",
-      "url": "https://arxiv.org/abs/2609.09551"
     },
     {
       "id": "nvidia-bionemo-structure-prediction-inference",
@@ -178,14 +154,6 @@
       "category": "llm-genai",
       "hook": "Decouples agent evaluation from the agent framework by scoring any agent that emits OpenTelemetry telemetry (LangGraph, LlamaIndex, OpenAI Agents SDK, Google ADK, Claude Agent SDK, Strands).",
       "url": "https://aws.amazon.com/blogs/machine-learning/evaluate-any-agent-framework-with-amazon-bedrock-agentcore-evaluations/"
-    },
-    {
-      "id": "stripe-minions-one-shot-coding-agents",
-      "company": "Stripe",
-      "title": "Minions: Stripe's One-Shot, End-to-End Coding Agents",
-      "category": "llm-genai",
-      "hook": "A different Stripe internal-tooling agent (companion to Harbor) built for one-shot, end-to-end coding tasks rather than interactive prototyping.",
-      "url": "https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents"
     },
     {
       "id": "coinbase-slack-ai-coworkers",
@@ -226,6 +194,30 @@
       "category": "llm-genai",
       "hook": "Instacart's new AI shopping assistant that generates or sources recipes, reads photographed grocery lists, and assembles a personalized cart — launch announced, engineering write-up not yet published.",
       "url": "https://company.instacart.com/pressreleases/meet-clementine-instacart-s-ai-shopping-assistant-that-takes-what-s-for-dinner-off-your-plate"
+    },
+    {
+      "id": "pinterest-near-linear-foundation-model-training",
+      "company": "Pinterest",
+      "title": "Achieving near-linear training scalability for Pinterest's foundation models",
+      "category": "ml-infra-serving",
+      "hook": "Multi-node training started at a punishing 0.2x scaling factor; fixing networking, profiling, and topology got 8 nodes to 7.5x.",
+      "url": "https://medium.com/pinterest-engineering/achieving-near-linear-training-scalability-for-pinterests-foundation-models-14d4f59fe6f6"
+    },
+    {
+      "id": "pinterest-shopping-conversion-candidate-generation",
+      "company": "Pinterest",
+      "title": "From clicks to conversions: architecting shopping conversion candidate generation",
+      "category": "personalization-recsys",
+      "hook": "Rebuilding candidate generation to optimize directly for purchase conversion rather than clicks, improving ad ROAS.",
+      "url": "https://medium.com/pinterest-engineering/from-clicks-to-conversions-architecting-shopping-conversion-candidate-generation-at-pinterest-04cae5e1455b"
+    },
+    {
+      "id": "databricks-genie-tabpfn-predictive-bi",
+      "company": "Databricks",
+      "title": "From \"What Happened?\" to \"What Will Happen?\": Genie + TabPFN for conversational predictive BI",
+      "category": "ml-infra-serving",
+      "hook": "Fusing Genie as a dynamic feature-engineering layer with TabPFN's zero-training tabular prediction to answer predictive questions inside a BI chat turn.",
+      "url": "https://www.databricks.com/blog/what-happened-what-will-happen"
     }
   ]
 }
