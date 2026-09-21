@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-20",
+  "updated": "2026-09-21",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -144,7 +144,7 @@
       "company": "Grab",
       "title": "Grab Bench: Evaluating AI on Grab-shaped production work",
       "category": "llm-genai",
-      "hook": "Internal agent/model evaluation harness with task-specific scoring, hidden test cases, and row-level failure taxonomy — built because public leaderboards miss the quiet production failures that matter.",
+      "hook": "Internal agent/model evaluation harness with task-specific scoring, hidden test cases, and row-level failure taxonomy \u2014 built because public leaderboards miss the quiet production failures that matter.",
       "url": "https://engineering.grab.com/grab-bench-evaluating-ai"
     },
     {
@@ -164,14 +164,6 @@
       "url": null
     },
     {
-      "id": "grab-ml-predictive-autoscaling-flink",
-      "company": "Grab",
-      "title": "Machine-learning predictive autoscaling for Flink",
-      "category": "ml-infra-serving",
-      "hook": "A time-series forecasting model plus a regression-based resource predictor that scales Flink TaskManager CPU ahead of Kafka demand spikes, cutting cloud CPU cost by roughly 35%.",
-      "url": "https://engineering.grab.com/ml-predictive-autoscaling-for-flink"
-    },
-    {
       "id": "pinterest-decade-ai-platform",
       "company": "Pinterest",
       "title": "A Decade of AI Platform at Pinterest",
@@ -188,14 +180,6 @@
       "url": "https://engineering.atspotify.com/2025/11/spotifys-background-coding-agent-part-1"
     },
     {
-      "id": "instacart-clementine-conversational-shopping-agent",
-      "company": "Instacart",
-      "title": "Clementine: turning a conversation or recipe into a ready-to-buy cart",
-      "category": "llm-genai",
-      "hook": "Instacart's new AI shopping assistant that generates or sources recipes, reads photographed grocery lists, and assembles a personalized cart — launch announced, engineering write-up not yet published.",
-      "url": "https://company.instacart.com/pressreleases/meet-clementine-instacart-s-ai-shopping-assistant-that-takes-what-s-for-dinner-off-your-plate"
-    },
-    {
       "id": "pinterest-near-linear-foundation-model-training",
       "company": "Pinterest",
       "title": "Achieving near-linear training scalability for Pinterest's foundation models",
@@ -204,20 +188,44 @@
       "url": "https://medium.com/pinterest-engineering/achieving-near-linear-training-scalability-for-pinterests-foundation-models-14d4f59fe6f6"
     },
     {
-      "id": "pinterest-shopping-conversion-candidate-generation",
-      "company": "Pinterest",
-      "title": "From clicks to conversions: architecting shopping conversion candidate generation",
-      "category": "personalization-recsys",
-      "hook": "Rebuilding candidate generation to optimize directly for purchase conversion rather than clicks, improving ad ROAS.",
-      "url": "https://medium.com/pinterest-engineering/from-clicks-to-conversions-architecting-shopping-conversion-candidate-generation-at-pinterest-04cae5e1455b"
-    },
-    {
       "id": "databricks-genie-tabpfn-predictive-bi",
       "company": "Databricks",
       "title": "From \"What Happened?\" to \"What Will Happen?\": Genie + TabPFN for conversational predictive BI",
       "category": "ml-infra-serving",
       "hook": "Fusing Genie as a dynamic feature-engineering layer with TabPFN's zero-training tabular prediction to answer predictive questions inside a BI chat turn.",
       "url": "https://www.databricks.com/blog/what-happened-what-will-happen"
+    },
+    {
+      "id": "doordash-ask-doordash-part3-evaluation",
+      "company": "DoorDash",
+      "title": "Building Ask DoorDash (Part 3): Evaluation",
+      "category": "llm-genai",
+      "hook": "The eval harness behind Ask DoorDash, scaling quality monitoring from ~1 employee-submitted feedback stream to 2,000 auto-graded sessions/day.",
+      "url": "https://careersatdoordash.com/blog/building-ask-doordash-part-three-evaluation/"
+    },
+    {
+      "id": "instacart-storefront-pro-personalization-restock",
+      "company": "Instacart",
+      "title": "Storefront Pro personalization: restock reminders and reordered non-search pages",
+      "category": "personalization-recsys",
+      "hook": "An updated model for ordering non-search storefront pages plus personalized restock-reminder nudges, timed to when a customer is likely due to repurchase.",
+      "url": null
+    },
+    {
+      "id": "pinterest-real-time-ad-retrieval-hybrid-inference",
+      "company": "Pinterest",
+      "title": "Enhancing Ad Relevance: Integrating Real-Time Context into Sequential Recommender Models",
+      "category": "personalization-recsys",
+      "hook": "A hybrid inference architecture that infers most of a sequential ads recommender offline and only the context layer + final MLP head online, at low latency.",
+      "url": "https://medium.com/pinterest-engineering/enhancing-ad-relevance-integrating-real-time-context-into-sequential-recommender-models-bc3a2f9b682e"
+    },
+    {
+      "id": "expedia-lodging-ranking-objective-functions",
+      "company": "Expedia",
+      "title": "How Expedia ranks lodging: objective functions, signals, and a three-stage experimentation funnel",
+      "category": "search-ranking",
+      "hook": "Balancing customer experience and business objectives in lodging ranking, plus a backtest-interleave-A/B funnel for evaluating ranking ideas quickly.",
+      "url": null
     }
   ]
 }

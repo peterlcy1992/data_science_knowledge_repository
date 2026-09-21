@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-20",
+  "updated": "2026-09-21",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -13,6 +13,135 @@
     "research-foundational"
   ],
   "articles": [
+    {
+      "id": "baidu-gese-headline-generation-recommendation",
+      "title": "Generate to Explore, Select to Exploit: Aligning LLM-based Headline Generation with Personalized Recommendation",
+      "source": "arXiv (Baidu Inc.)",
+      "url": "https://arxiv.org/abs/2609.15094",
+      "published": "2026-09",
+      "added": "2026-09-21",
+      "category": "llm-genai",
+      "tags": [
+        "headline-generation",
+        "reinforcement-learning",
+        "gspo",
+        "personalization",
+        "mode-collapse",
+        "industrial-recsys"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-21-baidu-gese-headline-generation-recommendation.md",
+      "deep_dived_on": "2026-09-21",
+      "sourced_via": "web search"
+    },
+    {
+      "id": "airbnb-chronon-realtime-guest-journey",
+      "title": "The Guest Journey, Updated in Real Time: Extending Airbnb's Sequence Recommender with Chronon",
+      "source": "Airbnb Tech Blog",
+      "url": "https://medium.com/airbnb-engineering/the-guest-journey-updated-in-real-time-extending-airbnbs-sequence-recommender-with-chronon-8f1582578553",
+      "published": "2026-09",
+      "added": "2026-09-21",
+      "category": "personalization-recsys",
+      "tags": [
+        "sequence-modeling",
+        "feature-store",
+        "real-time-features",
+        "transformer",
+        "chronon",
+        "feature-freshness"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-21-airbnb-chronon-realtime-guest-journey.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "tianjin-craft-feature-transport-recsys",
+      "title": "From Feature Interaction to Feature Transport: A Unified Block for Scalable Recommendation Models",
+      "source": "arXiv (Tianjin University)",
+      "url": "https://arxiv.org/abs/2609.01655",
+      "published": "2026-09",
+      "added": "2026-09-21",
+      "category": "personalization-recsys",
+      "tags": [
+        "feature-interaction",
+        "ctr-prediction",
+        "sequence-modeling",
+        "model-scaling",
+        "advertising",
+        "architecture"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-21-tianjin-craft-feature-transport-recsys.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "pinterest-shopping-conversion-candidate-generation",
+      "title": "From Clicks to Conversions: Architecting Shopping Conversion Candidate Generation at Pinterest",
+      "source": "Pinterest Engineering Blog",
+      "url": "https://medium.com/pinterest-engineering/from-clicks-to-conversions-architecting-shopping-conversion-candidate-generation-at-pinterest-04cae5e1455b",
+      "published": "2026-04",
+      "added": "2026-09-21",
+      "category": "personalization-recsys",
+      "tags": [
+        "candidate-generation",
+        "shopping-ads",
+        "multi-task-learning",
+        "dcn",
+        "roas",
+        "advertising"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-21-pinterest-shopping-conversion-candidate-generation.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "grab-ml-predictive-autoscaling-flink",
+      "title": "Machine-Learning Predictive Autoscaling for Flink",
+      "source": "Grab Engineering Blog",
+      "url": "https://engineering.grab.com/ml-predictive-autoscaling-for-flink",
+      "published": "2025-10",
+      "added": "2026-09-21",
+      "category": "ml-infra-serving",
+      "tags": [
+        "flink",
+        "autoscaling",
+        "time-series-forecasting",
+        "stream-processing",
+        "kafka",
+        "cost-optimization"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-21-grab-ml-predictive-autoscaling-flink.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "instacart-clementine-conversational-shopping-agent",
+      "title": "Meet Clementine: Instacart's AI Shopping Assistant That Takes \"What's for Dinner?\" Off Your Plate",
+      "source": "Instacart Newsroom / press coverage",
+      "url": "https://company.instacart.com/pressreleases/meet-clementine-instacart-s-ai-shopping-assistant-that-takes-what-s-for-dinner-off-your-plate",
+      "published": "2026-09",
+      "added": "2026-09-21",
+      "category": "llm-genai",
+      "tags": [
+        "conversational-ai",
+        "shopping-agent",
+        "multimodal-input",
+        "real-time-inventory",
+        "agentic-commerce",
+        "grocery"
+      ],
+      "novelty": 2,
+      "file": "articles/2026-09-21-instacart-clementine-conversational-shopping-agent.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
     {
       "id": "deepmind-autoregressive-ranking-arr",
       "title": "Autoregressive Ranking: Bridging the Gap Between Dual and Cross Encoders",
@@ -1118,7 +1247,7 @@
     {
       "id": "mercadolibre-geo-experimentation-geolift",
       "title": "Harnessing the Power of Geo-Experimentation: How Mercado Libre Measures the Effectiveness of Its Third-Party Media Strategies Using GeoLift",
-      "source": "Tecnología de Mercado Libre",
+      "source": "Tecnolog\u00eda de Mercado Libre",
       "url": "https://medium.com/mercadolibre-tech/harnessing-the-power-of-geo-experimentation-how-mercado-libre-measures-the-effectiveness-of-its-f68b38857c4b",
       "published": "2023-06",
       "added": "2026-09-13",
@@ -2544,7 +2673,7 @@
     },
     {
       "id": "meta-silvertorch-index-as-model-retrieval",
-      "title": "SilverTorch: Index as Model — A New Retrieval Paradigm for Recommendation Systems",
+      "title": "SilverTorch: Index as Model \u2014 A New Retrieval Paradigm for Recommendation Systems",
       "source": "Engineering at Meta",
       "url": "https://engineering.fb.com/2026/05/26/ml-applications/silvertorch-index-as-model-new-retrieval-paradigm-recommendation-systems/",
       "published": "2026-05",
