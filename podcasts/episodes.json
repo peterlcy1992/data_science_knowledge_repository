@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 21,
+  "next_episode": 22,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -222,6 +222,17 @@
       "cover": "podcasts/2026-09-20-arxiv-agentic-group-shilling-attack-recsys.cover.png",
       "rss_status": "draft",
       "rss_episode_id": 3168060
+    },
+    {
+      "episode": 21,
+      "season": 1,
+      "date": "2026-09-21",
+      "title": "Baidu \u2014 Why Your AI-Written Headline Sounds the Same to Everyone",
+      "description": "Ask an LLM to write the single best headline for a product or a feed item, and it will \u2014 but \"best on average\" quietly means \"generic,\" and the users with more specific tastes get left out. This episode digs into GESE, a system Baidu built to fix that: instead of asking the model for one polished headline, it trains the model to write a whole spread of different headlines, each aimed at a different way someone might be interested in the item, and then hands the job of picking the right one per user to a fast, lightweight selector running in real time. We cover why \"mode collapse\" is a sneaky failure mode for AI-generated personalization, how reinforcement learning is used to keep the model's outputs diverse instead of narrowing them down, and the production results from a platform with over 100 million daily users \u2014 a measurable lift in both clicks and how long people actually stuck around afterward. Source article: \"Generate to Explore, Select to Exploit: Aligning LLM-based Headline Generation with Personalized Recommendation\" \u2014 arXiv (Baidu Inc.), https://arxiv.org/abs/2609.15094 (published 2026-09).",
+      "audio": "podcasts/2026-09-21-baidu-gese-headline-generation-recommendation.m4a",
+      "cover": "podcasts/2026-09-21-baidu-gese-headline-generation-recommendation.cover.png",
+      "rss_status": "draft",
+      "rss_episode_id": 3170629
     }
   ]
 }
