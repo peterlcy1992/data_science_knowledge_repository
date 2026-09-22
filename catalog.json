@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-21",
+  "updated": "2026-09-22",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -49,14 +49,6 @@
       "title": "A/B testing practices and experimentation culture",
       "category": "experimentation-causal",
       "hook": "How Oda builds a culture that supports experimentation.",
-      "url": null
-    },
-    {
-      "id": "microsoft-double-machine-learning",
-      "company": "Microsoft",
-      "title": "Causal inference with Double Machine Learning when A/B testing isn't possible",
-      "category": "experimentation-causal",
-      "hook": "Double ML answers high-stakes questions without a clean experiment.",
       "url": null
     },
     {
@@ -144,7 +136,7 @@
       "company": "Grab",
       "title": "Grab Bench: Evaluating AI on Grab-shaped production work",
       "category": "llm-genai",
-      "hook": "Internal agent/model evaluation harness with task-specific scoring, hidden test cases, and row-level failure taxonomy \u2014 built because public leaderboards miss the quiet production failures that matter.",
+      "hook": "Internal agent/model evaluation harness with task-specific scoring, hidden test cases, and row-level failure taxonomy — built because public leaderboards miss the quiet production failures that matter.",
       "url": "https://engineering.grab.com/grab-bench-evaluating-ai"
     },
     {
@@ -180,28 +172,12 @@
       "url": "https://engineering.atspotify.com/2025/11/spotifys-background-coding-agent-part-1"
     },
     {
-      "id": "pinterest-near-linear-foundation-model-training",
-      "company": "Pinterest",
-      "title": "Achieving near-linear training scalability for Pinterest's foundation models",
-      "category": "ml-infra-serving",
-      "hook": "Multi-node training started at a punishing 0.2x scaling factor; fixing networking, profiling, and topology got 8 nodes to 7.5x.",
-      "url": "https://medium.com/pinterest-engineering/achieving-near-linear-training-scalability-for-pinterests-foundation-models-14d4f59fe6f6"
-    },
-    {
       "id": "databricks-genie-tabpfn-predictive-bi",
       "company": "Databricks",
       "title": "From \"What Happened?\" to \"What Will Happen?\": Genie + TabPFN for conversational predictive BI",
       "category": "ml-infra-serving",
       "hook": "Fusing Genie as a dynamic feature-engineering layer with TabPFN's zero-training tabular prediction to answer predictive questions inside a BI chat turn.",
       "url": "https://www.databricks.com/blog/what-happened-what-will-happen"
-    },
-    {
-      "id": "doordash-ask-doordash-part3-evaluation",
-      "company": "DoorDash",
-      "title": "Building Ask DoorDash (Part 3): Evaluation",
-      "category": "llm-genai",
-      "hook": "The eval harness behind Ask DoorDash, scaling quality monitoring from ~1 employee-submitted feedback stream to 2,000 auto-graded sessions/day.",
-      "url": "https://careersatdoordash.com/blog/building-ask-doordash-part-three-evaluation/"
     },
     {
       "id": "instacart-storefront-pro-personalization-restock",
@@ -212,20 +188,28 @@
       "url": null
     },
     {
-      "id": "pinterest-real-time-ad-retrieval-hybrid-inference",
-      "company": "Pinterest",
-      "title": "Enhancing Ad Relevance: Integrating Real-Time Context into Sequential Recommender Models",
+      "id": "uber-debiased-position-bias-eats-feed",
+      "company": "Uber",
+      "title": "Improving Uber Eats Home Feed Recommendations via Debiased Relevance Predictions",
       "category": "personalization-recsys",
-      "hook": "A hybrid inference architecture that infers most of a sequential ads recommender offline and only the context layer + final MLP head online, at low latency.",
-      "url": "https://medium.com/pinterest-engineering/enhancing-ad-relevance-integrating-real-time-context-into-sequential-recommender-models-bc3a2f9b682e"
+      "hook": "Randomized-traffic measurement of position bias plus a position-bias side tower in the ranking model to recover true relevance from biased click data.",
+      "url": "https://www.uber.com/blog/improving-uber-eats-home-feed-recommendations/"
     },
     {
-      "id": "expedia-lodging-ranking-objective-functions",
-      "company": "Expedia",
-      "title": "How Expedia ranks lodging: objective functions, signals, and a three-stage experimentation funnel",
-      "category": "search-ranking",
-      "hook": "Balancing customer experience and business objectives in lodging ranking, plus a backtest-interleave-A/B funnel for evaluating ranking ideas quickly.",
-      "url": null
+      "id": "uber-textsense-genai-invoice-processing",
+      "company": "Uber",
+      "title": "Advancing Invoice Document Processing at Uber using GenAI",
+      "category": "llm-genai",
+      "hook": "TextSense: OCR + GPT-4 + business-rule post-processing + human-in-the-loop review replacing legacy RPA for invoice processing, cutting handling time ~70%.",
+      "url": "https://www.uber.com/en-IN/blog/advancing-invoice-document-processing-using-genai/"
+    },
+    {
+      "id": "swiggy-instamart-picker-batching-optimization",
+      "company": "Swiggy Instamart",
+      "title": "Optimising the Picking Process to Enable Faster Deliveries for Instamart",
+      "category": "ml-infra-serving",
+      "hook": "Batching similar orders together for dark-store pickers instead of round-robin single-order assignment, to cut peak-time picking delays.",
+      "url": "https://bytes.swiggy.com/optimizing-the-picking-process-to-enable-faster-deliveries-for-instamart-93de0fe9d819"
     }
   ]
 }

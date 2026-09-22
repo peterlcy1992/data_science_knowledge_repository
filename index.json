@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-21",
+  "updated": "2026-09-22",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -13,6 +13,196 @@
     "research-foundational"
   ],
   "articles": [
+    {
+      "id": "ibm-research-altk-evolve-agent-consistency",
+      "title": "Your Agent Aced the Task. Will It Do It Again?",
+      "source": "IBM Research / Hugging Face Blog",
+      "url": "https://huggingface.co/blog/ibm-research/altk-evolve-consistency",
+      "published": "2026-09",
+      "added": "2026-09-22",
+      "category": "llm-genai",
+      "tags": [
+        "ai-agents",
+        "evaluation",
+        "reliability",
+        "consistency",
+        "appworld",
+        "guideline-generation"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-22-ibm-research-altk-evolve-agent-consistency.md",
+      "deep_dived_on": "2026-09-22",
+      "sourced_via": "web search"
+    },
+    {
+      "id": "meta-rebalancer-assignment-optimization",
+      "title": "Open-Sourcing Rebalancer: A Generic, High-Performance Library for Solving Assignment Problems",
+      "source": "Engineering at Meta",
+      "url": "https://engineering.fb.com/2026/09/21/open-source/rebalancer-generic-high-performance-library-assignment-problems/",
+      "published": "2026-09",
+      "added": "2026-09-22",
+      "category": "ml-infra-serving",
+      "tags": [
+        "optimization",
+        "assignment-problem",
+        "mixed-integer-programming",
+        "local-search",
+        "infrastructure-scheduling",
+        "open-source"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-22-meta-rebalancer-assignment-optimization.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "multiverse-computing-llm-pruning-ising-optimization",
+      "title": "Pruning LLMs Like a Physicist: Block Removal as an Ising Optimization Problem",
+      "source": "Multiverse Computing / Hugging Face Blog",
+      "url": "https://huggingface.co/blog/MultiverseComputingCAI/pruning-llms-like-a-physicist-block-removal-as-an",
+      "published": "2026-09",
+      "added": "2026-09-22",
+      "category": "research-foundational",
+      "tags": [
+        "model-compression",
+        "pruning",
+        "ising-model",
+        "combinatorial-optimization",
+        "quantum-inspired",
+        "inference-efficiency"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-22-multiverse-computing-llm-pruning-ising-optimization.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "aws-bmw-prophet-cost-anomaly-detection",
+      "title": "How BMW Group Detects Cost Anomalies Across 14,000 Cloud Accounts",
+      "source": "AWS Machine Learning Blog",
+      "url": "https://aws.amazon.com/blogs/machine-learning/how-bmw-group-detects-cost-anomalies-across-14000-cloud-accounts/",
+      "published": "2026-09",
+      "added": "2026-09-22",
+      "category": "forecasting-timeseries",
+      "tags": [
+        "anomaly-detection",
+        "prophet",
+        "forecasting",
+        "finops",
+        "cost-optimization",
+        "step-functions"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-22-aws-bmw-prophet-cost-anomaly-detection.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "aws-benchling-multitenant-agent-security",
+      "title": "How Benchling Secured Multi-Tenant AI Agents with Amazon Bedrock AgentCore",
+      "source": "AWS Machine Learning Blog",
+      "url": "https://aws.amazon.com/blogs/machine-learning/how-benchling-secured-multi-tenant-ai-agents-with-amazon-bedrock-agentcore/",
+      "published": "2026-09",
+      "added": "2026-09-22",
+      "category": "llm-genai",
+      "tags": [
+        "ai-agents",
+        "security",
+        "multi-tenant",
+        "code-interpreter",
+        "sandboxing",
+        "bedrock-agentcore"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-22-aws-benchling-multitenant-agent-security.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "doordash-ask-doordash-part3-evaluation",
+      "title": "Building Ask DoorDash (Part 3): Evaluation",
+      "source": "DoorDash Engineering Blog",
+      "url": "https://careersatdoordash.com/blog/building-ask-doordash-part-three-evaluation/",
+      "published": "2026-06",
+      "added": "2026-09-22",
+      "category": "llm-genai",
+      "tags": [
+        "llm-evaluation",
+        "agent-evaluation",
+        "llm-as-judge",
+        "regression-testing",
+        "conversational-ai"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-22-doordash-ask-doordash-part3-evaluation.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "pinterest-near-linear-foundation-model-training",
+      "title": "Achieving Near-Linear Training Scalability for Pinterest's Foundation Models",
+      "source": "Pinterest Engineering Blog",
+      "url": "https://medium.com/pinterest-engineering/achieving-near-linear-training-scalability-for-pinterests-foundation-models-14d4f59fe6f6",
+      "published": "2026-06",
+      "added": "2026-09-22",
+      "category": "ml-infra-serving",
+      "tags": [
+        "distributed-training",
+        "foundation-models",
+        "embedding-tables",
+        "gpu-networking",
+        "2d-parallelism"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-22-pinterest-near-linear-foundation-model-training.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "expedia-lodging-ranking-objective-functions",
+      "title": "How Expedia Ranks Lodging: Objective Functions, Signals, and a Three-Stage Experimentation Funnel",
+      "source": "Expedia Group Technology",
+      "url": "https://medium.com/expedia-group-tech/interleaving-for-accelerated-testing-75adc644027b",
+      "published": "2026-03",
+      "added": "2026-09-22",
+      "category": "search-ranking",
+      "tags": [
+        "learning-to-rank",
+        "personalization",
+        "interleaving",
+        "ab-testing",
+        "candidate-generation",
+        "lodging"
+      ],
+      "novelty": 2,
+      "file": "articles/2026-09-22-expedia-lodging-ranking-objective-functions.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "microsoft-double-machine-learning",
+      "title": "Introduction to Causal Inference Using Double Machine Learning",
+      "source": "Data Science + AI at Microsoft",
+      "url": "https://medium.com/data-science-at-microsoft/introduction-to-causal-inference-using-double-machine-learning-5daa642321f3",
+      "published": "2025-01",
+      "added": "2026-09-22",
+      "category": "experimentation-causal",
+      "tags": [
+        "causal-inference",
+        "double-machine-learning",
+        "econml",
+        "observational-data",
+        "treatment-effects"
+      ],
+      "novelty": 2,
+      "file": "articles/2026-09-22-microsoft-double-machine-learning.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
     {
       "id": "baidu-gese-headline-generation-recommendation",
       "title": "Generate to Explore, Select to Exploit: Aligning LLM-based Headline Generation with Personalized Recommendation",
@@ -1247,7 +1437,7 @@
     {
       "id": "mercadolibre-geo-experimentation-geolift",
       "title": "Harnessing the Power of Geo-Experimentation: How Mercado Libre Measures the Effectiveness of Its Third-Party Media Strategies Using GeoLift",
-      "source": "Tecnolog\u00eda de Mercado Libre",
+      "source": "Tecnología de Mercado Libre",
       "url": "https://medium.com/mercadolibre-tech/harnessing-the-power-of-geo-experimentation-how-mercado-libre-measures-the-effectiveness-of-its-f68b38857c4b",
       "published": "2023-06",
       "added": "2026-09-13",
@@ -2673,7 +2863,7 @@
     },
     {
       "id": "meta-silvertorch-index-as-model-retrieval",
-      "title": "SilverTorch: Index as Model \u2014 A New Retrieval Paradigm for Recommendation Systems",
+      "title": "SilverTorch: Index as Model — A New Retrieval Paradigm for Recommendation Systems",
       "source": "Engineering at Meta",
       "url": "https://engineering.fb.com/2026/05/26/ml-applications/silvertorch-index-as-model-new-retrieval-paradigm-recommendation-systems/",
       "published": "2026-05",
