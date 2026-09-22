@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 22,
+  "next_episode": 23,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -233,6 +233,17 @@
       "cover": "podcasts/2026-09-21-baidu-gese-headline-generation-recommendation.cover.png",
       "rss_status": "draft",
       "rss_episode_id": 3170629
+    },
+    {
+      "episode": 22,
+      "season": 1,
+      "date": "2026-09-22",
+      "title": "IBM Research \u2014 Why Your AI Agent Might Not Ace the Same Task Twice",
+      "description": "Most AI agent benchmarks report one number: average accuracy across several runs of a task. But average accuracy hides something that matters a lot more in practice \u2014 whether the agent behaves the same way every time you ask it to do the exact same thing. An agent that's 80% accurate on average could be one that nails some tasks every single time and flips a coin on others, and you'd never know which from the headline number. This episode digs into a fix IBM Research built for that blind spot: instead of expensively re-running whole tasks over and over to check for flakiness, their system pinpoints the specific moments inside a single run where the agent's decision was genuinely up for grabs \u2014 moments that would tip a different way if you asked again \u2014 and turns those moments into explicit rules the agent follows the next time around. We cover how that detection works without needing any human-labeled \"right answers,\" why the fix didn't cost the agent any of its average accuracy to gain reliability, and the concrete numbers from testing on a benchmark called AppWorld: nearly doubling the fraction of tasks the agent could nail on every single attempt, while the rules it learned also carried over to help on tasks it hadn't seen before. Source article: \"Your Agent Aced the Task. Will It Do It Again?\" \u2014 IBM Research / Hugging Face Blog, https://huggingface.co/blog/ibm-research/altk-evolve-consistency (published 2026-09).",
+      "audio": "podcasts/2026-09-22-ibm-research-altk-evolve-agent-consistency.m4a",
+      "cover": "podcasts/2026-09-22-ibm-research-altk-evolve-agent-consistency.cover.png",
+      "rss_status": "draft",
+      "rss_episode_id": 3173924
     }
   ]
 }
