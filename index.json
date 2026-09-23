@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-22",
+  "updated": "2026-09-23",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -13,6 +13,155 @@
     "research-foundational"
   ],
   "articles": [
+    {
+      "id": "spotify-xirp-agentic-dev-environment",
+      "title": "Xirp: A Vendor-Neutral Agentic Development Environment",
+      "source": "Spotify Portal Blog",
+      "url": "https://portal.spotify.com/blog/introducing-xirp",
+      "published": "2026-08",
+      "added": "2026-09-23",
+      "category": "ml-infra-serving",
+      "tags": [
+        "agents",
+        "dev-tooling",
+        "coding-agents",
+        "worktrees",
+        "platform"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-23-spotify-xirp-agentic-dev-environment.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "doordash-beyond-single-agents-collaborative-ecosystem",
+      "title": "Beyond Single Agents: How DoorDash Is Building a Collaborative AI Ecosystem",
+      "source": "DoorDash Engineering Blog",
+      "url": "https://careersatdoordash.com/blog/beyond-single-agents-doordash-building-collaborative-ai-ecosystem/",
+      "published": "2026-09",
+      "added": "2026-09-23",
+      "category": "ml-infra-serving",
+      "tags": [
+        "agents",
+        "multi-agent",
+        "langgraph",
+        "mcp",
+        "agent-to-agent",
+        "platform"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-23-doordash-beyond-single-agents-collaborative-ecosystem.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "afresh-promotion-aware-demand-forecasting",
+      "title": "Buy One Get One Free: Promotion-Aware Demand Forecasting for Groceries",
+      "source": "Afresh Engineering Blog",
+      "url": "https://medium.com/afresh-engineering/buy-one-get-one-free-promotion-aware-demand-forecasting-for-groceries-857838c6871f",
+      "published": "2024-07",
+      "added": "2026-09-23",
+      "category": "forecasting-timeseries",
+      "tags": [
+        "demand-forecasting",
+        "quantile-regression",
+        "grocery",
+        "promotions",
+        "deep-learning"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-23-afresh-promotion-aware-demand-forecasting.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "instacart-storefront-pro-personalization-restock",
+      "title": "Storefront Pro Personalization: Restock Reminders and Reordered Non-Search Pages",
+      "source": "Instacart Enterprise Blog",
+      "url": "https://company.instacart.com/blog/turn-customer-intent-into-revenue-with-storefront-pro",
+      "published": "2026-08",
+      "added": "2026-09-23",
+      "category": "personalization-recsys",
+      "tags": [
+        "personalization",
+        "retail-media",
+        "white-label",
+        "recommendations",
+        "repurchase-prediction"
+      ],
+      "novelty": 2,
+      "file": "articles/2026-09-23-instacart-storefront-pro-personalization-restock.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "stripe-webmcp-checkout-ai-agents",
+      "title": "How Stripe Is Designing Checkout for AI Agents",
+      "source": "Stripe Dot Dev Blog",
+      "url": "https://stripe.dev/blog/how-stripe-is-designing-checkout-for-ai-agents",
+      "published": "2026-09",
+      "added": "2026-09-23",
+      "category": "llm-genai",
+      "tags": [
+        "agents",
+        "agentic-commerce",
+        "mcp",
+        "webmcp",
+        "checkout",
+        "tool-use"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-23-stripe-webmcp-checkout-ai-agents.md",
+      "deep_dived_on": "2026-09-23",
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "doordash-feature-flag-cleanup-multi-agent-llm",
+      "title": "Automating Feature-Flag Cleanup at Scale with a Multi-Agent LLM System",
+      "source": "DoorDash Engineering Blog",
+      "url": "https://careersatdoordash.com/blog/automating-feature-flag-cleanup-at-scale-with-a-multi-agent-llm-system/",
+      "published": "2026-09",
+      "added": "2026-09-23",
+      "category": "llm-genai",
+      "tags": [
+        "agents",
+        "dev-tooling",
+        "feature-flags",
+        "multi-agent",
+        "mcp",
+        "code-generation"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-23-doordash-feature-flag-cleanup-multi-agent-llm.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "nvidia-tensorrt-multi-device-dynamo-triton",
+      "title": "Simplifying Model Serving Across Multiple GPUs with NVIDIA TensorRT Multi-Device Integration in NVIDIA Dynamo-Triton",
+      "source": "NVIDIA Technical Blog",
+      "url": "https://developer.nvidia.com/blog/simplifying-model-serving-across-multiple-gpus-with-nvidia-tensorrt-multi-device-integration-in-nvidia-dynamo-triton/",
+      "published": "2026-09",
+      "added": "2026-09-23",
+      "category": "ml-infra-serving",
+      "tags": [
+        "inference",
+        "multi-gpu",
+        "tensorrt",
+        "triton",
+        "video-generation",
+        "context-parallelism",
+        "nccl"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-23-nvidia-tensorrt-multi-device-dynamo-triton.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
     {
       "id": "ibm-research-altk-evolve-agent-consistency",
       "title": "Your Agent Aced the Task. Will It Do It Again?",
@@ -1437,7 +1586,7 @@
     {
       "id": "mercadolibre-geo-experimentation-geolift",
       "title": "Harnessing the Power of Geo-Experimentation: How Mercado Libre Measures the Effectiveness of Its Third-Party Media Strategies Using GeoLift",
-      "source": "Tecnología de Mercado Libre",
+      "source": "Tecnolog\u00eda de Mercado Libre",
       "url": "https://medium.com/mercadolibre-tech/harnessing-the-power-of-geo-experimentation-how-mercado-libre-measures-the-effectiveness-of-its-f68b38857c4b",
       "published": "2023-06",
       "added": "2026-09-13",
@@ -2863,7 +3012,7 @@
     },
     {
       "id": "meta-silvertorch-index-as-model-retrieval",
-      "title": "SilverTorch: Index as Model — A New Retrieval Paradigm for Recommendation Systems",
+      "title": "SilverTorch: Index as Model \u2014 A New Retrieval Paradigm for Recommendation Systems",
       "source": "Engineering at Meta",
       "url": "https://engineering.fb.com/2026/05/26/ml-applications/silvertorch-index-as-model-new-retrieval-paradigm-recommendation-systems/",
       "published": "2026-05",

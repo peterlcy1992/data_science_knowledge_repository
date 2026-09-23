@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-22",
+  "updated": "2026-09-23",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -52,14 +52,6 @@
       "url": null
     },
     {
-      "id": "afresh-promotion-aware-demand-forecasting",
-      "company": "Afresh",
-      "title": "Promotion-aware demand forecasting",
-      "category": "forecasting-timeseries",
-      "hook": "Handling the outsized effect of promotions in grocery forecasting.",
-      "url": null
-    },
-    {
       "id": "urban-company-causal-inference",
       "company": "Urban Company",
       "title": "Leveraging causal inference for product decisions",
@@ -74,22 +66,6 @@
       "category": "data-engineering",
       "hook": "A distributed-pipelines approach to computing exact (not approximate) COUNT(DISTINCT) at high cardinality without rollups.",
       "url": null
-    },
-    {
-      "id": "spotify-xirp-agentic-dev-environment",
-      "company": "Spotify",
-      "title": "Xirp: A Vendor-Neutral Agentic Development Environment",
-      "category": "ml-infra-serving",
-      "hook": "A vendor-neutral environment managing agent coding sessions across Claude Code, Gemini CLI, and OpenAI Codex, adopted by 1,300+ Spotify engineers.",
-      "url": null
-    },
-    {
-      "id": "doordash-beyond-single-agents-collaborative-ecosystem",
-      "company": "DoorDash",
-      "title": "Beyond Single Agents: How DoorDash Is Building a Collaborative AI Ecosystem",
-      "category": "ml-infra-serving",
-      "hook": "Evolving DoorDash's internal agent platform from deterministic workflows to a dynamic, multi-agent AI system.",
-      "url": "https://careersatdoordash.com/blog/beyond-single-agents-doordash-building-collaborative-ai-ecosystem/"
     },
     {
       "id": "uber-compute-platform-horizontal-scaling-controller",
@@ -136,7 +112,7 @@
       "company": "Grab",
       "title": "Grab Bench: Evaluating AI on Grab-shaped production work",
       "category": "llm-genai",
-      "hook": "Internal agent/model evaluation harness with task-specific scoring, hidden test cases, and row-level failure taxonomy — built because public leaderboards miss the quiet production failures that matter.",
+      "hook": "Internal agent/model evaluation harness with task-specific scoring, hidden test cases, and row-level failure taxonomy \u2014 built because public leaderboards miss the quiet production failures that matter.",
       "url": "https://engineering.grab.com/grab-bench-evaluating-ai"
     },
     {
@@ -180,28 +156,12 @@
       "url": "https://www.databricks.com/blog/what-happened-what-will-happen"
     },
     {
-      "id": "instacart-storefront-pro-personalization-restock",
-      "company": "Instacart",
-      "title": "Storefront Pro personalization: restock reminders and reordered non-search pages",
-      "category": "personalization-recsys",
-      "hook": "An updated model for ordering non-search storefront pages plus personalized restock-reminder nudges, timed to when a customer is likely due to repurchase.",
-      "url": null
-    },
-    {
       "id": "uber-debiased-position-bias-eats-feed",
       "company": "Uber",
       "title": "Improving Uber Eats Home Feed Recommendations via Debiased Relevance Predictions",
       "category": "personalization-recsys",
       "hook": "Randomized-traffic measurement of position bias plus a position-bias side tower in the ranking model to recover true relevance from biased click data.",
       "url": "https://www.uber.com/blog/improving-uber-eats-home-feed-recommendations/"
-    },
-    {
-      "id": "uber-textsense-genai-invoice-processing",
-      "company": "Uber",
-      "title": "Advancing Invoice Document Processing at Uber using GenAI",
-      "category": "llm-genai",
-      "hook": "TextSense: OCR + GPT-4 + business-rule post-processing + human-in-the-loop review replacing legacy RPA for invoice processing, cutting handling time ~70%.",
-      "url": "https://www.uber.com/en-IN/blog/advancing-invoice-document-processing-using-genai/"
     },
     {
       "id": "swiggy-instamart-picker-batching-optimization",
