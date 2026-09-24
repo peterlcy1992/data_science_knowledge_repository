@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-23",
+  "updated": "2026-09-24",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -13,6 +13,174 @@
     "research-foundational"
   ],
   "articles": [
+    {
+      "id": "swiggy-instamart-picker-batching-optimization",
+      "title": "Optimising the Picking Process to Enable Faster Deliveries for Instamart",
+      "source": "Swiggy Bytes",
+      "url": "https://bytes.swiggy.com/optimizing-the-picking-process-to-enable-faster-deliveries-for-instamart-93de0fe9d819",
+      "published": "2024-07",
+      "added": "2026-09-24",
+      "category": "ml-infra-serving",
+      "tags": [
+        "order-batching",
+        "dark-store",
+        "assignment-optimization",
+        "quick-commerce",
+        "operations"
+      ],
+      "novelty": 2,
+      "file": "articles/2026-09-24-swiggy-instamart-picker-batching-optimization.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "uber-debiased-position-bias-eats-feed",
+      "title": "Improving Uber Eats Home Feed Recommendations via Debiased Relevance Predictions",
+      "source": "Uber Engineering",
+      "url": "https://www.uber.com/blog/improving-uber-eats-home-feed-recommendations/",
+      "published": "2023-12",
+      "added": "2026-09-24",
+      "category": "personalization-recsys",
+      "tags": [
+        "position-bias",
+        "examination-model",
+        "two-tower",
+        "click-model",
+        "debiasing"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-24-uber-debiased-position-bias-eats-feed.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "aws-model-agnostic-pii-detection-llms",
+      "title": "Model-Agnostic PII Detection with LLMs",
+      "source": "AWS Machine Learning Blog",
+      "url": "https://aws.amazon.com/blogs/machine-learning/model-agnostic-pii-detection-with-llms/",
+      "published": "2026-09",
+      "added": "2026-09-24",
+      "category": "llm-genai",
+      "tags": [
+        "pii-detection",
+        "prompt-engineering",
+        "bedrock",
+        "responsible-ai",
+        "privacy"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-24-aws-model-agnostic-pii-detection-llms.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "uber-count-distinct-high-cardinality-pipelines",
+      "title": "Scaling Exact COUNT(DISTINCT) for High-Cardinality Non-Rollup Metrics in Distributed Data Pipelines",
+      "source": "Uber Engineering",
+      "url": "https://www.uber.com/us/en/blog/scaling-exact-count/",
+      "published": "2026-07",
+      "added": "2026-09-24",
+      "category": "data-engineering",
+      "tags": [
+        "count-distinct",
+        "roaring-bitmap",
+        "umetric",
+        "data-pipelines",
+        "cardinality"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-24-uber-count-distinct-high-cardinality-pipelines.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "google-retrieve-for-train-fanout-retrieval",
+      "title": "Bypassing Inference Bottlenecks: Accelerating Complex AI Search with Retrieve-for-Train",
+      "source": "Google Research",
+      "url": "https://research.google/blog/bypassing-inference-bottlenecks-accelerating-complex-ai-search-with-retrieve-for-train/",
+      "published": "2026-09",
+      "added": "2026-09-24",
+      "category": "search-ranking",
+      "tags": [
+        "query-fan-out",
+        "diffusion-model",
+        "reinforcement-learning",
+        "retrieval",
+        "knowledge-distillation",
+        "latency"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-24-google-retrieve-for-train-fanout-retrieval.md",
+      "deep_dived_on": "2026-09-24",
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "meta-private-processing-ai-glasses",
+      "title": "Bringing Private Processing to Meta AI Glasses",
+      "source": "Engineering at Meta",
+      "url": "https://engineering.fb.com/2026/09/23/security/private-processing-meta-ai-glasses/",
+      "published": "2026-09",
+      "added": "2026-09-24",
+      "category": "ml-infra-serving",
+      "tags": [
+        "confidential-computing",
+        "tee",
+        "privacy",
+        "ai-glasses",
+        "personal-ai",
+        "remote-attestation"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-24-meta-private-processing-ai-glasses.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "nvidia-confidential-computing-llm-inference",
+      "title": "Enabling Private High-Performance Production AI Inference with NVIDIA Confidential Computing",
+      "source": "NVIDIA Technical Blog",
+      "url": "https://developer.nvidia.com/blog/enabling-private-high-performance-production-ai-inference-with-nvidia-confidential-computing/",
+      "published": "2026-09",
+      "added": "2026-09-24",
+      "category": "ml-infra-serving",
+      "tags": [
+        "confidential-computing",
+        "tee",
+        "tensorrt-llm",
+        "privacy",
+        "blackwell",
+        "inference"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-24-nvidia-confidential-computing-llm-inference.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "uber-taming-ml-firehose-feature-consistency",
+      "title": "Taming the ML Firehose: Scaling Feature Consistency",
+      "source": "Uber Engineering",
+      "url": "https://www.uber.com/us/en/blog/taming-ml-firehose/",
+      "published": "2026-09",
+      "added": "2026-09-24",
+      "category": "data-engineering",
+      "tags": [
+        "feature-store",
+        "training-serving-skew",
+        "flink",
+        "kafka",
+        "rocksdb",
+        "feature-freshness"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-24-uber-taming-ml-firehose-feature-consistency.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
     {
       "id": "spotify-xirp-agentic-dev-environment",
       "title": "Xirp: A Vendor-Neutral Agentic Development Environment",
@@ -1586,7 +1754,7 @@
     {
       "id": "mercadolibre-geo-experimentation-geolift",
       "title": "Harnessing the Power of Geo-Experimentation: How Mercado Libre Measures the Effectiveness of Its Third-Party Media Strategies Using GeoLift",
-      "source": "Tecnolog\u00eda de Mercado Libre",
+      "source": "Tecnología de Mercado Libre",
       "url": "https://medium.com/mercadolibre-tech/harnessing-the-power-of-geo-experimentation-how-mercado-libre-measures-the-effectiveness-of-its-f68b38857c4b",
       "published": "2023-06",
       "added": "2026-09-13",
@@ -3012,7 +3180,7 @@
     },
     {
       "id": "meta-silvertorch-index-as-model-retrieval",
-      "title": "SilverTorch: Index as Model \u2014 A New Retrieval Paradigm for Recommendation Systems",
+      "title": "SilverTorch: Index as Model — A New Retrieval Paradigm for Recommendation Systems",
       "source": "Engineering at Meta",
       "url": "https://engineering.fb.com/2026/05/26/ml-applications/silvertorch-index-as-model-new-retrieval-paradigm-recommendation-systems/",
       "published": "2026-05",

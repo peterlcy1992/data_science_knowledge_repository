@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-23",
+  "updated": "2026-09-24",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -60,14 +60,6 @@
       "url": null
     },
     {
-      "id": "uber-count-distinct-high-cardinality-pipelines",
-      "company": "Uber",
-      "title": "Scaling Exact COUNT(DISTINCT) for High-Cardinality Non-Rollup Metrics in Distributed Data Pipelines",
-      "category": "data-engineering",
-      "hook": "A distributed-pipelines approach to computing exact (not approximate) COUNT(DISTINCT) at high cardinality without rollups.",
-      "url": null
-    },
-    {
       "id": "uber-compute-platform-horizontal-scaling-controller",
       "company": "Uber",
       "title": "From One Horizontal Scaling Controller to Many: Evolving Uber's Compute Platform",
@@ -82,14 +74,6 @@
       "category": "ml-infra-serving",
       "hook": "AWS backs an open cross-environment discovery standard (ARD) as a federation layer over its own Agent Registry for governing AI agents, tools, and skills at scale.",
       "url": "https://aws.amazon.com/blogs/machine-learning/agentic-resource-discovery-ard-an-open-specification-for-agent-discovery/"
-    },
-    {
-      "id": "aws-model-agnostic-pii-detection-llms",
-      "company": "AWS",
-      "title": "Model-Agnostic PII Detection with LLMs",
-      "category": "llm-genai",
-      "hook": "An LLM-based approach to detecting personally identifiable information that works across different underlying models.",
-      "url": "https://aws.amazon.com/blogs/machine-learning/model-agnostic-pii-detection-with-llms/"
     },
     {
       "id": "nvidia-bionemo-structure-prediction-inference",
@@ -112,7 +96,7 @@
       "company": "Grab",
       "title": "Grab Bench: Evaluating AI on Grab-shaped production work",
       "category": "llm-genai",
-      "hook": "Internal agent/model evaluation harness with task-specific scoring, hidden test cases, and row-level failure taxonomy \u2014 built because public leaderboards miss the quiet production failures that matter.",
+      "hook": "Internal agent/model evaluation harness with task-specific scoring, hidden test cases, and row-level failure taxonomy — built because public leaderboards miss the quiet production failures that matter.",
       "url": "https://engineering.grab.com/grab-bench-evaluating-ai"
     },
     {
@@ -156,20 +140,44 @@
       "url": "https://www.databricks.com/blog/what-happened-what-will-happen"
     },
     {
-      "id": "uber-debiased-position-bias-eats-feed",
-      "company": "Uber",
-      "title": "Improving Uber Eats Home Feed Recommendations via Debiased Relevance Predictions",
-      "category": "personalization-recsys",
-      "hook": "Randomized-traffic measurement of position bias plus a position-bias side tower in the ranking model to recover true relevance from biased click data.",
-      "url": "https://www.uber.com/blog/improving-uber-eats-home-feed-recommendations/"
+      "id": "databricks-adaptive-instructed-retriever",
+      "company": "Databricks",
+      "title": "Adaptive Instructed-Retriever: Frontier-Quality Search at 2x Lower Latency",
+      "category": "search-ranking",
+      "hook": "A retrieval model that adaptively stops early when confident, combining parallel-retrieval speed with sequential-search quality under strict latency/cost budgets.",
+      "url": "https://www.databricks.com/blog/adaptive-instructed-retriever-frontier-quality-search-2x-lower-latency"
     },
     {
-      "id": "swiggy-instamart-picker-batching-optimization",
-      "company": "Swiggy Instamart",
-      "title": "Optimising the Picking Process to Enable Faster Deliveries for Instamart",
-      "category": "ml-infra-serving",
-      "hook": "Batching similar orders together for dark-store pickers instead of round-robin single-order assignment, to cut peak-time picking delays.",
-      "url": "https://bytes.swiggy.com/optimizing-the-picking-process-to-enable-faster-deliveries-for-instamart-93de0fe9d819"
+      "id": "uber-file-semantic-analyzer-outbound-data",
+      "company": "Uber",
+      "title": "Building a File Semantic Analyzer: Guarding Outbound Data at Scale with AI",
+      "category": "llm-genai",
+      "hook": "An AI-based semantic analyzer that inspects outbound files for sensitive content at scale, beyond what pattern/regex-based DLP tools catch.",
+      "url": "https://www.uber.com/us/en/blog/ubers-file-analyzer/"
+    },
+    {
+      "id": "uber-first-pass-ai-prd-reviewer",
+      "company": "Uber",
+      "title": "Lessons from Building a First-Pass AI PRD Reviewer at Uber",
+      "category": "llm-genai",
+      "hook": "An LLM-based reviewer that gives product-requirement docs an automated first pass before human review, and what Uber learned making it trustworthy enough to use.",
+      "url": "https://www.uber.com/us/en/blog/first-pass-prd/"
+    },
+    {
+      "id": "uber-cart-assistant-agentic-grocery-shopping",
+      "company": "Uber",
+      "title": "Cart Assistant: Agentic Grocery Shopping on Uber Eats",
+      "category": "llm-genai",
+      "hook": "An agentic assistant that builds a grocery cart on Uber Eats from a conversational request, in the same product space as Instacart's Clementine.",
+      "url": "https://www.uber.com/us/en/blog/uber-cart-assistant/"
+    },
+    {
+      "id": "uber-ai-prototyping-product-building",
+      "company": "Uber",
+      "title": "AI Prototyping Is Changing How We Build Products at Uber",
+      "category": "llm-genai",
+      "hook": "How AI-assisted prototyping tools changed Uber's internal product-development workflow, from idea to testable prototype.",
+      "url": "https://www.uber.com/us/en/blog/ai-prototyping/"
     }
   ]
 }

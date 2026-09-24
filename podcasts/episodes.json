@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 24,
+  "next_episode": 25,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -255,6 +255,17 @@
       "cover": "podcasts/2026-09-23-stripe-webmcp-checkout-ai-agents.cover.png",
       "rss_status": "draft",
       "rss_episode_id": 3176318
+    },
+    {
+      "episode": 24,
+      "season": 1,
+      "date": "2026-09-24",
+      "title": "Google \u2014 Making AI Search Ask Better Questions, 20x Faster",
+      "description": "When an AI search system needs to answer a broad question, it often has to break that one question into several smaller, more specific searches \u2014 a trick called \"query fan-out.\" The problem is doing that well is slow: today's models \"think out loud\" for tens of seconds before they even start searching, and just as often they generate several near-identical sub-questions instead of genuinely different angles. This episode covers how Google Research tackled both problems at once. We walk through their two-stage approach: first, training a small language model with reinforcement learning \u2014 specifically rewarded for producing sub-questions that are grounded, genuinely diverse, and true to the original request \u2014 to get really good at this fan-out task offline, where speed doesn't matter. Then, instead of shipping that slow-but-smart model to production, they use it to teach a completely different, much smaller model: a 54-million-parameter diffusion model that generates a whole set of sub-questions in one fast pass, with no step-by-step reasoning at all. We break down why borrowing diffusion \u2014 the technology behind AI image generators \u2014 for a text-search problem is such an unusual and clever choice, and what the result looks like in practice: search fan-out that used to take up to 50 seconds now finishes in a fraction of a second, without losing quality. Source article: \"Bypassing Inference Bottlenecks: Accelerating Complex AI Search with Retrieve-for-Train\" \u2014 Google Research, https://research.google/blog/bypassing-inference-bottlenecks-accelerating-complex-ai-search-with-retrieve-for-train/ (published 2026-09).",
+      "audio": "podcasts/2026-09-24-google-retrieve-for-train-fanout-retrieval.m4a",
+      "cover": "podcasts/2026-09-24-google-retrieve-for-train-fanout-retrieval.cover.png",
+      "rss_status": "draft",
+      "rss_episode_id": 3179445
     }
   ]
 }
