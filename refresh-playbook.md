@@ -23,15 +23,46 @@ here, so this file is the real spec. Keep it self-contained.
 
 ## Step 2 — Discover
 
-- For each source area, run web searches such as:
-  - `<company> engineering blog machine learning <current month year>`
+**Balance is a first-class goal (see "Scope & balance" below).** Split discovery
+across two families and aim for a roughly **even mix** each run:
+
+- **Core DS** — statistical modelling, experimentation & causal inference,
+  product analytics & measurement, forecasting & time series. Run searches such as:
+  - `<company> A/B testing | experimentation platform | variance reduction | CUPED <month year>`
+  - `causal inference | uplift modelling | difference-in-differences | synthetic control <company> <year>`
+  - `product analytics | metrics framework | north-star metric | guardrail metrics | retention analysis <company>`
+  - `Bayesian | hierarchical model | GLM | statistical modelling <company> data science <year>`
+  - `demand forecasting | time-series <company> <year>`
+  - `arxiv stat.ME OR stat.AP OR econ.EM recent` (methodology / applied stats / econometrics)
+  - Experimentation & analytics blogs: Microsoft ExP, Booking.com, Airbnb, Netflix,
+    Spotify, DoorDash experimentation; Eppo, Statsig, Amplitude, Mixpanel; Andrew
+    Gelman's *Statistical Modeling, Causal Inference, and Social Science*.
+- **AI / ML-systems** — LLMs/agents, recsys/ranking, ML infra, multimodal. Run searches such as:
+  - `<company> engineering blog machine learning | LLM | recsys <current month year>`
   - `Netflix | Uber | DoorDash | Spotify | Databricks new ML LLM recsys post <month year>`
   - `arxiv cs.IR OR cs.LG recent generative recommendation | retrieval | feature store`
+
+- **Intake target:** aim for the day's finds to be about **half Core DS, half
+  AI/ML-systems** (see `sources.md` for the full source list, which is tiered by
+  family). If a day genuinely yields no Core DS, note that in the digest rather
+  than back-filling with more AI — and lean on Step 4b to deepen Core-DS backlog
+  stubs so the pool stays balanced.
 - Web search is the primary channel because the egress proxy blocks many blog
   domains. Attempt a direct `WebFetch` only when the domain is reachable; if it
   returns `EGRESS_BLOCKED`, fall back to search-surfaced summaries and set
   `sourced_via: "web search"`.
 - Dedupe against `index.json`. Skip anything already present.
+
+### Scope & balance
+
+This is a **data-science** knowledge bank. Core DS (statistical modelling,
+experimentation & causal inference, product analytics, forecasting) is
+**first-class**, on an equal footing with AI/ML-systems. AI/LLM/recsys is
+squarely in scope — it's where the field is going — but favour pieces that
+**tie back to data-science practice** (measurement, inference, evaluation,
+decisions) over pure model/infra engineering. When two candidates are otherwise
+comparable, prefer the one a working data scientist (not only an ML engineer)
+would act on.
 
 ## Two-tier storage
 
@@ -78,6 +109,10 @@ Convert a few `catalog.json` stubs into full entries each run (aim for 2-5,
 budget permitting):
 
 1. Pick the highest-signal stubs (favor variety across companies/categories).
+   **Prioritise Core-DS stubs** (statistical modelling, experimentation/causal,
+   product analytics, forecasting) so the pool stays balanced — the backlog and
+   live index currently skew AI-heavy, so deepening Core DS here is the main way
+   to give Step 5 balanced material to choose from.
 2. For each, locate the underlying company article (web search first; the stub's
    `url` if present is a lead, often just the podcast episode, not the source).
    Research it enough to write a genuine summary — do not fabricate.
@@ -94,15 +129,36 @@ against both `catalog.json` and `index.json`.
 
 ## Step 5 — Pick the deep-dive article
 
-Choose the article to feature in today's email:
+The deep dive must **rotate across the two families** so the featured picks stay
+balanced (~50/50 over time), not default to whatever AI paper scored highest.
 
-1. Prefer entries with `deep_dived_on == null`.
-2. Among those, prefer the **most recently `added`** (newest first).
-3. Break ties by highest `novelty`.
-4. If everything has been deep-dived, pick the highest-novelty entry whose
-   `deep_dived_on` is oldest (re-feature).
+Define the family of each article from its `category`:
+- **Core DS** — `experimentation-causal`, `statistical-modeling`,
+  `product-analytics`, `forecasting-timeseries`.
+- **AI / ML-systems** — `llm-genai`, `personalization-recsys`, `search-ranking`,
+  `ml-infra-serving`, `cv-multimodal`, and `research-foundational`/`data-engineering`
+  when the piece is AI/infra-oriented.
 
-Set that entry's `deep_dived_on` to today's date in `index.json`.
+Selection:
+
+1. Consider only entries with `deep_dived_on == null`.
+2. **Determine which family is "due."** Look at the **last 4 deep dives**
+   (by `deep_dived_on`). If **fewer than 2 of them were Core DS**, this run is
+   **due for Core DS**; otherwise it is due for AI/ML-systems. (This drives the
+   ~50/50 target — on a tie/empty history, default to Core DS, since the bank is
+   currently AI-skewed.)
+3. Within the **due family**, pick the best candidate: most recently `added`
+   first, breaking ties by highest `novelty` (require `novelty >= 3`).
+4. **Fallbacks (in order)** if the due family has no suitable candidate:
+   (a) take the best candidate from the other family instead, and note in the
+   digest that the due family had nothing today; (b) if nothing is un-dived at
+   all, re-feature the highest-novelty entry whose `deep_dived_on` is oldest,
+   still preferring the due family.
+
+Do **not** let raw `novelty` override the family rotation — a solid (`>=3`) Core-DS
+piece beats a flashier AI one when Core DS is due.
+
+Set the chosen entry's `deep_dived_on` to today's date in `index.json`.
 
 ## Step 6 — Compose the digest
 
