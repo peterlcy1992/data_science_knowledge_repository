@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-24",
+  "updated": "2026-09-25",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -9,14 +9,6 @@
       "title": "Personal data classification at scale",
       "category": "data-engineering",
       "hook": "Classifying and protecting personal data across a large data estate.",
-      "url": null
-    },
-    {
-      "id": "instacart-quasi-experiment-rdd",
-      "company": "Instacart",
-      "title": "Quasi-experimentation and regression discontinuity design",
-      "category": "experimentation-causal",
-      "hook": "Using RDD to make decisions when clean A/B tests aren't possible.",
       "url": null
     },
     {
@@ -41,22 +33,6 @@
       "title": "Handling data imbalance in text models with automated augmentation",
       "category": "research-foundational",
       "hook": "Automated augmentation techniques to fix class imbalance in text data.",
-      "url": null
-    },
-    {
-      "id": "oda-ab-testing-culture",
-      "company": "Oda",
-      "title": "A/B testing practices and experimentation culture",
-      "category": "experimentation-causal",
-      "hook": "How Oda builds a culture that supports experimentation.",
-      "url": null
-    },
-    {
-      "id": "urban-company-causal-inference",
-      "company": "Urban Company",
-      "title": "Leveraging causal inference for product decisions",
-      "category": "experimentation-causal",
-      "hook": "Causal inference to guide decisions where experiments are hard.",
       "url": null
     },
     {

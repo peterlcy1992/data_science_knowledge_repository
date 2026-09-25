@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-24",
+  "updated": "2026-09-25",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -13,6 +13,70 @@
     "research-foundational"
   ],
   "articles": [
+    {
+      "id": "instacart-quasi-experiment-rdd",
+      "title": "Optimizing at the Edge: Using Regression Discontinuity Designs to Power Decision-Making",
+      "source": "Instacart Tech Blog",
+      "url": "https://tech.instacart.com/optimizing-at-the-edge-using-regression-discontinuity-designs-to-power-decision-making-51e296615046",
+      "published": "2023-11",
+      "added": "2026-09-25",
+      "category": "experimentation-causal",
+      "tags": [
+        "regression-discontinuity",
+        "quasi-experimentation",
+        "causal-inference",
+        "payments",
+        "econometrics"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-25-instacart-quasi-experiment-rdd.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "oda-ab-testing-culture",
+      "title": "Oda's Online Experimentation Journey: Lessons Learned and Best Practices",
+      "source": "Oda Product & Tech (Medium) / GrowthBook customer case study",
+      "url": "https://medium.com/oda-product-tech/odas-online-experimentation-journey-lessons-learned-and-best-practices-7091c318beeb",
+      "published": "2024-04",
+      "added": "2026-09-25",
+      "category": "experimentation-causal",
+      "tags": [
+        "ab-testing",
+        "experimentation-platform",
+        "warehouse-native",
+        "cuped",
+        "bayesian",
+        "culture"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-25-oda-ab-testing-culture.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "urban-company-causal-inference",
+      "title": "How Urban Company Leverages Causal Inference to Power Data-Driven Decisions",
+      "source": "Urban Company Engineering (Medium)",
+      "url": "https://medium.com/uc-engineering/how-urban-company-leverages-causal-inference-to-power-data-driven-decisions-a339cfcaa0e2",
+      "published": "2023",
+      "added": "2026-09-25",
+      "category": "experimentation-causal",
+      "tags": [
+        "causal-inference",
+        "causal-ml",
+        "marketplace",
+        "personalization",
+        "uplift"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-25-urban-company-causal-inference.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
     {
       "id": "swiggy-instamart-picker-batching-optimization",
       "title": "Optimising the Picking Process to Enable Faster Deliveries for Instamart",
