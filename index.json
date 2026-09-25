@@ -14,6 +14,167 @@
   ],
   "articles": [
     {
+      "id": "amazon-ppi-persona-llm-ab-testing",
+      "title": "Augmented Hypothesis Testing with Persona-Based LLM Simulations",
+      "source": "arXiv (Amazon)",
+      "url": "https://arxiv.org/abs/2609.24629",
+      "published": "2026-09",
+      "added": "2026-09-25",
+      "category": "experimentation-causal",
+      "tags": [
+        "ab-testing",
+        "prediction-powered-inference",
+        "llm-simulation",
+        "sample-size-reduction",
+        "hypothesis-testing"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-25-amazon-ppi-persona-llm-ab-testing.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "statsig-beyond-ab-test-designs",
+      "title": "Beyond the A/B Test: Experiment Designs for Your Toughest Questions",
+      "source": "Statsig Blog",
+      "url": "https://www.statsig.com/blog/beyond-the-a-b-test-blog-version",
+      "published": "2026-09",
+      "added": "2026-09-25",
+      "category": "experimentation-causal",
+      "tags": [
+        "ab-testing",
+        "experiment-design",
+        "switchback",
+        "synthetic-control",
+        "bandits",
+        "sequential-testing"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-25-statsig-beyond-ab-test-designs.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "nixtla-intermittent-demand-zero-forecast-trap",
+      "title": "The Forecast Says Zero. The Warehouse Says Otherwise.",
+      "source": "Nixtla Blog",
+      "url": "https://www.nixtla.io/blog/intermittent-demand-zero-forecast-trap",
+      "published": "2026-09",
+      "added": "2026-09-25",
+      "category": "forecasting-timeseries",
+      "tags": [
+        "intermittent-demand",
+        "forecasting",
+        "croston",
+        "evaluation-metrics",
+        "inventory"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-25-nixtla-intermittent-demand-zero-forecast-trap.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "gelman-fake-data-simulation-frequentist",
+      "title": "This Is How We Do Modern Frequentist Statistics: Using Fake-Data Simulation to Understand What Can Happen in a Study",
+      "source": "Statistical Modeling, Causal Inference, and Social Science (Andrew Gelman)",
+      "url": "https://statmodeling.stat.columbia.edu/2026/09/14/this-is-modern-frequentist-statistics-using-fake-data-simulation-to-understand/",
+      "published": "2026-09",
+      "added": "2026-09-25",
+      "category": "statistical-modeling",
+      "tags": [
+        "simulation",
+        "frequentist-statistics",
+        "power-analysis",
+        "study-design",
+        "bayesian-workflow"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-25-gelman-fake-data-simulation-frequentist.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-tie-handling-recsys-evaluation",
+      "title": "Tie Handling Is Part of the Evaluation Protocol: An Order-Invariance Audit for Tie-Heavy Recommender Scores",
+      "source": "arXiv (FRAME'26 workshop)",
+      "url": "https://arxiv.org/abs/2609.26977",
+      "published": "2026-09",
+      "added": "2026-09-25",
+      "category": "research-foundational",
+      "tags": [
+        "evaluation-methodology",
+        "ndcg",
+        "tie-breaking",
+        "offline-evaluation",
+        "reproducibility"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-25-arxiv-tie-handling-recsys-evaluation.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "spotify-recsys-agentic-web",
+      "title": "Who Are We Recommending To? Recommender Systems in the Agentic Web",
+      "source": "arXiv / Spotify Research (RecSys 2026 Past-Present-Future track)",
+      "url": "https://arxiv.org/abs/2609.11945",
+      "published": "2026-07",
+      "added": "2026-09-25",
+      "category": "llm-genai",
+      "tags": [
+        "recommender-systems",
+        "ai-agents",
+        "evaluation",
+        "metrics",
+        "agentic-web"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-25-spotify-recsys-agentic-web.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "comcast-llm-user-profiling-streaming",
+      "title": "When LLM-Based User Profiling Adds Value in Production Streaming Recommendation",
+      "source": "arXiv (Comcast Technology AI / DePaul University)",
+      "url": "https://arxiv.org/abs/2609.27183",
+      "published": "2026-09",
+      "added": "2026-09-25",
+      "category": "personalization-recsys",
+      "tags": [
+        "user-profiling",
+        "llm",
+        "recommendation",
+        "evaluation",
+        "cost-benefit"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-25-comcast-llm-user-profiling-streaming.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "pinterest-3tower-engagement-cotrain",
+      "title": "Beyond Two Towers: Launching the 3-Tower Engagement Co-Train Model (Part 2)",
+      "source": "Pinterest Engineering Blog",
+      "url": "https://medium.com/pinterest-engineering/beyond-two-towers-launching-the-3-tower-engagement-co-train-model-part-2-0b96167d2c14",
+      "published": "2026-09",
+      "added": "2026-09-25",
+      "category": "personalization-recsys",
+      "tags": [
+        "ads-ranking",
+        "two-tower",
+        "co-training",
+        "model-serving",
+        "ctr-prediction"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-25-pinterest-3tower-engagement-cotrain.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
       "id": "instacart-quasi-experiment-rdd",
       "title": "Optimizing at the Edge: Using Regression Discontinuity Designs to Power Decision-Making",
       "source": "Instacart Tech Blog",
@@ -30,7 +191,7 @@
       ],
       "novelty": 4,
       "file": "articles/2026-09-25-instacart-quasi-experiment-rdd.md",
-      "deep_dived_on": null,
+      "deep_dived_on": "2026-09-25",
       "sourced_via": "web search",
       "discovered_via": "Snacks Weekly on Data Science podcast"
     },
