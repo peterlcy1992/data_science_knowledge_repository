@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 25,
+  "next_episode": 26,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -266,6 +266,17 @@
       "cover": "podcasts/2026-09-24-google-retrieve-for-train-fanout-retrieval.cover.png",
       "rss_status": "draft",
       "rss_episode_id": 3179445
+    },
+    {
+      "episode": 25,
+      "season": 1,
+      "date": "2026-09-25",
+      "title": "Instacart \u2014 The $5 Rounding Rule Nobody Meant to Test",
+      "description": "A deep dive into how Instacart's economics team found a causal answer hiding inside a mundane payments policy. Every Instacart order gets a temporary card-authorization hold slightly above the order total, rounded up to the nearest $5 \u2014 a rule that, by accident, created a natural experiment: orders just below a $5 threshold and orders just above it are essentially identical shoppers, except for how big a buffer they got. We cover the business problem (bigger buffers mean fewer follow-up authorizations, but also more card declines, and nobody knew where the real trade-off point was), the technique (regression discontinuity design, a quasi-experimental method that treats the threshold itself as if it were a coin flip), and the twist that makes this one stand out: Instacart didn't just trust the causal estimate \u2014 they ran a real follow-up A/B test that confirmed it, cutting declines and lifting order volume at the same time. Source article: \"Optimizing at the Edge: Using Regression Discontinuity Designs to Power Decision-Making\" \u2014 Instacart Tech Blog, https://tech.instacart.com/optimizing-at-the-edge-using-regression-discontinuity-designs-to-power-decision-making-51e296615046 (published 2023-11).",
+      "audio": "podcasts/2026-09-25-instacart-quasi-experiment-rdd.m4a",
+      "cover": "podcasts/2026-09-25-instacart-quasi-experiment-rdd.cover.png",
+      "rss_status": "draft",
+      "rss_episode_id": 3181677
     }
   ]
 }
