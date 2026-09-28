@@ -1,0 +1,5 @@
+# Academic — Why Your A/B Test Winner Might Be a Fragile Bet
+
+A deep dive into a simple idea with sharp teeth: the standard "ship the arm with the significant t-test" playbook answers the wrong question. Researchers Max Farrell, Malika Korganbekova, and Sanjog Misra reframe deploying an A/B test winner as a robust decision problem instead of a hypothesis test, building a rule that scores each arm not just by its point estimate but by how good it looks across a neighborhood of plausible nearby outcomes — penalizing arms whose apparent edge is fragile to small shifts in the world. The payoff is a closed-form deployment rule, powered by the Donsker-Varadhan variational representation, that needs nothing beyond what a standard experiment already produces plus one interpretable "trust" parameter. Tested against 552 real digital-advertising experiments from a major online platform, it substantially reduces regret compared to deploying on statistical significance alone.
+
+Source article: "Robust A/B Decisions" — arXiv (Farrell, Korganbekova, Misra), https://arxiv.org/abs/2609.07633 (published 2026-09).

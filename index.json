@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-25",
+  "updated": "2026-09-28",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -10,9 +10,118 @@
     "experimentation-causal",
     "cv-multimodal",
     "forecasting-timeseries",
-    "research-foundational"
+    "research-foundational",
+    "statistical-modeling",
+    "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-robust-ab-decisions-farrell-misra",
+      "title": "Robust A/B Decisions",
+      "source": "arXiv (Farrell, Korganbekova, Misra)",
+      "url": "https://arxiv.org/abs/2609.07633",
+      "published": "2026-09",
+      "added": "2026-09-28",
+      "category": "experimentation-causal",
+      "tags": [
+        "ab-testing",
+        "decision-theory",
+        "ambiguity-aversion",
+        "hypothesis-testing",
+        "deployment-rules",
+        "regret-minimization"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-28-arxiv-robust-ab-decisions-farrell-misra.md",
+      "deep_dived_on": "2026-09-28",
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "zillow-bayesian-business-outcomes",
+      "title": "How Zillow Data Science Measures Business Outcomes with Bayesian Statistics",
+      "source": "Zillow Tech Hub",
+      "url": "https://www.zillow.com/tech/how-zillow-data-science-measures-business-outcomes-with-bayesian-statistics/",
+      "published": "2023-02",
+      "added": "2026-09-28",
+      "category": "statistical-modeling",
+      "tags": [
+        "bayesian-inference",
+        "shrinkage",
+        "hierarchical-models",
+        "survival-analysis",
+        "conversion-rate",
+        "censoring"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-28-zillow-bayesian-business-outcomes.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "airbnb-eval-driven-development-genai",
+      "title": "Eval-Driven Development: Lessons from Evaluating GenAI at Scale",
+      "source": "Airbnb Tech Blog",
+      "url": "https://airbnb.tech/ai-ml/eval-driven-development-lessons-from-evaluating-genai-at-scale/",
+      "published": "2026-07",
+      "added": "2026-09-28",
+      "category": "llm-genai",
+      "tags": [
+        "llm-evaluation",
+        "eval-driven-development",
+        "generative-ai",
+        "testing",
+        "failure-modes",
+        "production-ml"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-28-airbnb-eval-driven-development-genai.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-recall-ceiling-llm-reranking",
+      "title": "The Recall Ceiling of LLM Recommendation Reranking",
+      "source": "arXiv (academic)",
+      "url": "https://arxiv.org/abs/2609.27953",
+      "published": "2026-08",
+      "added": "2026-09-28",
+      "category": "research-foundational",
+      "tags": [
+        "evaluation-methodology",
+        "llm-reranking",
+        "recall",
+        "ndcg",
+        "offline-evaluation",
+        "recommender-systems"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-28-arxiv-recall-ceiling-llm-reranking.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "gelman-junk-polls-ai-survey-data",
+      "title": "It's Fine to Use Computer-Generated Survey Responses — If You Don't Care About the Data Anyway",
+      "source": "Statistical Modeling, Causal Inference, and Social Science (Andrew Gelman)",
+      "url": "https://statmodeling.stat.columbia.edu/2026/09/24/junk-polls-and-junk-survey-research-they-go-together-so-well/",
+      "published": "2026-09",
+      "added": "2026-09-28",
+      "category": "statistical-modeling",
+      "tags": [
+        "survey-methodology",
+        "llm-generated-data",
+        "synthetic-respondents",
+        "research-quality",
+        "polling"
+      ],
+      "novelty": 2,
+      "file": "articles/2026-09-28-gelman-junk-polls-ai-survey-data.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
     {
       "id": "amazon-ppi-persona-llm-ab-testing",
       "title": "Augmented Hypothesis Testing with Persona-Based LLM Simulations",

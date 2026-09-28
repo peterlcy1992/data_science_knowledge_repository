@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 26,
+  "next_episode": 27,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -277,6 +277,17 @@
       "cover": "podcasts/2026-09-25-instacart-quasi-experiment-rdd.cover.png",
       "rss_status": "draft",
       "rss_episode_id": 3181677
+    },
+    {
+      "episode": 26,
+      "season": 1,
+      "date": "2026-09-28",
+      "title": "Academic \u2014 Why Your A/B Test Winner Might Be a Fragile Bet",
+      "description": "A deep dive into a simple idea with sharp teeth: the standard \u201cship the arm with the significant t-test\u201d playbook answers the wrong question. Researchers Max Farrell, Malika Korganbekova, and Sanjog Misra reframe deploying an A/B test winner as a robust decision problem instead of a hypothesis test, building a rule that scores each arm not just by its point estimate but by how good it looks across a neighborhood of plausible nearby outcomes \u2014 penalizing arms whose apparent edge is fragile to small shifts in the world. The payoff is a closed-form deployment rule, powered by the Donsker-Varadhan variational representation, that needs nothing beyond what a standard experiment already produces plus one interpretable \u201ctrust\u201d parameter. Tested against 552 real digital-advertising experiments from a major online platform, it substantially reduces regret compared to deploying on statistical significance alone. Source article: \"Robust A/B Decisions\" \u2014 arXiv (Farrell, Korganbekova, Misra), https://arxiv.org/abs/2609.07633 (published 2026-09).",
+      "audio": "podcasts/2026-09-28-arxiv-robust-ab-decisions-farrell-misra.m4a",
+      "cover": "podcasts/2026-09-28-arxiv-robust-ab-decisions-farrell-misra.cover.png",
+      "rss_status": "draft",
+      "rss_episode_id": 3189906
     }
   ]
 }

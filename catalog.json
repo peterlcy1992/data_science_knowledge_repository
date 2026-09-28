@@ -1,24 +1,8 @@
 {
   "version": 1,
-  "updated": "2026-09-25",
+  "updated": "2026-09-28",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
-    {
-      "id": "arxiv-robust-ab-decisions-farrell-misra",
-      "company": "Academic (Farrell, Korganbekova, Misra)",
-      "title": "Robust A/B Decisions",
-      "category": "experimentation-causal",
-      "hook": "An ambiguity-averse decision rule for deploying A/B test winners, validated on 552 real ad experiments, that reportedly beats naive t-test-based deployment.",
-      "url": "https://arxiv.org/abs/2609.07633"
-    },
-    {
-      "id": "arxiv-recall-ceiling-llm-reranking",
-      "company": "Academic",
-      "title": "The Recall Ceiling of LLM Recommendation Reranking",
-      "category": "research-foundational",
-      "hook": "Shows the standard 'oracle' evaluation protocol for LLM rerankers overestimates realistic NDCG@10 by 92-95% because real upstream retrieval only recovers 2-19% of relevant items at K=100 -- a companion evaluation-rigor finding to the tie-handling audit already in the bank.",
-      "url": "https://arxiv.org/abs/2609.27953"
-    },
     {
       "id": "arxiv-onetrans-v2-unified-transformer-recsys",
       "company": "Academic / Industrial recsys",
@@ -26,14 +10,6 @@
       "category": "personalization-recsys",
       "hook": "Collapses the classic multi-stage retrieval/pre-rank/fine-rank recommender pipeline into a single transformer, reporting +9.74% GMV in production.",
       "url": "https://arxiv.org/abs/2609.28589"
-    },
-    {
-      "id": "gelman-junk-polls-ai-survey-data",
-      "company": "Andrew Gelman (Statistical Modeling, Causal Inference, and Social Science)",
-      "title": "It's fine to use computer-generated survey responses -- if you don't care about the data anyway",
-      "category": "statistical-modeling",
-      "hook": "A critique of substituting LLM-generated respondents for real survey data, arguing junk methodology stays junk no matter what fills in the answers.",
-      "url": "https://statmodeling.stat.columbia.edu/2026/09/24/junk-polls-and-junk-survey-research-they-go-together-so-well/"
     },
     {
       "id": "airbnb-personal-data-classification",
@@ -186,6 +162,30 @@
       "category": "llm-genai",
       "hook": "How AI-assisted prototyping tools changed Uber's internal product-development workflow, from idea to testable prototype.",
       "url": "https://www.uber.com/us/en/blog/ai-prototyping/"
+    },
+    {
+      "id": "instacart-ava-internal-ai-assistant",
+      "company": "Instacart",
+      "title": "Ava: Instacart's Internal AI Assistant",
+      "category": "llm-genai",
+      "hook": "An internal AI assistant built on GPT-4/GPT-3.5 to help Instacart employees with day-to-day work, part of the company's broader AI-driven-development push.",
+      "url": null
+    },
+    {
+      "id": "uber-under-the-hood-experimentation-platform-xp",
+      "company": "Uber",
+      "title": "Under the Hood of Uber's Experimentation Platform",
+      "category": "experimentation-causal",
+      "hook": "How Uber's XP platform runs A/B/N, causal inference, and multi-armed-bandit continuous experiments across 1,000+ concurrent experiments.",
+      "url": "https://www.uber.com/us/en/blog/xp/"
+    },
+    {
+      "id": "arxiv-spar-poi-generative-recommendation",
+      "company": "Academic / Industrial recsys",
+      "title": "SPAR: Enhancing Industrial-Scale Generative POI Recommendation via Real-World Spatial Perception",
+      "category": "personalization-recsys",
+      "hook": "Adds real-world spatial-perception signals to a generative (semantic-ID) point-of-interest recommender at industrial scale.",
+      "url": null
     }
   ]
 }
