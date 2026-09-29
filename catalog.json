@@ -1,8 +1,24 @@
 {
   "version": 1,
-  "updated": "2026-09-28",
+  "updated": "2026-09-29",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
+    {
+      "id": "instacart-variance-reduction-below-randomization-grain",
+      "company": "Instacart",
+      "title": "Variance Reduction Below the Randomization Grain",
+      "category": "experimentation-causal",
+      "hook": "Uses order-level ML predictions aggregated to the randomization unit to keep CUPED's structure while exploiting finer-grained covariates.",
+      "url": "https://tech.instacart.com/variance-reduction-below-the-randomization-grain-31719f87a7d2"
+    },
+    {
+      "id": "statsig-z-test-non-normal-ab-tests",
+      "company": "Statsig",
+      "title": "Why is it OK to run a z-test on a non-normal distribution for A/B tests?",
+      "category": "statistical-modeling",
+      "hook": "CLT argument for why z-tests on skewed metrics work at experiment scale, with caveats on sample size and user-level aggregation.",
+      "url": "https://www.statsig.com/blog/z-test-on-non-normal-distribution"
+    },
     {
       "id": "arxiv-onetrans-v2-unified-transformer-recsys",
       "company": "Academic / Industrial recsys",
@@ -76,14 +92,6 @@
       "url": "https://medium.com/coupang-engineering/accelerating-coupangs-ai-journey-with-llms-2817d55004d3"
     },
     {
-      "id": "grab-bench-evaluating-ai-production-work",
-      "company": "Grab",
-      "title": "Grab Bench: Evaluating AI on Grab-shaped production work",
-      "category": "llm-genai",
-      "hook": "Internal agent/model evaluation harness with task-specific scoring, hidden test cases, and row-level failure taxonomy — built because public leaderboards miss the quiet production failures that matter.",
-      "url": "https://engineering.grab.com/grab-bench-evaluating-ai"
-    },
-    {
       "id": "aws-agentcore-evaluations-framework-agnostic",
       "company": "AWS",
       "title": "Evaluate Any Agent Framework with Amazon Bedrock AgentCore Evaluations",
@@ -124,14 +132,6 @@
       "url": "https://www.databricks.com/blog/what-happened-what-will-happen"
     },
     {
-      "id": "databricks-adaptive-instructed-retriever",
-      "company": "Databricks",
-      "title": "Adaptive Instructed-Retriever: Frontier-Quality Search at 2x Lower Latency",
-      "category": "search-ranking",
-      "hook": "A retrieval model that adaptively stops early when confident, combining parallel-retrieval speed with sequential-search quality under strict latency/cost budgets.",
-      "url": "https://www.databricks.com/blog/adaptive-instructed-retriever-frontier-quality-search-2x-lower-latency"
-    },
-    {
       "id": "uber-file-semantic-analyzer-outbound-data",
       "company": "Uber",
       "title": "Building a File Semantic Analyzer: Guarding Outbound Data at Scale with AI",
@@ -170,14 +170,6 @@
       "category": "llm-genai",
       "hook": "An internal AI assistant built on GPT-4/GPT-3.5 to help Instacart employees with day-to-day work, part of the company's broader AI-driven-development push.",
       "url": null
-    },
-    {
-      "id": "uber-under-the-hood-experimentation-platform-xp",
-      "company": "Uber",
-      "title": "Under the Hood of Uber's Experimentation Platform",
-      "category": "experimentation-causal",
-      "hook": "How Uber's XP platform runs A/B/N, causal inference, and multi-armed-bandit continuous experiments across 1,000+ concurrent experiments.",
-      "url": "https://www.uber.com/us/en/blog/xp/"
     },
     {
       "id": "arxiv-spar-poi-generative-recommendation",

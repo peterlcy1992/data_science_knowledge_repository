@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-28",
+  "updated": "2026-09-29",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,129 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-rerandomization-under-interference",
+      "title": "Rerandomization under Interference",
+      "source": "arXiv (Yuan, Li, Li)",
+      "url": "https://arxiv.org/abs/2609.33730",
+      "published": "2026-09",
+      "added": "2026-09-29",
+      "category": "experimentation-causal",
+      "tags": [
+        "rerandomization",
+        "interference",
+        "experimental-design",
+        "covariate-balance",
+        "hajek-estimator"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-29-arxiv-rerandomization-under-interference.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-cuped-on-steroids-switchback",
+      "title": "CUPED on Steroids: Multivariate Covariate Adjustment for Switchback Experiments",
+      "source": "arXiv (Pankratev, Arora)",
+      "url": "https://arxiv.org/abs/2608.24038",
+      "published": "2026-08",
+      "added": "2026-09-29",
+      "category": "experimentation-causal",
+      "tags": [
+        "cuped",
+        "variance-reduction",
+        "switchback",
+        "cross-fitting",
+        "clustered-experiments"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-29-arxiv-cuped-on-steroids-switchback.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "statsig-our-take-on-ai-for-experimentation",
+      "title": "Our Take on AI for Experimentation",
+      "source": "Statsig Blog",
+      "url": "https://www.statsig.com/blog/our-take-on-ai-for-experimentation",
+      "published": "2026-09",
+      "added": "2026-09-29",
+      "category": "experimentation-causal",
+      "tags": [
+        "experimentation-platform",
+        "ai-assistants",
+        "guardrails",
+        "hypothesis-generation"
+      ],
+      "novelty": 2,
+      "file": "articles/2026-09-29-statsig-our-take-on-ai-for-experimentation.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "uber-under-the-hood-experimentation-platform-xp",
+      "title": "Under the Hood of Uber's Experimentation Platform",
+      "source": "Uber Engineering Blog",
+      "url": "https://www.uber.com/us/en/blog/xp/",
+      "published": "2018-08",
+      "added": "2026-09-29",
+      "category": "experimentation-causal",
+      "tags": [
+        "experimentation-platform",
+        "statistics-engine",
+        "cuped",
+        "sequential-testing",
+        "multiple-comparisons",
+        "bandits"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-29-uber-under-the-hood-experimentation-platform-xp.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "grab-bench-evaluating-ai-production-work",
+      "title": "Grab Bench: Evaluating AI on Grab-shaped production work",
+      "source": "Grab Engineering Blog",
+      "url": "https://engineering.grab.com/grab-bench-evaluating-ai",
+      "published": "2026-09",
+      "added": "2026-09-29",
+      "category": "llm-genai",
+      "tags": [
+        "llm-evaluation",
+        "benchmarks",
+        "contract-based-scoring",
+        "failure-taxonomy",
+        "agents"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-29-grab-bench-evaluating-ai-production-work.md",
+      "deep_dived_on": "2026-09-29",
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "databricks-adaptive-instructed-retriever",
+      "title": "Adaptive Instructed-Retriever: Frontier-Quality Search at 2x Lower Latency",
+      "source": "Databricks Blog",
+      "url": "https://www.databricks.com/blog/adaptive-instructed-retriever-frontier-quality-search-2x-lower-latency",
+      "published": "2026-09",
+      "added": "2026-09-29",
+      "category": "search-ranking",
+      "tags": [
+        "agentic-search",
+        "retrieval",
+        "reinforcement-learning",
+        "latency",
+        "cispo"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-29-databricks-adaptive-instructed-retriever.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
     {
       "id": "arxiv-robust-ab-decisions-farrell-misra",
       "title": "Robust A/B Decisions",
