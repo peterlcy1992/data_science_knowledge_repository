@@ -1,24 +1,8 @@
 {
   "version": 1,
-  "updated": "2026-09-29",
+  "updated": "2026-09-30",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
-    {
-      "id": "instacart-variance-reduction-below-randomization-grain",
-      "company": "Instacart",
-      "title": "Variance Reduction Below the Randomization Grain",
-      "category": "experimentation-causal",
-      "hook": "Uses order-level ML predictions aggregated to the randomization unit to keep CUPED's structure while exploiting finer-grained covariates.",
-      "url": "https://tech.instacart.com/variance-reduction-below-the-randomization-grain-31719f87a7d2"
-    },
-    {
-      "id": "statsig-z-test-non-normal-ab-tests",
-      "company": "Statsig",
-      "title": "Why is it OK to run a z-test on a non-normal distribution for A/B tests?",
-      "category": "statistical-modeling",
-      "hook": "CLT argument for why z-tests on skewed metrics work at experiment scale, with caveats on sample size and user-level aggregation.",
-      "url": "https://www.statsig.com/blog/z-test-on-non-normal-distribution"
-    },
     {
       "id": "arxiv-onetrans-v2-unified-transformer-recsys",
       "company": "Academic / Industrial recsys",

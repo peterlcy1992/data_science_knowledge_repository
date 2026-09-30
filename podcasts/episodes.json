@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 28,
+  "next_episode": 29,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -299,6 +299,17 @@
       "cover": "podcasts/2026-09-29-grab-bench-evaluating-ai-production-work.cover.png",
       "rss_status": "draft",
       "rss_episode_id": 3193800
+    },
+    {
+      "episode": 28,
+      "season": 1,
+      "date": "2026-09-30",
+      "title": "Databricks \u2014 Teaching a Search Agent When to Stop",
+      "description": "A deep dive into how Databricks trained a retrieval agent to decide when it has searched enough. Single-step retrieval is fast but weak on multi-hop questions; sequential multi-step search is accurate but slow. Databricks trains the agent with online reinforcement learning (CISPO, a clipped importance-sampling policy optimisation objective) using a reward that balances trajectory quality against search cost, adds synthetic multi-hop questions to the training mix, and caps the number of sequential steps so latency stays bounded. Training yields a Pareto frontier of checkpoints for tuning the quality-latency trade-off. Databricks reports a 5.8-second average response time, more than 2x faster than several frontier models while matching them on retrieval benchmarks \u2014 vendor-run numbers worth treating as directional.\n\nSource article: \"Adaptive Instructed-Retriever: Frontier-Quality Search at 2x Lower Latency\" \u2014 Databricks Blog, https://www.databricks.com/blog/adaptive-instructed-retriever-frontier-quality-search-2x-lower-latency (published 2026-09).",
+      "audio": "podcasts/2026-09-30-databricks-adaptive-instructed-retriever.m4a",
+      "cover": "podcasts/2026-09-30-databricks-adaptive-instructed-retriever.cover.png",
+      "rss_status": "draft",
+      "rss_episode_id": 3196847
     }
   ]
 }

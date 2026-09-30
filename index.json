@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-29",
+  "updated": "2026-09-30",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,65 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "instacart-variance-reduction-below-randomization-grain",
+      "title": "Variance Reduction Below the Randomization Grain",
+      "source": "Instacart Tech Blog",
+      "url": "https://tech.instacart.com/variance-reduction-below-the-randomization-grain-31719f87a7d2",
+      "published": "2026",
+      "added": "2026-09-30",
+      "category": "experimentation-causal",
+      "tags": [
+        "variance-reduction",
+        "cuped",
+        "cluster-randomization",
+        "marketplace",
+        "spillover"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-09-30-instacart-variance-reduction-below-randomization-grain.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "statsig-z-test-non-normal-ab-tests",
+      "title": "Why is it OK to run a z-test on a non-normal distribution for A/B tests?",
+      "source": "Statsig Blog (Viv Magida)",
+      "url": "https://www.statsig.com/blog/z-test-on-non-normal-distribution",
+      "published": "2026-08",
+      "added": "2026-09-30",
+      "category": "statistical-modeling",
+      "tags": [
+        "z-test",
+        "central-limit-theorem",
+        "ab-testing",
+        "skewed-metrics"
+      ],
+      "novelty": 2,
+      "file": "articles/2026-09-30-statsig-z-test-non-normal-ab-tests.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-variance-reduction-pre-and-in-experiment-etsy",
+      "title": "Variance Reduction Combining Pre-Experiment and In-Experiment Data",
+      "source": "arXiv / CLeaR 2026 (Lin, Crespo — Etsy)",
+      "url": "https://arxiv.org/abs/2410.09027",
+      "published": "2026-03",
+      "added": "2026-09-30",
+      "category": "experimentation-causal",
+      "tags": [
+        "variance-reduction",
+        "cuped",
+        "cupac",
+        "post-treatment-covariates",
+        "ab-testing"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-09-30-arxiv-variance-reduction-pre-and-in-experiment-etsy.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
     {
       "id": "arxiv-rerandomization-under-interference",
       "title": "Rerandomization under Interference",
@@ -134,7 +193,7 @@
       ],
       "novelty": 3,
       "file": "articles/2026-09-29-databricks-adaptive-instructed-retriever.md",
-      "deep_dived_on": null,
+      "deep_dived_on": "2026-09-30",
       "sourced_via": "web search",
       "discovered_via": "Snacks Weekly on Data Science podcast"
     },

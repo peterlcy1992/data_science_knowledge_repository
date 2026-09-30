@@ -1,0 +1,5 @@
+# Databricks — Teaching a Search Agent When to Stop
+
+A deep dive into how Databricks trained a retrieval agent to decide when it has searched enough. Single-step retrieval is fast but weak on multi-hop questions; sequential multi-step search is accurate but slow. Databricks trains the agent with online reinforcement learning (CISPO, a clipped importance-sampling policy optimisation objective) using a reward that balances trajectory quality against search cost, adds synthetic multi-hop questions to the training mix, and caps the number of sequential steps so latency stays bounded. Training yields a Pareto frontier of checkpoints for tuning the quality-latency trade-off. Databricks reports a 5.8-second average response time, more than 2x faster than several frontier models while matching them on retrieval benchmarks — vendor-run numbers worth treating as directional.
+
+Source article: "Adaptive Instructed-Retriever: Frontier-Quality Search at 2x Lower Latency" — Databricks Blog, https://www.databricks.com/blog/adaptive-instructed-retriever-frontier-quality-search-2x-lower-latency (published 2026-09).
