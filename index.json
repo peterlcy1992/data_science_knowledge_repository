@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-30",
+  "updated": "2026-10-01",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,106 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-covariate-selection-doubly-robust-dml",
+      "title": "Covariate Selection for Doubly Robust Double/debiased Machine Learning Estimators for Causal Inference",
+      "source": "arXiv (Kwon, Steiner)",
+      "url": "https://arxiv.org/abs/2609.17238",
+      "published": "2026-09",
+      "added": "2026-10-01",
+      "category": "statistical-modeling",
+      "tags": [
+        "causal-inference",
+        "doubly-robust",
+        "covariate-selection",
+        "lasso",
+        "double-machine-learning"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-01-arxiv-covariate-selection-doubly-robust-dml.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-policy-overlap-accelerating-ab-tests",
+      "title": "Accelerating A/B-Tests with Counterfactual Estimation: Reducing Variance through Policy Overlap",
+      "source": "arXiv (Olivier Jeunen)",
+      "url": "https://arxiv.org/abs/2607.14604",
+      "published": "2026-07",
+      "added": "2026-10-01",
+      "category": "experimentation-causal",
+      "tags": [
+        "variance-reduction",
+        "off-policy-estimation",
+        "recsys-evaluation",
+        "ab-testing",
+        "delta-estimator"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-01-arxiv-policy-overlap-accelerating-ab-tests.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "statsig-multiple-comparisons-more-problems",
+      "title": "Multiple comparisons: More comparisons, more problems",
+      "source": "Statsig Blog (Matthew Rogers)",
+      "url": "https://www.statsig.com/blog/more-comparisons-more-problems",
+      "published": "2026-09",
+      "added": "2026-10-01",
+      "category": "experimentation-causal",
+      "tags": [
+        "multiple-comparisons",
+        "bonferroni",
+        "benjamini-hochberg",
+        "false-discovery-rate",
+        "ab-testing"
+      ],
+      "novelty": 2,
+      "file": "articles/2026-10-01-statsig-multiple-comparisons-more-problems.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-recsys-factory-bounded-llm-agent-autonomy",
+      "title": "RecSys Factory: Bounding LLM Agent Autonomy to Decision Points in the Industrial Recommender Lifecycle",
+      "source": "arXiv (Tencent; Ao, Fang, Xu)",
+      "url": "https://arxiv.org/abs/2608.11241",
+      "published": "2026-07",
+      "added": "2026-10-01",
+      "category": "ml-infra-serving",
+      "tags": [
+        "agents",
+        "recsys-lifecycle",
+        "human-in-the-loop",
+        "pitfall-store",
+        "mlops"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-01-arxiv-recsys-factory-bounded-llm-agent-autonomy.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-ab-agent-self-evolving-strategy-iteration",
+      "title": "A/B Agent: A Self-Evolving Agent for Strategy Iteration in Industrial A/B Testing",
+      "source": "arXiv (Kuaishou E-commerce; Jiang et al.)",
+      "url": "https://arxiv.org/abs/2608.04625",
+      "published": "2026-08",
+      "added": "2026-10-01",
+      "category": "llm-genai",
+      "tags": [
+        "agents",
+        "ab-testing",
+        "recsys-strategy",
+        "tree-rag",
+        "self-evolution"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-01-arxiv-ab-agent-self-evolving-strategy-iteration.md",
+      "deep_dived_on": "2026-10-01",
+      "sourced_via": "web search"
+    },
     {
       "id": "instacart-variance-reduction-below-randomization-grain",
       "title": "Variance Reduction Below the Randomization Grain",

@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 29,
+  "next_episode": 30,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -310,6 +310,17 @@
       "cover": "podcasts/2026-09-30-databricks-adaptive-instructed-retriever.cover.png",
       "rss_status": "draft",
       "rss_episode_id": 3196847
+    },
+    {
+      "episode": 29,
+      "season": 1,
+      "date": "2026-10-01",
+      "title": "Kuaishou E-commerce \u2014 An Agent That Learns From Its Own A/B Tests",
+      "description": "A deep dive into A/B Agent, a self-evolving LLM agent for iterating recommendation strategies. Researchers at Kuaishou E-commerce organise past strategies into a hierarchical experience tree keyed by business scenario, recommendation stage and optimisation objective, use multi-path Tree-RAG retrieval to generate new actionable strategies, and then refine parameters and knowledge from continuous A/B feedback. They built an industrial benchmark from 310 historical strategies across three scenarios and report a 4.829% GMV improvement on a short-video e-commerce platform with guardrail metrics staying positive \u2014 author-reported numbers, with limited experiment-design detail.\n\nSource article: \"A/B Agent: A Self-Evolving Agent for Strategy Iteration in Industrial A/B Testing\" \u2014 arXiv (Jiang et al.), https://arxiv.org/abs/2608.04625 (published 2026-08).",
+      "audio": "podcasts/2026-10-01-arxiv-ab-agent-self-evolving-strategy-iteration.m4a",
+      "cover": "podcasts/2026-10-01-arxiv-ab-agent-self-evolving-strategy-iteration.cover.png",
+      "rss_status": "draft",
+      "rss_episode_id": 3199478
     }
   ]
 }
