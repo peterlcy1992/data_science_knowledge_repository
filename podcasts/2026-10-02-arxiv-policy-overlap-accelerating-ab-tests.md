@@ -1,0 +1,5 @@
+# Jeunen (arXiv) — Faster A/B Tests by Ignoring Where Policies Agree
+
+A deep dive into a method for speeding up A/B tests of recommender, retrieval and LLM-interface policies. Olivier Jeunen observes that when the treatment and control policies choose the same action, the outcome adds noise but no information about the treatment effect. Treating randomisation as a meta-policy and applying delta off-policy estimators gives an unbiased estimator whose variance scales with how much the two policies diverge rather than with raw outcome variance. Limitations include weak overlap in practice, propensity-estimation trade-offs, and degraded performance when policies diverge substantially. The summarised reports describe variance reductions on synthetic and semi-synthetic benchmarks only; no production deployment is reported.
+
+Source article: "Accelerating A/B-Tests with Counterfactual Estimation: Reducing Variance through Policy Overlap" — arXiv (Olivier Jeunen), https://arxiv.org/abs/2607.14604 (published 2026-07).

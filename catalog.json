@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-30",
+  "updated": "2026-10-02",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -74,14 +74,6 @@
       "category": "llm-genai",
       "hook": "Coupang engineering's account of scaling LLM adoption across search, ads, catalog, and recommendations, moving from classical ML to LLM-driven workflows.",
       "url": "https://medium.com/coupang-engineering/accelerating-coupangs-ai-journey-with-llms-2817d55004d3"
-    },
-    {
-      "id": "aws-agentcore-evaluations-framework-agnostic",
-      "company": "AWS",
-      "title": "Evaluate Any Agent Framework with Amazon Bedrock AgentCore Evaluations",
-      "category": "llm-genai",
-      "hook": "Decouples agent evaluation from the agent framework by scoring any agent that emits OpenTelemetry telemetry (LangGraph, LlamaIndex, OpenAI Agents SDK, Google ADK, Claude Agent SDK, Strands).",
-      "url": "https://aws.amazon.com/blogs/machine-learning/evaluate-any-agent-framework-with-amazon-bedrock-agentcore-evaluations/"
     },
     {
       "id": "coinbase-slack-ai-coworkers",
