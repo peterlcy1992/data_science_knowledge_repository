@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 31,
+  "next_episode": 32,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -332,6 +332,17 @@
       "cover": "podcasts/2026-10-02-arxiv-policy-overlap-accelerating-ab-tests.cover.png",
       "rss_status": "draft",
       "rss_episode_id": 3202477
+    },
+    {
+      "episode": 31,
+      "season": 1,
+      "date": "2026-10-05",
+      "title": "Stanford & Marketplace Researchers \u2014 Rerandomizing Switchback Experiments",
+      "description": "Platforms often can't randomize individual users, so they switch whole regions or markets between treatment and control over time \u2014 but few units, heterogeneity, non-stationarity and carryover make those tests noisy. This episode walks through Sequentially-Rerandomized Switchback (SRSB): treatment is re-randomized at each time step while staying balanced on covariates derived from history, with finite-sample and asymptotic inference, plus a blocked variant that rerandomizes within strata defined by the previous treatment to handle carryover. Reported evidence is simulation-based; no production results are given in the abstract.\n\nSource article: \"Sequentially-Rerandomized Switchback Experiments\" \u2014 arXiv (Zeng, Adjaho, Bucarey, Qin, Zhang, Hoban, Johari, Wager), https://arxiv.org/abs/2604.02489 (published 2026-04).",
+      "audio": "podcasts/2026-10-05-arxiv-sequentially-rerandomized-switchback.m4a",
+      "cover": "podcasts/2026-10-05-arxiv-sequentially-rerandomized-switchback.cover.png",
+      "rss_status": "draft",
+      "rss_episode_id": 3208675
     }
   ]
 }

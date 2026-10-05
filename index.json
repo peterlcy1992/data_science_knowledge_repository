@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-02",
+  "updated": "2026-10-05",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,66 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-cluster-switchback-airline-pricing",
+      "title": "Cluster-Level Experiments using Temporal Switchback Designs",
+      "source": "arXiv (Ferrari-Ortiz, Orellana-Montini, Abbiasov, Garkavenko, Lit)",
+      "url": "https://arxiv.org/abs/2603.04252",
+      "published": "2026-03",
+      "added": "2026-10-05",
+      "category": "experimentation-causal",
+      "tags": [
+        "switchback",
+        "cluster-experiments",
+        "two-way-fixed-effects",
+        "airline-pricing",
+        "power"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-05-arxiv-cluster-switchback-airline-pricing.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-randomization-tests-switchback",
+      "title": "Randomization Tests in Switchback Experiments",
+      "source": "arXiv (Jizhou Liu, Liang Zhong)",
+      "url": "https://arxiv.org/abs/2602.23257",
+      "published": "2026-02",
+      "added": "2026-10-05",
+      "category": "experimentation-causal",
+      "tags": [
+        "switchback",
+        "randomization-test",
+        "carryover",
+        "inference",
+        "rideshare"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-05-arxiv-randomization-tests-switchback.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-sequentially-rerandomized-switchback",
+      "title": "Sequentially-Rerandomized Switchback Experiments",
+      "source": "arXiv (Zeng, Adjaho, Bucarey, Qin, Zhang, Hoban, Johari, Wager)",
+      "url": "https://arxiv.org/abs/2604.02489",
+      "published": "2026-04",
+      "added": "2026-10-05",
+      "category": "experimentation-causal",
+      "tags": [
+        "switchback",
+        "rerandomization",
+        "interference",
+        "carryover",
+        "marketplace-experiments"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-05-arxiv-sequentially-rerandomized-switchback.md",
+      "deep_dived_on": "2026-10-05",
+      "sourced_via": "web search"
+    },
     {
       "id": "arxiv-rt-sc-did-staggered-synthetic-control",
       "title": "Risk-Set Transported Synthetic Control with Difference-in-Differences Adjustment under Staggered Treatment Adoption",
