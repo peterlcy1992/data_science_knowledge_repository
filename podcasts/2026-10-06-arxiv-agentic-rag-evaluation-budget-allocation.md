@@ -1,0 +1,3 @@
+# Agentic RAG Evaluation — More Questions Beat More Repeats
+
+A deep dive into how to spend a fixed token budget when evaluating an agentic RAG system. Using generalizability theory on HotpotQA and MuSiQue, the authors split evaluation variance into question, trajectory and read components, and find that at roughly 34 million tokens broader question coverage lowers standard error by 33% versus five reads and 12.6% versus three trajectories, while setting temperature to zero cuts answer disagreement from 14.3% to 3.4%. Source article: "Agentic RAG Evaluation: Budget Allocation Across Questions, Trajectories, and Reads" — arXiv (Jingjie Ning, Xueqi Li, Yibo Kong), https://arxiv.org/abs/2610.05034 (published 2026-10).

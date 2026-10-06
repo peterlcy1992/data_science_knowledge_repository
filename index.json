@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-05",
+  "updated": "2026-10-06",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,126 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-averaging-alternative-pretrend-testing",
+      "title": "An Averaging Alternative to Pre-Trend Testing",
+      "source": "arXiv (Nicholas L. Brown, Qiushi Bu)",
+      "url": "https://arxiv.org/abs/2610.05705",
+      "published": "2026-10",
+      "added": "2026-10-06",
+      "category": "experimentation-causal",
+      "tags": [
+        "difference-in-differences",
+        "pre-trend-testing",
+        "model-averaging",
+        "parallel-trends",
+        "post-selection-inference"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-06-arxiv-averaging-alternative-pretrend-testing.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-synthetic-control-out-of-span-shocks",
+      "title": "Synthetic Control under Out-of-Span Common Shocks: Diagnosis, Exposure Balance and Correction",
+      "source": "arXiv (Rok Spruk)",
+      "url": "https://arxiv.org/abs/2610.05535",
+      "published": "2026-10",
+      "added": "2026-10-06",
+      "category": "experimentation-causal",
+      "tags": [
+        "synthetic-control",
+        "common-shocks",
+        "bias-bound",
+        "exposure-balance",
+        "sensitivity"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-06-arxiv-synthetic-control-out-of-span-shocks.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-bayesian-reconciliation-overlapping-forecasts",
+      "title": "Bayesian Reconciliation of Overlapping Multi-Step Forecasts: A Post-Processing Framework for Cross-Origin Coherence",
+      "source": "arXiv (Fajana, Ehlers, Andrade)",
+      "url": "https://arxiv.org/abs/2610.05340",
+      "published": "2026-10",
+      "added": "2026-10-06",
+      "category": "forecasting-timeseries",
+      "tags": [
+        "forecast-reconciliation",
+        "state-space",
+        "bayesian",
+        "multi-step-forecasts",
+        "prediction-intervals"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-06-arxiv-bayesian-reconciliation-overlapping-forecasts.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-agentic-rag-evaluation-budget-allocation",
+      "title": "Agentic RAG Evaluation: Budget Allocation Across Questions, Trajectories, and Reads",
+      "source": "arXiv (Jingjie Ning, Xueqi Li, Yibo Kong)",
+      "url": "https://arxiv.org/abs/2610.05034",
+      "published": "2026-10",
+      "added": "2026-10-06",
+      "category": "llm-genai",
+      "tags": [
+        "llm-evaluation",
+        "generalizability-theory",
+        "variance-components",
+        "agentic-rag",
+        "measurement"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-06-arxiv-agentic-rag-evaluation-budget-allocation.md",
+      "deep_dived_on": "2026-10-06",
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-agentic-retrieval-performance-costs",
+      "title": "Beyond Semantic Similarity: Performance and Costs of Agentic Retrieval for Complex Tasks",
+      "source": "arXiv (Esfandiarpoor et al., NVIDIA)",
+      "url": "https://arxiv.org/abs/2610.05750",
+      "published": "2026-10",
+      "added": "2026-10-06",
+      "category": "search-ranking",
+      "tags": [
+        "agentic-retrieval",
+        "ReAct",
+        "nDCG",
+        "latency-cost",
+        "BRIGHT"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-06-arxiv-agentic-retrieval-performance-costs.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "databricks-genie-tabpfn-predictive-bi",
+      "title": "From \"What Happened?\" to \"What Will Happen?\": Genie + TabPFN for conversational predictive BI",
+      "source": "Databricks (Yoshimatsu, Poveda Panter, Safaric, Singer et al.)",
+      "url": "https://www.databricks.com/blog/what-happened-what-will-happen",
+      "published": "2026-05",
+      "added": "2026-10-06",
+      "category": "ml-infra-serving",
+      "tags": [
+        "tabpfn",
+        "genie",
+        "agent-bricks",
+        "predictive-analytics",
+        "mlflow-evaluation"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-06-databricks-genie-tabpfn-predictive-bi.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
     {
       "id": "arxiv-cluster-switchback-airline-pricing",
       "title": "Cluster-Level Experiments using Temporal Switchback Designs",

@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 32,
+  "next_episode": 33,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -343,6 +343,17 @@
       "cover": "podcasts/2026-10-05-arxiv-sequentially-rerandomized-switchback.cover.png",
       "rss_status": "draft",
       "rss_episode_id": 3208675
+    },
+    {
+      "episode": 32,
+      "season": 1,
+      "date": "2026-10-06",
+      "title": "Agentic RAG Evaluation \u2014 More Questions Beat More Repeats",
+      "description": "A deep dive into how to spend a fixed token budget when evaluating an agentic RAG system. Using generalizability theory on HotpotQA and MuSiQue, the authors split evaluation variance into question, trajectory and read components, and find that at roughly 34 million tokens broader question coverage lowers standard error by 33% versus five reads and 12.6% versus three trajectories, while setting temperature to zero cuts answer disagreement from 14.3% to 3.4%. Source article: \"Agentic RAG Evaluation: Budget Allocation Across Questions, Trajectories, and Reads\" \u2014 arXiv (Jingjie Ning, Xueqi Li, Yibo Kong), https://arxiv.org/abs/2610.05034 (published 2026-10).",
+      "audio": "podcasts/2026-10-06-arxiv-agentic-rag-evaluation-budget-allocation.m4a",
+      "cover": "podcasts/2026-10-06-arxiv-agentic-rag-evaluation-budget-allocation.cover.png",
+      "rss_status": "draft",
+      "rss_episode_id": 3212324
     }
   ]
 }
