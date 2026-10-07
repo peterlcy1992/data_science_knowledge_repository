@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-06",
+  "updated": "2026-10-07",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,106 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-design-driven-inference-online-experiments",
+      "title": "Design-Driven Inference for Online Experiments",
+      "source": "arXiv (Jun Yu, Wenbiao Zhao, Lixing Zhu et al.)",
+      "url": "https://arxiv.org/abs/2610.07831",
+      "published": "2026-10",
+      "added": "2026-10-07",
+      "category": "experimentation-causal",
+      "tags": [
+        "multifactorial-experiments",
+        "e-values",
+        "anytime-valid",
+        "sequential-testing",
+        "optimal-design"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-07-arxiv-design-driven-inference-online-experiments.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-noise-is-the-signal-proxy-metrics",
+      "title": "The Noise Is the Signal: Correlated Sampling Error Is Rank-Informative",
+      "source": "arXiv (Sandro Provenzano)",
+      "url": "https://arxiv.org/abs/2610.08194",
+      "published": "2026-10",
+      "added": "2026-10-07",
+      "category": "product-analytics",
+      "tags": [
+        "proxy-metrics",
+        "north-star-metric",
+        "shared-sampling-error",
+        "ab-testing",
+        "metric-selection"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-07-arxiv-noise-is-the-signal-proxy-metrics.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-airbnb-gift-card-incrementality-data-fusion",
+      "title": "Measuring Gift Card Program Incrementality via Causal Data Fusion",
+      "source": "arXiv (Whitehouse, Betz, Zhang, Coles, Johari, Syrgkanis)",
+      "url": "https://arxiv.org/abs/2610.08558",
+      "published": "2026-10",
+      "added": "2026-10-07",
+      "category": "experimentation-causal",
+      "tags": [
+        "data-fusion",
+        "incrementality",
+        "observational-plus-experimental",
+        "airbnb",
+        "heterogeneous-effects"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-07-arxiv-airbnb-gift-card-incrementality-data-fusion.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-trustworthy-method-comparison-ai-judges",
+      "title": "Trustworthy Method Comparison with AI Judges: Estimation and Design under Order, Batch, and Aggregation Effects",
+      "source": "arXiv (Tianxi Li, Jie Ding)",
+      "url": "https://arxiv.org/abs/2610.07755",
+      "published": "2026-10",
+      "added": "2026-10-07",
+      "category": "statistical-modeling",
+      "tags": [
+        "llm-as-judge",
+        "generalized-linear-mixed-models",
+        "evaluation-design",
+        "williams-design",
+        "order-effects"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-07-arxiv-trustworthy-method-comparison-ai-judges.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-token-budgeted-escalation-financial-qa",
+      "title": "Token-Budgeted Escalation for Financial Document QA",
+      "source": "arXiv (Junru Zhu, Yixin Yang, Xiaoqing Ding, Ruoyu Qi)",
+      "url": "https://arxiv.org/abs/2610.07760",
+      "published": "2026-10",
+      "added": "2026-10-07",
+      "category": "llm-genai",
+      "tags": [
+        "rag",
+        "token-budget",
+        "escalation",
+        "cost-benefit",
+        "financebench"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-07-arxiv-token-budgeted-escalation-financial-qa.md",
+      "deep_dived_on": "2026-10-07",
+      "sourced_via": "web search"
+    },
     {
       "id": "arxiv-averaging-alternative-pretrend-testing",
       "title": "An Averaging Alternative to Pre-Trend Testing",

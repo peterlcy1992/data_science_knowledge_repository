@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 33,
+  "next_episode": 34,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -354,6 +354,17 @@
       "cover": "podcasts/2026-10-06-arxiv-agentic-rag-evaluation-budget-allocation.cover.png",
       "rss_status": "draft",
       "rss_episode_id": 3212324
+    },
+    {
+      "episode": 33,
+      "season": 1,
+      "date": "2026-10-07",
+      "title": "Token-Budgeted Escalation \u2014 Predicting Cost Is Easy, Predicting Benefit Is Hard",
+      "description": "A deep dive into how to spend a limited token budget in retrieval-augmented question answering over financial documents. On 150 FinanceBench questions, the authors start with top-1 retrieval and escalate selected queries to top-5, ranking them by predicted benefit-to-cost ratio. Extra-call cost is highly predictable (R-squared 0.93), but predicting which queries actually benefit is hard (AUROC 0.60). At a 10% token budget, gain-per-token prioritization improved answer quality by 0.034 points while using 46.6% fewer tokens than uniform top-5 retrieval. Source article: \"Token-Budgeted Escalation for Financial Document QA\" \u2014 arXiv (Junru Zhu, Yixin Yang, Xiaoqing Ding, Ruoyu Qi), https://arxiv.org/abs/2610.07760 (published 2026-10).",
+      "audio": "podcasts/2026-10-07-arxiv-token-budgeted-escalation-financial-qa.m4a",
+      "cover": "podcasts/2026-10-07-arxiv-token-budgeted-escalation-financial-qa.cover.png",
+      "rss_status": "draft",
+      "rss_episode_id": 3215362
     }
   ]
 }
