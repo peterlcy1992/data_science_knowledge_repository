@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-07",
+  "updated": "2026-10-08",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,48 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "etsy-variance-reduction-pre-and-in-experiment-data",
+      "title": "Variance reduction combining pre-experiment and in-experiment data",
+      "source": "CLeaR 2026 / PMLR 323 (Zhexiao Lin, UC Berkeley; Pablo Crespo, Etsy)",
+      "url": "https://proceedings.mlr.press/v323/lin26a.html",
+      "published": "2026",
+      "added": "2026-10-08",
+      "category": "experimentation-causal",
+      "tags": [
+        "cuped",
+        "cupac",
+        "variance-reduction",
+        "post-treatment-covariates",
+        "regression-adjustment",
+        "etsy"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-08-etsy-variance-reduction-pre-and-in-experiment-data.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "pinterest-llm-relevance-assessment-search-evaluation",
+      "title": "LLM-based Relevance Assessment for Web-Scale Search Evaluation at Pinterest",
+      "source": "arXiv / Pinterest Search (Han Wang, Alex Whitworth, Pak Ming Cheung, Zhenjie Zhang, Krishna Kamath)",
+      "url": "https://arxiv.org/abs/2509.03764",
+      "published": "2025-09",
+      "added": "2026-10-08",
+      "category": "search-ranking",
+      "tags": [
+        "llm-as-judge",
+        "relevance-evaluation",
+        "minimum-detectable-effect",
+        "stratified-sampling",
+        "online-experiments",
+        "pinterest"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-08-pinterest-llm-relevance-assessment-search-evaluation.md",
+      "deep_dived_on": "2026-10-08",
+      "sourced_via": "full-text fetch"
+    },
     {
       "id": "arxiv-design-driven-inference-online-experiments",
       "title": "Design-Driven Inference for Online Experiments",
