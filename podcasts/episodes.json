@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 35,
+  "next_episode": 36,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -376,6 +376,17 @@
       "cover": "podcasts/2026-10-08-pinterest-llm-relevance-assessment-search-evaluation.cover.png",
       "rss_status": "draft",
       "rss_episode_id": 3218072
+    },
+    {
+      "episode": 35,
+      "season": 1,
+      "date": "2026-10-09",
+      "title": "Etsy \u2014 Using Post-Treatment Data to Sharpen A/B Tests",
+      "description": "A deep dive into a CLeaR 2026 paper from UC Berkeley and Etsy on getting more sensitivity out of A/B tests. CUPED and its ML cousin CUPAC adjust using only pre-experiment data, which is weak for new users and session-driven outcomes, and practitioners usually avoid in-experiment variables for fear of post-treatment bias. The authors add a second-stage linear adjustment on a vetted set of post-treatment covariates that are statistically balanced across arms, a condition they call mean equivalence and, unlike surrogacy assumptions, can be tested. We cover the estimator, how candidate covariates are screened, and the Etsy evaluation on 29 experiments with 23 post-treatment covariates versus 117 pre-treatment ones, plus the caveats about interventions that might shift a screened covariate. Source article: \"Variance reduction combining pre-experiment and in-experiment data\" \u2014 CLeaR 2026 / PMLR 323 (Zhexiao Lin, UC Berkeley; Pablo Crespo, Etsy), https://proceedings.mlr.press/v323/lin26a.html (published 2026).",
+      "audio": "podcasts/2026-10-09-etsy-variance-reduction-pre-and-in-experiment-data.m4a",
+      "cover": "podcasts/2026-10-09-etsy-variance-reduction-pre-and-in-experiment-data.cover.png",
+      "rss_status": "draft",
+      "rss_episode_id": 3220349
     }
   ]
 }

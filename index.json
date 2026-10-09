@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-08",
+  "updated": "2026-10-09",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,126 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-blocking-online-experiments-skewed-data",
+      "title": "On the Benefit of Blocking for Online Experiments with Skewed Data",
+      "source": "arXiv stat.AP (Zaidi, Reimherr, Friedberg, Martinez, Mudd)",
+      "url": "https://arxiv.org/abs/2610.10435",
+      "published": "2026-10",
+      "added": "2026-10-09",
+      "category": "experimentation-causal",
+      "tags": [
+        "blocking",
+        "stratified-randomization",
+        "winsorization",
+        "skewed-metrics",
+        "variance-reduction"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-09-arxiv-blocking-online-experiments-skewed-data.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-neutral-launches-expected-bayesian-loss",
+      "title": "Neutral Is Not Free: Evaluating Downside Risk in Neutral Launches",
+      "source": "arXiv stat.AP (Alcain, Kang, Garrard, Veits, Nassif, Zaidi)",
+      "url": "https://arxiv.org/abs/2610.10223",
+      "published": "2026-10",
+      "added": "2026-10-09",
+      "category": "experimentation-causal",
+      "tags": [
+        "guardrail-metrics",
+        "non-inferiority",
+        "expected-loss",
+        "neutral-launches",
+        "decision-theory"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-09-arxiv-neutral-launches-expected-bayesian-loss.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-prediction-powered-data-fusion-treatment-effects",
+      "title": "Prediction-Powered Data Fusion for Treatment Effect Estimation",
+      "source": "arXiv stat.ML (Yonghan Jung, Shu Yang)",
+      "url": "https://arxiv.org/abs/2610.12332",
+      "published": "2026-10",
+      "added": "2026-10-09",
+      "category": "experimentation-causal",
+      "tags": [
+        "data-fusion",
+        "rct-plus-observational",
+        "prediction-powered-inference",
+        "cate",
+        "aipw"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-09-arxiv-prediction-powered-data-fusion-treatment-effects.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-bayesjudge-bayesian-meta-evaluation",
+      "title": "BayesJudge: Uncertainty-Aware Bayesian Meta-Evaluation of Human and LLM Judgments",
+      "source": "arXiv stat.AP (Zhang, Feng, Meng, He, Hao)",
+      "url": "https://arxiv.org/abs/2610.11116",
+      "published": "2026-10",
+      "added": "2026-10-09",
+      "category": "statistical-modeling",
+      "tags": [
+        "llm-as-judge",
+        "bayesian",
+        "rater-reliability",
+        "position-bias",
+        "sequential-monte-carlo"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-09-arxiv-bayesjudge-bayesian-meta-evaluation.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-llm-page-layout-decisions-ecommerce-search",
+      "title": "Language Models for Page-Level Layout Decisions in E-commerce Search",
+      "source": "arXiv cs.LG / RecSys 2026 OARS workshop (Joshi, Song, Zhai)",
+      "url": "https://arxiv.org/abs/2610.10920",
+      "published": "2026-10",
+      "added": "2026-10-09",
+      "category": "search-ranking",
+      "tags": [
+        "offline-evaluation",
+        "llm-as-judge",
+        "page-layout",
+        "embeddings",
+        "ecommerce-search"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-09-arxiv-llm-page-layout-decisions-ecommerce-search.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-backbone-evolution-llm-relevance-assessments",
+      "title": "The Impact of Backbone Evolution on LLM-Based Relevance Assessments",
+      "source": "arXiv cs.IR (Yu, Zuccon, Leelanupab)",
+      "url": "https://arxiv.org/abs/2610.09820",
+      "published": "2026-10",
+      "added": "2026-10-09",
+      "category": "search-ranking",
+      "tags": [
+        "llm-as-judge",
+        "relevance-judgments",
+        "umbrela",
+        "exam",
+        "model-drift"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-09-arxiv-backbone-evolution-llm-relevance-assessments.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
     {
       "id": "etsy-variance-reduction-pre-and-in-experiment-data",
       "title": "Variance reduction combining pre-experiment and in-experiment data",
@@ -33,7 +153,7 @@
       ],
       "novelty": 4,
       "file": "articles/2026-10-08-etsy-variance-reduction-pre-and-in-experiment-data.md",
-      "deep_dived_on": null,
+      "deep_dived_on": "2026-10-09",
       "sourced_via": "full-text fetch"
     },
     {
