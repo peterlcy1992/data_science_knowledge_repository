@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-09",
+  "updated": "2026-10-12",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,87 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "uber-cart-assistant-agentic-grocery-shopping",
+      "title": "Cart Assistant: Agentic Grocery Shopping on Uber Eats",
+      "source": "Uber Engineering Blog",
+      "url": "https://www.uber.com/us/en/blog/uber-cart-assistant/",
+      "published": "2026-06",
+      "added": "2026-10-12",
+      "category": "llm-genai",
+      "tags": [
+        "agents",
+        "structured-output",
+        "llm-judge",
+        "grocery",
+        "guardrails"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-12-uber-cart-assistant-agentic-grocery-shopping.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "instacart-covariate-adjustment-power-analysis-clustered-data",
+      "title": "Unlocking 66% Faster Experiments with Covariate Adjustment: Power Analysis for Clustered Data, Ratio Metrics, and OLS Regression",
+      "source": "Instacart Tech Blog (Tim Hesterberg, Benjamin Knight)",
+      "url": "https://tech.instacart.com/unlocking-66-faster-experiments-with-covariate-adjustment-power-analysis-for-clustered-data-3a0c11c7baa6",
+      "published": "2024-06",
+      "added": "2026-10-12",
+      "category": "experimentation-causal",
+      "tags": [
+        "covariate-adjustment",
+        "power-analysis",
+        "clustered-standard-errors",
+        "ratio-metrics",
+        "ols"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-12-instacart-covariate-adjustment-power-analysis-clustered-data.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-timesfm-day-ahead-electricity-university-building",
+      "title": "Machine Learning and Time-Series Foundation Models for Day-Ahead Electricity Forecasting in a University Building",
+      "source": "arXiv cs.LG (Vasulkar, Kernan Freire, de Leeuw, Salcedo-Rahola)",
+      "url": "https://arxiv.org/abs/2610.12638",
+      "published": "2026-10",
+      "added": "2026-10-12",
+      "category": "forecasting-timeseries",
+      "tags": [
+        "timesfm",
+        "xgboost",
+        "day-ahead-forecasting",
+        "seasonal-naive",
+        "covariates"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-12-arxiv-timesfm-day-ahead-electricity-university-building.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-tsfm-load-forecasting-covariate-uncertainty",
+      "title": "Benchmarking Time Series Foundation Models for Load Forecasting Under Covariate Uncertainty",
+      "source": "arXiv cs.LG (Kaljevic, Arzola, Zhang)",
+      "url": "https://arxiv.org/abs/2610.07232",
+      "published": "2026-10",
+      "added": "2026-10-12",
+      "category": "forecasting-timeseries",
+      "tags": [
+        "time-series-foundation-models",
+        "load-forecasting",
+        "covariates",
+        "chronos-2",
+        "benchmark"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-12-arxiv-tsfm-load-forecasting-covariate-uncertainty.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
     {
       "id": "arxiv-blocking-online-experiments-skewed-data",
       "title": "On the Benefit of Blocking for Online Experiments with Skewed Data",
@@ -52,7 +133,7 @@
       ],
       "novelty": 4,
       "file": "articles/2026-10-09-arxiv-neutral-launches-expected-bayesian-loss.md",
-      "deep_dived_on": null,
+      "deep_dived_on": "2026-10-12",
       "sourced_via": "web search"
     },
     {
