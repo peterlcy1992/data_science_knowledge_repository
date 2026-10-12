@@ -288,17 +288,30 @@ best-effort — never fail the run over it. The audio lives in the podcast show
    knowledge bank — the podcast audience can't see it.
 
 2. **Manifest.** Append an entry to [`podcasts/episodes.json`](podcasts/episodes.json)
-   (the manifest `automation/rss_upload.py` reads). Use `next_episode` for the
-   `episode` number, then increment `next_episode`. Fields:
-   `{ "episode": N, "season": 1, "date": "<YYYY-MM-DD>", "title": "...",
-   "description": "...", "audio": "podcasts/<YYYY-MM-DD>-<id>.m4a",
-   "cover": "podcasts/<YYYY-MM-DD>-<id>.cover.png", "rss_status": "not_uploaded" }`.
-   Keep `title`/`description` identical to the sidecar `.md`.
+   (the manifest `automation/rss_upload.py` reads). The global `episode` number
+   (`next_episode`) is the permanent unique key; **also** record the season and
+   the per-season number for the "S#E#" badge:
+   - `episode` = `next_episode` (global running count), then increment `next_episode`.
+   - `season` = the season of this global number, from the top-level `season_starts`
+     array (the largest index `i` with `season_starts[i-1] <= episode`). A new
+     season starts only when the **owner** appends a new global start to
+     `season_starts`; otherwise reuse the current (last) season.
+   - `season_episode` = `episode - season_starts[season-1] + 1` (resets to 1 each
+     new season). Keep the top-level `season` equal to the current season.
+   Fields:
+   `{ "episode": N, "season": S, "season_episode": E, "date": "<YYYY-MM-DD>",
+   "title": "...", "description": "...", "audio": "podcasts/<YYYY-MM-DD>-<id>.m4a",
+   "cover": "podcasts/<YYYY-MM-DD>-<id>.cover.png", "rss_status": "not_uploaded",
+   "cover_company": "...", "cover_title": "...", "cover_overline": "...",
+   "cover_subtitle": "...", "cover_motif": "signal" }`.
+   Keep `title`/`description` identical to the sidecar `.md`. Store the exact
+   `cover_*` args you pass in step 3 so covers can be regenerated faithfully later.
 
 3. **Cover art.** Generate a mono-color episode tile with the source company's
    stylized wordmark (an attribution treatment — never a reproduction of a
    trademarked logo). Derive the company from the article's `source`/front
-   matter, then:
+   matter, then pass the **season and the per-season episode number** (not the
+   global number) so the badge reads `S<season> E<season_episode>`:
 
    ```sh
    NODE_PATH=/opt/node22/lib/node_modules node automation/podcast_cover.js \
@@ -306,15 +319,16 @@ best-effort — never fail the run over it. The audio lives in the podcast show
      --title "<short display title>" \
      --overline "<category or theme>" \
      --subtitle "<one short line>" \
-     --episode <N> \
+     --season <S> --episode <E> \
      --out "podcasts/<YYYY-MM-DD>-<id>.cover.png"
    ```
 
-   Optional `--motif signal|sequence|loop` (default `signal`); palette + monogram
-   are auto-derived from the company when not overridden with `--ink/--accent-ink/--mono`.
-   Needs Node + Playwright + Chromium (present in this environment; set
-   `CHROMIUM_PATH` only if auto-detect fails). If it errors, skip and leave the
-   `cover` field null.
+   Here `<S>` is the episode's `season` and `<E>` is its `season_episode` (NOT the
+   global number). Optional `--motif signal|sequence|loop` (default `signal`);
+   palette + monogram are auto-derived from the company when not overridden with
+   `--ink/--accent-ink/--mono`. Needs Node + Playwright + Chromium (present in this
+   environment; set `CHROMIUM_PATH` only if auto-detect fails). If it errors, skip
+   and leave the `cover` field null.
 
 4. **RSS.com draft (best-effort).** Create an **unpublished draft** episode on
    RSS.com:

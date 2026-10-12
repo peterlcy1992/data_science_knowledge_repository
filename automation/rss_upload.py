@@ -162,6 +162,7 @@ def upload_one(ep, api_key, manifest, do_it):
         print(f"Episode {ep['episode']} is already {ep['rss_status']} — skipping.")
         return
     season = ep.get("season", manifest.get("season", 1))
+    season_episode = ep.get("season_episode", ep["episode"])  # per-season number for Apple
     audio_path = REPO / ep["audio"]
     if not audio_path.exists():
         raise SystemExit(f"Audio file missing: {audio_path}")
@@ -173,12 +174,12 @@ def upload_one(ep, api_key, manifest, do_it):
         "title": ep["title"],
         "description": ep["description"],
         "itunes_season": season,
-        "itunes_episode": ep["episode"],
+        "itunes_episode": season_episode,
         "itunes_episode_type": "full",
         # NOTE: schedule_datetime is intentionally omitted -> episode stays a DRAFT.
     }
 
-    print(f"Episode S{season}E{ep['episode']:02d} — {ep['title']!r}")
+    print(f"Episode S{season}E{season_episode:02d} (global #{ep['episode']}) — {ep['title']!r}")
     print(f"  audio : {audio_path.relative_to(REPO)}")
     print(f"  cover : {cover_path.relative_to(REPO) if has_cover else '(none)'}")
     print(f"  create: POST {BASE}/v4/podcasts/<id>/episodes  "

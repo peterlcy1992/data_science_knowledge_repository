@@ -13,8 +13,11 @@
  *       --title "Feed SR" \
  *       --overline "Sequential Recommenders" \
  *       --subtitle "A transformer that reads 1,000 impressions." \
- *       --episode 3 \
+ *       --season 2 --episode 3 \
  *       --out podcasts/2026-09-05-<id>.cover.png
+ *
+ * The badge reads "S<season> E<episode>" when --season is given (episode is the
+ * number WITHIN that season), else the legacy "EP. NN" from --episode alone.
  *
  * Optional: --accent-ink/--ink hex overrides, --mono "Li", --motif signal|sequence|loop
  * Defaults are derived from --company when not given, so minimal args still work.
@@ -40,7 +43,10 @@ const title    = need('title');
 const out      = need('out');
 const overline = args.overline || 'Data Science Deep Dive';
 const subtitle = args.subtitle || '';
-const episode  = args.episode ? `EP. ${String(args.episode).padStart(2,'0')}` : '';
+// Badge: "S<season> E<episode>" (per-season numbering) when --season is given;
+// otherwise the legacy "EP. NN" global form.
+const episode  = (args.season && args.episode) ? `S${args.season} E${args.episode}`
+               : (args.episode ? `EP. ${String(args.episode).padStart(2,'0')}` : '');
 const motif    = args.motif || 'signal';
 
 // ---- palette: per-company where known, else deterministic from name ----

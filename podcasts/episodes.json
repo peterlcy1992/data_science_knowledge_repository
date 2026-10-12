@@ -1,13 +1,18 @@
 {
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
-  "season": 1,
+  "season": 2,
+  "season_starts": [
+    1,
+    34
+  ],
   "next_episode": 37,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
       "episode": 1,
       "season": 1,
+      "season_episode": 1,
       "date": "2026-09-01",
       "title": "LinkedIn \u2014 A Transformer That Ranks Your Feed (Feed SR)",
       "description": "A deep dive into how LinkedIn replaced its DCNv2 feed ranker with Feed SR \u2014 a decoder-only transformer that reads up to 1,000 of a member's past impressions as an ordered sequence, served on a disaggregated CPU/GPU stack with custom kernels. We cover the business context (a 1.2B-member feed whose legacy ranker couldn't model history as a sequence), the technical approach (RoPE positional embeddings, a parallel-DCNv2 scoring head, shared-context batching, and a custom flash-attention CUDA kernel), the honest negative results (why a fine-tuned LLM-ranker and a TransAct-style encoder were tried and rejected), and the realized impact: +2.10% time spent and +3.52% social actions in a production A/B test \u2014 at roughly 0.7x the inference energy of the CPU-served incumbent despite being a larger model. Source article: \"An Industrial-Scale Sequential Recommender for LinkedIn Feed Ranking (Feed SR)\" \u2014 LinkedIn / arXiv, https://arxiv.org/abs/2602.12354 (published 2026-02).",
@@ -18,6 +23,7 @@
     {
       "episode": 2,
       "season": 1,
+      "season_episode": 2,
       "date": "2026-09-01",
       "title": "Shopify \u2014 An AI Agent That Trains Itself (Sidekick's Continual Learning Loop)",
       "description": "A deep dive into how Shopify rebuilt the improvement loop for Sidekick, its AI agent, as a four-stage flywheel that keeps getting better without perpetually scaling frontier-model spend. We cover the business context (quality that gets expensive fast when you only buy it by upgrading models), and the technique: a human-calibrated quality rubric (validated with Cohen's kappa), an LLM-as-judge tuned with DSPy/GEPA/ACE and \u2014 crucially \u2014 validated against real production A/B outcomes before it's trusted, automated prompt/tool research, and continual learning via SFT plus GRPO fine-tuning that uses the calibrated judge itself as the reward signal. The payoff: serving cost for a GraphQL agent handling 2,000 requests/min fell roughly 96%, from ~$27M to ~$1M/year. The real lesson is the discipline of calibrating the judge before using it as a reward. Source article: \"Sidekick's Continual Learning Loop\" \u2014 Shopify Engineering, https://shopify.engineering/sidekicks-continual-learning-loop (published 2026-08).",
@@ -28,6 +34,7 @@
     {
       "episode": 3,
       "season": 1,
+      "season_episode": 3,
       "date": "2026-09-02",
       "title": "Instacart \u2014 The Death of the Static Shopping Page",
       "description": "A deep dive into how Instacart rebuilt its Shopping Hub \u2014 the discovery page shoppers see right after picking a retailer \u2014 around a four-phase generative pipeline instead of a static, manually curated content library. We cover the business problem (personalization that couldn't scale, and a page built by siloed teams that never felt cohesive), the technical approach (an LLM agent that designs page themes top-down, retrieval-augmented keyword generation grounded in the real catalog, layered LLM-judge and embedding-based quality filters, and a cheap distilled classifier that cuts evaluation cost by an estimated 99%), and what the early results show \u2014 and don't yet show \u2014 about putting a generative model in charge of page structure itself. Source article: \"Our Early Journey to Transform Instacart's Discovery Recommendations with LLMs\" \u2014 Instacart Tech, https://tech.instacart.com/our-early-journey-to-transform-instacarts-discovery-recommendations-with-llms-cf4591a8602b (published 2026-02).",
@@ -39,6 +46,7 @@
     {
       "episode": 4,
       "season": 1,
+      "season_episode": 4,
       "date": "2026-09-03",
       "title": "Google \u2014 Ending the Six-Hour Forecast Gap",
       "description": "A deep dive into WeatherNext 3, Google DeepMind and Google Research's third-generation global weather AI model. We cover the business context (why a forecast that only updates every six hours is a real operational cost for renewable energy, agriculture, aviation, and emergency response), the technical approach (a single Functional Generative Network mesh-transformer that ingests live geostationary satellite imagery to refresh its forecast every hour instead of every six, at roughly five times the resolution of its predecessor), and what the reported accuracy gains \u2014 up to 60% better precipitation forecasts against satellite benchmarks \u2014 actually mean in practice, plus where the write-up leaves real questions open. Source article: \"Introducing WeatherNext 3, Our Most Advanced and Accurate Global Weather AI Model\" \u2014 Google (DeepMind / Google Research), https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-weathernext-3/ (published 2026-09).",
@@ -50,6 +58,7 @@
     {
       "episode": 5,
       "season": 1,
+      "season_episode": 5,
       "date": "2026-09-04",
       "title": "Meta \u2014 One Model Replaces the Whole Retrieval Stack",
       "description": "A deep dive into SilverTorch, the system Meta built to collapse recommendation retrieval \u2014 normally split across separate CPU services for approximate nearest-neighbor search, feature filtering, and scoring \u2014 into a single GPU-native PyTorch model under a new \"Index as Model\" paradigm. We cover the business problem (network overhead and duplicated infrastructure from stitching together microservices as retrieval architectures grew more complex), the technical approach (a model-based GPU Bloom filter for candidate filtering fused with an Int8-quantized approximate-nearest-neighbor kernel, plus unified scoring layers that replace what used to be separate services), and the reported production payoff: a 23.7x throughput improvement and 13.35x cost-efficiency gain over the prior CPU-based approach, now running across hundreds of retrieval models serving billions of daily active users. Source article: \"SilverTorch: Index as Model \u2014 A New Retrieval Paradigm for Recommendation Systems\" \u2014 Engineering at Meta, https://engineering.fb.com/2026/05/26/ml-applications/silvertorch-index-as-model-new-retrieval-paradigm-recommendation-systems/ (published 2026-05).",
@@ -61,6 +70,7 @@
     {
       "episode": 6,
       "season": 1,
+      "season_episode": 6,
       "date": "2026-09-05",
       "title": "Shopify \u2014 An AI Agent That Verifies Its Own Work",
       "description": "A deep dive into River, the AI agent Shopify built to close the gap between \"a security patch was written\" and \"the vulnerability is actually gone from production.\" We cover the business problem (patches that pass CI without anyone re-checking whether the underlying vulnerability still exists, and a backlog that grows because reconciling state across the codebase, CI, Slack, and the vulnerability tracker is slow, manual work), the technical approach (a Slack-native agent that treats every prior ticket status as an unverified hypothesis, re-derives ground truth from the live repository before acting, replays and rebases stalled upgrades while preserving unrelated changes, and escalates only with one precise, evidence-backed question \u2014 with guarantees like deduplication and closure verification enforced in code rather than in prompts), and the realized impact: an open-issue backlog cut by about 70% and a security-patch merge rate that rose from roughly 10% to 80% within River's first 11 days. Source article: \"How River Takes Security Work from a Fix to Merge\" \u2014 Shopify Engineering, https://shopify.engineering/river-vulnerability-remediation (published 2026-09).",
@@ -72,6 +82,7 @@
     {
       "episode": 7,
       "season": 1,
+      "season_episode": 7,
       "date": "2026-09-06",
       "title": "Airbnb \u2014 A Transformer That Reads Your Whole Travel History",
       "description": "A deep dive into JourneyFormer, the transformer Airbnb built to replace hundreds of hand-crafted \"what this guest likes\" statistics with a model that reads a guest's raw event history directly. We cover the business problem (aggregate features that scale poorly and throw away order, recency, and co-occurrence information a raw sequence preserves, against histories that are long, exploratory, and have very sparse booking labels), the technical approach (splitting history into a 7-year non-view sequence and a 21-day view sequence, a 4-layer transformer that surprisingly performs better without feed-forward sublayers, hierarchical multi-level location embeddings, and throughput tricks that cut training time roughly 4x), and the realized impact: a 1.48% offline ranking-quality gain and, in a 3-week production test, measurable lifts in bookers, booked nights, and views across both search ranking and email ranking \u2014 including a 5% jump in email views. Source article: \"JourneyFormer: Encoding Airbnb Guest Journey with Sequence Modeling\" \u2014 Airbnb Tech Blog / arXiv (KDD 2026), https://arxiv.org/abs/2606.19108 (published 2026-06).",
@@ -83,6 +94,7 @@
     {
       "episode": 8,
       "season": 1,
+      "season_episode": 8,
       "date": "2026-09-07",
       "title": "Airbnb \u2014 The LLM Eval Loop That Went From Weeks to a Day",
       "description": "A deep dive into how Airbnb rebuilt the evaluation loop for its production LLM systems so that a change could be verified in about a day instead of several weeks. We cover the business problem (evaluation noise so high that teams couldn't tell a genuine improvement from run-to-run variance, turning every iteration into a multi-week guessing game), the technical approach (splitting evaluation noise into aleatoric uncertainty \u2014 the task itself being ambiguous \u2014 versus epistemic uncertainty \u2014 an unreliable judge or model; deterministic per-sample caching of references and judge scores; small rank-under-50 LoRA \"micro-adapters\" trained in under an hour on a single GPU to patch behavior instead of retraining, with rules to fuse, retrain, or retire them; and full end-to-end validation to catch integration bugs component tests miss), and the realized payoff: same-day iteration on LLM system changes, unlocked almost entirely through classical software-engineering discipline rather than a bigger or better model. Source article: \"From Weeks to a Day: How We Made LLM Evaluation Fast Enough to Iterate On\" \u2014 Airbnb Tech Blog, https://airbnb.tech/ai-ml/from-weeks-to-a-day-how-we-made-llm-evaluation-fast-enough-to-iterate-on/ (published 2026-07).",
@@ -94,6 +106,7 @@
     {
       "episode": 9,
       "season": 1,
+      "season_episode": 9,
       "date": "2026-09-08",
       "title": "NetEase \u2014 The Agent That Audits Its Own Recommender",
       "description": "A deep dive into AutoLR, the agentic harness NetEase built to run the entire lifecycle of improving a production recommender \u2014 from proposal generation through offline evaluation to online A/B testing and final Launch Review sign-off \u2014 for the feed and immersive-video surfaces of its gaming-community app DASHEN. We cover the business problem (a multi-day, manually-coordinated research-and-engineering loop standing between an idea and a shipped model change), the technical approach (a multi-expert proposal council that debates and adversarially reviews candidates, a deterministic evidence-weighted selector instead of a classic exploration/exploitation bandit, and a hard separation between LLM-generated proposals and machine-validated state transitions), and the realized impact: nine Launch-Review-approved production launches and a system that ran at roughly RMB 3\u20134 of LLM cost per iteration. We also dig into the paper's most unusual contribution \u2014 a self-audit that surfaces a named reliability failure mode, the \"KEEP ratchet,\" where a noise-driven promotion can quietly corrupt the experiment baseline for everyone downstream. Source article: \"AutoLR: Automating the Path from Research to Launch Review in Industrial Recommender Systems\" \u2014 NetEase / arXiv, https://arxiv.org/abs/2609.04871 (published 2026-09).",
@@ -105,6 +118,7 @@
     {
       "episode": 10,
       "season": 1,
+      "season_episode": 10,
       "date": "2026-09-09",
       "title": "Tencent \u2014 Teaching a Recommender to Reason About Cold Starts",
       "description": "A deep dive into TGR, Tencent's push to bring a generative, LLM-style paradigm into its production recommenders \u2014 which serve hundreds of millions of users through the classic retrieval/pre-ranking/ranking/reranking pipeline \u2014 along three coupled fronts. We cover the business problem (each pipeline stage optimized separately, capping how much any one stage can improve relevance and revenue, with little room for LLM-style semantic reasoning), the technical approach (a Transformer ranker, CCFormer, that keeps the familiar per-item scoring shape while changing its internal feature representation; end-to-end slate generation via BARGE and HiGR using prefix-structured semantic IDs decoded coarse-to-fine; and TGR-Reason, which computes reasoning tokens offline and injects them at serving time instead of paying for chain-of-thought at runtime), and the realized impact: gains ranging from +3.57% CTR and +1.71% ad revenue up to a 477.8% relative improvement on a cold-start metric, all measured on live production traffic. Source article: \"TGR: Advancing Industrial Recommendation from Generative-Paradigm Ranking toward Unified Generation and Reasoning\" \u2014 Tencent / arXiv, https://arxiv.org/abs/2609.00986 (published 2026-09).",
@@ -116,6 +130,7 @@
     {
       "episode": 11,
       "season": 1,
+      "season_episode": 11,
       "date": "2026-09-10",
       "title": "NVIDIA \u2014 One Checkpoint, Three Jobs for Robots",
       "description": "A deep dive into how AWS and NVIDIA built a reference architecture for training physical AI \u2014 robots and autonomous vehicles \u2014 as a continuous, closed-loop \"model factory\" instead of a one-time training run split across fragmented GPU clusters. We cover the business problem (physical AI needs a perpetual loop of real-world data ingestion, synthetic data generation, post-training, and simulation evaluation, and running each stage on its own dedicated GPU cluster wastes capacity and adds expensive data movement), the technical approach (NVIDIA Cosmos 3's unified token stream carrying video, images, actions, audio, and text through one sequence; a Mixture-of-Transformers design pairing a reasoner and generator tower; and the elegant trick that the same checkpoint becomes a world model, an action-labeling model, or a deployed robot policy purely by changing which tokens start as noise, all running on one shared, persistent SageMaker HyperPod cluster), and what the reported scaling numbers actually show \u2014 near-linear multi-node training efficiency and roughly 1% checkpoint overhead, reported as reproducible methodology rather than leaderboard bragging rights. Source article: \"Build a Physical AI Model Factory with NVIDIA Cosmos 3 on SageMaker HyperPod\" \u2014 AWS Machine Learning Blog / NVIDIA, https://aws.amazon.com/blogs/machine-learning/build-a-physical-ai-model-factory-with-nvidia-cosmos-3-on-sagemaker-hyperpod/ (published 2026).",
@@ -127,6 +142,7 @@
     {
       "episode": 12,
       "season": 1,
+      "season_episode": 12,
       "date": "2026-09-11",
       "title": "Netflix \u2014 One Model, One Pass, Your Whole Homepage",
       "description": "A deep dive into how Netflix replaced its traditional multi-stage homepage recommender \u2014 separate systems for candidate retrieval, ranking, and row layout \u2014 with a single transformer that generates the entire structured, multi-row homepage in one pass. We cover the business problem (stitching together multiple separately-trained models to build one coherent homepage adds engineering complexity and serving latency, while still needing to handle cold start, freshness, and business-rule placement constraints in production), the technical approach (treating the user's history and request context as a prompt and autoregressively generating the whole homepage as the response, trained with an LLM-style recipe of pretraining on historical homepages followed by post-training via either weighted binary classification or reinforcement learning), and what the reported results actually show \u2014 a substantial lift on the core engagement metric alongside a 20% cut in end-to-end serving latency, plus the surprising offline finding that enriching the prompt beat simply scaling up the model, and that reinforcement learning increased homepage diversity as a side effect even though diversity was never an explicit training objective. Source article: \"GenPage: Towards End-to-End Generative Homepage Construction at Netflix\" \u2014 Netflix / arXiv, accepted RecSys 2026, https://arxiv.org/abs/2606.31031 (published 2026-06).",
@@ -138,6 +154,7 @@
     {
       "episode": 13,
       "season": 1,
+      "season_episode": 13,
       "date": "2026-09-12",
       "title": "Uber \u2014 Who's Really Behind Your AI Agent's Actions?",
       "description": "A deep dive into how Uber built a cryptographic identity system for AI agents that solves a problem traditional identity models were never designed for: agents that \"act for or in the place of another.\" We cover the business problem (an on-call Investigation Agent modifies a monitoring configuration, but when something goes wrong, nobody can trace the action back to the human engineer ultimately responsible, because the chain of who-asked-whom disappears across hops), the technical approach (a Security Token Service issuing short-lived JWTs that embed the *entire* actor chain \u2014 not just the last caller \u2014 using an OAuth 2.0 Token Exchange\u2013inspired pattern layered on SPIFFE/SPIRE cryptographic workload identity, enforced at an MCP Gateway), and the realized payoff: sub-40ms p99 token-exchange latency at production scale across thousands of internal agents, with a roadmap toward dynamic access control and a unified enforcement plane. Source article: \"Solving the Identity Crisis for AI Agents\" \u2014 Uber Engineering Blog, https://www.uber.com/us/en/blog/solving-the-agent-identity-crisis/ (published 2026-05).",
@@ -149,6 +166,7 @@
     {
       "episode": 14,
       "season": 1,
+      "season_episode": 14,
       "date": "2026-09-13",
       "title": "Google \u2014 Beating Your Own Teacher at Tool Use",
       "description": "A deep dive into how Google Research flipped the standard recipe for training AI models to use tools and APIs. Instead of writing a user question first and then struggling to find a matching chain of tool calls that answers it \u2014 which fails constantly once you're picking from thousands of real APIs \u2014 their ToolGrad system builds a verified, working tool-call workflow first, using an iterative loop that treats an AI critic's plain-language feedback as a steering signal (borrowed from a technique called \"textual gradients\"), and only then writes the question that workflow answers. We cover the business problem (query-first data generation wastes enormous effort on unanswerable or unverifiable examples), the technical approach (a four-step propose-execute-select-update loop building tool-call chains from a catalog of 16,000+ real APIs), and the standout result: a fine-tuned 12-billion-parameter model trained on this data scored competitively with Gemini 2.5 Pro and Claude 4.5 Opus on a leading function-calling benchmark \u2014 and notably outperformed the very model that generated its own training data. Source article: \"ToolGrad: Efficient Tool-Use Dataset Generation with Textual 'Gradients'\" \u2014 Google Research, https://research.google/blog/toolgrad-efficient-tool-use-dataset-generation-with-textual-gradients/ (published 2026-09).",
@@ -160,6 +178,7 @@
     {
       "episode": 15,
       "season": 1,
+      "season_episode": 15,
       "date": "2026-09-14",
       "title": "Netflix \u2014 Grading the Graders: Can an AI Judge Your Synopsis?",
       "description": "Every show on Netflix lives or dies a little by its synopsis \u2014 the couple of sentences that decide whether you press play. With a catalog too vast for humans to proofread line by line, Netflix built a team of AI \"judges\" to score synopses on tone, clarity, precision, and factual accuracy, each specializing in its own dimension rather than trying to do it all at once. To make sure those judges could actually be trusted, the team calibrated them against 600 hand-labeled examples through eight rounds of work with real creative writers \u2014 and didn't stop until the AI's agreement with expert writers matched how much the writers agreed with each other. The payoff: judged quality scores turn out to predict real viewer behavior, like whether people actually click play and how often they abandon a title early, letting Netflix catch a weak synopsis months before a show even launches. Source article: \"Evaluating Netflix Show Synopses with LLM-as-a-Judge\" \u2014 Netflix Technology Blog, https://netflixtechblog.com/evaluating-netflix-show-synopses-with-llm-as-a-judge-6269251e6f28 (published 2026-04).",
@@ -171,6 +190,7 @@
     {
       "episode": 16,
       "season": 1,
+      "season_episode": 16,
       "date": "2026-09-15",
       "title": "Instacart \u2014 Can an AI Agent Out-Model Your Best Data Scientist?",
       "description": "Instacart's machine learning engineers ran an experiment most teams are quietly wondering about: what happens when you let a coding agent loose not just on your pipeline code, but on the actual modeling work \u2014 picking features, trying architectures, tuning hyperparameters \u2014 for models that have already been optimized by humans for months? The results were a genuine surprise in places: on some of Instacart's most mature, hardest-to-improve production models, agent-driven runs delivered 3-5% offline error reductions among their most promising attempts, holding up against a battery of randomization checks before anyone trusted them. But the team is just as candid about the other side \u2014 agents with broad permissions in a modeling environment are a real safety surface, not a hypothetical one, and they're recommending sandboxing and compliance awareness even after their own trial runs went mostly smoothly. Source article: \"Agentic Machine Learning Modeling at Instacart\" \u2014 Instacart Tech Blog, https://tech.instacart.com/agentic-machine-learning-modeling-at-instacart-fb3ecd295ee7 (published 2026-09).",
@@ -182,6 +202,7 @@
     {
       "episode": 17,
       "season": 1,
+      "season_episode": 17,
       "date": "2026-09-16",
       "title": "Spotify \u2014 Why Bayesian A/B Testing Doesn't Pay Off",
       "description": "Bayesian A/B testing gets pitched as more intuitive, safer to peek at early, and automatically smarter about multiple metrics \u2014 so why didn't Spotify adopt it? This episode walks through Spotify's own math: under the flat priors most platforms actually ship, Bayesian and frequentist testing produce numerically identical results, and the \"advantages\" people cite either require infrastructure most teams don't have (calibrated priors, Bayes-factor stopping, hundreds of historical experiments) or quietly reduce to standard frequentist practice anyway. We cover the business context (why experimentation trustworthiness matters more than framework fashion), the statistical reasoning (posterior equivalence, the winner's curse, decision theory), and what it means for teams facing the same \"should we go Bayesian?\" question. Source article: \"Why Spotify Is Not Using Bayesian A/B Testing\" \u2014 Spotify Engineering, https://engineering.atspotify.com/2026/9/why-spotify-is-not-using-bayesian-a-b-testing (published 2026-09).",
@@ -193,6 +214,7 @@
     {
       "episode": 18,
       "season": 1,
+      "season_episode": 18,
       "date": "2026-09-17",
       "title": "Airbnb \u2014 Turning Scientific Method Into AI Infrastructure",
       "description": "Airbnb needed to understand the rare, risky edge cases a new AI customer-service assistant might run into \u2014 the kind of thing that used to take a data scientist months of manually reading through support transcripts, one judgment call at a time. So Airbnb built Insight Miner: an agent harness that doesn't just run an LLM over the data, but wraps it in an explicit scientific-methodology layer \u2014 extract, embed, cluster, then classify \u2014 so the process of investigation, not just the answer, is reproducible and auditable by someone other than the original analyst. We walk through how the harness is built, why \"methodology as infrastructure\" is the real idea here rather than any single new technique, and how investigations that used to take months now take days \u2014 with usage spreading from a handful of data scientists to dozens of non-technical teams across the company. Source article: \"Beyond the Model: Engineering AI Infra with Scientific Judgement\" \u2014 Airbnb Tech Blog, https://airbnb.tech/ai-ml/beyond-the-model-engineering-ai-infra-with-scientific-judgement/ (published 2026-09).",
@@ -204,6 +226,7 @@
     {
       "episode": 19,
       "season": 1,
+      "season_episode": 19,
       "date": "2026-09-18",
       "title": "Meta \u2014 The Agent That Writes Its Own GPU Kernels",
       "description": "A deep dive into KernelEvolve, the system Meta built to close a widening gap: the number of GPU and accelerator kernels a company needs optimized grows multiplicatively across hardware generations, model architectures, and operator types, while expert kernel engineers \u2014 the people who could tune them by hand \u2014 don't scale nearly as fast. We cover the business problem (thousands of configurations across NVIDIA and AMD GPUs, Meta's own MTIA chips, and CPUs, each needing its own hand-tuned kernel), the technical approach (an LLM synthesizer that writes candidate kernels across multiple languages, a Monte Carlo tree search engine that explores hundreds of variants per kernel instead of generating just one, a knowledge base that compounds what it learns across sessions, and a final stage that turns successful optimization runs into training data for smaller specialist models), and the realized payoff: over 60% inference throughput improvement on NVIDIA GPUs for a production ads model, over 25% training throughput improvement on Meta's own chips, and kernel optimization work that used to take weeks of expert time now running in hours. Source article: \"KernelEvolve: How Meta's Ranking Engineer Agent Optimizes AI Infrastructure\" \u2014 Engineering at Meta, https://engineering.fb.com/2026/04/02/developer-tools/kernelevolve-how-metas-ranking-engineer-agent-optimizes-ai-infrastructure/ (published 2026-04).",
@@ -215,6 +238,7 @@
     {
       "episode": 20,
       "season": 1,
+      "season_episode": 20,
       "date": "2026-09-20",
       "title": "AI Research \u2014 How a Coordinated AI Swarm Rigs Your Recommendations",
       "description": "A deep dive into AGAS, a new attack that uses a coordinated swarm of AI agents to manipulate what a recommendation system shows you. Instead of one bot spamming fake reviews, a central \"Coordinator\" directs a team of role-switching worker agents \u2014 some probing how the system reacts, some quietly building a believable rating history, and one, only once fully trusted, delivering the actual push for the target product. We cover the business problem (fake-profile \"shilling\" attacks are getting cheaper and more humanlike thanks to AI agents), the technical approach (the Coordinator's adaptive strategies, the workers' four rotating roles, and why going dormant on purpose is itself a tactic), and the results: the attack was dramatically more effective at promoting a target item, far better at evading existing fraud detectors, and vastly cheaper to run than prior AI-driven attacks \u2014 while barely disturbing the experience for everyone else on the platform. Source article: \"An Efficient and Effective Agentic Group Shilling Attack on Recommender Systems\" \u2014 arXiv (academic), https://arxiv.org/abs/2609.09551 (published 2026-09).",
@@ -226,6 +250,7 @@
     {
       "episode": 21,
       "season": 1,
+      "season_episode": 21,
       "date": "2026-09-21",
       "title": "Baidu \u2014 Why Your AI-Written Headline Sounds the Same to Everyone",
       "description": "Ask an LLM to write the single best headline for a product or a feed item, and it will \u2014 but \"best on average\" quietly means \"generic,\" and the users with more specific tastes get left out. This episode digs into GESE, a system Baidu built to fix that: instead of asking the model for one polished headline, it trains the model to write a whole spread of different headlines, each aimed at a different way someone might be interested in the item, and then hands the job of picking the right one per user to a fast, lightweight selector running in real time. We cover why \"mode collapse\" is a sneaky failure mode for AI-generated personalization, how reinforcement learning is used to keep the model's outputs diverse instead of narrowing them down, and the production results from a platform with over 100 million daily users \u2014 a measurable lift in both clicks and how long people actually stuck around afterward. Source article: \"Generate to Explore, Select to Exploit: Aligning LLM-based Headline Generation with Personalized Recommendation\" \u2014 arXiv (Baidu Inc.), https://arxiv.org/abs/2609.15094 (published 2026-09).",
@@ -237,6 +262,7 @@
     {
       "episode": 22,
       "season": 1,
+      "season_episode": 22,
       "date": "2026-09-22",
       "title": "IBM Research \u2014 Why Your AI Agent Might Not Ace the Same Task Twice",
       "description": "Most AI agent benchmarks report one number: average accuracy across several runs of a task. But average accuracy hides something that matters a lot more in practice \u2014 whether the agent behaves the same way every time you ask it to do the exact same thing. An agent that's 80% accurate on average could be one that nails some tasks every single time and flips a coin on others, and you'd never know which from the headline number. This episode digs into a fix IBM Research built for that blind spot: instead of expensively re-running whole tasks over and over to check for flakiness, their system pinpoints the specific moments inside a single run where the agent's decision was genuinely up for grabs \u2014 moments that would tip a different way if you asked again \u2014 and turns those moments into explicit rules the agent follows the next time around. We cover how that detection works without needing any human-labeled \"right answers,\" why the fix didn't cost the agent any of its average accuracy to gain reliability, and the concrete numbers from testing on a benchmark called AppWorld: nearly doubling the fraction of tasks the agent could nail on every single attempt, while the rules it learned also carried over to help on tasks it hadn't seen before. Source article: \"Your Agent Aced the Task. Will It Do It Again?\" \u2014 IBM Research / Hugging Face Blog, https://huggingface.co/blog/ibm-research/altk-evolve-consistency (published 2026-09).",
@@ -248,6 +274,7 @@
     {
       "episode": 23,
       "season": 1,
+      "season_episode": 23,
       "date": "2026-09-23",
       "title": "Stripe \u2014 Redesigning Checkout for AI Shopping Agents",
       "description": "AI shopping agents can already complete a purchase through a checkout page \u2014 but until recently, they did it the hard way: parsing raw HTML, guessing which element was a button, and burning enormous amounts of time and tokens in the process. This episode digs into how Stripe rebuilt its checkout flow around WebMCP, a new browser standard that lets a webpage hand an AI agent a clean set of callable actions instead of a wall of HTML to interpret. We cover why the old approach was so expensive (nearly two million tokens and two and a half minutes for one purchase), how Stripe's design reveals only the actions that make sense at each step of checkout so the agent can't get confused or go off the rails, and why reusing the exact same backend that serves human shoppers turned out to matter as much as the new interface itself. Then we get into the numbers: a controlled test across six different AI models found the new approach cut token usage by more than 40%, shaved roughly a minute off every transaction, and still completed every single purchase successfully. Source article: \"How Stripe Is Designing Checkout for AI Agents\" \u2014 Stripe Dot Dev Blog, https://stripe.dev/blog/how-stripe-is-designing-checkout-for-ai-agents (published 2026-09).",
@@ -259,6 +286,7 @@
     {
       "episode": 24,
       "season": 1,
+      "season_episode": 24,
       "date": "2026-09-24",
       "title": "Google \u2014 Making AI Search Ask Better Questions, 20x Faster",
       "description": "When an AI search system needs to answer a broad question, it often has to break that one question into several smaller, more specific searches \u2014 a trick called \"query fan-out.\" The problem is doing that well is slow: today's models \"think out loud\" for tens of seconds before they even start searching, and just as often they generate several near-identical sub-questions instead of genuinely different angles. This episode covers how Google Research tackled both problems at once. We walk through their two-stage approach: first, training a small language model with reinforcement learning \u2014 specifically rewarded for producing sub-questions that are grounded, genuinely diverse, and true to the original request \u2014 to get really good at this fan-out task offline, where speed doesn't matter. Then, instead of shipping that slow-but-smart model to production, they use it to teach a completely different, much smaller model: a 54-million-parameter diffusion model that generates a whole set of sub-questions in one fast pass, with no step-by-step reasoning at all. We break down why borrowing diffusion \u2014 the technology behind AI image generators \u2014 for a text-search problem is such an unusual and clever choice, and what the result looks like in practice: search fan-out that used to take up to 50 seconds now finishes in a fraction of a second, without losing quality. Source article: \"Bypassing Inference Bottlenecks: Accelerating Complex AI Search with Retrieve-for-Train\" \u2014 Google Research, https://research.google/blog/bypassing-inference-bottlenecks-accelerating-complex-ai-search-with-retrieve-for-train/ (published 2026-09).",
@@ -270,6 +298,7 @@
     {
       "episode": 25,
       "season": 1,
+      "season_episode": 25,
       "date": "2026-09-25",
       "title": "Instacart \u2014 The $5 Rounding Rule Nobody Meant to Test",
       "description": "A deep dive into how Instacart's economics team found a causal answer hiding inside a mundane payments policy. Every Instacart order gets a temporary card-authorization hold slightly above the order total, rounded up to the nearest $5 \u2014 a rule that, by accident, created a natural experiment: orders just below a $5 threshold and orders just above it are essentially identical shoppers, except for how big a buffer they got. We cover the business problem (bigger buffers mean fewer follow-up authorizations, but also more card declines, and nobody knew where the real trade-off point was), the technique (regression discontinuity design, a quasi-experimental method that treats the threshold itself as if it were a coin flip), and the twist that makes this one stand out: Instacart didn't just trust the causal estimate \u2014 they ran a real follow-up A/B test that confirmed it, cutting declines and lifting order volume at the same time. Source article: \"Optimizing at the Edge: Using Regression Discontinuity Designs to Power Decision-Making\" \u2014 Instacart Tech Blog, https://tech.instacart.com/optimizing-at-the-edge-using-regression-discontinuity-designs-to-power-decision-making-51e296615046 (published 2023-11).",
@@ -281,6 +310,7 @@
     {
       "episode": 26,
       "season": 1,
+      "season_episode": 26,
       "date": "2026-09-28",
       "title": "Academic \u2014 Why Your A/B Test Winner Might Be a Fragile Bet",
       "description": "A deep dive into a simple idea with sharp teeth: the standard \u201cship the arm with the significant t-test\u201d playbook answers the wrong question. Researchers Max Farrell, Malika Korganbekova, and Sanjog Misra reframe deploying an A/B test winner as a robust decision problem instead of a hypothesis test, building a rule that scores each arm not just by its point estimate but by how good it looks across a neighborhood of plausible nearby outcomes \u2014 penalizing arms whose apparent edge is fragile to small shifts in the world. The payoff is a closed-form deployment rule, powered by the Donsker-Varadhan variational representation, that needs nothing beyond what a standard experiment already produces plus one interpretable \u201ctrust\u201d parameter. Tested against 552 real digital-advertising experiments from a major online platform, it substantially reduces regret compared to deploying on statistical significance alone. Source article: \"Robust A/B Decisions\" \u2014 arXiv (Farrell, Korganbekova, Misra), https://arxiv.org/abs/2609.07633 (published 2026-09).",
@@ -292,6 +322,7 @@
     {
       "episode": 27,
       "season": 1,
+      "season_episode": 27,
       "date": "2026-09-29",
       "title": "Grab \u2014 Why Public Benchmarks Miss Production AI Failures",
       "description": "A deep dive into how Grab evaluates AI on its own kind of work. The worry was not blatant hallucination but subtle plausibility: valid-looking SQL, tool calls and reasoning that quietly break a contract or miss a hidden requirement. Grab Bench answers with task-specific scoring plugins, deterministic contract-based scorers instead of LLM judges where the task allows, synthetic cases that keep real-world messiness without exposing production data, and explicit checks for shortcut gaming such as fabricated evidence IDs. Its most useful output is a row-level failure taxonomy rather than a leaderboard \u2014 and Grab is candid that synthetic evaluation shows contract compliance, not production impact.\n\nSource article: \"Grab Bench: Evaluating AI on Grab-shaped production work\" \u2014 Grab Engineering Blog, https://engineering.grab.com/grab-bench-evaluating-ai (published 2026-09).",
@@ -303,6 +334,7 @@
     {
       "episode": 28,
       "season": 1,
+      "season_episode": 28,
       "date": "2026-09-30",
       "title": "Databricks \u2014 Teaching a Search Agent When to Stop",
       "description": "A deep dive into how Databricks trained a retrieval agent to decide when it has searched enough. Single-step retrieval is fast but weak on multi-hop questions; sequential multi-step search is accurate but slow. Databricks trains the agent with online reinforcement learning (CISPO, a clipped importance-sampling policy optimisation objective) using a reward that balances trajectory quality against search cost, adds synthetic multi-hop questions to the training mix, and caps the number of sequential steps so latency stays bounded. Training yields a Pareto frontier of checkpoints for tuning the quality-latency trade-off. Databricks reports a 5.8-second average response time, more than 2x faster than several frontier models while matching them on retrieval benchmarks \u2014 vendor-run numbers worth treating as directional.\n\nSource article: \"Adaptive Instructed-Retriever: Frontier-Quality Search at 2x Lower Latency\" \u2014 Databricks Blog, https://www.databricks.com/blog/adaptive-instructed-retriever-frontier-quality-search-2x-lower-latency (published 2026-09).",
@@ -314,6 +346,7 @@
     {
       "episode": 29,
       "season": 1,
+      "season_episode": 29,
       "date": "2026-10-01",
       "title": "Kuaishou E-commerce \u2014 An Agent That Learns From Its Own A/B Tests",
       "description": "A deep dive into A/B Agent, a self-evolving LLM agent for iterating recommendation strategies. Researchers at Kuaishou E-commerce organise past strategies into a hierarchical experience tree keyed by business scenario, recommendation stage and optimisation objective, use multi-path Tree-RAG retrieval to generate new actionable strategies, and then refine parameters and knowledge from continuous A/B feedback. They built an industrial benchmark from 310 historical strategies across three scenarios and report a 4.829% GMV improvement on a short-video e-commerce platform with guardrail metrics staying positive \u2014 author-reported numbers, with limited experiment-design detail.\n\nSource article: \"A/B Agent: A Self-Evolving Agent for Strategy Iteration in Industrial A/B Testing\" \u2014 arXiv (Jiang et al.), https://arxiv.org/abs/2608.04625 (published 2026-08).",
@@ -325,6 +358,7 @@
     {
       "episode": 30,
       "season": 1,
+      "season_episode": 30,
       "date": "2026-10-02",
       "title": "Jeunen (arXiv) \u2014 Faster A/B Tests by Ignoring Where Policies Agree",
       "description": "A deep dive into a method for speeding up A/B tests of recommender, retrieval and LLM-interface policies. Olivier Jeunen observes that when the treatment and control policies choose the same action, the outcome adds noise but no information about the treatment effect. Treating randomisation as a meta-policy and applying delta off-policy estimators gives an unbiased estimator whose variance scales with how much the two policies diverge rather than with raw outcome variance. Limitations include weak overlap in practice, propensity-estimation trade-offs, and degraded performance when policies diverge substantially. The summarised reports describe variance reductions on synthetic and semi-synthetic benchmarks only; no production deployment is reported.\n\nSource article: \"Accelerating A/B-Tests with Counterfactual Estimation: Reducing Variance through Policy Overlap\" \u2014 arXiv (Olivier Jeunen), https://arxiv.org/abs/2607.14604 (published 2026-07).",
@@ -336,6 +370,7 @@
     {
       "episode": 31,
       "season": 1,
+      "season_episode": 31,
       "date": "2026-10-05",
       "title": "Stanford & Marketplace Researchers \u2014 Rerandomizing Switchback Experiments",
       "description": "Platforms often can't randomize individual users, so they switch whole regions or markets between treatment and control over time \u2014 but few units, heterogeneity, non-stationarity and carryover make those tests noisy. This episode walks through Sequentially-Rerandomized Switchback (SRSB): treatment is re-randomized at each time step while staying balanced on covariates derived from history, with finite-sample and asymptotic inference, plus a blocked variant that rerandomizes within strata defined by the previous treatment to handle carryover. Reported evidence is simulation-based; no production results are given in the abstract.\n\nSource article: \"Sequentially-Rerandomized Switchback Experiments\" \u2014 arXiv (Zeng, Adjaho, Bucarey, Qin, Zhang, Hoban, Johari, Wager), https://arxiv.org/abs/2604.02489 (published 2026-04).",
@@ -347,6 +382,7 @@
     {
       "episode": 32,
       "season": 1,
+      "season_episode": 32,
       "date": "2026-10-06",
       "title": "Agentic RAG Evaluation \u2014 More Questions Beat More Repeats",
       "description": "A deep dive into how to spend a fixed token budget when evaluating an agentic RAG system. Using generalizability theory on HotpotQA and MuSiQue, the authors split evaluation variance into question, trajectory and read components, and find that at roughly 34 million tokens broader question coverage lowers standard error by 33% versus five reads and 12.6% versus three trajectories, while setting temperature to zero cuts answer disagreement from 14.3% to 3.4%. Source article: \"Agentic RAG Evaluation: Budget Allocation Across Questions, Trajectories, and Reads\" \u2014 arXiv (Jingjie Ning, Xueqi Li, Yibo Kong), https://arxiv.org/abs/2610.05034 (published 2026-10).",
@@ -358,6 +394,7 @@
     {
       "episode": 33,
       "season": 1,
+      "season_episode": 33,
       "date": "2026-10-07",
       "title": "Token-Budgeted Escalation \u2014 Predicting Cost Is Easy, Predicting Benefit Is Hard",
       "description": "A deep dive into how to spend a limited token budget in retrieval-augmented question answering over financial documents. On 150 FinanceBench questions, the authors start with top-1 retrieval and escalate selected queries to top-5, ranking them by predicted benefit-to-cost ratio. Extra-call cost is highly predictable (R-squared 0.93), but predicting which queries actually benefit is hard (AUROC 0.60). At a 10% token budget, gain-per-token prioritization improved answer quality by 0.034 points while using 46.6% fewer tokens than uniform top-5 retrieval. Source article: \"Token-Budgeted Escalation for Financial Document QA\" \u2014 arXiv (Junru Zhu, Yixin Yang, Xiaoqing Ding, Ruoyu Qi), https://arxiv.org/abs/2610.07760 (published 2026-10).",
@@ -368,7 +405,8 @@
     },
     {
       "episode": 34,
-      "season": 1,
+      "season": 2,
+      "season_episode": 1,
       "date": "2026-10-08",
       "title": "Pinterest \u2014 A Cheap LLM Judge Plus Smarter Sampling Cuts Search-Experiment MDE",
       "description": "A deep dive into how Pinterest Search measures relevance in online experiments without waiting on human annotators. A fine-tuned multilingual cross-encoder (XLM-RoBERTa-large, trained on about 2.6 million human-labelled query-Pin pairs) scores relevance on a 5-point scale and agrees with humans exactly 73.7% of the time and within one level 91.7% of the time on US queries. Cheap labels then make it possible to redesign the sampling: paired control/treatment queries, strata by query interest and popularity, and Neyman optimal allocation. The authors report the minimum detectable effect falling from roughly 1.3-1.5% to 0.25% or less, with stratification cutting the standard deviation by 52% to 67%. Non-English agreement is weaker and text-only features are a limitation. Source article: \"LLM-based Relevance Assessment for Web-Scale Search Evaluation at Pinterest\" \u2014 arXiv (Han Wang, Alex Whitworth, Pak Ming Cheung, Zhenjie Zhang, Krishna Kamath), https://arxiv.org/abs/2509.03764 (published 2025-09).",
@@ -379,7 +417,8 @@
     },
     {
       "episode": 35,
-      "season": 1,
+      "season": 2,
+      "season_episode": 2,
       "date": "2026-10-09",
       "title": "Etsy \u2014 Using Post-Treatment Data to Sharpen A/B Tests",
       "description": "A deep dive into a CLeaR 2026 paper from UC Berkeley and Etsy on getting more sensitivity out of A/B tests. CUPED and its ML cousin CUPAC adjust using only pre-experiment data, which is weak for new users and session-driven outcomes, and practitioners usually avoid in-experiment variables for fear of post-treatment bias. The authors add a second-stage linear adjustment on a vetted set of post-treatment covariates that are statistically balanced across arms, a condition they call mean equivalence and, unlike surrogacy assumptions, can be tested. We cover the estimator, how candidate covariates are screened, and the Etsy evaluation on 29 experiments with 23 post-treatment covariates versus 117 pre-treatment ones, plus the caveats about interventions that might shift a screened covariate. Source article: \"Variance reduction combining pre-experiment and in-experiment data\" \u2014 CLeaR 2026 / PMLR 323 (Zhexiao Lin, UC Berkeley; Pablo Crespo, Etsy), https://proceedings.mlr.press/v323/lin26a.html (published 2026).",
@@ -390,7 +429,8 @@
     },
     {
       "episode": 36,
-      "season": 1,
+      "season": 2,
+      "season_episode": 3,
       "date": "2026-10-12",
       "title": "Neutral Launches \u2014 Measuring the Downside Risk",
       "description": "A deep dive into a new stat.AP paper on a question every experimentation team faces: when a launch is meant to be neutral, such as an infrastructure upgrade or migration, how do you know it did no harm? Checking whether confidence intervals overlap is too permissive when data are scarce and too strict when data are abundant. The authors propose Expected Bayesian Loss, a continuous risk score computed from ordinary frequentist estimates that captures both how likely a metric is to degrade and how bad the degradation would be, and that penalises noisy, high-variance experiments. We walk through the idea, how it works as a tunable guardrail, and the open questions about calibrating the loss scale.\n\nSource article: \"Neutral Is Not Free: Evaluating Downside Risk in Neutral Launches\" \u2014 arXiv stat.AP (Alcain, Kang, Garrard, Veits, Nassif, Zaidi), https://arxiv.org/abs/2610.10223 (published 2026-10).",
