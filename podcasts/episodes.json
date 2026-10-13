@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 37,
+  "next_episode": 38,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -398,6 +398,23 @@
       "cover": "podcasts/2026-10-12-arxiv-neutral-launches-expected-bayesian-loss.cover.png",
       "rss_status": "draft",
       "rss_episode_id": 3227851
+    },
+    {
+      "episode": 37,
+      "season": 1,
+      "season_episode": 37,
+      "date": "2026-10-13",
+      "title": "OneTrans \u2014 One Transformer for the Whole Recsys Cascade",
+      "description": "A deep dive into OneTrans-V2, an industrial recommender that replaces the usual retrieval, pre-rank and fine-rank cascade with a single Transformer. We cover the business context (separate stage models that re-encode the same user history and are optimised in isolation), the technical approach (one shared encoding of the user's behaviour sequence, joint training with in-model distillation from fine-rank to pre-rank, sparse mixture-of-experts scaling with \u03bcP-style parameterisation, Decision-Conditioned Generative Retrieval and Sequence-Native Training), and the reported impact: +9.74% GMV in production and 3.2x the throughput of the cascade it replaces on the same hardware, with the caveat that the abstract gives no baseline or experiment details. Source article: \"OneTrans-V2: Unifying Retrieval, Pre-rank, and Fine-rank with One Transformer in Industrial Recommender\" \u2014 arXiv cs.IR (Cao et al.), https://arxiv.org/abs/2609.28589 (published 2026-09).",
+      "audio": "podcasts/2026-10-13-arxiv-onetrans-v2-unified-transformer-recsys.m4a",
+      "cover": "podcasts/2026-10-13-arxiv-onetrans-v2-unified-transformer-recsys.cover.png",
+      "rss_status": "draft",
+      "cover_company": "Industrial recommender (arXiv)",
+      "cover_title": "One Transformer for the Whole Cascade",
+      "cover_overline": "Personalization & Recsys",
+      "cover_subtitle": "Retrieval, pre-rank and fine-rank in one model",
+      "cover_motif": "sequence",
+      "rss_episode_id": 3231266
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-12",
+  "updated": "2026-10-13",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,87 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-onetrans-v2-unified-transformer-recsys",
+      "title": "OneTrans-V2: Unifying Retrieval, Pre-rank, and Fine-rank with One Transformer in Industrial Recommender",
+      "source": "arXiv cs.IR (Cao et al.)",
+      "url": "https://arxiv.org/abs/2609.28589",
+      "published": "2026-09",
+      "added": "2026-10-13",
+      "category": "personalization-recsys",
+      "tags": [
+        "unified-transformer",
+        "cascade-ranking",
+        "generative-retrieval",
+        "moe",
+        "distillation"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-13-arxiv-onetrans-v2-unified-transformer-recsys.md",
+      "deep_dived_on": "2026-10-13",
+      "sourced_via": "web search",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "arxiv-timeseries-fm-exaone-demand",
+      "title": "EXAONE Demand 1.0: A Time Series Foundation Model for Demand Forecasting",
+      "source": "arXiv cs.AI (Lee et al., LG AI Research)",
+      "url": "https://arxiv.org/abs/2609.30880",
+      "published": "2026-09",
+      "added": "2026-10-13",
+      "category": "forecasting-timeseries",
+      "tags": [
+        "time-series-foundation-model",
+        "demand-forecasting",
+        "intermittent-demand",
+        "lora-adapter",
+        "synthetic-data"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-13-arxiv-timeseries-fm-exaone-demand.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-t0-time-series-foundation-model-context",
+      "title": "t0: A Time-Series Foundation Model for Forecasting with Context",
+      "source": "arXiv cs.LG (Meyer et al.)",
+      "url": "https://arxiv.org/abs/2609.24559",
+      "published": "2026-09",
+      "added": "2026-10-13",
+      "category": "forecasting-timeseries",
+      "tags": [
+        "time-series-foundation-model",
+        "covariates",
+        "probabilistic-forecasting",
+        "gift-eval",
+        "open-weights"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-13-arxiv-t0-time-series-foundation-model-context.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-experiment-design-under-interference-robust-selector",
+      "title": "Choosing Online Experiment Designs under Interference in Ads, Recommendations, and Member-Experience Systems",
+      "source": "arXiv stat.ML (Shekhar & Howard)",
+      "url": "https://arxiv.org/abs/2605.25290",
+      "published": "2026-05",
+      "added": "2026-10-13",
+      "category": "experimentation-causal",
+      "tags": [
+        "interference",
+        "experiment-design",
+        "switchback",
+        "cluster-randomization",
+        "minimax"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-13-arxiv-experiment-design-under-interference-robust-selector.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
     {
       "id": "uber-cart-assistant-agentic-grocery-shopping",
       "title": "Cart Assistant: Agentic Grocery Shopping on Uber Eats",

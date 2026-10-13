@@ -1,16 +1,8 @@
 {
   "version": 1,
-  "updated": "2026-10-12",
+  "updated": "2026-10-13",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
-    {
-      "id": "arxiv-onetrans-v2-unified-transformer-recsys",
-      "company": "Academic / Industrial recsys",
-      "title": "OneTrans-V2: Unifying Retrieval, Pre-rank, and Fine-rank with One Transformer in Industrial Recommender",
-      "category": "personalization-recsys",
-      "hook": "Collapses the classic multi-stage retrieval/pre-rank/fine-rank recommender pipeline into a single transformer, reporting +9.74% GMV in production.",
-      "url": "https://arxiv.org/abs/2609.28589"
-    },
     {
       "id": "airbnb-personal-data-classification",
       "company": "Airbnb",
