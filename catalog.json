@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-13",
+  "updated": "2026-10-14",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -98,14 +98,6 @@
       "category": "llm-genai",
       "hook": "An AI-based semantic analyzer that inspects outbound files for sensitive content at scale, beyond what pattern/regex-based DLP tools catch.",
       "url": "https://www.uber.com/us/en/blog/ubers-file-analyzer/"
-    },
-    {
-      "id": "uber-first-pass-ai-prd-reviewer",
-      "company": "Uber",
-      "title": "Lessons from Building a First-Pass AI PRD Reviewer at Uber",
-      "category": "llm-genai",
-      "hook": "An LLM-based reviewer that gives product-requirement docs an automated first pass before human review, and what Uber learned making it trustworthy enough to use.",
-      "url": "https://www.uber.com/us/en/blog/first-pass-prd/"
     },
     {
       "id": "uber-ai-prototyping-product-building",

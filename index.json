@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-13",
+  "updated": "2026-10-14",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,46 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-shared-donor-inference-synthetic-did",
+      "title": "Shared-Donor Inference for Fixed-Set Heterogeneity in Synthetic Difference-in-Differences",
+      "source": "arXiv econ.EM (Hoshino & Nakakita)",
+      "url": "https://arxiv.org/abs/2607.08324",
+      "published": "2026-07",
+      "added": "2026-10-14",
+      "category": "experimentation-causal",
+      "tags": [
+        "synthetic-did",
+        "synthetic-control",
+        "heterogeneous-effects",
+        "simultaneous-inference",
+        "bootstrap"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-14-arxiv-shared-donor-inference-synthetic-did.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "uber-first-pass-ai-prd-reviewer",
+      "title": "Lessons from Building a First-Pass AI PRD Reviewer at Uber",
+      "source": "Uber Blog (Lakshmi Ashok)",
+      "url": "https://www.uber.com/us/en/blog/first-pass-prd/",
+      "published": "2026-05",
+      "added": "2026-10-14",
+      "category": "llm-genai",
+      "tags": [
+        "llm-application",
+        "product-requirements",
+        "metric-rigor",
+        "evaluation",
+        "internal-tools"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-14-uber-first-pass-ai-prd-reviewer.md",
+      "deep_dived_on": "2026-10-14",
+      "sourced_via": "full-text fetch"
+    },
     {
       "id": "arxiv-onetrans-v2-unified-transformer-recsys",
       "title": "OneTrans-V2: Unifying Retrieval, Pre-rank, and Fine-rank with One Transformer in Industrial Recommender",

@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 38,
+  "next_episode": 39,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -415,6 +415,23 @@
       "cover_subtitle": "Retrieval, pre-rank and fine-rank in one model",
       "cover_motif": "sequence",
       "rss_episode_id": 3231266
+    },
+    {
+      "episode": 38,
+      "season": 1,
+      "season_episode": 38,
+      "date": "2026-10-14",
+      "title": "Uber \u2014 An AI First-Pass Reviewer for Product Requirement Docs",
+      "description": "A deep dive into Uber's PRD Evaluator, an LLM-based first-pass reviewer for product requirement documents. We cover the business context (PRDs circulate through cross-functional checkpoints and often arrive missing context, so reviewers spend time on basic discovery), the workflow (assembling linked docs, prior experiments and Uber metric definitions; classifying the proposal to set review depth; scoring dimensions including Metric and Data Rigor; and producing a Ready / Ready with Caveats / Not Ready scorecard with a \"start here\" pointer), and the reported impact: early use by dozens of PMs and sharper, faster review discussions, with the caveat that the post gives no quantitative metrics and does not name the underlying model. Source article: \"Lessons from Building a First-Pass AI PRD Reviewer at Uber\" \u2014 Uber Blog (Lakshmi Ashok), https://www.uber.com/us/en/blog/first-pass-prd/ (published 2026-05).",
+      "audio": "podcasts/2026-10-14-uber-first-pass-ai-prd-reviewer.m4a",
+      "cover": "podcasts/2026-10-14-uber-first-pass-ai-prd-reviewer.cover.png",
+      "rss_status": "draft",
+      "cover_company": "Uber",
+      "cover_title": "A First-Pass AI Reviewer for PRDs",
+      "cover_overline": "LLM & GenAI",
+      "cover_subtitle": "Scorecards before the human checkpoint",
+      "cover_motif": "loop",
+      "rss_episode_id": 3234706
     }
   ]
 }
