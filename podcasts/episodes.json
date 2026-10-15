@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 39,
+  "next_episode": 40,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -432,6 +432,23 @@
       "cover_subtitle": "Scorecards before the human checkpoint",
       "cover_motif": "loop",
       "rss_episode_id": 3234706
+    },
+    {
+      "episode": 39,
+      "season": 1,
+      "season_episode": 39,
+      "date": "2026-10-15",
+      "title": "WeChat \u2014 Generative Retrieval for Industrial Search",
+      "description": "A deep dive into WeGR, WeChat's unified generative-retrieval model for industrial search. We cover the business context (multi-channel retrieval stacks are costly, and generative retrieval has been held back by semantic-ID tokenizers that miss collaborative signals and collapse their codebooks, and by sparse rewards in RL fine-tuning), the technique (CoCo-VAE, a collaborative and collapse-free tokenizer, plus DHPO, which expands reward and policy-optimization horizons across the semantic-ID hierarchy without auxiliary reward models), and the reported impact: a two-month A/B test in WeChat E-commerce Search with orders up 2.539%, CTR up 1.508%, conversion up 1.381% and CPU and GPU usage down about 25%, with caveats that the abstract gives no confidence intervals or control details. Source article: \"WeGR: Unified Generative Retrieval for Industrial Search Systems in WeChat\" \u2014 arXiv cs.IR (WeChat), https://arxiv.org/abs/2610.16979 (published 2026-10).",
+      "audio": "podcasts/2026-10-15-arxiv-wegr-generative-retrieval-wechat-search.m4a",
+      "cover": "podcasts/2026-10-15-arxiv-wegr-generative-retrieval-wechat-search.cover.png",
+      "rss_status": "draft",
+      "cover_company": "WeChat",
+      "cover_title": "Generative Retrieval for WeChat Search",
+      "cover_overline": "Search & Ranking",
+      "cover_subtitle": "Semantic IDs, RL rewards, two-month A/B",
+      "cover_motif": "sequence",
+      "rss_episode_id": 3237478
     }
   ]
 }

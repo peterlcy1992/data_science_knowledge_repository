@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-14",
+  "updated": "2026-10-15",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,104 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-within-site-randomization-effect-heterogeneity",
+      "title": "Identifying and Measuring Treatment-Effect Heterogeneity across Sites through Within-Site Randomization",
+      "source": "arXiv stat.ME (Hoshino)",
+      "url": "https://arxiv.org/abs/2610.15531",
+      "published": "2026-10",
+      "added": "2026-10-15",
+      "category": "experimentation-causal",
+      "tags": [
+        "cluster-randomized",
+        "site-heterogeneity",
+        "variance-components",
+        "experiment-design"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-15-arxiv-within-site-randomization-effect-heterogeneity.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-tmle-aipw-sample-splitting-cross-fitting",
+      "title": "When Sample-Splitting Choices Matter in TMLE and AIPW: Cross-Fitting, Targeting, and Repetition",
+      "source": "arXiv stat.ME (Karim & Fu)",
+      "url": "https://arxiv.org/abs/2610.16192",
+      "published": "2026-10",
+      "added": "2026-10-15",
+      "category": "statistical-modeling",
+      "tags": [
+        "TMLE",
+        "AIPW",
+        "doubly-robust",
+        "cross-fitting",
+        "simulation-study"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-15-arxiv-tmle-aipw-sample-splitting-cross-fitting.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-conformal-hierarchical-ev-charging-forecast",
+      "title": "Probabilistic Forecasting of Electric Vehicle Charging in a Time-varying Hierarchical Infrastructure",
+      "source": "arXiv stat.AP (Principato et al.)",
+      "url": "https://arxiv.org/abs/2610.13588",
+      "published": "2026-10",
+      "added": "2026-10-15",
+      "category": "forecasting-timeseries",
+      "tags": [
+        "hierarchical-forecasting",
+        "conformal-prediction",
+        "prediction-intervals",
+        "energy-demand"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-15-arxiv-conformal-hierarchical-ev-charging-forecast.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-wegr-generative-retrieval-wechat-search",
+      "title": "WeGR: Unified Generative Retrieval for Industrial Search Systems in WeChat",
+      "source": "arXiv cs.IR (WeChat)",
+      "url": "https://arxiv.org/abs/2610.16979",
+      "published": "2026-10",
+      "added": "2026-10-15",
+      "category": "search-ranking",
+      "tags": [
+        "generative-retrieval",
+        "semantic-ids",
+        "reinforcement-learning",
+        "ab-test",
+        "wechat"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-15-arxiv-wegr-generative-retrieval-wechat-search.md",
+      "deep_dived_on": "2026-10-15",
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-multimodal-students-llm-judge-search-relevance",
+      "title": "From a Large-Scale Teacher to Efficient Multimodal Students for Search Relevance Prediction",
+      "source": "arXiv cs.IR (e-commerce search)",
+      "url": "https://arxiv.org/abs/2610.16569",
+      "published": "2026-10",
+      "added": "2026-10-15",
+      "category": "search-ranking",
+      "tags": [
+        "llm-as-judge",
+        "distillation",
+        "relevance",
+        "evaluation",
+        "multimodal"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-15-arxiv-multimodal-students-llm-judge-search-relevance.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
     {
       "id": "arxiv-shared-donor-inference-synthetic-did",
       "title": "Shared-Donor Inference for Fixed-Set Heterogeneity in Synthetic Difference-in-Differences",

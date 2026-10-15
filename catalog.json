@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-14",
+  "updated": "2026-10-15",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -122,6 +122,14 @@
       "category": "personalization-recsys",
       "hook": "Adds real-world spatial-perception signals to a generative (semantic-ID) point-of-interest recommender at industrial scale.",
       "url": null
+    },
+    {
+      "id": "arxiv-bcf-zero-inflated-continuous-outcomes",
+      "company": "Academic / Applied stats",
+      "title": "Bayesian Causal Forests for Zero-Inflated Continuous Outcomes",
+      "category": "statistical-modeling",
+      "hook": "Two-part probit + Gaussian BCF with Duan smearing for heterogeneous effects on outcomes with a point mass at zero (e.g. spend); applied to a phase III trial.",
+      "url": "https://arxiv.org/abs/2610.18889"
     }
   ]
 }
