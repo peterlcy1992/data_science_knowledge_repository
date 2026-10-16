@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-15",
+  "updated": "2026-10-16",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,82 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-bcf-zero-inflated-continuous-outcomes",
+      "title": "Bayesian Causal Forests for Zero-Inflated Continuous Outcomes",
+      "source": "arXiv stat.ML (Souto, Wang & Shuryak)",
+      "url": "https://arxiv.org/abs/2610.18889",
+      "published": "2026-10",
+      "added": "2026-10-16",
+      "category": "statistical-modeling",
+      "tags": [
+        "bayesian-causal-forests",
+        "hte",
+        "zero-inflated",
+        "two-part-model"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-16-arxiv-bcf-zero-inflated-continuous-outcomes.md",
+      "deep_dived_on": "2026-10-16",
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-covariance-calibrated-prediction-powered-inference",
+      "title": "Covariance-Calibrated Prediction-Powered Inference",
+      "source": "arXiv stat.ME (Chen, Bai & Zhu)",
+      "url": "https://arxiv.org/abs/2610.21837",
+      "published": "2026-10",
+      "added": "2026-10-16",
+      "category": "statistical-modeling",
+      "tags": [
+        "prediction-powered-inference",
+        "gmm",
+        "ml-predictions",
+        "efficiency"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-16-arxiv-covariance-calibrated-prediction-powered-inference.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-reach-of-treatment-effects-zero-effect-regions",
+      "title": "The Reach of Treatment Effects: Randomization Inference for Zero-Effect Regions",
+      "source": "arXiv stat.ME (Li & Zhang)",
+      "url": "https://arxiv.org/abs/2610.20759",
+      "published": "2026-10",
+      "added": "2026-10-16",
+      "category": "experimentation-causal",
+      "tags": [
+        "randomization-inference",
+        "hte",
+        "subgroups",
+        "confidence-bound"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-16-arxiv-reach-of-treatment-effects-zero-effect-regions.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-mle-agents-production-search-ranking",
+      "title": "MLE Agents: Autonomous ML Engineering in Production Recommendation Systems",
+      "source": "NeurIPS 2026 Workshop on Autonomous ML Research (Li, Liang & Guru Raj)",
+      "url": "https://neurips.cc/virtual/2026/157618",
+      "published": "2026-10",
+      "added": "2026-10-16",
+      "category": "search-ranking",
+      "tags": [
+        "agents",
+        "auto-ml",
+        "search-ranking",
+        "online-ab-test"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-16-arxiv-mle-agents-production-search-ranking.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
     {
       "id": "arxiv-within-site-randomization-effect-heterogeneity",
       "title": "Identifying and Measuring Treatment-Effect Heterogeneity across Sites through Within-Site Randomization",
