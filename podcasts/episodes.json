@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 40,
+  "next_episode": 41,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -449,6 +449,23 @@
       "cover_subtitle": "Semantic IDs, RL rewards, two-month A/B",
       "cover_motif": "sequence",
       "rss_episode_id": 3237478
+    },
+    {
+      "episode": 40,
+      "season": 1,
+      "season_episode": 40,
+      "date": "2026-10-16",
+      "title": "Causal Forests \u2014 Treatment Effects on Zero-Heavy Outcomes",
+      "description": "A deep dive into Bayesian Causal Forests for zero-inflated continuous outcomes: how to estimate heterogeneous treatment effects when many units record exactly zero and the rest follow a skewed positive distribution. We cover the problem (about a quarter of patients in the application have an exact zero, and common HTE approaches ignore the point mass, assume fragile parametric forms, or add noise through data augmentation), the technique (ZIC-BCF-Smear, a probit Bayesian Causal Forest for participation plus a Gaussian BCF for intensity among active units, with Subpopulation Propensity Adjustment and Duan's smearing to return to the original scale), and the reported results: parity with correctly specified parametric models in simulations and an estimated effect of roughly ten extra days of severe toxicity per patient in the SPECTRUM phase III trial, with caveats that this is based on the abstract. Source article: \"Bayesian Causal Forests for Zero-Inflated Continuous Outcomes\" \u2014 arXiv stat.ML (Souto, Wang & Shuryak), https://arxiv.org/abs/2610.18889 (published 2026-10).",
+      "audio": "podcasts/2026-10-16-arxiv-bcf-zero-inflated-continuous-outcomes.m4a",
+      "cover": "podcasts/2026-10-16-arxiv-bcf-zero-inflated-continuous-outcomes.cover.png",
+      "rss_status": "draft",
+      "cover_company": "Bayesian Causal Forests",
+      "cover_title": "Treatment Effects on Zero-Heavy Outcomes",
+      "cover_overline": "Statistical Modeling",
+      "cover_subtitle": "Two-part BCF with Duan smearing",
+      "cover_motif": "signal",
+      "rss_episode_id": 3240180
     }
   ]
 }
