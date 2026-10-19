@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-16",
+  "updated": "2026-10-19",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,102 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-conformal-policy-selection-fdr-deployment",
+      "title": "Conformal Policy Selection: When to Deploy AI Decisions for Targeted Intervention",
+      "source": "arXiv stat.ME (Cao, Gao, Saar-Tsechansky & Yin)",
+      "url": "https://arxiv.org/abs/2610.22930",
+      "published": "2026-10",
+      "added": "2026-10-19",
+      "category": "experimentation-causal",
+      "tags": [
+        "conformal",
+        "fdr",
+        "off-policy",
+        "targeting",
+        "doubly-robust"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-19-arxiv-conformal-policy-selection-fdr-deployment.md",
+      "deep_dived_on": "2026-10-19",
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-online-conditional-vine-copulas-electricity",
+      "title": "Online Conditional Vine Copulas: Forecasting Electricity Demand",
+      "source": "arXiv stat.ME (Schulz, Hanck, Hirsch & Ziel)",
+      "url": "https://arxiv.org/abs/2610.23119",
+      "published": "2026-10",
+      "added": "2026-10-19",
+      "category": "forecasting-timeseries",
+      "tags": [
+        "vine-copula",
+        "probabilistic-forecasting",
+        "online-learning",
+        "electricity-demand"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-19-arxiv-online-conditional-vine-copulas-electricity.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-testing-treatment-effect-heterogeneity-functional-outcomes",
+      "title": "Testing Treatment Effect Heterogeneity with Functional Outcomes",
+      "source": "arXiv stat.ME (Feng, Li & Song)",
+      "url": "https://arxiv.org/abs/2610.23397",
+      "published": "2026-10",
+      "added": "2026-10-19",
+      "category": "experimentation-causal",
+      "tags": [
+        "hte",
+        "functional-data",
+        "hypothesis-testing",
+        "smart-metering"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-19-arxiv-testing-treatment-effect-heterogeneity-functional-outcomes.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-jev-llm-judge-reranker-portuguese-ir",
+      "title": "Jev-as-a-Judge for Brazilian Portuguese Information Retrieval: Relevance Assessment and Reranking",
+      "source": "arXiv cs.IR (Fernandes & Pereira)",
+      "url": "https://arxiv.org/abs/2610.23346",
+      "published": "2026-10",
+      "added": "2026-10-19",
+      "category": "search-ranking",
+      "tags": [
+        "llm-as-judge",
+        "relevance-labels",
+        "reranking",
+        "evaluation"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-19-arxiv-jev-llm-judge-reranker-portuguese-ir.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-tool-recommendation-multi-step-agents",
+      "title": "Tool Recommendation for Multi-Step Agents: Finding Every Tool a Task Needs",
+      "source": "arXiv cs.LG (Partee, Stevens, Damiba & Fanelle)",
+      "url": "https://arxiv.org/abs/2610.23707",
+      "published": "2026-10",
+      "added": "2026-10-19",
+      "category": "llm-genai",
+      "tags": [
+        "agents",
+        "tool-retrieval",
+        "token-cost",
+        "gateway"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-19-arxiv-tool-recommendation-multi-step-agents.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
     {
       "id": "arxiv-bcf-zero-inflated-continuous-outcomes",
       "title": "Bayesian Causal Forests for Zero-Inflated Continuous Outcomes",

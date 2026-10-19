@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 41,
+  "next_episode": 42,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -466,6 +466,23 @@
       "cover_subtitle": "Two-part BCF with Duan smearing",
       "cover_motif": "signal",
       "rss_episode_id": 3240180
+    },
+    {
+      "episode": 41,
+      "season": 1,
+      "season_episode": 41,
+      "date": "2026-10-19",
+      "title": "Conformal Policy Selection \u2014 Safety Gates for Individual AI Decisions",
+      "description": "A deep dive into Conformal Policy Selection, a statistical method for deciding where an AI targeting policy is safe to deploy for individual units rather than just on average. It frames each deployment decision as a hypothesis test, uses weighted conformal p-values that correct for the shift from the behavior policy to the target policy, and applies a selection-and-pruning step that controls the false discovery rate among selected units, with finite-sample FDR control and a doubly robust asymptotic guarantee. Synthetic experiments cover four misspecification regimes, and a semi-synthetic study on real electronic-health-record covariates shows FDR control acting as a safety gate against harmful treatments in a high-risk subpopulation. Source article: \"Conformal Policy Selection: When to Deploy AI Decisions for Targeted Intervention\" \u2014 arXiv stat.ME (Cao, Gao, Saar-Tsechansky & Yin), https://arxiv.org/abs/2610.22930 (published 2026-10).",
+      "audio": "podcasts/2026-10-19-arxiv-conformal-policy-selection-fdr-deployment.m4a",
+      "cover": "podcasts/2026-10-19-arxiv-conformal-policy-selection-fdr-deployment.cover.png",
+      "rss_status": "draft",
+      "cover_company": "Conformal Policy Selection",
+      "cover_title": "Safety Gates for Individual AI Decisions",
+      "cover_overline": "Experimentation & Causal",
+      "cover_subtitle": "Per-unit deployment with FDR control",
+      "cover_motif": "signal",
+      "rss_episode_id": 3246265
     }
   ]
 }
