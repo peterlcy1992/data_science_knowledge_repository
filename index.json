@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-19",
+  "updated": "2026-10-20",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,106 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-selling-in-the-wild-sales-agent-field-rct",
+      "title": "Selling in the Wild: Benchmark and Randomized Field Evidence for a Sales Agent Trained on Commercial Conversations",
+      "source": "arXiv cs.IR (Tannenbaum)",
+      "url": "https://arxiv.org/abs/2610.25461",
+      "published": "2026-10",
+      "added": "2026-10-20",
+      "category": "llm-genai",
+      "tags": [
+        "field-experiment",
+        "rct",
+        "non-inferiority",
+        "sales-agent",
+        "guardrails"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-20-arxiv-selling-in-the-wild-sales-agent-field-rct.md",
+      "deep_dived_on": "2026-10-20",
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-anytime-valid-clustered-linear-models",
+      "title": "Anytime-Valid Inference in Linear Models with Clustered Outcomes: Exact Multivariate Tests and Cluster-Robust Confidence Sequences",
+      "source": "arXiv stat.ME (Lindon)",
+      "url": "https://arxiv.org/abs/2610.25613",
+      "published": "2026-10",
+      "added": "2026-10-20",
+      "category": "experimentation-causal",
+      "tags": [
+        "anytime-valid",
+        "e-values",
+        "confidence-sequences",
+        "multivariate-outcomes",
+        "cluster-robust"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-20-arxiv-anytime-valid-clustered-linear-models.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-covariate-adaptive-randomization-historical-data",
+      "title": "Covariate-adaptive randomization using historical data and bootstrap-based inference",
+      "source": "arXiv stat.ME (Seya, Taguri, Togo & Kamatani)",
+      "url": "https://arxiv.org/abs/2610.26254",
+      "published": "2026-10",
+      "added": "2026-10-20",
+      "category": "experimentation-causal",
+      "tags": [
+        "covariate-adaptive-randomization",
+        "prognostic-score",
+        "bootstrap",
+        "experiment-design",
+        "variance-reduction"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-20-arxiv-covariate-adaptive-randomization-historical-data.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-sid-topology-preservation-generative-retrieval-tmall",
+      "title": "Don't Rewrite the SID Map: Topology Preservation for Generative Retrieval in Dynamic E-Commerce Search",
+      "source": "arXiv cs.IR (Zhu et al., TmallAPP)",
+      "url": "https://arxiv.org/abs/2610.26105",
+      "published": "2026-10",
+      "added": "2026-10-20",
+      "category": "search-ranking",
+      "tags": [
+        "generative-retrieval",
+        "semantic-ids",
+        "warm-start",
+        "model-updates",
+        "ab-test"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-20-arxiv-sid-topology-preservation-generative-retrieval-tmall.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-next-best-action-causal-constrained-offline-rl",
+      "title": "Next Best Action: Causal Constrained Offline RL for Business Action Targeting",
+      "source": "arXiv cs.LG (Ramachandiran, Li, Mancilla-Caceres, Ye & Liu; RecSys 2026 OARS workshop)",
+      "url": "https://arxiv.org/abs/2610.26817",
+      "published": "2026-10",
+      "added": "2026-10-20",
+      "category": "personalization-recsys",
+      "tags": [
+        "offline-rl",
+        "cmdp",
+        "causal-correction",
+        "coupon-targeting",
+        "off-policy-evaluation"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-20-arxiv-next-best-action-causal-constrained-offline-rl.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
     {
       "id": "arxiv-conformal-policy-selection-fdr-deployment",
       "title": "Conformal Policy Selection: When to Deploy AI Decisions for Targeted Intervention",
