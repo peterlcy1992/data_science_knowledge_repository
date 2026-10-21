@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-20",
+  "updated": "2026-10-21",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,86 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-instagram-feed-baseline-incremental-debiasing",
+      "title": "Baseline and Incremental: User, Item, and Request Debiasing in Instagram Feed Ranking",
+      "source": "arXiv cs.IR (Chen et al., Meta)",
+      "url": "https://arxiv.org/abs/2610.27423",
+      "published": "2026-10",
+      "added": "2026-10-21",
+      "category": "search-ranking",
+      "tags": [
+        "feed-ranking",
+        "debiasing",
+        "value-model",
+        "ablation",
+        "position-popularity-bias"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-21-arxiv-instagram-feed-baseline-incremental-debiasing.md",
+      "deep_dived_on": "2026-10-21",
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-moss-semantic-failure-monitoring-search-recsys",
+      "title": "MOSS: A Production Framework for Monitoring and Diagnosing Semantic Failures in Search and Recommendation Systems",
+      "source": "arXiv cs.IR (Nesen et al.)",
+      "url": "https://arxiv.org/abs/2610.26902",
+      "published": "2026-10",
+      "added": "2026-10-21",
+      "category": "search-ranking",
+      "tags": [
+        "llm-as-judge",
+        "monitoring",
+        "relevance",
+        "alerting",
+        "production-evaluation"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-21-arxiv-moss-semantic-failure-monitoring-search-recsys.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-bayesian-bart-spillover-cluster-trials-noncompliance",
+      "title": "A Bayesian machine learning approach to direct and spillover effects in cluster-randomized trials with noncompliance",
+      "source": "arXiv stat.ME (Bhandari, Li & Daniels)",
+      "url": "https://arxiv.org/abs/2610.27425",
+      "published": "2026-10",
+      "added": "2026-10-21",
+      "category": "experimentation-causal",
+      "tags": [
+        "spillover",
+        "cluster-randomized",
+        "noncompliance",
+        "BART",
+        "g-computation"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-21-arxiv-bayesian-bart-spillover-cluster-trials-noncompliance.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-rerandomization-assignment-dependent-covariates-network-interference",
+      "title": "Rerandomization and high-dimensional adjustment with assignment-dependent auxiliary variables under network interference",
+      "source": "arXiv stat.ME (Zhang, Wei & Liu)",
+      "url": "https://arxiv.org/abs/2610.27741",
+      "published": "2026-10",
+      "added": "2026-10-21",
+      "category": "experimentation-causal",
+      "tags": [
+        "rerandomization",
+        "network-interference",
+        "lasso-adjustment",
+        "horvitz-thompson",
+        "covariate-adjustment"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-21-arxiv-rerandomization-assignment-dependent-covariates-network-interference.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
     {
       "id": "arxiv-selling-in-the-wild-sales-agent-field-rct",
       "title": "Selling in the Wild: Benchmark and Randomized Field Evidence for a Sales Agent Trained on Commercial Conversations",

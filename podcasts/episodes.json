@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 43,
+  "next_episode": 44,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -500,6 +500,23 @@
       "cover_subtitle": "14.8M-visitor randomized field trial",
       "cover_motif": "signal",
       "rss_episode_id": 3249869
+    },
+    {
+      "episode": 43,
+      "season": 1,
+      "season_episode": 43,
+      "date": "2026-10-21",
+      "title": "Instagram Feed \u2014 Keeping the Baseline in Ranking",
+      "description": "A deep dive into how Meta's Instagram Feed team rethinks debiasing in feed ranking. Feed rankers score candidates with a weighted sum of engagement predictions, and each prediction mixes a baseline (what the viewer, item or request would produce anyway) with the incremental lift from showing the candidate. Rather than subtracting the baseline, the authors keep the raw prediction and add the incremental part as a separately weighted term, unifying viewer-habit, item-popularity and request-context debiasing in one parameterized operator. A four-arm production ablation (neither term, each alone, both) found the two-term arm beat both single-term arms on point estimates in 11 of 13 judged pairs, and 17 of 26 direct contrasts significantly favoured it versus 1 favouring the opposing arm. We also discuss what the abstract leaves unclear, like effect sizes and multiplicity. Source article: \"Baseline and Incremental: User, Item, and Request Debiasing in Instagram Feed Ranking\" \u2014 arXiv cs.IR (Chen et al., Meta), https://arxiv.org/abs/2610.27423 (published 2026-10).",
+      "audio": "podcasts/2026-10-21-arxiv-instagram-feed-baseline-incremental-debiasing.m4a",
+      "cover": "podcasts/2026-10-21-arxiv-instagram-feed-baseline-incremental-debiasing.cover.png",
+      "rss_status": "draft",
+      "cover_company": "Instagram",
+      "cover_title": "Keeping the Baseline in Feed Ranking",
+      "cover_overline": "Search & Ranking",
+      "cover_subtitle": "Baseline + incremental debiasing, tested in production",
+      "cover_motif": "signal",
+      "rss_episode_id": 3253329
     }
   ]
 }
