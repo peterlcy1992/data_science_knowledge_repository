@@ -2,7 +2,7 @@
   "show": "Data Science in the Wild",
   "rss_show_id": 400649,
   "season": 1,
-  "next_episode": 44,
+  "next_episode": 45,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -517,6 +517,23 @@
       "cover_subtitle": "Baseline + incremental debiasing, tested in production",
       "cover_motif": "signal",
       "rss_episode_id": 3253329
+    },
+    {
+      "episode": 44,
+      "season": 1,
+      "season_episode": 44,
+      "date": "2026-10-22",
+      "title": "LLM Agents \u2014 Can They Update Beliefs Like a Bayesian?",
+      "description": "A deep dive into new work from Filbry, Melo and Gal asking whether LLM agents can perform Bayesian inference in context. LLMs are increasingly used to review literature, generate hypotheses and design experiments, all of which require revising beliefs as evidence arrives. The authors evaluate internal consistency and the ability to recover an externally determined posterior, using qualitative epistemological examples, quantitative Bayesian-inference benchmarks, and an analysis of how non-Bayesian updates hurt downstream tasks. Their finding: without tools, LLMs generally violate Bayes' rule when updating in context, but modern reasoning plus code execution improves performance substantially, even approximating analytically intractable posteriors. We also discuss what the abstract leaves unclear, such as the specific models and numbers. Source article: \"From Prompts to Posteriors: Can LLM Agents Perform Bayesian Inference in Context?\" \u2014 arXiv cs.AI (Filbry, Melo & Gal), https://arxiv.org/abs/2610.29331 (published 2026-10).",
+      "audio": "podcasts/2026-10-22-arxiv-prompts-to-posteriors-llm-bayesian-inference.m4a",
+      "cover": "podcasts/2026-10-22-arxiv-prompts-to-posteriors-llm-bayesian-inference.cover.png",
+      "rss_status": "draft",
+      "cover_company": "arXiv",
+      "cover_title": "Can LLM Agents Update Like a Bayesian?",
+      "cover_overline": "LLMs & GenAI",
+      "cover_subtitle": "Bayes' rule in context, with and without tools",
+      "cover_motif": "signal",
+      "rss_episode_id": 3256965
     }
   ]
 }

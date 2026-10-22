@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-21",
+  "updated": "2026-10-22",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,65 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-valid-inference-did-control-selection",
+      "title": "Valid Inference After Control Selection in Difference-in-Differences",
+      "source": "arXiv econ.EM (Nakano & Hoshino)",
+      "url": "https://arxiv.org/abs/2610.01464",
+      "published": "2026-10",
+      "added": "2026-10-22",
+      "category": "experimentation-causal",
+      "tags": [
+        "difference-in-differences",
+        "selective-inference",
+        "control-selection",
+        "confidence-intervals"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-22-arxiv-valid-inference-did-control-selection.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-prompts-to-posteriors-llm-bayesian-inference",
+      "title": "From Prompts to Posteriors: Can LLM Agents Perform Bayesian Inference in Context?",
+      "source": "arXiv cs.AI (Filbry, Melo & Gal)",
+      "url": "https://arxiv.org/abs/2610.29331",
+      "published": "2026-10",
+      "added": "2026-10-22",
+      "category": "llm-genai",
+      "tags": [
+        "bayesian-inference",
+        "llm-evaluation",
+        "tool-use",
+        "belief-updating",
+        "reasoning"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-22-arxiv-prompts-to-posteriors-llm-bayesian-inference.md",
+      "deep_dived_on": "2026-10-22",
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-sequential-isolation-llm-inference-benchmarking",
+      "title": "Reproducible LLM Inference Benchmarking: A Sequential Isolation Protocol for Regression Testing",
+      "source": "arXiv cs.PF (Olympio et al.)",
+      "url": "https://arxiv.org/abs/2610.09778",
+      "published": "2026-10",
+      "added": "2026-10-22",
+      "category": "ml-infra-serving",
+      "tags": [
+        "benchmarking",
+        "variance",
+        "vllm",
+        "latency",
+        "regression-testing"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-22-arxiv-sequential-isolation-llm-inference-benchmarking.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
     {
       "id": "arxiv-instagram-feed-baseline-incremental-debiasing",
       "title": "Baseline and Incremental: User, Item, and Request Debiasing in Instagram Feed Ranking",
