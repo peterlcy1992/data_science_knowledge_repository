@@ -18,7 +18,7 @@ sourced_via: "web search"
 
 ## TL;DR
 
-LLMs used for hypothesis generation and experiment design need to update beliefs as evidence arrives. The authors test whether they do so in a Bayes-consistent way: without tools they generally violate Bayes' rule, but reasoning plus code execution markedly improves results, even approximating intractable posteriors.
+LLMs used for hypothesis generation and experiment design need to update beliefs as evidence arrives. The authors test whether they do so in a Bayes-consistent way: without reasoning they generally violate Bayes' rule; reasoning alone fixes the simpler cases, and code execution is needed only for the hard case with no closed-form posterior.
 
 ## 1. Business context
 
@@ -30,7 +30,7 @@ The evaluation framework has three parts: (1) qualitative epistemological exampl
 
 ## 3. Impact — potential & realized
 
-Realized (as reported): without tools LLMs generally violate Bayes' rule when updating in context; with modern reasoning abilities and code execution, performance improves substantially. The authors argue tool-equipped LLMs could already support complex belief updates in scientific work. Numbers were not available at abstract level. Potential: a template for auditing agentic analysis assistants on inference quality, not just answer accuracy.
+Realized (as reported): without reasoning, LLMs generally violate Bayes' rule when updating in context. Reasoning alone fixes the simpler cases; code execution is needed only for the hard case with no closed-form posterior. The authors argue such LLMs could already support complex belief updates in scientific work. Numbers were not available at abstract level. Potential: a template for auditing agentic analysis assistants on inference quality, not just answer accuracy.
 
 ---
 
@@ -38,13 +38,13 @@ Realized (as reported): without tools LLMs generally violate Bayes' rule when up
 
 > Opinion, not the source's claims.
 
-### Novelty: 4/5 — Frames a testable, DS-relevant question (do agents update like a Bayesian?) and the headline, tools rescue what raw reasoning lacks, is practical
+### Novelty: 4/5 — Frames a testable, DS-relevant question (do agents update like a Bayesian?) and the headline, that reasoning fixes most updating and code matters only when there is no closed form, is practical
 
-Novelty 4/5 - Frames a testable, DS-relevant question (do agents update like a Bayesian?) and the headline, tools rescue what raw reasoning lacks, is practical. Caveat: abstract-level read with no model names or numbers visible.
+Novelty 4/5 - Frames a testable, DS-relevant question (do agents update like a Bayesian?) and the headline, that reasoning fixes most updating and code matters only when there is no closed form, is practical. Caveat: abstract-level read with no model names or numbers visible.
 
 ### Similar / related work
 
-- [**Selling in the Wild**](2026-10-20-arxiv-selling-in-the-wild-sales-agent-field-rct.md) (in this bank) — evaluating LLM agents with controlled evidence rather than vibes
+- [**Selling in the Wild**](2026-10-20-arxiv-selling-in-the-wild-sales-agent-field-rct.md) (in this bank) — evaluating LLM agents with randomized field evidence rather than vibes
 - [**Neutral Launches and Expected Bayesian Loss**](2026-10-12-arxiv-neutral-launches-expected-bayesian-loss.md) (in this bank) — Bayesian decision framing for experiment readouts
 - [**ACED-Bench: Evaluating How LLM Agents Acquire and Act on Causal Evidence**](https://arxiv.org/abs/2610.14381) — sibling benchmark on agents' use of evidence
 
