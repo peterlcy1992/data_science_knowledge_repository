@@ -449,7 +449,7 @@
       "audio": "podcasts/2026-10-13-arxiv-onetrans-v2-unified-transformer-recsys.m4a",
       "cover": "podcasts/2026-10-13-arxiv-onetrans-v2-unified-transformer-recsys.cover.png",
       "rss_status": "draft",
-      "cover_company": "Industrial recommender (arXiv)",
+      "cover_company": "OneTrans",
       "cover_title": "One Transformer for the Whole Cascade",
       "cover_overline": "Personalization & Recsys",
       "cover_subtitle": "Retrieval, pre-rank and fine-rank in one model",
