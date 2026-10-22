@@ -1,44 +1,27 @@
-# Deep-dive podcast prompt
+Create a deep-dive podcast about today's featured article: the single source in this notebook. Ground every claim in it. Do not invent facts, numbers, quotes, mechanisms, models, or results. If the source does not give a detail, say it is not reported; do not fill the gap.
 
-These are the steering instructions passed to NotebookLM's audio hosts (via
-`notebooklm generate audio --prompt-file automation/podcast_prompt.md`) to
-produce the daily deep-dive podcast. The single source in the notebook is that
-day's chosen deep-dive article, so "the article provided" is unambiguous.
+Structure:
+1. Business context: the problem and why it matters, in about 3 minutes. Preview the headline result.
+2. Technical details: how it works. Name the models, datasets, techniques, and baselines the source uses, and why each design choice was made. Define jargon briefly.
+3. Results: the source's actual numbers (effect sizes, confidence intervals, A/B lifts, latency, table results), each with its baseline. Reach them by about the 40% mark.
+4. Novelty: what is new versus established practice applied well.
+5. Related work: only comparisons the source itself makes, described as the source describes them. Give a date only if the source does.
+6. Opinions and caveats: clearly flagged as the hosts' opinion.
 
----
+Accuracy rules:
+- Keep the source's exact claims and hedges. If it says a method "mitigates" bias, don't say "eliminates" or "neutralizes". If it names one cause of a failure, don't substitute another.
+- Don't overstate scope. If a system keeps an existing stage and only shrinks or merges it, don't call that stage replaced or bypassed.
+- Credit each result to the right model, setting, and condition. If it holds only for one model or the hardest case, say so.
+- Separate the general method from what the authors actually did in their study. Don't attribute options the paper merely mentions to the deployed pipeline, and don't name tools, tests, or steps the authors didn't use.
+- Say "matched", "perfect", or "proves" only if the source does.
+- Count carefully: models, datasets, experiments, conditions.
+- Describe other papers only as the source describes them, including study design (a randomized field trial is not a lab experiment).
 
-Create a deep-dive podcast about today's featured article — the single source
-provided in this notebook. Read through that article and ground every claim in
-it; do not invent facts, numbers, or quotes.
-
-Walk through the article in this order:
-
-1. **Business context** — the problem it addresses and why it matters to the
-   company and the wider industry. Set the stage for a curious, non-expert
-   listener. Keep the setup to about 3 minutes with at most one analogy, and
-   explain only methods the article actually uses. Reach the main results by the
-   halfway point.
-2. **Technical details** — explain how it actually works in accessible terms:
-   name the specific models, techniques, and architectures, and the key
-   numbers and results. Define the jargon as you go. Explain why each design
-   choice was made, and give the size of the gains together with their baseline.
-3. **Impact** — what it changes in practice, both the results actually realized
-   and the potential or transferable lessons for other teams.
-
-Then shift from explanation to analysis:
-
-4. **Novelty** — how genuinely new is this? Separate a true advance from
-   established practice applied well, and say which parts are which.
-5. **Similar and related work** — the most relevant comparable articles,
-   papers, or systems, and how this one differs from them. Name each paper, give
-   its date only if the source does, and don't invent how it connects to the
-   featured article.
-6. **Helpful opinions and caveats** — expert-style commentary: strengths,
-   limitations, open questions, and who should care. Clearly flag this as
-   opinion, distinct from the article's own claims. The closing recap restates
-   only the article's claims, not opinions.
+Style:
+- At most two analogies, each used once. Spend the time on the method and the numbers.
+- Label any invented example as hypothetical ("imagine, say...").
+- No hype words: massive, staggering, profound, brilliant, revolutionary, masterclass, game-changer, genius.
+- No one-word acknowledgements like "Exactly." or "Right."; each host should add something.
+- The closing recap restates only the source's claims, with no new superlatives or opinions. Keep the closing question tied to the paper.
 
 Tone: engaging and conversational, but precise and faithful to the source.
-Avoid hype words (massive, genius, masterclass) and one-word filler replies like
-"Exactly." or "Right." Keep commentary and opinion clearly separated from the
-article's factual claims. Label any example or number you invent as hypothetical.

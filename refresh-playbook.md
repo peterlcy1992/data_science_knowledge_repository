@@ -78,6 +78,14 @@ would act on.
 - Copy `TEMPLATE.md`. Fill every section with **specific** content: name the
   models, techniques, and numbers. Keep business/technical/impact factual and
   attributed to the source.
+- Keep the source's own wording for causal and scope claims. If the paper says
+  something fails "without reasoning", don't write "without tools"; if it says
+  a method "mitigates" bias, don't write "eliminates". Write "unifies" or
+  "merges" rather than "replaces" unless the paper says the old component is
+  gone. These summaries feed the podcast, so a paraphrase error here becomes an
+  error on air.
+- When a related-work note describes another paper, state its study design
+  correctly (e.g. a randomized field trial, not a "controlled environment").
 - Put all opinion under **Claude's Take**: score novelty `/5` (see
   `taxonomy.md`), list 2-3 similar articles/papers, and explain the jargon.
 - Choose one `category` slug from `taxonomy.md`.
@@ -201,6 +209,16 @@ keep it a single self-contained document (inline CSS/JS; only the Google Fonts
 Turn today's deep-dive article (the one chosen in Step 5) into a NotebookLM
 **deep-dive audio podcast**, using [`notebooklm-py`](https://github.com/teng-lin/notebooklm-py)
 and the steering prompt in [`automation/podcast_prompt.md`](automation/podcast_prompt.md).
+`--prompt-file` sends that whole file to the hosts as their instructions, so
+keep it prompt text only: no notes, headers or comments for maintainers.
+
+The hosts should read the **paper or post itself**, not our summary of it. Our
+summaries are often abstract-level, and their Claude's Take / related-work notes
+are opinion the hosts would repeat as fact.
+[`automation/podcast_source.py`](automation/podcast_source.py) picks the source:
+full-text URLs first (NotebookLM fetches them on Google's side, so this works
+even when this environment can't reach the site), then a facts-only brief of
+our entry as the fallback.
 
 This step is **best-effort**: it needs NotebookLM to be installed and
 authenticated in the run environment (see Prerequisites). If it is not, **skip
@@ -229,8 +247,23 @@ When available, run — substituting the chosen article's file and today's date:
 ```sh
 # 1. New notebook for today's deep dive
 notebooklm create "DS Deep Dive <YYYY-MM-DD> — <article title>"
-# 2. Add the article itself as the single source (Markdown is supported)
-notebooklm source add "articles/<YYYY-MM-DD>-<id>.md"
+# 2. Add exactly ONE source: the full text if it loads, else a facts-only brief.
+ART="articles/<YYYY-MM-DD>-<id>.md"
+PODCAST_SOURCE=summary
+for U in $(python3 automation/podcast_source.py urls "$ART"); do
+  SID=$(notebooklm source add "$U" --type url --request-timeout 120 --json 2>/dev/null \
+        | python3 -c 'import json,sys; print(json.load(sys.stdin)["source"]["id"])' 2>/dev/null)
+  [ -n "$SID" ] || continue
+  if notebooklm source wait "$SID" --timeout 300 >/dev/null 2>&1 &&
+     [ "$(notebooklm source fulltext "$SID" 2>/dev/null | wc -c)" -ge 8000 ]; then
+    PODCAST_SOURCE=full_text; break     # a real paper/post, not an error or abstract page
+  fi
+  notebooklm source delete "$SID" -y >/dev/null 2>&1   # failed or too thin: remove it
+done
+if [ "$PODCAST_SOURCE" = summary ]; then
+  python3 automation/podcast_source.py brief "$ART" /tmp/podcast_source.md
+  notebooklm source add /tmp/podcast_source.md --title "<article title>"
+fi
 # 3. Generate a deep-dive podcast at the DEFAULT length, steered by the prompt file.
 #    Confirm the exact format/length flag names with `notebooklm generate audio --help`
 #    (the format is "deep-dive"; do NOT pass a length flag — default length is wanted).
@@ -241,7 +274,8 @@ notebooklm download audio "podcasts/<YYYY-MM-DD>-<id>.m4a"
 
 Then:
 - Add a **Podcast** line to today's digest and to the deep-dive section:
-  `🎙️ Deep-dive podcast: podcasts/<YYYY-MM-DD>-<id>.m4a` (once committed it is
+  `🎙️ Deep-dive podcast: podcasts/<YYYY-MM-DD>-<id>.m4a (source: full text | summary)`,
+  using `$PODCAST_SOURCE` (once committed it is
   also reachable on the Pages site at
   `https://peterlcy1992.github.io/data_science_knowledge_repository/podcasts/<YYYY-MM-DD>-<id>.m4a`).
 - Commit the `.m4a` with everything else in Step 7. (Audio is large — if repo
@@ -303,9 +337,11 @@ best-effort — never fail the run over it. The audio lives in the podcast show
    "title": "...", "description": "...", "audio": "podcasts/<YYYY-MM-DD>-<id>.m4a",
    "cover": "podcasts/<YYYY-MM-DD>-<id>.cover.png", "rss_status": "not_uploaded",
    "cover_company": "...", "cover_title": "...", "cover_overline": "...",
-   "cover_subtitle": "...", "cover_motif": "signal" }`.
+   "cover_subtitle": "...", "cover_motif": "signal",
+   "podcast_source": "full_text" }`.
    Keep `title`/`description` identical to the sidecar `.md`. Store the exact
    `cover_*` args you pass in step 3 so covers can be regenerated faithfully later.
+   `podcast_source` is `$PODCAST_SOURCE` from Step 6c (`full_text` or `summary`).
 
 3. **Cover art.** Generate a mono-color episode tile with the source company's
    stylized wordmark (an attribution treatment — never a reproduction of a

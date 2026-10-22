@@ -18,7 +18,7 @@ sourced_via: "web search"
 
 ## TL;DR
 
-OneTrans-V2 replaces the retrieval → pre-rank → fine-rank cascade with one Transformer that encodes a user's behaviour sequence once and serves all three stages. The abstract reports +9.74% GMV in production and 3.2x the throughput of the cascade it replaces on the same hardware.
+OneTrans-V2 keeps the retrieval → pre-rank → fine-rank cascade but serves all three stages from one Transformer that encodes a user's behaviour sequence once. The abstract reports +9.74% GMV in production and 3.2x the throughput of the separate per-stage models on the same hardware.
 
 ## 1. Business context
 
@@ -30,7 +30,7 @@ One Transformer covers all three stages. The user behaviour sequence is encoded 
 
 ## 3. Impact — potential & realized
 
-Realized (abstract): deployed across all three stages of a large-scale industrial system, +9.74% GMV, and 3.2x throughput versus the replaced cascade under the same hardware budget. The abstract does not name the platform, the baseline or the A/B design, and no confidence intervals are given. Potential: fewer separately maintained models and a single place to inject business objectives.
+Realized (abstract): deployed across all three stages of a large-scale industrial system, +9.74% GMV, and 3.2x throughput versus the separate per-stage models under the same hardware budget. The abstract does not name the platform, the baseline or the A/B design, and no confidence intervals are given. Potential: fewer separately maintained models and a single place to inject business objectives.
 
 *Sourced from web search / abstract-level content; full text not reviewed.*
 
@@ -40,9 +40,9 @@ Realized (abstract): deployed across all three stages of a large-scale industria
 
 > Opinion, not the source's claims.
 
-### Novelty: 4/5 — Collapsing the cascade is a credible direction (shared-context batching and generative retrieval are both live trends), and the throughput claim is as interesting as the GMV claim.
+### Novelty: 4/5 — Serving the whole cascade from one model is a credible direction (shared-context batching and generative retrieval are both live trends), and the throughput claim is as interesting as the GMV claim.
 
-Collapsing the cascade is a credible direction (shared-context batching and generative retrieval are both live trends), and the throughput claim is as interesting as the GMV claim. But +9.74% GMV is a very large number reported without baseline or experiment details; read it as a claim until the full paper's A/B setup is checked. For DS practitioners the lesson is measurement: when stages are jointly trained, offline per-stage metrics stop being separable and online experimentation has to carry the evidence.
+Serving the whole cascade from one model is a credible direction (shared-context batching and generative retrieval are both live trends), and the throughput claim is as interesting as the GMV claim. But +9.74% GMV is a very large number reported without baseline or experiment details; read it as a claim until the full paper's A/B setup is checked. For DS practitioners the lesson is measurement: when stages are jointly trained, offline per-stage metrics stop being separable and online experimentation has to carry the evidence.
 
 ### Similar / related work
 
