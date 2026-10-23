@@ -47,10 +47,15 @@ across two families and aim for a roughly **even mix** each run:
   family). If a day genuinely yields no Core DS, note that in the digest rather
   than back-filling with more AI — and lean on Step 4b to deepen Core-DS backlog
   stubs so the pool stays balanced.
-- Web search is the primary channel because the egress proxy blocks many blog
-  domains. Attempt a direct `WebFetch` only when the domain is reachable; if it
-  returns `EGRESS_BLOCKED`, fall back to search-surfaced summaries and set
-  `sourced_via: "web search"`.
+- Use web search to **discover** candidates, then **read the full text** of
+  each one before writing it up. The run environment has full network access,
+  so fetch it directly:
+  `python3 automation/podcast_source.py text <url> /tmp/<id>.txt` (arXiv: the
+  HTML rendering, else the PDF via `pdftotext`; other sites: the page or PDF)
+  and read that file; `WebFetch` is fine too when it works. Set
+  `sourced_via: "full-text fetch"`. Only if the full text genuinely can't be
+  fetched (paywall, removed page) write from the abstract or search results,
+  set `sourced_via: "web search"`, and say so in the entry.
 - Dedupe against `index.json`. Skip anything already present.
 
 ### Scope & balance
@@ -122,17 +127,17 @@ budget permitting):
    live index currently skew AI-heavy, so deepening Core DS here is the main way
    to give Step 5 balanced material to choose from.
 2. For each, locate the underlying company article (web search first; the stub's
-   `url` if present is a lead, often just the podcast episode, not the source).
-   Research it enough to write a genuine summary — do not fabricate.
+   `url` if present is a lead, often just the podcast episode, not the source),
+   then read its full text as in Step 2 before writing the summary — do not
+   fabricate.
 3. Write a full entry per Step 3/4 (into `articles/` + `index.json`), setting
    `discovered_via: "Snacks Weekly on Data Science podcast"` where applicable.
 4. **Remove** the deepened stub from `catalog.json` and bump its `updated`.
 5. Mirror the new full entries into `index.html`'s `ARTICLES` array and drop the
    corresponding objects from its `CATALOG` array (Step 6b).
 
-Also enumerate more episodes when you can (the full podcast feed/list is
-egress-blocked, so use web search: `"Snacks Weekly on Data Science" episode
-<company/topic>`) and append any genuinely new leads to `catalog.json`, deduping
+Also enumerate more episodes when you can (web search works well:
+`"Snacks Weekly on Data Science" episode <company/topic>`) and append any genuinely new leads to `catalog.json`, deduping
 against both `catalog.json` and `index.json`.
 
 ## Step 5 — Pick the deep-dive article
@@ -167,6 +172,15 @@ Do **not** let raw `novelty` override the family rotation — a solid (`>=3`) Co
 piece beats a flashier AI one when Core DS is due.
 
 Set the chosen entry's `deep_dived_on` to today's date in `index.json`.
+
+**Full-text check.** The digest and the podcast both lean on this entry, so it
+must be written from the full text. If its `sourced_via` is not
+`"full-text fetch"` (or it says it was written from the abstract), fetch the
+full text now (`python3 automation/podcast_source.py text <url> /tmp/<id>.txt`),
+correct and fill in the entry from it — exact claims, models, datasets, numbers
+— and its `index.json`/`index.html` mirrors, and set
+`sourced_via: "full-text fetch"`. If the full text can't be fetched, keep the
+pick but say so in the digest.
 
 ## Step 6 — Compose the digest
 
@@ -218,8 +232,8 @@ are opinion the hosts would repeat as fact.
 `python3 automation/podcast_source.py add` adds exactly one source and reports
 which: it uploads the PDF if this environment can download it, else lets
 NotebookLM fetch the full-text URLs on Google's side, else falls back to a
-facts-only brief of our entry. Downloading arXiv needs `arxiv.org` in this
-environment's allowed network domains. Run the commands as written: don't
+facts-only brief of our entry. With the environment's full network access the
+PDF upload should normally succeed. Run the commands as written: don't
 silence their output, and pass `-n "$NB"` to every notebooklm call.
 `notebooklm create` does not select the new notebook on its own.
 

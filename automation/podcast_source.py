@@ -18,6 +18,12 @@ Take" / related-work notes are opinion that the hosts would treat as fact.
       `notebooklm use` context. Each attempt's outcome is in "attempts" so a
       fallback always says why.
 
+  python3 automation/podcast_source.py text <articles/<id>.md | URL> <out.txt>
+      Fetch the full text into a plain-text file so an entry can be written
+      (or revised) from the paper rather than its abstract. arXiv: the HTML
+      rendering, else the PDF; other URLs: the page (HTML or PDF). Prints the
+      character count; exits non-zero if under 8000 chars.
+
   python3 automation/podcast_source.py urls articles/<id>.md
       Print candidate full-text URLs, best first. arXiv papers map to the
       full-text HTML and PDF renderings (the /abs page is abstract-only).
@@ -36,6 +42,7 @@ import subprocess
 import sys
 import tempfile
 import urllib.request
+from html.parser import HTMLParser
 from pathlib import Path
 
 MIN_CHARS = 8000
@@ -109,8 +116,8 @@ def tail(s, n=300):
     return s[-n:]
 
 
-def download_pdf(url, dest):
-    """Fetch a PDF through the environment's proxy; True if it looks like one."""
+def fetch(url):
+    """GET a URL (through the environment's proxy, if any); return bytes."""
     ctx = ssl.create_default_context()
     ca = os.environ.get("SSL_CERT_FILE") or "/root/.ccr/ca-bundle.crt"
     if os.path.exists(ca):
@@ -121,10 +128,71 @@ def download_pdf(url, dest):
         handlers.append(urllib.request.ProxyHandler({"https": proxy, "http": proxy}))
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (podcast source fetch)"})
     with urllib.request.build_opener(*handlers).open(req, timeout=60) as r:
-        data = r.read()
+        return r.read()
+
+
+def download_pdf(url, dest):
+    """Fetch a PDF; raise unless it looks like a full paper."""
+    data = fetch(url)
     if not data.startswith(b"%PDF") or len(data) < 30000:
         raise ValueError(f"not a full PDF ({len(data)} bytes)")
     Path(dest).write_bytes(data)
+
+
+class _Text(HTMLParser):
+    SKIP = {"script", "style", "nav", "header", "footer", "noscript", "svg"}
+
+    def __init__(self):
+        super().__init__()
+        self.parts, self.skip = [], 0
+
+    def handle_starttag(self, tag, attrs):
+        if tag in self.SKIP:
+            self.skip += 1
+        elif tag in ("p", "div", "br", "li", "h1", "h2", "h3", "h4", "tr", "section"):
+            self.parts.append("\n")
+
+    def handle_endtag(self, tag):
+        if tag in self.SKIP and self.skip:
+            self.skip -= 1
+
+    def handle_data(self, data):
+        if not self.skip:
+            self.parts.append(data)
+
+
+def to_text(data):
+    """Plain text from fetched bytes (PDF via pdftotext, else HTML/plain)."""
+    if data.startswith(b"%PDF"):
+        with tempfile.TemporaryDirectory() as d:
+            src, dst = os.path.join(d, "a.pdf"), os.path.join(d, "a.txt")
+            Path(src).write_bytes(data)
+            subprocess.run(["pdftotext", "-layout", src, dst], check=True,
+                           capture_output=True, timeout=120)
+            return Path(dst).read_text(errors="replace")
+    html = data.decode("utf-8", errors="replace")
+    p = _Text()
+    p.feed(html)
+    return re.sub(r"\n\s*\n+", "\n\n", re.sub(r"[ \t]+", " ", "".join(p.parts))).strip()
+
+
+def full_text(target, out):
+    """Write the best full text for an article file or URL; return (chars, url)."""
+    cands = urls(target) if target.endswith(".md") else (
+        [f"https://arxiv.org/html/{arxiv_id(target)}", f"https://arxiv.org/pdf/{arxiv_id(target)}"]
+        if arxiv_id(target) else [target])
+    errors = []
+    for u in cands:
+        try:
+            text = to_text(fetch(u))
+        except Exception as e:
+            errors.append(f"{u}: {tail(str(e), 120)}")
+            continue
+        if len(text) >= MIN_CHARS:
+            Path(out).write_text(text + "\n")
+            return len(text), u
+        errors.append(f"{u}: only {len(text)} chars")
+    raise SystemExit("No full text: " + "; ".join(errors))
 
 
 def add_and_check(nb, content, title=None):
@@ -197,6 +265,9 @@ if __name__ == "__main__":
     a = sys.argv[1:]
     if len(a) == 3 and a[0] == "add":
         print(json.dumps(add(a[1], a[2]), indent=2))
+    elif len(a) == 3 and a[0] == "text":
+        n, u = full_text(a[1], a[2])
+        print(f"{n} chars from {u} -> {a[2]}")
     elif len(a) == 2 and a[0] == "urls":
         print("\n".join(urls(a[1])))
     elif len(a) == 3 and a[0] == "brief":

@@ -32,12 +32,11 @@ the list below is expanded well beyond it.
 | arXiv econ.EM | arxiv.org/list/econ.EM/recent | Econometrics, causal estimation, marketplace inference |
 | Nixtla | nixtlaverse.nixtla.io/blog | Time-series forecasting methods & benchmarks |
 
-> Egress note: this environment's proxy blocks direct fetching of many blog
-> domains (Medium-hosted blogs such as `netflixtechblog.com`, several corporate
-> `careers*` domains, etc.). The refresh therefore uses **web search** as the
-> primary discovery + summarisation channel and only attempts a direct fetch
-> when a domain is reachable. Entries note when they were built from
-> search-surfaced content rather than a full-text fetch.
+> Fetching note: the run environment has full network access. Use web search
+> to discover articles, then read each one's full text
+> (`python3 automation/podcast_source.py text <url> <out.txt>`, or `WebFetch`).
+> Entries record `sourced_via: "full-text fetch"`; `"web search"` now means the
+> full text genuinely couldn't be fetched (paywall, removed page).
 
 ## Tier 1 — Big-tech engineering & research blogs
 
@@ -87,7 +86,7 @@ the list below is expanded well beyond it.
 
 Each *Snacks Weekly on Data Science* episode breaks down one company blog post,
 so its back catalogue (101+ episodes) is itself a source list. The episode
-aggregators (Apple, Spotify, podnews, castbox) are egress-blocked, so episode
+aggregators (Apple, Spotify, podnews, castbox) are awkward to scrape, so episode
 topics are recovered via web search (`"Snacks Weekly on Data Science" episode
 <company>`), then the underlying company article is located and summarised
 directly. Entries found this way carry
