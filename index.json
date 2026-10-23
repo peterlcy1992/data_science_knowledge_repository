@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-22",
+  "updated": "2026-10-23",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,66 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-lifetime-valid-continual-validation-ai-analysts",
+      "title": "Lifetime-valid decisions by continually evolving AI analysts",
+      "source": "arXiv stat.ME (Sun, Zeng & Wang)",
+      "url": "https://arxiv.org/abs/2610.30562",
+      "published": "2026-10",
+      "added": "2026-10-23",
+      "category": "experimentation-causal",
+      "tags": [
+        "type-i-error",
+        "ai-analyst",
+        "ab-testing",
+        "continual-validation",
+        "sequential-validation"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-23-arxiv-lifetime-valid-continual-validation-ai-analysts.md",
+      "deep_dived_on": "2026-10-23",
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-volatility-corrected-prediction-intervals-tsfm",
+      "title": "Volatility-Corrected Prediction Intervals: Locally Adaptive Uncertainty Quantification for Probabilistic Time-Series Forecasting",
+      "source": "arXiv stat.ME (Cho & Matteson)",
+      "url": "https://arxiv.org/abs/2610.31621",
+      "published": "2026-10",
+      "added": "2026-10-23",
+      "category": "forecasting-timeseries",
+      "tags": [
+        "prediction-intervals",
+        "garch",
+        "foundation-models",
+        "conformal",
+        "calibration"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-23-arxiv-volatility-corrected-prediction-intervals-tsfm.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
+    {
+      "id": "arxiv-userarena-user-simulation-shopping-agents",
+      "title": "UserArena: Benchmarking Interactive User Simulation for Long-Horizon Shopping Agents",
+      "source": "arXiv cs.IR (Zhao et al.)",
+      "url": "https://arxiv.org/abs/2610.30932",
+      "published": "2026-10",
+      "added": "2026-10-23",
+      "category": "personalization-recsys",
+      "tags": [
+        "user-simulation",
+        "benchmark",
+        "agentic-recommendation",
+        "ab-test-validation",
+        "offline-evaluation"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-23-arxiv-userarena-user-simulation-shopping-agents.md",
+      "deep_dived_on": null,
+      "sourced_via": "web search"
+    },
     {
       "id": "arxiv-valid-inference-did-control-selection",
       "title": "Valid Inference After Control Selection in Difference-in-Differences",

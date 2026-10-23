@@ -6,7 +6,7 @@
     1,
     34
   ],
-  "next_episode": 45,
+  "next_episode": 46,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -574,6 +574,24 @@
       "cover_subtitle": "Bayes' rule in context, with and without reasoning",
       "cover_motif": "signal",
       "rss_episode_id": 3256965
+    },
+    {
+      "episode": 45,
+      "season": 2,
+      "season_episode": 12,
+      "date": "2026-10-23",
+      "title": "AI Analysts \u2014 Keeping Type I Error Under Control as They Evolve",
+      "description": "A deep dive into new work from Sun, Zeng and Wang on AI agents that act as analysts and keep being updated. Classical tests control Type I error for a fixed procedure, but an evolving AI analyst can drift into approving versions whose error rate exceeds the target. The authors propose continual validation: each proposed analyst version is tested on simulated null data before deployment, and they prove the lifetime probability of ever deploying a version above the allowed error level stays bounded. In two examples, Type I error reached 0.098 (bioequivalence) and 0.183 (A/B testing) without validation and at most 0.045 and 0.044 with it, while retaining 82% and 96% of the power of optimally selected valid updates. Source article: \"Lifetime-valid decisions by continually evolving AI analysts\" \u2014 arXiv stat.ME (Sun, Zeng & Wang), https://arxiv.org/abs/2610.30562 (published 2026-10).",
+      "audio": "podcasts/2026-10-23-arxiv-lifetime-valid-continual-validation-ai-analysts.m4a",
+      "cover": "podcasts/2026-10-23-arxiv-lifetime-valid-continual-validation-ai-analysts.cover.png",
+      "rss_status": "draft",
+      "cover_company": "arXiv",
+      "cover_title": "Keeping AI Analysts Honest",
+      "cover_overline": "Experimentation & Causal",
+      "cover_subtitle": "Lifetime Type I error control for evolving agents",
+      "cover_motif": "loop",
+      "podcast_source": "summary",
+      "rss_episode_id": 3259699
     }
   ]
 }
