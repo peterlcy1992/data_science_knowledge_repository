@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-23",
+  "updated": "2026-10-26",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,86 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-honest-inference-synthetic-controls-imperfect-fit",
+      "title": "Honest Inference for Synthetic Controls with Imperfect Fit: Time-Split Validity and the Choice of Anchor",
+      "source": "arXiv stat.ME (Spruk)",
+      "url": "https://arxiv.org/abs/2610.32383",
+      "published": "2026-10",
+      "added": "2026-10-26",
+      "category": "experimentation-causal",
+      "tags": [
+        "synthetic-control",
+        "inference",
+        "sensitivity-analysis",
+        "sample-splitting",
+        "breakdown-curvature"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-26-arxiv-honest-inference-synthetic-controls-imperfect-fit.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-higher-order-regression-adjustment-rct",
+      "title": "Higher-Order Asymptotics of Regression-Adjusted Estimators in Randomized Trials",
+      "source": "arXiv stat.ME (Kelley & Wager)",
+      "url": "https://arxiv.org/abs/2610.32023",
+      "published": "2026-10",
+      "added": "2026-10-26",
+      "category": "experimentation-causal",
+      "tags": [
+        "regression-adjustment",
+        "variance-reduction",
+        "ab-testing",
+        "asymptotic-deficiency",
+        "robust-standard-errors"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-26-arxiv-higher-order-regression-adjustment-rct.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-proportion-outcomes-interrupted-time-series",
+      "title": "Proportion Outcomes in Interrupted Time Series Analysis: Why Both Boundedness and Autocorrelation Matter",
+      "source": "arXiv stat.AP (Linden)",
+      "url": "https://arxiv.org/abs/2610.31969",
+      "published": "2026-10",
+      "added": "2026-10-26",
+      "category": "statistical-modeling",
+      "tags": [
+        "interrupted-time-series",
+        "beta-regression",
+        "fractional-regression",
+        "autocorrelation",
+        "teaching"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-26-arxiv-proportion-outcomes-interrupted-time-series.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "meituan-hierarchical-gtv-estimation-hge",
+      "title": "Hierarchical GTV Estimation: Bridging the Gap between Container-Level Ranking and Item-Level Conversion",
+      "source": "Meituan (RecSys '26)",
+      "url": "https://arxiv.org/abs/2610.32420",
+      "published": "2026-10",
+      "added": "2026-10-26",
+      "category": "search-ranking",
+      "tags": [
+        "gtv-estimation",
+        "sponsored-search",
+        "label-variance",
+        "proxy-labels",
+        "ads-ranking"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-26-meituan-hierarchical-gtv-estimation-hge.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
     {
       "id": "arxiv-lifetime-valid-continual-validation-ai-analysts",
       "title": "Lifetime-valid decisions by continually evolving AI analysts",
@@ -52,8 +132,8 @@
       ],
       "novelty": 3,
       "file": "articles/2026-10-23-arxiv-volatility-corrected-prediction-intervals-tsfm.md",
-      "deep_dived_on": null,
-      "sourced_via": "web search"
+      "deep_dived_on": "2026-10-26",
+      "sourced_via": "full-text fetch"
     },
     {
       "id": "arxiv-userarena-user-simulation-shopping-agents",

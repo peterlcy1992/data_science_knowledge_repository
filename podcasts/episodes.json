@@ -6,7 +6,7 @@
     1,
     34
   ],
-  "next_episode": 46,
+  "next_episode": 47,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -592,6 +592,25 @@
       "cover_motif": "loop",
       "podcast_source": "summary",
       "rss_episode_id": 3259699
+    },
+    {
+      "episode": 46,
+      "season": 2,
+      "season_episode": 13,
+      "date": "2026-10-26",
+      "title": "Time-Series Foundation Models \u2014 Keeping Forecast Intervals Honest When Volatility Shifts",
+      "description": "A deep dive into new work from Cho and Matteson on a quiet failure of probabilistic forecasts: intervals can hit their nominal marginal coverage on average while still miscovering during high-volatility stretches, because forecast errors are serially dependent and heteroskedastic. The authors call this local scale miscalibration and document it in the native intervals of time-series foundation models (Chronos, Moirai, TimesFM). Their fix, Volatility-Corrected Prediction Intervals, is post-hoc: it models the volatility of standardized forecast residuals with a GARCH model and applies a multiplicative correction to the forecaster's own predictive scale. Across four real-world datasets it gives the lowest rolling coverage error against conformal baselines at comparable interval width, with stated limits at longer horizons and for tail coverage. Source article: \"Volatility-Corrected Prediction Intervals: Locally Adaptive Uncertainty Quantification for Probabilistic Time-Series Forecasting\" \u2014 arXiv stat.ME (Cho & Matteson), https://arxiv.org/abs/2610.31621 (published 2026-10).",
+      "audio": "podcasts/2026-10-26-arxiv-volatility-corrected-prediction-intervals-tsfm.m4a",
+      "cover": "podcasts/2026-10-26-arxiv-volatility-corrected-prediction-intervals-tsfm.cover.png",
+      "rss_status": "draft",
+      "cover_company": "arXiv",
+      "cover_title": "Honest Forecast Intervals",
+      "cover_overline": "Forecasting & Time Series",
+      "cover_subtitle": "GARCH correction for local coverage",
+      "cover_motif": "signal",
+      "podcast_source": "full_text",
+      "podcast_source_note": "uploaded https://arxiv.org/pdf/2610.31621",
+      "rss_episode_id": 3266276
     }
   ]
 }
