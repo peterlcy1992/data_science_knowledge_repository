@@ -6,7 +6,7 @@
     1,
     34
   ],
-  "next_episode": 47,
+  "next_episode": 48,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -611,6 +611,25 @@
       "podcast_source": "full_text",
       "podcast_source_note": "uploaded https://arxiv.org/pdf/2610.31621",
       "rss_episode_id": 3266276
+    },
+    {
+      "episode": 47,
+      "season": 2,
+      "season_episode": 14,
+      "date": "2026-10-27",
+      "title": "Recommender Systems \u2014 When Item Similarity Is Just User Activity",
+      "description": "A deep dive into new work from Favier and colleagues at the University of Antwerp on item-item similarity, the signal behind item-kNN, SLIM and EASE. They show that even if every user consumed items completely independently, differing only in how much they consume, standard similarity measures such as lift, cosine and Pearson correlation still report strong associations. They call this phantom correlation, derive it from three assumptions that lead to a Rasch model, and show on MovieLens that activity alone accounts for most of the association of a typical item pair, while genuine taste lives in deviations from that baseline; on Last.fm, where lists are capped, it explains nothing. Source article: \"Do Similarity Measures Measure Similarity? How User Activity Creates Phantom Correlation in Recommender Systems\" \u2014 arXiv cs.IR (Favier et al., University of Antwerp), https://arxiv.org/abs/2610.35765 (published 2026-10).",
+      "audio": "podcasts/2026-10-27-arxiv-phantom-correlation-item-similarity-recsys.m4a",
+      "cover": "podcasts/2026-10-27-arxiv-phantom-correlation-item-similarity-recsys.cover.png",
+      "rss_status": "draft",
+      "cover_company": "arXiv",
+      "cover_title": "Phantom Correlation",
+      "cover_overline": "Recommender Systems",
+      "cover_subtitle": "Activity masquerading as taste",
+      "cover_motif": "signal",
+      "podcast_source": "full_text",
+      "podcast_source_note": "uploaded https://arxiv.org/pdf/2610.35765",
+      "rss_episode_id": 3270968
     }
   ]
 }

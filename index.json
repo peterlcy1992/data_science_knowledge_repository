@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-26",
+  "updated": "2026-10-27",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,111 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-regression-adjustment-ratios-treatment-effects",
+      "title": "Regression Adjustment for Ratios of Treatment Effects in Randomized Experiments",
+      "source": "arXiv econ.EM (Kakehi)",
+      "url": "https://arxiv.org/abs/2610.35666",
+      "published": "2026-10",
+      "added": "2026-10-27",
+      "category": "experimentation-causal",
+      "tags": [
+        "regression-adjustment",
+        "variance-reduction",
+        "late",
+        "cross-fitting",
+        "lasso",
+        "design-based-inference"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-27-arxiv-regression-adjustment-ratios-treatment-effects.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-demand-estimation-stockout-substitution-exact-mle",
+      "title": "Demand Estimation with Unobserved Stockout Substitution: Exact Likelihood Maximization",
+      "source": "arXiv stat.ME (Wang, Jiang & Chen)",
+      "url": "https://arxiv.org/abs/2610.34547",
+      "published": "2026-10",
+      "added": "2026-10-27",
+      "category": "statistical-modeling",
+      "tags": [
+        "demand-estimation",
+        "multinomial-logit",
+        "maximum-likelihood",
+        "censored-demand",
+        "stockouts",
+        "retail"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-27-arxiv-demand-estimation-stockout-substitution-exact-mle.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-ai-assisted-experiments-unstructured-treatments",
+      "title": "AI-assisted design and analysis of experiments with unstructured treatments",
+      "source": "arXiv stat.ME (Ben-Michael & Branson)",
+      "url": "https://arxiv.org/abs/2610.33818",
+      "published": "2026-10",
+      "added": "2026-10-27",
+      "category": "experimentation-causal",
+      "tags": [
+        "experiment-design",
+        "unstructured-treatments",
+        "internal-external-validity",
+        "generative-ai",
+        "model-assisted-estimation",
+        "finite-population"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-27-arxiv-ai-assisted-experiments-unstructured-treatments.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-phantom-correlation-item-similarity-recsys",
+      "title": "Do Similarity Measures Measure Similarity? How User Activity Creates Phantom Correlation in Recommender Systems",
+      "source": "arXiv cs.IR (Favier et al., University of Antwerp)",
+      "url": "https://arxiv.org/abs/2610.35765",
+      "published": "2026-10",
+      "added": "2026-10-27",
+      "category": "personalization-recsys",
+      "tags": [
+        "item-item-similarity",
+        "collaborative-filtering",
+        "popularity-bias",
+        "rasch-model",
+        "implicit-feedback",
+        "measurement"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-27-arxiv-phantom-correlation-item-similarity-recsys.md",
+      "deep_dived_on": "2026-10-27",
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "pinterest-rlbp-rl-meta-controller-auto-bidding",
+      "title": "Reinforcement Learning for Controller Parameters in the Auto-Bidding System at Pinterest",
+      "source": "arXiv cs.LG (Pinterest)",
+      "url": "https://arxiv.org/abs/2610.33248",
+      "published": "2026-10",
+      "added": "2026-10-27",
+      "category": "personalization-recsys",
+      "tags": [
+        "auto-bidding",
+        "reinforcement-learning",
+        "pid-controller",
+        "budget-pacing",
+        "off-policy-evaluation",
+        "ab-testing"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-27-pinterest-rlbp-rl-meta-controller-auto-bidding.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
     {
       "id": "arxiv-honest-inference-synthetic-controls-imperfect-fit",
       "title": "Honest Inference for Synthetic Controls with Imperfect Fit: Time-Split Validity and the Choice of Anchor",
