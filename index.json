@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-27",
+  "updated": "2026-10-28",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,89 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-parallel-trends-as-a-spectrum-l-moments-did",
+      "title": "Parallel Trends as a Spectrum",
+      "source": "arXiv stat.ME (Schindl, Fry, Gunsilius & Wasserman)",
+      "url": "https://arxiv.org/abs/2610.31978",
+      "published": "2026-10",
+      "added": "2026-10-28",
+      "category": "experimentation-causal",
+      "tags": [
+        "difference-in-differences",
+        "parallel-trends",
+        "l-moments",
+        "distributional-effects",
+        "simultaneous-inference"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-28-arxiv-parallel-trends-as-a-spectrum-l-moments-did.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-experiment-reservoir-surrogate-long-term-effects",
+      "title": "Many Hands Make Light Work: Long-Term Effect Inference for the Experiment Reservoir",
+      "source": "arXiv econ.EM (Hartog, Lei, Rahurkar, Sahni & Tang; DoorDash data)",
+      "url": "https://arxiv.org/abs/2610.36352",
+      "published": "2026-10",
+      "added": "2026-10-28",
+      "category": "experimentation-causal",
+      "tags": [
+        "surrogate-index",
+        "long-term-effects",
+        "experimentation-platform",
+        "historical-experiments",
+        "local-linear-regression",
+        "matching"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-28-arxiv-experiment-reservoir-surrogate-long-term-effects.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-esguard-bias-aware-guardrail-selection-network-interference",
+      "title": "Bias-Aware Guardrail Selection Under Network Interference",
+      "source": "arXiv stat.ME (Kim, Byun & Jang, Yonsei University)",
+      "url": "https://arxiv.org/abs/2610.36702",
+      "published": "2026-10",
+      "added": "2026-10-28",
+      "category": "experimentation-causal",
+      "tags": [
+        "network-interference",
+        "guardrail-metrics",
+        "safe-policy-selection",
+        "marketplace-experiments",
+        "bias-aware-inference",
+        "switchback"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-28-arxiv-esguard-bias-aware-guardrail-selection-network-interference.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-lcm-promo-llm-uplift-promotion-allocation",
+      "title": "LCM-Promo: An LLM-Based Uplift Model for Promotion Allocation",
+      "source": "arXiv cs.LG (Prosus / iFood)",
+      "url": "https://arxiv.org/abs/2610.37570",
+      "published": "2026-10",
+      "added": "2026-10-28",
+      "category": "personalization-recsys",
+      "tags": [
+        "uplift-modeling",
+        "promotion-allocation",
+        "finetuned-llm",
+        "ab-testing",
+        "monotonic-response-curve",
+        "budget-constrained-allocation"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-28-arxiv-lcm-promo-llm-uplift-promotion-allocation.md",
+      "deep_dived_on": "2026-10-28",
+      "sourced_via": "full-text fetch"
+    },
     {
       "id": "arxiv-regression-adjustment-ratios-treatment-effects",
       "title": "Regression Adjustment for Ratios of Treatment Effects in Randomized Experiments",
