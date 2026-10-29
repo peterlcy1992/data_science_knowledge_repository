@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-28",
+  "updated": "2026-10-29",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,111 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "roblox-creative-pre-ranking-empirical-bayes-thompson-sampling",
+      "title": "Exploratory creative pre-ranking: Hierarchical empirical-Bayes Thompson sampling for real-time creative optimization",
+      "source": "arXiv (UCLA Statistics & Data Science with Roblox)",
+      "url": "https://arxiv.org/abs/2610.36020",
+      "published": "2026-10",
+      "added": "2026-10-29",
+      "category": "personalization-recsys",
+      "tags": [
+        "creative-optimization",
+        "thompson-sampling",
+        "empirical-bayes",
+        "hierarchical-shrinkage",
+        "cold-start",
+        "ads-ranking"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-29-roblox-creative-pre-ranking-empirical-bayes-thompson-sampling.md",
+      "deep_dived_on": "2026-10-29",
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-point-in-time-leakage-electricity-forecast-archives",
+      "title": "The Hidden Look-Ahead: Point-in-Time Leakage in Electricity Market Data",
+      "source": "arXiv (energy forecasting / econometrics)",
+      "url": "https://arxiv.org/abs/2610.25389",
+      "published": "2026-10",
+      "added": "2026-10-29",
+      "category": "forecasting-timeseries",
+      "tags": [
+        "data-leakage",
+        "point-in-time",
+        "backtesting",
+        "electricity-markets",
+        "training-serving-skew",
+        "weather-forecasts"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-29-arxiv-point-in-time-leakage-electricity-forecast-archives.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-bayesabcs-categorical-interactions-shrinkage-priors",
+      "title": "Priors and parameterizations for Bayesian regression with categorical variables and interactions (BayesABCs)",
+      "source": "arXiv stat.ME (Inkoo Lee et al.)",
+      "url": "https://arxiv.org/abs/2610.36017",
+      "published": "2026-10",
+      "added": "2026-10-29",
+      "category": "statistical-modeling",
+      "tags": [
+        "bayesian-regression",
+        "categorical-interactions",
+        "shrinkage-priors",
+        "heterogeneous-effects",
+        "identifiability",
+        "ANOVA"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-29-arxiv-bayesabcs-categorical-interactions-shrinkage-priors.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-probabilistic-causal-panel-analysis",
+      "title": "Probabilistic Causal Panel Analysis",
+      "source": "arXiv stat.ME (Bonander, Lin, Strömberg, Blangiardo)",
+      "url": "https://arxiv.org/abs/2610.36176",
+      "published": "2026-10",
+      "added": "2026-10-29",
+      "category": "statistical-modeling",
+      "tags": [
+        "synthetic-control",
+        "bayesian-hierarchical",
+        "INLA",
+        "panel-data",
+        "counterfactual-imputation",
+        "cross-validation"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-29-arxiv-probabilistic-causal-panel-analysis.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-spillover-effects-multiple-pre-treatment-periods",
+      "title": "Identifying and disentangling direct and spillover effects using multiple pre-treatment periods",
+      "source": "arXiv econ.EM (Martin Huber, University of Fribourg)",
+      "url": "https://arxiv.org/abs/2610.37049",
+      "published": "2026-10",
+      "added": "2026-10-29",
+      "category": "experimentation-causal",
+      "tags": [
+        "interference",
+        "spillover",
+        "interrupted-time-series",
+        "double-machine-learning",
+        "exposure-mapping",
+        "no-anticipation"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-29-arxiv-spillover-effects-multiple-pre-treatment-periods.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
     {
       "id": "arxiv-parallel-trends-as-a-spectrum-l-moments-did",
       "title": "Parallel Trends as a Spectrum",
