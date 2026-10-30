@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-29",
+  "updated": "2026-10-30",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,91 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-did-meta-analysis-twfe-negative-weights",
+      "title": "How Different are Different Differences-in-Differences? A Large-Scale Meta-Analysis",
+      "source": "arXiv econ.EM (Peter Hull, Brown University)",
+      "url": "https://arxiv.org/abs/2610.39995",
+      "published": "2026-10",
+      "added": "2026-10-30",
+      "category": "experimentation-causal",
+      "tags": [
+        "difference-in-differences",
+        "twfe",
+        "negative-weights",
+        "staggered-adoption",
+        "meta-analysis",
+        "hierarchical-model",
+        "replication"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-30-arxiv-did-meta-analysis-twfe-negative-weights.md",
+      "deep_dived_on": "2026-10-30",
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-staggered-adoption-comparison-set-momentary-vs-longitudinal",
+      "title": "Causal inference in staggered adoption panels: The correct comparison set depends on your intervention",
+      "source": "arXiv stat.AP (Ian Lundberg, UCLA; Yaling Xu, NHH)",
+      "url": "https://arxiv.org/abs/2610.31537",
+      "published": "2026-10",
+      "added": "2026-10-30",
+      "category": "experimentation-causal",
+      "tags": [
+        "staggered-adoption",
+        "difference-in-differences",
+        "comparison-group",
+        "inverse-probability-weighting",
+        "parallel-trends",
+        "estimand"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-10-30-arxiv-staggered-adoption-comparison-set-momentary-vs-longitudinal.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "meituan-doubly-censored-quantile-demand-forecasting",
+      "title": "A Deep Learning Framework for Quantile Demand Forecasting in E-commerce with Doubly Censored Data",
+      "source": "arXiv cs.LG / CIKM '26 (Meituan)",
+      "url": "https://arxiv.org/abs/2610.40138",
+      "published": "2026-10",
+      "added": "2026-10-30",
+      "category": "forecasting-timeseries",
+      "tags": [
+        "demand-forecasting",
+        "censored-data",
+        "quantile-regression",
+        "calibration",
+        "inventory",
+        "newsvendor"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-30-meituan-doubly-censored-quantile-demand-forecasting.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "meta-mixture-weighted-reward-model-offline-ad-evaluation",
+      "title": "Beyond IPS: Reliable Counterfactual Evaluation in Multi-Stage Ad Systems without Logged Propensities",
+      "source": "arXiv cs.IR (Meta Platforms)",
+      "url": "https://arxiv.org/abs/2610.40112",
+      "published": "2026-10",
+      "added": "2026-10-30",
+      "category": "search-ranking",
+      "tags": [
+        "off-policy-evaluation",
+        "counterfactual-evaluation",
+        "reward-model",
+        "importance-weighting",
+        "ads",
+        "ab-testing"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-10-30-meta-mixture-weighted-reward-model-offline-ad-evaluation.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
     {
       "id": "roblox-creative-pre-ranking-empirical-bayes-thompson-sampling",
       "title": "Exploratory creative pre-ranking: Hierarchical empirical-Bayes Thompson sampling for real-time creative optimization",

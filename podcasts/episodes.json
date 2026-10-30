@@ -6,7 +6,7 @@
     1,
     34
   ],
-  "next_episode": 49,
+  "next_episode": 50,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -649,6 +649,25 @@
       "podcast_source": "full_text",
       "podcast_source_note": "uploaded https://arxiv.org/pdf/2610.37570",
       "rss_episode_id": 3274249
+    },
+    {
+      "episode": 49,
+      "season": 2,
+      "season_episode": 16,
+      "date": "2026-10-30",
+      "title": "Brown University \u2014 Is Difference-in-Differences Actually Broken?",
+      "description": "A deep dive into a large-scale meta-analysis of the 'negative weights' worry about two-way fixed effects (TWFE) in staggered-adoption difference-in-differences. Using AI-assisted replication, Peter Hull re-estimates 1,346 specifications from 108 economics papers with TWFE and with modern DiD estimators (DiD-averaging and imputation). We cover the business context (whether switching estimators actually changes conclusions), the method (agentic search of 16,094 papers, hierarchical models that separate estimation noise from true estimand differences), and the findings: estimates correlated around 90%, sign reversals in 10.8-14.5% of comparisons but only 0.6-2.1% probability of a significant opposite-sign TWFE estimate once noise is modelled, and modern estimators' standard errors 14-47% larger. Source article: \"How Different are Different Differences-in-Differences? A Large-Scale Meta-Analysis\" \u2014 arXiv econ.EM (Peter Hull, Brown University), https://arxiv.org/abs/2610.39995 (published 2026-10).",
+      "audio": "podcasts/2026-10-30-arxiv-did-meta-analysis-twfe-negative-weights.m4a",
+      "cover": "podcasts/2026-10-30-arxiv-did-meta-analysis-twfe-negative-weights.cover.png",
+      "rss_status": "draft",
+      "cover_company": "Brown University",
+      "cover_title": "Do Negative Weights Matter?",
+      "cover_overline": "Difference-in-Differences",
+      "cover_subtitle": "1,346 replicated specifications, AI-assisted",
+      "cover_motif": "signal",
+      "podcast_source": "full_text",
+      "podcast_source_note": "uploaded https://arxiv.org/pdf/2610.39995",
+      "rss_episode_id": 3280333
     }
   ]
 }
