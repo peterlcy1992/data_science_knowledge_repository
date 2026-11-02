@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-30",
+  "updated": "2026-11-02",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,69 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-trial-level-surrogacy-ship-on-evals-alone",
+      "title": "When Can You Ship on Evals Alone? Trial-Level Surrogacy for Offline Evaluation of LLM Systems",
+      "source": "arXiv stat.ME (Mårten Schultzberg, Spotify)",
+      "url": "https://arxiv.org/abs/2610.10142",
+      "published": "2026-10",
+      "added": "2026-11-02",
+      "category": "experimentation-causal",
+      "tags": [
+        "surrogacy",
+        "llm-evals",
+        "a-b-testing",
+        "measurement-error",
+        "ship-decision",
+        "llm-as-judge"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-11-02-arxiv-trial-level-surrogacy-ship-on-evals-alone.md",
+      "deep_dived_on": "2026-11-02",
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-etz-counterfactual-individual-benefit-proportion-benefiting",
+      "title": "From Average Effects to Proportions Benefiting: A Tutorial on ETZ-Powered Counterfactual Individual Benefit Analysis",
+      "source": "arXiv stat.ME (Wang, Han, Liu, Tang, Hsu)",
+      "url": "https://arxiv.org/abs/2610.33600",
+      "published": "2026-10",
+      "added": "2026-11-02",
+      "category": "statistical-modeling",
+      "tags": [
+        "individual-treatment-effect",
+        "counterfactual",
+        "potential-outcomes",
+        "uncertainty-quantification",
+        "clinical-trials",
+        "heterogeneity"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-02-arxiv-etz-counterfactual-individual-benefit-proportion-benefiting.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-ai-weather-ensemble-multi-model-probabilistic-blend",
+      "title": "Value of Adding AI Weather Model Ensembles to a Multi-model Probabilistic Blend",
+      "source": "arXiv physics.ao-ph (Exeter / Met Office)",
+      "url": "https://arxiv.org/abs/2610.42130",
+      "published": "2026-10",
+      "added": "2026-11-02",
+      "category": "forecasting-timeseries",
+      "tags": [
+        "forecast-blending",
+        "ensemble",
+        "crps",
+        "calibration",
+        "emos",
+        "probabilistic-forecasting"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-02-arxiv-ai-weather-ensemble-multi-model-probabilistic-blend.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
     {
       "id": "arxiv-did-meta-analysis-twfe-negative-weights",
       "title": "How Different are Different Differences-in-Differences? A Large-Scale Meta-Analysis",
