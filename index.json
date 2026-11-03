@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-02",
+  "updated": "2026-11-03",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,69 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-double-diagonal-estimator-two-sided-marketplace-experiments",
+      "title": "The Double Diagonal Estimator: Reducing Bias in Two-Sided Marketplace Experiments",
+      "source": "arXiv econ.EM (Chawla & Syrgkanis, Stanford)",
+      "url": "https://arxiv.org/abs/2610.41294",
+      "published": "2026-10",
+      "added": "2026-11-03",
+      "category": "experimentation-causal",
+      "tags": [
+        "marketplace-experiments",
+        "interference",
+        "two-sided-randomization",
+        "mean-field",
+        "bias",
+        "a-b-testing"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-11-03-arxiv-double-diagonal-estimator-two-sided-marketplace-experiments.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-studentized-inference-few-units-dominate-randomized-experiments",
+      "title": "Studentized inference in randomized experiments when a few units dominate the outcome variation",
+      "source": "arXiv math.ST (Chen, Kiesel, Woody, Mississippi State)",
+      "url": "https://arxiv.org/abs/2611.03561",
+      "published": "2026-11",
+      "added": "2026-11-03",
+      "category": "statistical-modeling",
+      "tags": [
+        "randomization-inference",
+        "heavy-tails",
+        "wald-interval",
+        "coverage",
+        "design-based",
+        "lin-estimator"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-11-03-arxiv-studentized-inference-few-units-dominate-randomized-experiments.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-ctr-recalibration-temporal-evaluation-fresh-data",
+      "title": "How Much Fresh Data Should CTR Recalibration Use? A Temporal Evaluation of Post-hoc Calibration",
+      "source": "arXiv cs.LG (Rui Liu, independent researcher)",
+      "url": "https://arxiv.org/abs/2610.33168",
+      "published": "2026-10",
+      "added": "2026-11-03",
+      "category": "personalization-recsys",
+      "tags": [
+        "ctr-prediction",
+        "calibration",
+        "temporal-evaluation",
+        "platt-scaling",
+        "isotonic-regression",
+        "ads"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-03-arxiv-ctr-recalibration-temporal-evaluation-fresh-data.md",
+      "deep_dived_on": "2026-11-03",
+      "sourced_via": "full-text fetch"
+    },
     {
       "id": "arxiv-trial-level-surrogacy-ship-on-evals-alone",
       "title": "When Can You Ship on Evals Alone? Trial-Level Surrogacy for Offline Evaluation of LLM Systems",
