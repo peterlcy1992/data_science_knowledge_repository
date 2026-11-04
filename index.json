@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-03",
+  "updated": "2026-11-04",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,90 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-selective-randomization-inference-interference-pretest",
+      "title": "Selective Randomization Inference for Interference",
+      "source": "arXiv econ.EM (Takahide Yanagi, Kyoto University)",
+      "url": "https://arxiv.org/abs/2611.02443",
+      "published": "2026-11",
+      "added": "2026-11-04",
+      "category": "experimentation-causal",
+      "tags": [
+        "interference",
+        "spillover",
+        "selective-inference",
+        "randomization-test",
+        "randomized-saturation-design",
+        "pretest"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-04-arxiv-selective-randomization-inference-interference-pretest.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-when-listwise-deletion-works-causal-diagrams-complete-case",
+      "title": "When Listwise Deletion Works: Causal Diagrams and Complete-Case Regression",
+      "source": "arXiv stat.ME (Wenxin Lin & Shiyao Liu, Peking University)",
+      "url": "https://arxiv.org/abs/2611.04366",
+      "published": "2026-11",
+      "added": "2026-11-04",
+      "category": "statistical-modeling",
+      "tags": [
+        "missing-data",
+        "listwise-deletion",
+        "causal-dag",
+        "complete-case",
+        "ipw",
+        "adjustment-criterion"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-04-arxiv-when-listwise-deletion-works-causal-diagrams-complete-case.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-statistical-detection-positional-bias-llm-recommender",
+      "title": "Statistical Detection of Positional Bias in LLM-Based Recommender Systems: Methodologies and Empirical Evidence",
+      "source": "arXiv cs.IR (Peláez-González, Herrera, Herrera-Poyatos, University of Granada)",
+      "url": "https://arxiv.org/abs/2610.37962",
+      "published": "2026-10",
+      "added": "2026-11-04",
+      "category": "personalization-recsys",
+      "tags": [
+        "llm-recommender",
+        "positional-bias",
+        "hypothesis-testing",
+        "rag",
+        "permutation-test",
+        "evaluation"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-11-04-arxiv-statistical-detection-positional-bias-llm-recommender.md",
+      "deep_dived_on": "2026-11-04",
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "linkedin-from-generation-to-scoring-llm-semantic-labeling",
+      "title": "From Generation to Scoring: Scaling LLM-Based Semantic Labeling at LinkedIn",
+      "source": "arXiv cs.LG (LinkedIn)",
+      "url": "https://arxiv.org/abs/2610.36383",
+      "published": "2026-10",
+      "added": "2026-11-04",
+      "category": "ml-infra-serving",
+      "tags": [
+        "llm-labeling",
+        "multiple-item-scoring",
+        "batch-inference",
+        "sglang",
+        "ray-data",
+        "linkedin"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-04-linkedin-from-generation-to-scoring-llm-semantic-labeling.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
     {
       "id": "arxiv-double-diagonal-estimator-two-sided-marketplace-experiments",
       "title": "The Double Diagonal Estimator: Reducing Bias in Two-Sided Marketplace Experiments",
