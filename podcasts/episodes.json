@@ -6,7 +6,7 @@
     1,
     34
   ],
-  "next_episode": 53,
+  "next_episode": 54,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -725,6 +725,25 @@
       "podcast_source": "full_text",
       "podcast_source_note": "uploaded https://arxiv.org/pdf/2610.37962",
       "rss_episode_id": 3293807
+    },
+    {
+      "episode": 53,
+      "season": 2,
+      "season_episode": 20,
+      "date": "2026-11-05",
+      "title": "Huawei \u2014 Does the latest search actually drive recommendations?",
+      "description": "Search-augmented recommenders get a lift from search history, but which search input earns it? This episode walks through FocalSwap, a fixed-row counterfactual audit that swaps the latest search slot or all search inputs while holding the target, candidates, pre-search history and scorer fixed, comparing neutral masks with matched observed-search replacements. On three UniSAR checkpoints and 66,139 rows, the credited search benefit depends on the control, and positive latest-slot contribution is not established in SESRec or UniSAR. Source article: \"Do Search-Augmented Recommenders Use the Latest Search Episode?\" \u2014 arXiv cs.IR (Jiandong Ding, Huawei), https://arxiv.org/abs/2611.06044 (published 2026-11).",
+      "audio": "podcasts/2026-11-05-arxiv-focalswap-search-augmented-recommenders-latest-search-episode.m4a",
+      "cover": "podcasts/2026-11-05-arxiv-focalswap-search-augmented-recommenders-latest-search-episode.cover.png",
+      "rss_status": "draft",
+      "cover_company": "Huawei",
+      "cover_title": "Do Recommenders Use the Latest Search?",
+      "cover_overline": "Counterfactual audit of search-augmented recsys",
+      "cover_subtitle": "Same ranking gain, different attribution",
+      "cover_motif": "loop",
+      "podcast_source": "full_text",
+      "podcast_source_note": "uploaded https://arxiv.org/pdf/2611.06044",
+      "rss_episode_id": 3297060
     }
   ]
 }

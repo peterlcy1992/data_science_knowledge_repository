@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-04",
+  "updated": "2026-11-05",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,68 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-focalswap-search-augmented-recommenders-latest-search-episode",
+      "title": "Do Search-Augmented Recommenders Use the Latest Search Episode?",
+      "source": "arXiv cs.IR (Jiandong Ding, Huawei; WSDM 2027)",
+      "url": "https://arxiv.org/abs/2611.06044",
+      "published": "2026-11",
+      "added": "2026-11-05",
+      "category": "personalization-recsys",
+      "tags": [
+        "search-augmented-recommendation",
+        "counterfactual-evaluation",
+        "attribution",
+        "ablation-controls",
+        "unisar",
+        "sesrec"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-11-05-arxiv-focalswap-search-augmented-recommenders-latest-search-episode.md",
+      "deep_dived_on": "2026-11-05",
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-balance-guided-forest-causal-effect-estimation",
+      "title": "Balance-Guided Forest for Causal Effect Estimation",
+      "source": "arXiv stat.ME (Feiyang Yi & Jelena Bradic, Cornell)",
+      "url": "https://arxiv.org/abs/2611.05723",
+      "published": "2026-11",
+      "added": "2026-11-05",
+      "category": "experimentation-causal",
+      "tags": [
+        "covariate-balancing",
+        "forest-kernel",
+        "observational-causal-inference",
+        "ate",
+        "weighting"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-05-arxiv-balance-guided-forest-causal-effect-estimation.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-group-sequential-addis-spending-online-fwer-platform-trials",
+      "title": "Online Control of the Family-wise Error Rate (FWER) for Multi-stage Platform Trials",
+      "source": "arXiv stat.ME (Yao, Robertson, Jaki; Regensburg / Cambridge MRC BSU)",
+      "url": "https://arxiv.org/abs/2611.06530",
+      "published": "2026-11",
+      "added": "2026-11-05",
+      "category": "experimentation-causal",
+      "tags": [
+        "online-multiple-testing",
+        "fwer",
+        "alpha-spending",
+        "platform-trials",
+        "group-sequential",
+        "addis"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-05-arxiv-group-sequential-addis-spending-online-fwer-platform-trials.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
     {
       "id": "arxiv-selective-randomization-inference-interference-pretest",
       "title": "Selective Randomization Inference for Interference",

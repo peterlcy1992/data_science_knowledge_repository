@@ -1,0 +1,3 @@
+# Huawei — Does the latest search actually drive recommendations?
+
+Search-augmented recommenders get a lift from search history, but which search input earns it? This episode walks through FocalSwap, a fixed-row counterfactual audit that swaps the latest search slot or all search inputs while holding the target, candidates, pre-search history and scorer fixed, comparing neutral masks with matched observed-search replacements. On three UniSAR checkpoints and 66,139 rows, the credited search benefit depends on the control, and positive latest-slot contribution is not established in SESRec or UniSAR. Source article: "Do Search-Augmented Recommenders Use the Latest Search Episode?" — arXiv cs.IR (Jiandong Ding, Huawei), https://arxiv.org/abs/2611.06044 (published 2026-11).
