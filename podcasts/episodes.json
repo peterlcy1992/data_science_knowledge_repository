@@ -6,7 +6,7 @@
     1,
     34
   ],
-  "next_episode": 54,
+  "next_episode": 55,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -744,6 +744,25 @@
       "podcast_source": "full_text",
       "podcast_source_note": "uploaded https://arxiv.org/pdf/2611.06044",
       "rss_episode_id": 3297060
+    },
+    {
+      "episode": 54,
+      "season": 2,
+      "season_episode": 21,
+      "date": "2026-11-06",
+      "title": "Ashoka University \u2014 When covariates hide the pre-trend",
+      "description": "Honest difference-in-differences methods judge how far parallel trends may fail after treatment by how far it failed before, using placebo estimates. This episode covers a new result: if the design adjusts for a covariate measured after the start of a placebo window, the covariate has already absorbed shocks to the outcome, so the placebos look flatter than the true trend and the confidence sets come out too narrow. We walk through the trend-plus-shock decomposition, a test and sensitivity tools for the problem, and the survey finding that 77 of 90 recent published studies adjusting for time-varying covariates date at least one covariate too late. Source article: \"When Covariates Mask Pre-Trends\" \u2014 arXiv econ.EM (Parush Arora, Ashoka University), https://arxiv.org/abs/2611.03079 (published 2026-11).",
+      "audio": "podcasts/2026-11-06-arxiv-when-covariates-mask-pre-trends-honest-did.m4a",
+      "cover": "podcasts/2026-11-06-arxiv-when-covariates-mask-pre-trends-honest-did.cover.png",
+      "rss_status": "draft",
+      "cover_company": "Ashoka University",
+      "cover_title": "When Covariates Hide the Pre-Trend",
+      "cover_overline": "Difference-in-differences",
+      "cover_subtitle": "Late covariates flatten the placebo benchmark",
+      "cover_motif": "sequence",
+      "podcast_source": "full_text",
+      "podcast_source_note": "uploaded https://arxiv.org/pdf/2611.03079",
+      "rss_episode_id": 3299524
     }
   ]
 }

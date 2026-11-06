@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-05",
+  "updated": "2026-11-06",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,47 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-when-predictive-fit-misleads-mmm-experimental-roas",
+      "title": "When Predictive Fit Misleads: Selecting Marketing Mix Models Using Experimental RoAS Benchmarks",
+      "source": "arXiv stat.AP (Hao Chen, Alvin Lim et al., Measured Inc.)",
+      "url": "https://arxiv.org/abs/2611.06111",
+      "published": "2026-11",
+      "added": "2026-11-06",
+      "category": "product-analytics",
+      "tags": [
+        "marketing-mix-model",
+        "roas",
+        "model-selection",
+        "geo-experiments",
+        "calibration",
+        "adstock"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-11-06-arxiv-when-predictive-fit-misleads-mmm-experimental-roas.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-when-covariates-mask-pre-trends-honest-did",
+      "title": "When Covariates Mask Pre-Trends",
+      "source": "arXiv econ.EM (Parush Arora, Ashoka University)",
+      "url": "https://arxiv.org/abs/2611.03079",
+      "published": "2026-11",
+      "added": "2026-11-06",
+      "category": "experimentation-causal",
+      "tags": [
+        "difference-in-differences",
+        "honest-did",
+        "pre-trends",
+        "time-varying-covariates",
+        "sensitivity-analysis"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-11-06-arxiv-when-covariates-mask-pre-trends-honest-did.md",
+      "deep_dived_on": "2026-11-06",
+      "sourced_via": "full-text fetch"
+    },
     {
       "id": "arxiv-focalswap-search-augmented-recommenders-latest-search-episode",
       "title": "Do Search-Augmented Recommenders Use the Latest Search Episode?",
