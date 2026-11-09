@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-06",
+  "updated": "2026-11-09",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,67 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-optimal-variance-reduction-randomized-experiments-najmi-keselman",
+      "title": "Optimal Variance Reduction in Randomized Experiments",
+      "source": "arXiv stat.ME (Amir Najmi, Michael D. Keselman)",
+      "url": "https://arxiv.org/abs/2608.23615",
+      "published": "2026-08",
+      "added": "2026-11-09",
+      "category": "experimentation-causal",
+      "tags": [
+        "variance-reduction",
+        "regression-adjustment",
+        "delta-method",
+        "ratio-metrics",
+        "covariates"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-09-arxiv-optimal-variance-reduction-randomized-experiments-najmi-keselman.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "doordash-power-optimal-cupac-switchback-experiments",
+      "title": "Power-Optimal Covariate Adjustment for Switchback Experiments",
+      "source": "arXiv stat.ME (Sergei Pankratev, DoorDash)",
+      "url": "https://arxiv.org/abs/2607.27376",
+      "published": "2026-07",
+      "added": "2026-11-09",
+      "category": "experimentation-causal",
+      "tags": [
+        "switchback",
+        "cupac",
+        "variance-reduction",
+        "marketplace-experiments",
+        "cluster-randomization"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-11-09-doordash-power-optimal-cupac-switchback-experiments.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-post-stratification-cuped-heavy-tailed-monetization-sharechat",
+      "title": "Variance Reduction for Heavy-Tailed Monetization Metrics in Ranking Experiments via Post-Stratification",
+      "source": "arXiv cs.LG / SIGIR '26 (ShareChat, Aampe, Simulacra Research)",
+      "url": "https://arxiv.org/abs/2606.04110",
+      "published": "2026-06",
+      "added": "2026-11-09",
+      "category": "experimentation-causal",
+      "tags": [
+        "post-stratification",
+        "cuped",
+        "heavy-tailed-metrics",
+        "variance-reduction",
+        "a-b-testing",
+        "ranking-experiments"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-11-09-arxiv-post-stratification-cuped-heavy-tailed-monetization-sharechat.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
     {
       "id": "arxiv-when-predictive-fit-misleads-mmm-experimental-roas",
       "title": "When Predictive Fit Misleads: Selecting Marketing Mix Models Using Experimental RoAS Benchmarks",
@@ -33,7 +94,7 @@
       ],
       "novelty": 4,
       "file": "articles/2026-11-06-arxiv-when-predictive-fit-misleads-mmm-experimental-roas.md",
-      "deep_dived_on": null,
+      "deep_dived_on": "2026-11-09",
       "sourced_via": "full-text fetch"
     },
     {
