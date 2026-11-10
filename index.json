@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-09",
+  "updated": "2026-11-10",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,87 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-track-conformal-prediction-multi-step-forecasting",
+      "title": "Conformal Prediction for Multi-Step Forecasting: Conditional Coverage and Sharp Score Calibration Rates",
+      "source": "arXiv stat.ME (Siyuan He, Yuhong Yang)",
+      "url": "https://arxiv.org/abs/2611.12004",
+      "published": "2026-11",
+      "added": "2026-11-10",
+      "category": "forecasting-timeseries",
+      "tags": [
+        "conformal-prediction",
+        "multi-step-forecasting",
+        "conditional-coverage",
+        "minimax",
+        "kernel-calibration"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-10-arxiv-track-conformal-prediction-multi-step-forecasting.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-graph-regularized-synthetic-control-post-only-treated-locations",
+      "title": "Graph-Regularized Synthetic Control for Spatial Panels with Post-Only Treated Locations",
+      "source": "arXiv stat.ME (Seya, Moriwaki, Murakami)",
+      "url": "https://arxiv.org/abs/2611.11496",
+      "published": "2026-11",
+      "added": "2026-11-10",
+      "category": "experimentation-causal",
+      "tags": [
+        "synthetic-control",
+        "spatial-panels",
+        "graph-laplacian",
+        "missing-pre-treatment-data"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-10-arxiv-graph-regularized-synthetic-control-post-only-treated-locations.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-average-vs-expected-causal-effects-under-interference",
+      "title": "Average versus Expected Causal Effects under Interference: Modeling Assumptions and Estimation Bottlenecks",
+      "source": "arXiv stat.ME (Karwa, Airoldi, Rubin)",
+      "url": "https://arxiv.org/abs/2611.12690",
+      "published": "2026-11",
+      "added": "2026-11-10",
+      "category": "experimentation-causal",
+      "tags": [
+        "interference",
+        "network-experiments",
+        "spillover",
+        "Horvitz-Thompson",
+        "graph-cluster-randomization",
+        "potential-outcomes"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-10-arxiv-average-vs-expected-causal-effects-under-interference.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-knowing-when-to-intervene-causal-evaluation-ai-agents",
+      "title": "Knowing When to Intervene: Causal Evaluation of AI Agents",
+      "source": "arXiv cs.AI (Sawarni, Xing, Zrnic, Johari, Syrgkanis; Stanford)",
+      "url": "https://arxiv.org/abs/2611.09792",
+      "published": "2026-11",
+      "added": "2026-11-10",
+      "category": "llm-genai",
+      "tags": [
+        "agent-evaluation",
+        "causal-inference",
+        "micro-randomized-trials",
+        "AIPW",
+        "structural-nested-mean-models",
+        "off-policy-evaluation"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-11-10-arxiv-knowing-when-to-intervene-causal-evaluation-ai-agents.md",
+      "deep_dived_on": "2026-11-10",
+      "sourced_via": "full-text fetch"
+    },
     {
       "id": "arxiv-optimal-variance-reduction-randomized-experiments-najmi-keselman",
       "title": "Optimal Variance Reduction in Randomized Experiments",
