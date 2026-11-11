@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-21",
+  "updated": "2026-11-11",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -92,22 +92,6 @@
       "url": "https://engineering.atspotify.com/2025/11/spotifys-background-coding-agent-part-1"
     },
     {
-      "id": "uber-file-semantic-analyzer-outbound-data",
-      "company": "Uber",
-      "title": "Building a File Semantic Analyzer: Guarding Outbound Data at Scale with AI",
-      "category": "llm-genai",
-      "hook": "An AI-based semantic analyzer that inspects outbound files for sensitive content at scale, beyond what pattern/regex-based DLP tools catch.",
-      "url": "https://www.uber.com/us/en/blog/ubers-file-analyzer/"
-    },
-    {
-      "id": "uber-ai-prototyping-product-building",
-      "company": "Uber",
-      "title": "AI Prototyping Is Changing How We Build Products at Uber",
-      "category": "llm-genai",
-      "hook": "How AI-assisted prototyping tools changed Uber's internal product-development workflow, from idea to testable prototype.",
-      "url": "https://www.uber.com/us/en/blog/ai-prototyping/"
-    },
-    {
       "id": "instacart-ava-internal-ai-assistant",
       "company": "Instacart",
       "title": "Ava: Instacart's Internal AI Assistant",
@@ -122,6 +106,46 @@
       "category": "personalization-recsys",
       "hook": "Adds real-world spatial-perception signals to a generative (semantic-ID) point-of-interest recommender at industrial scale.",
       "url": null
+    },
+    {
+      "id": "arxiv-aggregating-treatment-effects-multiple-outcomes",
+      "company": "Academic (econ.EM)",
+      "title": "Aggregating treatment effects across multiple outcomes",
+      "category": "experimentation-causal",
+      "hook": "Shows PCA, inverse-variance-matrix weighting and standardized averaging, common ways to build index outcomes, have unexpected shortcomings (e.g. PCA can assign negative weights).",
+      "url": "https://arxiv.org/abs/2611.05456"
+    },
+    {
+      "id": "arxiv-looking-forward-better-causal-comparisons-prognostic-scores",
+      "company": "Academic (econ.EM)",
+      "title": "Looking Forward to Constructing Better Causal Comparisons",
+      "category": "experimentation-causal",
+      "hook": "Selects or weights observational control units using prognostic scores (predicted untreated outcomes) rather than only pre-treatment similarity.",
+      "url": "https://arxiv.org/abs/2611.02061"
+    },
+    {
+      "id": "arxiv-instrumental-variables-treatment-clusters",
+      "company": "Academic (econ.EM)",
+      "title": "Instrumental variables with treatment clusters",
+      "category": "experimentation-causal",
+      "hook": "What IV identifies when multiple unordered treatments are aggregated into clusters: a weighted average of LATEs under unclustered-level assumptions.",
+      "url": "https://arxiv.org/abs/2611.13313"
+    },
+    {
+      "id": "arxiv-time-series-change-point-detection-gaussian-processes",
+      "company": "Academic (stat.ME)",
+      "title": "Time Series Change Point Detection with Gaussian Processes",
+      "category": "forecasting-timeseries",
+      "hook": "A Gaussian-process hypothesis-testing framework for offline and online multiple change-point detection, defining a change as a shift in GP hyperparameters.",
+      "url": "https://arxiv.org/abs/2611.13295"
+    },
+    {
+      "id": "arxiv-recogem-serving-generative-recommendation",
+      "company": "Academic / Industrial recsys",
+      "title": "RecoGEM: A Serving System for Production-Scale Generative Recommendation",
+      "category": "ml-infra-serving",
+      "hook": "Serving system for generative recommenders, whose dependent autoregressive decoding steps sit on the latency-critical path.",
+      "url": "https://arxiv.org/abs/2611.12296"
     }
   ]
 }

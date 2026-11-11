@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-10",
+  "updated": "2026-11-11",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,154 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "meta-feature-invariant-scaling-laws-ab-experimentation-recsys",
+      "title": "Exploiting Feature-invariant Scaling Laws for Efficient A/B Experimentation in Recommendation Systems",
+      "source": "arXiv cs.IR (Meta: Zhiliang Chen, Sammy Nammari, Jiahao Su, Xiaoqiang Luo)",
+      "url": "https://arxiv.org/abs/2611.13539",
+      "published": "2026-11",
+      "added": "2026-11-11",
+      "category": "personalization-recsys",
+      "tags": [
+        "scaling-laws",
+        "offline-experimentation",
+        "bayesian-decision-rule",
+        "small-scale-proxies",
+        "HSTU",
+        "Wukong"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-11-11-meta-feature-invariant-scaling-laws-ab-experimentation-recsys.md",
+      "deep_dived_on": "2026-11-11",
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-pp-rank-prediction-powered-llm-ranking-adaptive-feedback",
+      "title": "Prediction-Powered LLM Ranking with Adaptively Collected Human Feedback",
+      "source": "arXiv stat.ME (Sargent, Sun, Zhang, Liu; UNC Chapel Hill, Purdue, Michigan)",
+      "url": "https://arxiv.org/abs/2611.13186",
+      "published": "2026-11",
+      "added": "2026-11-11",
+      "category": "llm-genai",
+      "tags": [
+        "LLM-evaluation",
+        "prediction-powered-inference",
+        "LLM-as-judge",
+        "Bradley-Terry",
+        "adaptive-sampling",
+        "rank-confidence-sets"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-11-11-arxiv-pp-rank-prediction-powered-llm-ranking-adaptive-feedback.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-modern-did-estimators-business-research-replication",
+      "title": "Do Modern Difference-in-Differences Estimators Change Published Findings in Business Research?",
+      "source": "arXiv econ.EM (Davide Proserpio, USC Marshall)",
+      "url": "https://arxiv.org/abs/2611.11003",
+      "published": "2026-11",
+      "added": "2026-11-11",
+      "category": "experimentation-causal",
+      "tags": [
+        "difference-in-differences",
+        "staggered-adoption",
+        "TWFE",
+        "Callaway-SantAnna",
+        "imputation-estimator",
+        "replication",
+        "LLM-agents"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-11-11-arxiv-modern-did-estimators-business-research-replication.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-tabular-foundation-models-nuisance-learners-causal-estimation",
+      "title": "Does Predictive Performance Translate to Causal Performance? Evaluating tabular foundation models as nuisance learners for causal effect estimation",
+      "source": "arXiv stat.ME (Weckstein, Dahabreh, Zitnik, Hernández-Díaz, Schneeweiss; Harvard)",
+      "url": "https://arxiv.org/abs/2611.11381",
+      "published": "2026-11",
+      "added": "2026-11-11",
+      "category": "experimentation-causal",
+      "tags": [
+        "TabPFN",
+        "doubly-robust",
+        "AIPW",
+        "TMLE",
+        "cross-fitting",
+        "Super-Learner",
+        "nuisance-estimation"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-11-11-arxiv-tabular-foundation-models-nuisance-learners-causal-estimation.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "hepsiburada-auditing-llm-pseudo-label-distillation-review-informativeness",
+      "title": "Auditing LLM Pseudo-Label Distillation for Review Informativeness at E-Commerce Scale",
+      "source": "arXiv cs.IR (Hepsiburada Analytics: Er, Kulunk, Eseoglu, Sahin)",
+      "url": "https://arxiv.org/abs/2611.13797",
+      "published": "2026-11",
+      "added": "2026-11-11",
+      "category": "llm-genai",
+      "tags": [
+        "distillation",
+        "weak-supervision",
+        "LLM-labels",
+        "temporal-evaluation",
+        "evaluation-design",
+        "review-ranking"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-11-hepsiburada-auditing-llm-pseudo-label-distillation-review-informativeness.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "uber-file-semantic-analyzer-outbound-data",
+      "title": "Building a File Semantic Analyzer: Guarding Outbound Data at Scale with AI",
+      "source": "Uber Engineering Blog (Deepak Sharma, Aditya Kumar, Shubham Sonkar)",
+      "url": "https://www.uber.com/us/en/blog/ubers-file-analyzer/",
+      "published": "2026-06",
+      "added": "2026-11-11",
+      "category": "llm-genai",
+      "tags": [
+        "data-loss-prevention",
+        "LLM-classification",
+        "summarization",
+        "human-in-the-loop",
+        "security"
+      ],
+      "novelty": 2,
+      "file": "articles/2026-11-11-uber-file-semantic-analyzer-outbound-data.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
+    {
+      "id": "uber-ai-prototyping-product-building",
+      "title": "AI Prototyping Is Changing How We Build Products at Uber",
+      "source": "Uber Engineering Blog (Aayush Agrawal, Akanksha Sharma)",
+      "url": "https://www.uber.com/us/en/blog/ai-prototyping/",
+      "published": "2026-04",
+      "added": "2026-11-11",
+      "category": "llm-genai",
+      "tags": [
+        "AI-prototyping",
+        "product-development",
+        "PRD",
+        "coding-assistants"
+      ],
+      "novelty": 2,
+      "file": "articles/2026-11-11-uber-ai-prototyping-product-building.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "Snacks Weekly on Data Science podcast"
+    },
     {
       "id": "arxiv-track-conformal-prediction-multi-step-forecasting",
       "title": "Conformal Prediction for Multi-Step Forecasting: Conditional Coverage and Sharp Score Calibration Rates",
