@@ -6,7 +6,7 @@
     1,
     34
   ],
-  "next_episode": 56,
+  "next_episode": 57,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -782,6 +782,25 @@
       "podcast_source": "full_text",
       "podcast_source_note": "uploaded https://arxiv.org/pdf/2611.06111",
       "rss_episode_id": 3305691
+    },
+    {
+      "episode": 56,
+      "season": 2,
+      "season_episode": 23,
+      "date": "2026-11-11",
+      "title": "Meta \u2014 Predicting the full-scale winner from small training runs",
+      "description": "Testing a recommender-model change properly means retraining at full scale, and a single cheap small-scale run can point the wrong way: adding movie genre information to an LLM-based recommender hurt hit rate at small scale but helped at full scale. Meta researchers show that models with a change applied still follow a power-law scaling curve of the same form, with different coefficients, so a sweep of small runs can be extrapolated, with intervals, into the probability that the change beats the baseline by a chosen margin at full scale. We cover the Bayesian decision rule (more than 90% probability of a 1% loss improvement), why a sweep at one-tenth to one-half scale costs about 55% of one full run, results across more than 40 changes on Wukong, HSTU and an LLM-based recommender, and where the power-law assumption breaks. Source article: \"Exploiting Feature-invariant Scaling Laws for Efficient A/B Experimentation in Recommendation Systems\" \u2014 arXiv cs.IR (Meta: Zhiliang Chen, Sammy Nammari, Jiahao Su, Xiaoqiang Luo), https://arxiv.org/abs/2611.13539 (published 2026-11).",
+      "audio": "podcasts/2026-11-11-meta-feature-invariant-scaling-laws-ab-experimentation-recsys.m4a",
+      "cover": "podcasts/2026-11-11-meta-feature-invariant-scaling-laws-ab-experimentation-recsys.cover.png",
+      "rss_status": "draft",
+      "cover_company": "Meta",
+      "cover_title": "Scaling-Law Screens",
+      "cover_overline": "Recommender experimentation",
+      "cover_subtitle": "Small runs, full-scale verdicts",
+      "cover_motif": "signal",
+      "podcast_source": "full_text",
+      "podcast_source_note": "uploaded https://arxiv.org/pdf/2611.13539",
+      "rss_episode_id": 3311717
     }
   ]
 }
