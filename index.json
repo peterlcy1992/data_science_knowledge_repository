@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,138 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "shopify-sid-llm-generative-search-recommendation",
+      "title": "Generative Search and Recommendation at Shopify",
+      "source": "arXiv cs.IR (Shopify: Kangaspunta, Hajji, Fofadiya et al.)",
+      "url": "https://arxiv.org/abs/2611.08804",
+      "published": "2026-11",
+      "added": "2026-11-12",
+      "category": "personalization-recsys",
+      "tags": [
+        "semantic-ids",
+        "generative-retrieval",
+        "multi-token-prediction",
+        "incremental-pool-recall",
+        "LLM-judge",
+        "distillation",
+        "online-ab-test"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-11-12-shopify-sid-llm-generative-search-recommendation.md",
+      "deep_dived_on": "2026-11-12",
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-intent-out-of-time-cold-start-evaluation-user-event-sequences",
+      "title": "INTENT: Out-of-Sample, Out-of-Time, and Cold-Start Evaluation on User Event Sequences",
+      "source": "arXiv cs.LG (KTH AI Society, Unbox AI, MIT; ICAIF '26 banking FM workshop)",
+      "url": "https://arxiv.org/abs/2611.13069",
+      "published": "2026-11",
+      "added": "2026-11-12",
+      "category": "personalization-recsys",
+      "tags": [
+        "evaluation",
+        "temporal-split",
+        "cold-start",
+        "benchmark",
+        "next-item-prediction",
+        "banking-foundation-models",
+        "leakage"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-12-arxiv-intent-out-of-time-cold-start-evaluation-user-event-sequences.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-auc-brier-decision-weighted-auc-policy-youden-index",
+      "title": "One Curve, Different Weights: AUC, the Brier Score, Decision-Weighted AUC, and the Policy Youden Index",
+      "source": "arXiv stat.ME (Yegor Baranovski)",
+      "url": "https://arxiv.org/abs/2611.14465",
+      "published": "2026-11",
+      "added": "2026-11-12",
+      "category": "statistical-modeling",
+      "tags": [
+        "model-evaluation",
+        "AUC",
+        "Brier-score",
+        "Youden-index",
+        "decision-analysis",
+        "H-measure",
+        "model-selection"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-12-arxiv-auc-brier-decision-weighted-auc-policy-youden-index.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-proximal-did-long-term-effects-outcome-drift",
+      "title": "Proximal Difference-in-Differences for Causal Learning under Confounding and Outcome Drift",
+      "source": "arXiv stat.ME (NC State & Eli Lilly: Park, Yang, Lipkovich, Ye, Shan)",
+      "url": "https://arxiv.org/abs/2611.10310",
+      "published": "2026-11",
+      "added": "2026-11-12",
+      "category": "experimentation-causal",
+      "tags": [
+        "long-term-effects",
+        "proximal-causal-inference",
+        "difference-in-differences",
+        "data-fusion",
+        "external-controls",
+        "doubly-robust",
+        "outcome-drift"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-12-arxiv-proximal-did-long-term-effects-outcome-drift.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-aggregating-treatment-effects-multiple-outcomes",
+      "title": "Aggregating treatment effects across multiple outcomes",
+      "source": "arXiv econ.EM (Chun Pong Lau, University of South Carolina)",
+      "url": "https://arxiv.org/abs/2611.05456",
+      "published": "2026-11",
+      "added": "2026-11-12",
+      "category": "experimentation-causal",
+      "tags": [
+        "composite-metrics",
+        "index-outcomes",
+        "PCA",
+        "inverse-variance-weighting",
+        "negative-weights",
+        "minimax",
+        "decision-theory"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-11-12-arxiv-aggregating-treatment-effects-multiple-outcomes.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-looking-forward-better-causal-comparisons-prognostic-scores",
+      "title": "Looking Forward to Constructing Better Causal Comparisons",
+      "source": "arXiv econ.EM (Augusto Cerqua, Sapienza University of Rome)",
+      "url": "https://arxiv.org/abs/2611.02061",
+      "published": "2026-11",
+      "added": "2026-11-12",
+      "category": "experimentation-causal",
+      "tags": [
+        "prognostic-scores",
+        "matching",
+        "entropy-balancing",
+        "difference-in-differences",
+        "TabPFN",
+        "observational-causal-inference",
+        "LaLonde-NSW"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-12-arxiv-looking-forward-better-causal-comparisons-prognostic-scores.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
     {
       "id": "meta-feature-invariant-scaling-laws-ab-experimentation-recsys",
       "title": "Exploiting Feature-invariant Scaling Laws for Efficient A/B Experimentation in Recommendation Systems",

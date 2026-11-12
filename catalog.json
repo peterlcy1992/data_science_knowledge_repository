@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -108,22 +108,6 @@
       "url": null
     },
     {
-      "id": "arxiv-aggregating-treatment-effects-multiple-outcomes",
-      "company": "Academic (econ.EM)",
-      "title": "Aggregating treatment effects across multiple outcomes",
-      "category": "experimentation-causal",
-      "hook": "Shows PCA, inverse-variance-matrix weighting and standardized averaging, common ways to build index outcomes, have unexpected shortcomings (e.g. PCA can assign negative weights).",
-      "url": "https://arxiv.org/abs/2611.05456"
-    },
-    {
-      "id": "arxiv-looking-forward-better-causal-comparisons-prognostic-scores",
-      "company": "Academic (econ.EM)",
-      "title": "Looking Forward to Constructing Better Causal Comparisons",
-      "category": "experimentation-causal",
-      "hook": "Selects or weights observational control units using prognostic scores (predicted untreated outcomes) rather than only pre-treatment similarity.",
-      "url": "https://arxiv.org/abs/2611.02061"
-    },
-    {
       "id": "arxiv-instrumental-variables-treatment-clusters",
       "company": "Academic (econ.EM)",
       "title": "Instrumental variables with treatment clusters",
@@ -146,6 +130,30 @@
       "category": "ml-infra-serving",
       "hook": "Serving system for generative recommenders, whose dependent autoregressive decoding steps sit on the latency-critical path.",
       "url": "https://arxiv.org/abs/2611.12296"
+    },
+    {
+      "id": "arxiv-adaptive-experimentation-hides-model-error",
+      "company": "Academic (stat.ME, MBZUAI)",
+      "title": "Adaptive Experimentation Can Hide Model Error: Detection Limits and Falsification Budgets",
+      "category": "experimentation-causal",
+      "hook": "EIG-driven adaptive designs can learn a wrong model's parameters precisely while never testing it; bounds detection power and reserves part of the budget for falsification, with openly mixed results.",
+      "url": "https://arxiv.org/abs/2611.07529"
+    },
+    {
+      "id": "arxiv-minimax-designs-estimators-network-interference",
+      "company": "Academic (math.ST: Karwa, Airoldi)",
+      "title": "Minimax designs and estimators for causal inference under network interference",
+      "category": "experimentation-causal",
+      "hook": "Design-based minimax theory for fixed-design, restricted-design and all-design problems under interference, via a sampling hypergraph over potential outcomes; defines a 'price of unbiasedness'.",
+      "url": "https://arxiv.org/abs/2611.08560"
+    },
+    {
+      "id": "arxiv-offline-reserve-prices-censored-bids",
+      "company": "Academic (econ.EM)",
+      "title": "Offline Learning of Reserve Prices from Censored Bids",
+      "category": "statistical-modeling",
+      "hook": "When can an auction's optimal reserve be identified from bids censored at past reserves? Characterizes identification under MHR and a minimax-regret reserve depending on two observable quantities.",
+      "url": "https://arxiv.org/abs/2611.06067"
     }
   ]
 }
