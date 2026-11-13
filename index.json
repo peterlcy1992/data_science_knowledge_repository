@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-12",
+  "updated": "2026-11-13",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,162 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-both-sides-adapt-evaluating-interactive-llm-systems",
+      "title": "When Both Sides Adapt: The Challenges of Evaluating Interactive LLM Systems",
+      "source": "arXiv stat.ME (Hannah Li)",
+      "url": "https://arxiv.org/abs/2611.17239",
+      "published": "2026-11",
+      "added": "2026-11-13",
+      "category": "experimentation-causal",
+      "tags": [
+        "llm-evaluation",
+        "offline-vs-online",
+        "estimands",
+        "endogenous-prompts",
+        "ranking-reversal",
+        "novelty-effects",
+        "variance-inflation",
+        "reward-hacking"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-11-13-arxiv-both-sides-adapt-evaluating-interactive-llm-systems.md",
+      "deep_dived_on": "2026-11-13",
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-one-sided-randomization-two-sided-platforms-which-side",
+      "title": "One-Sided Randomization in Two-Sided Platform Experiments: Which Side Should be Randomized?",
+      "source": "arXiv stat.ME (Ramesh Johari & Anushka Murthy)",
+      "url": "https://arxiv.org/abs/2611.16406",
+      "published": "2026-11",
+      "added": "2026-11-13",
+      "category": "experimentation-causal",
+      "tags": [
+        "marketplace-experiments",
+        "interference",
+        "two-sided-platforms",
+        "randomization-unit",
+        "bias-variance",
+        "difference-in-means",
+        "logit-choice"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-11-13-arxiv-one-sided-randomization-two-sided-platforms-which-side.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-cider-causal-inference-digital-experimentation-age-of-ai",
+      "title": "From More to Better: Causal Inference and Digital Experimentation in the Age of AI",
+      "source": "arXiv cs.AI (CIDER 2026 roundtable: Netflix, Spotify, Roblox, Microsoft, OpenAI, Anthropic, Amazon, Meta, UC Berkeley, Columbia, Cornell)",
+      "url": "https://arxiv.org/abs/2611.16335",
+      "published": "2026-11",
+      "added": "2026-11-13",
+      "category": "experimentation-causal",
+      "tags": [
+        "experimentation-practice",
+        "organizational-learning",
+        "experiment-metadata",
+        "synthetic-respondents",
+        "evidence-ladder",
+        "ai-product-evaluation",
+        "metric-governance"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-13-arxiv-cider-causal-inference-digital-experimentation-age-of-ai.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-partial-pooling-vs-synthetic-respondents-small-area",
+      "title": "Partial pooling beats synthetic respondents as estimators, not as covariates: a preregistered small-sample tournament",
+      "source": "arXiv stat.AP (Howard Kim, Seoul Cyber University)",
+      "url": "https://arxiv.org/abs/2611.14526",
+      "published": "2026-11",
+      "added": "2026-11-13",
+      "category": "statistical-modeling",
+      "tags": [
+        "small-area-estimation",
+        "MRP",
+        "multilevel-models",
+        "synthetic-respondents",
+        "LLM-personas",
+        "preregistration",
+        "survey-calibration",
+        "interval-coverage"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-13-arxiv-partial-pooling-vs-synthetic-respondents-small-area.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-curiosity-aware-recommendation-information-gap",
+      "title": "When Does a Recommendation Spark Curiosity? Theory, Measurement, and Field Evidence",
+      "source": "arXiv econ.GN (Li & Tuzhilin; working paper)",
+      "url": "https://arxiv.org/abs/2611.14938",
+      "published": "2026-11",
+      "added": "2026-11-13",
+      "category": "personalization-recsys",
+      "tags": [
+        "curiosity",
+        "beyond-accuracy",
+        "information-gap-theory",
+        "axiomatic-measure",
+        "online-ab-test",
+        "heterogeneous-effects",
+        "exploration"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-13-arxiv-curiosity-aware-recommendation-information-gap.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-instrumental-variables-treatment-clusters",
+      "title": "Instrumental variables with treatment clusters",
+      "source": "arXiv econ.EM (Nibbering, Oosterveen & Silva — Monash, ISEG Lisbon, UAB)",
+      "url": "https://arxiv.org/abs/2611.13313",
+      "published": "2026-11",
+      "added": "2026-11-13",
+      "category": "experimentation-causal",
+      "tags": [
+        "instrumental-variables",
+        "LATE",
+        "multiple-treatments",
+        "monotonicity",
+        "regression-discontinuity",
+        "testable-implications",
+        "treatment-aggregation"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-13-arxiv-instrumental-variables-treatment-clusters.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-adaptive-experimentation-hides-model-error",
+      "title": "Adaptive Experimentation Can Hide Model Error: Detection Limits and Falsification Budgets",
+      "source": "arXiv stat.ME (Ramnarayan Choudhary, MBZUAI)",
+      "url": "https://arxiv.org/abs/2611.07529",
+      "published": "2026-11",
+      "added": "2026-11-13",
+      "category": "experimentation-causal",
+      "tags": [
+        "adaptive-design",
+        "expected-information-gain",
+        "model-misspecification",
+        "falsification",
+        "e-values",
+        "anytime-valid",
+        "llm-experimenters"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-13-arxiv-adaptive-experimentation-hides-model-error.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
     {
       "id": "shopify-sid-llm-generative-search-recommendation",
       "title": "Generative Search and Recommendation at Shopify",

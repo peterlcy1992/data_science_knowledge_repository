@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-12",
+  "updated": "2026-11-13",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -108,14 +108,6 @@
       "url": null
     },
     {
-      "id": "arxiv-instrumental-variables-treatment-clusters",
-      "company": "Academic (econ.EM)",
-      "title": "Instrumental variables with treatment clusters",
-      "category": "experimentation-causal",
-      "hook": "What IV identifies when multiple unordered treatments are aggregated into clusters: a weighted average of LATEs under unclustered-level assumptions.",
-      "url": "https://arxiv.org/abs/2611.13313"
-    },
-    {
       "id": "arxiv-time-series-change-point-detection-gaussian-processes",
       "company": "Academic (stat.ME)",
       "title": "Time Series Change Point Detection with Gaussian Processes",
@@ -132,14 +124,6 @@
       "url": "https://arxiv.org/abs/2611.12296"
     },
     {
-      "id": "arxiv-adaptive-experimentation-hides-model-error",
-      "company": "Academic (stat.ME, MBZUAI)",
-      "title": "Adaptive Experimentation Can Hide Model Error: Detection Limits and Falsification Budgets",
-      "category": "experimentation-causal",
-      "hook": "EIG-driven adaptive designs can learn a wrong model's parameters precisely while never testing it; bounds detection power and reserves part of the budget for falsification, with openly mixed results.",
-      "url": "https://arxiv.org/abs/2611.07529"
-    },
-    {
       "id": "arxiv-minimax-designs-estimators-network-interference",
       "company": "Academic (math.ST: Karwa, Airoldi)",
       "title": "Minimax designs and estimators for causal inference under network interference",
@@ -154,6 +138,30 @@
       "category": "statistical-modeling",
       "hook": "When can an auction's optimal reserve be identified from bids censored at past reserves? Characterizes identification under MHR and a minimax-regret reserve depending on two observable quantities.",
       "url": "https://arxiv.org/abs/2611.06067"
+    },
+    {
+      "id": "arxiv-hierarchical-eb-sparse-counts-airline-demand",
+      "company": "Academic (stat.AP)",
+      "title": "Hierarchical Empirical-Bayes Forecasting of Sparse Counts with Exposure: An Application to Airline Demand and Premium-Cabin Capacity Sharing",
+      "category": "forecasting-timeseries",
+      "hook": "Exposure-adjusted Poisson–Gamma partial pooling gives closed-form negative-binomial predictive distributions for thin, zero-heavy markets; synthetic-only evaluation plus a seat-protection decision rule.",
+      "url": "https://arxiv.org/abs/2611.14530"
+    },
+    {
+      "id": "arxiv-lost-in-the-bins-discretized-covariates",
+      "company": "Academic (econ.EM)",
+      "title": "Lost in the Bins: Treatment Effects with Discretized Covariates",
+      "category": "experimentation-causal",
+      "hook": "Mean independence given a fine covariate need not survive coarsening it into bins; characterizes the resulting ATT/ATE bias and gives sharp bounds under a relaxed 'c-mean dependence' condition.",
+      "url": "https://arxiv.org/abs/2611.14789"
+    },
+    {
+      "id": "arxiv-kuairecv2-continual-learning-diversified-recommendation",
+      "company": "Academic / Kuaishou",
+      "title": "KuaiRecV2: Benchmarking Large-Scale Continual Learning for Diversified and Multi-task Recommendation",
+      "category": "personalization-recsys",
+      "hook": "A benchmark aimed at the offline-online evaluation gap in recsys: continual learning under shifting item pools, accuracy-diversity trade-offs, and multi-task objectives.",
+      "url": "https://arxiv.org/abs/2611.16795"
     }
   ]
 }
