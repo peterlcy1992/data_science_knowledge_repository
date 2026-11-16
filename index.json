@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-13",
+  "updated": "2026-11-16",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,125 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "roblox-sitewide-impact-experiment-comparability",
+      "title": "Making Experiment Results Comparable through Sitewide Impact Estimation",
+      "source": "Roblox (arXiv stat.AP)",
+      "url": "https://arxiv.org/abs/2611.18411",
+      "published": "2026-11",
+      "added": "2026-11-16",
+      "category": "experimentation-causal",
+      "tags": [
+        "sitewide-impact",
+        "coverage-factor",
+        "diluted-treatment-effect",
+        "ratio-metrics",
+        "delta-method",
+        "holdouts",
+        "prioritization",
+        "growth-attribution",
+        "segment-recombination"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-11-16-roblox-sitewide-impact-experiment-comparability.md",
+      "deep_dived_on": "2026-11-16",
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-positive-weights-do-not-certify-twfe-inference",
+      "title": "Positive Weights Do Not Certify TWFE Inference: A Design Diagnostic under Treatment-Effect Heterogeneity",
+      "source": "arXiv econ.EM (Stanisław M. S. Halkiewicz, Luleå University of Technology)",
+      "url": "https://arxiv.org/abs/2611.18116",
+      "published": "2026-11",
+      "added": "2026-11-16",
+      "category": "experimentation-causal",
+      "tags": [
+        "difference-in-differences",
+        "twfe",
+        "staggered-adoption",
+        "treatment-effect-heterogeneity",
+        "inference",
+        "size-distortion",
+        "equivalence-testing",
+        "cluster-robust"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-16-arxiv-positive-weights-do-not-certify-twfe-inference.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "mit-who-counts-as-exposed-occupational-ai-exposure-index",
+      "title": "Who Counts as Exposed? Measurement Choices in an Open, Re-estimable Index of Occupational AI Exposure",
+      "source": "MIT Work Analytics Lab (arXiv cs.IR)",
+      "url": "https://arxiv.org/abs/2611.18168",
+      "published": "2026-11",
+      "added": "2026-11-16",
+      "category": "llm-genai",
+      "tags": [
+        "ai-exposure",
+        "measurement-validity",
+        "llm-as-annotator",
+        "llm-ensembles",
+        "rag",
+        "calibration",
+        "onet",
+        "labor-markets",
+        "sensitivity-analysis"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-11-16-mit-who-counts-as-exposed-occupational-ai-exposure-index.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-hierarchical-eb-sparse-counts-airline-demand",
+      "title": "Hierarchical Empirical-Bayes Forecasting of Sparse Counts with Exposure: An Application to Airline Demand and Premium-Cabin Capacity Sharing",
+      "source": "arXiv stat.AP (Irakli Gudavadze)",
+      "url": "https://arxiv.org/abs/2611.14530",
+      "published": "2026-11",
+      "added": "2026-11-16",
+      "category": "forecasting-timeseries",
+      "tags": [
+        "intermittent-demand",
+        "empirical-bayes",
+        "poisson-gamma",
+        "negative-binomial",
+        "partial-pooling",
+        "probabilistic-forecasting",
+        "airline-revenue-management",
+        "overdispersion"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-16-arxiv-hierarchical-eb-sparse-counts-airline-demand.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "arXiv stat.AP listing (backlog stub)"
+    },
+    {
+      "id": "arxiv-lost-in-the-bins-discretized-covariates",
+      "title": "Lost in the Bins: Treatment Effects with Discretized Covariates",
+      "source": "arXiv econ.EM (Goethe University Frankfurt)",
+      "url": "https://arxiv.org/abs/2611.14789",
+      "published": "2026-11",
+      "added": "2026-11-16",
+      "category": "experimentation-causal",
+      "tags": [
+        "coarsening-bias",
+        "mean-independence",
+        "matching",
+        "sensitivity-analysis",
+        "partial-identification",
+        "sharp-bounds",
+        "placebo-tests",
+        "observational-causal"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-16-arxiv-lost-in-the-bins-discretized-covariates.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "arXiv econ.EM listing (backlog stub)"
+    },
     {
       "id": "arxiv-both-sides-adapt-evaluating-interactive-llm-systems",
       "title": "When Both Sides Adapt: The Challenges of Evaluating Interactive LLM Systems",

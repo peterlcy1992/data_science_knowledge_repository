@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-13",
+  "updated": "2026-11-16",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -140,28 +140,36 @@
       "url": "https://arxiv.org/abs/2611.06067"
     },
     {
-      "id": "arxiv-hierarchical-eb-sparse-counts-airline-demand",
-      "company": "Academic (stat.AP)",
-      "title": "Hierarchical Empirical-Bayes Forecasting of Sparse Counts with Exposure: An Application to Airline Demand and Premium-Cabin Capacity Sharing",
-      "category": "forecasting-timeseries",
-      "hook": "Exposure-adjusted Poisson–Gamma partial pooling gives closed-form negative-binomial predictive distributions for thin, zero-heavy markets; synthetic-only evaluation plus a seat-protection decision rule.",
-      "url": "https://arxiv.org/abs/2611.14530"
-    },
-    {
-      "id": "arxiv-lost-in-the-bins-discretized-covariates",
-      "company": "Academic (econ.EM)",
-      "title": "Lost in the Bins: Treatment Effects with Discretized Covariates",
-      "category": "experimentation-causal",
-      "hook": "Mean independence given a fine covariate need not survive coarsening it into bins; characterizes the resulting ATT/ATE bias and gives sharp bounds under a relaxed 'c-mean dependence' condition.",
-      "url": "https://arxiv.org/abs/2611.14789"
-    },
-    {
       "id": "arxiv-kuairecv2-continual-learning-diversified-recommendation",
       "company": "Academic / Kuaishou",
       "title": "KuaiRecV2: Benchmarking Large-Scale Continual Learning for Diversified and Multi-task Recommendation",
       "category": "personalization-recsys",
       "hook": "A benchmark aimed at the offline-online evaluation gap in recsys: continual learning under shifting item pools, accuracy-diversity trade-offs, and multi-task objectives.",
       "url": "https://arxiv.org/abs/2611.16795"
+    },
+    {
+      "id": "arxiv-recmem-recurrent-memory-long-sequence-generative-rec",
+      "company": "Academic / Industrial recsys",
+      "title": "RecMem: Recurrent Memory Compression for Long-Sequence Generative Recommendation",
+      "category": "personalization-recsys",
+      "hook": "Compresses long histories into 16 forget-gated memory slots on an HSTU backbone; on MerRec keeps 87.9% of HSTU-1200's Recall@10 with a 216-token vs 1,200-token decoder context.",
+      "url": "https://arxiv.org/abs/2611.17921"
+    },
+    {
+      "id": "arxiv-constrained-stochastic-policy-targeting-partial-interference",
+      "company": "Academic (stat.ME)",
+      "title": "Constrained Stochastic Policy Targeting under Heterogeneous Partial Interference",
+      "category": "experimentation-causal",
+      "hook": "Learns individualized stochastic treatment policies that hit an outcome target with minimal treatment under spillovers (interference-aware IPW, finite-sample regret); applied to a Colombian conditional cash transfer.",
+      "url": "https://arxiv.org/abs/2611.18444"
+    },
+    {
+      "id": "arxiv-stratified-randomization-historical-control-data",
+      "company": "Academic (stat.ME: Hokkaido, HHU Düsseldorf)",
+      "title": "Stratified Randomization Incorporating Historical Control Data",
+      "category": "experimentation-causal",
+      "hook": "Borrows historical controls at the allocation stage: within strata, over-allocate concurrent subjects to treatment and fill the hybrid control arm with historical controls; compared to PSM by simulation.",
+      "url": "https://arxiv.org/abs/2611.17875"
     }
   ]
 }
