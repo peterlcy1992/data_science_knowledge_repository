@@ -6,7 +6,7 @@
     1,
     34
   ],
-  "next_episode": 59,
+  "next_episode": 60,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -839,6 +839,25 @@
       "podcast_source": "full_text",
       "podcast_source_note": "uploaded https://arxiv.org/pdf/2611.17239",
       "rss_episode_id": 3318189
+    },
+    {
+      "episode": 59,
+      "season": 2,
+      "season_episode": 26,
+      "date": "2026-11-16",
+      "title": "Roblox \u2014 Why a big A/B lift can be a small win",
+      "description": "A 5% lift on a niche surface and a 0.5% lift on the home page aren't on the same scale, yet roadmaps get ranked as if they were. This Roblox paper defines \"sitewide impact\": how much a platform-wide total, such as total play time, would move if a treatment reached its whole target population. It equals the experiment lift times a \"coverage factor\", the share of the metric the targeted users hold when no one is treated. We walk through how Roblox reconstructs the untreated baseline from experiment data, why ratio metrics like crashes per hour of play need their numerator and denominator scaled separately, and why segment results have to be recombined from totals, not averaged. Then the evidence: across 139 significant experiments the rank correlation between experiment lift and sitewide impact is only 0.20, A/A periods from 1,349 experiments show no bias, and summed impacts land inside a long-term payments holdout's interval. We close on the two assumptions everything rests on, no interference and reach that the treatment itself doesn't change, and what they mean for features that grow their own surface. Source article: \"Making Experiment Results Comparable through Sitewide Impact Estimation\" \u2014 Roblox (arXiv stat.AP), https://arxiv.org/abs/2611.18411 (published 2026-11).",
+      "audio": "podcasts/2026-11-16-roblox-sitewide-impact-experiment-comparability.m4a",
+      "cover": "podcasts/2026-11-16-roblox-sitewide-impact-experiment-comparability.cover.png",
+      "rss_status": "draft",
+      "cover_company": "Roblox",
+      "cover_title": "Lift isn't impact",
+      "cover_overline": "Experimentation & Causal Inference",
+      "cover_subtitle": "Every A/B test on one scale",
+      "cover_motif": "signal",
+      "podcast_source": "full_text",
+      "podcast_source_note": "uploaded https://arxiv.org/pdf/2611.18411",
+      "rss_episode_id": 3325222
     }
   ]
 }
