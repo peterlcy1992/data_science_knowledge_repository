@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-16",
+  "updated": "2026-11-17",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
@@ -124,14 +124,6 @@
       "url": "https://arxiv.org/abs/2611.12296"
     },
     {
-      "id": "arxiv-minimax-designs-estimators-network-interference",
-      "company": "Academic (math.ST: Karwa, Airoldi)",
-      "title": "Minimax designs and estimators for causal inference under network interference",
-      "category": "experimentation-causal",
-      "hook": "Design-based minimax theory for fixed-design, restricted-design and all-design problems under interference, via a sampling hypergraph over potential outcomes; defines a 'price of unbiasedness'.",
-      "url": "https://arxiv.org/abs/2611.08560"
-    },
-    {
       "id": "arxiv-offline-reserve-prices-censored-bids",
       "company": "Academic (econ.EM)",
       "title": "Offline Learning of Reserve Prices from Censored Bids",
@@ -164,12 +156,52 @@
       "url": "https://arxiv.org/abs/2611.18444"
     },
     {
-      "id": "arxiv-stratified-randomization-historical-control-data",
-      "company": "Academic (stat.ME: Hokkaido, HHU Düsseldorf)",
-      "title": "Stratified Randomization Incorporating Historical Control Data",
+      "id": "arxiv-straight-to-the-product-ai-assistant-shopping-attribution",
+      "company": "Academic (arXiv cs.IR)",
+      "title": "Straight to the Product: What Online Retailers Miss When Shoppers Ask AI First",
+      "category": "product-analytics",
+      "hook": "Links people's AI-assistant shopping conversations to their later browsing at 20 large retailers: visits to the named product rise from 0.02 to 2.07 per 100 answers, yet 89% of those visits carry no sign of the assistant's link — an attribution blind spot.",
+      "url": "https://arxiv.org/abs/2611.20378"
+    },
+    {
+      "id": "arxiv-shrink-responsibly-empirical-bayes-economics",
+      "company": "Academic (econ.EM)",
+      "title": "Shrink Responsibly: Empirical Bayes in Economics",
+      "category": "statistical-modeling",
+      "hook": "Overview of empirical Bayes shrinkage for unit-level causal effects (teachers, schools, hospitals): when shrinkage improves compound decisions such as selecting top units even under misspecification, and which summaries are better estimated directly.",
+      "url": "https://arxiv.org/abs/2611.21230"
+    },
+    {
+      "id": "arxiv-time-varying-recalibration-forecast-distributions",
+      "company": "Academic (stat.ME)",
+      "title": "Time-Varying Recalibration of Forecast Distributions",
+      "category": "forecasting-timeseries",
+      "hook": "Recalibrates any combined density forecast with a time-varying monotone map (Beta CDF or rational quadratic spline) on its PIT, updated by score-driven filters with dynamic model averaging or a feature-conditioned convolution update.",
+      "url": "https://arxiv.org/abs/2611.19452"
+    },
+    {
+      "id": "arxiv-honest-confidence-sets-experiment-level-failure",
+      "company": "Academic (stat.ME)",
+      "title": "Honest confidence sets under experiment-level failure",
       "category": "experimentation-causal",
-      "hook": "Borrows historical controls at the allocation stage: within strata, over-allocate concurrent subjects to treatment and fill the hybrid control arm with historical controls; compared to PSM by simulation.",
-      "url": "https://arxiv.org/abs/2611.17875"
+      "hook": "Minimax theory for confidence sets that stay honest when a whole experiment can fail with a declared probability; deterministic procedures have full-range worst-case diameter, while independent randomisation achieves sharp minimax risks.",
+      "url": "https://arxiv.org/abs/2611.20079"
+    },
+    {
+      "id": "xiaohongshu-intentflow-multimodal-image-text-search",
+      "company": "Xiaohongshu",
+      "title": "IntentFlow: An Intent-Driven Real-Time Multimodal Search System with Image-Text Queries at Xiaohongshu",
+      "category": "search-ranking",
+      "hook": "Deployed image-text query search over UGC notes that models retrieval intent explicitly so candidate retrieval and reranking share one relevance criterion, since reranking visual results alone misses intent-relevant notes.",
+      "url": "https://arxiv.org/abs/2611.20448"
+    },
+    {
+      "id": "arxiv-brave-budgeted-reflection-recommendation-agents",
+      "company": "Academic (arXiv cs.IR)",
+      "title": "Reflection Is Not Always Worth It: Budgeted Reflection Allocation for Recommendation Agents",
+      "category": "personalization-recsys",
+      "hook": "BRAVE allocates training-time LLM reflection across users under a budget to make recommendation agents cheaper while preserving full-catalog ranking; flags the risk of under-serving sparse or niche users.",
+      "url": "https://arxiv.org/abs/2611.19847"
     }
   ]
 }
