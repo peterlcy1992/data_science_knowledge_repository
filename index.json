@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-17",
+  "updated": "2026-11-18",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,170 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-better-rankers-worse-retrievers-rl-generative-recommendation",
+      "title": "Better Rankers, Worse Retrievers: The Hidden Cost of RL Post-Training in Generative Recommendation",
+      "source": "HKUST / Trip.com Group (arXiv cs.IR)",
+      "url": "https://arxiv.org/abs/2611.22838",
+      "published": "2026-11",
+      "added": "2026-11-18",
+      "category": "personalization-recsys",
+      "tags": [
+        "generative-recommendation",
+        "semantic-ids",
+        "grpo",
+        "rl-post-training",
+        "recall",
+        "offline-evaluation",
+        "hard-negatives",
+        "retrieval-stage"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-11-18-arxiv-better-rankers-worse-retrievers-rl-generative-recommendation.md",
+      "deep_dived_on": "2026-11-18",
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-inference-after-coding-agents-selective-replay",
+      "title": "Inference After Coding Agents",
+      "source": "Emory / UVA / Michigan (arXiv stat.ME)",
+      "url": "https://arxiv.org/abs/2611.23174",
+      "published": "2026-11",
+      "added": "2026-11-18",
+      "category": "statistical-modeling",
+      "tags": [
+        "selective-inference",
+        "post-selection-inference",
+        "coding-agents",
+        "p-hacking",
+        "specification-search",
+        "replay",
+        "subsampling",
+        "hypothesis-testing"
+      ],
+      "novelty": 5,
+      "file": "articles/2026-11-18-arxiv-inference-after-coding-agents-selective-replay.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-sota-or-luck-winners-curse-llm-leaderboards",
+      "title": "SOTA or Luck? The Winner's Curse in LLM Leaderboards",
+      "source": "WashU Olin / ASU W. P. Carey (arXiv cs.LG / stat.ME)",
+      "url": "https://arxiv.org/abs/2611.22227",
+      "published": "2026-11",
+      "added": "2026-11-18",
+      "category": "statistical-modeling",
+      "tags": [
+        "winners-curse",
+        "selection-bias",
+        "bootstrap",
+        "m-out-of-n-bootstrap",
+        "rank-uncertainty",
+        "llm-evaluation",
+        "leaderboards",
+        "swe-bench"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-11-18-arxiv-sota-or-luck-winners-curse-llm-leaderboards.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-long-term-quantile-treatment-effects-combined-data",
+      "title": "Long-Term Quantile Treatment Effects with Combined Experimental and Observational Data",
+      "source": "Xiamen / Shandong / Vanderbilt / SMU (arXiv econ.EM)",
+      "url": "https://arxiv.org/abs/2611.22984",
+      "published": "2026-11",
+      "added": "2026-11-18",
+      "category": "experimentation-causal",
+      "tags": [
+        "long-term-effects",
+        "quantile-treatment-effects",
+        "data-combination",
+        "latent-unconfoundedness",
+        "double-machine-learning",
+        "efficient-influence-function",
+        "multiplier-bootstrap",
+        "uniform-inference"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-18-arxiv-long-term-quantile-treatment-effects-combined-data.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "tencent-yuanbao-rubric-aligned-search",
+      "title": "From Relevance to Utility: Rubric Alignment in Yuanbao Search",
+      "source": "Tencent (arXiv cs.IR, KDD 2027)",
+      "url": "https://arxiv.org/abs/2611.22503",
+      "published": "2026-11",
+      "added": "2026-11-18",
+      "category": "search-ranking",
+      "tags": [
+        "agentic-search",
+        "rag",
+        "rubrics",
+        "set-level-utility",
+        "llm-labeling",
+        "distillation",
+        "grpo",
+        "dense-retrieval",
+        "online-ab-test"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-18-tencent-yuanbao-rubric-aligned-search.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch"
+    },
+    {
+      "id": "arxiv-shrink-responsibly-empirical-bayes-economics",
+      "title": "Shrink Responsibly: Empirical Bayes in Economics",
+      "source": "Hull (Brown) & Kolesár (Princeton) (arXiv econ.EM)",
+      "url": "https://arxiv.org/abs/2611.21230",
+      "published": "2026-11",
+      "added": "2026-11-18",
+      "category": "statistical-modeling",
+      "tags": [
+        "empirical-bayes",
+        "shrinkage",
+        "value-added",
+        "compound-decisions",
+        "npmle",
+        "fixed-effects",
+        "ranking",
+        "review"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-18-arxiv-shrink-responsibly-empirical-bayes-economics.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "catalog backlog (arXiv econ.EM scan)"
+    },
+    {
+      "id": "arxiv-time-varying-recalibration-forecast-distributions",
+      "title": "Time-Varying Recalibration of Forecast Distributions",
+      "source": "UCL Statistical Science (arXiv stat.ME, Int. J. Forecasting)",
+      "url": "https://arxiv.org/abs/2611.19452",
+      "published": "2026-11",
+      "added": "2026-11-18",
+      "category": "forecasting-timeseries",
+      "tags": [
+        "density-forecasting",
+        "forecast-combination",
+        "calibration",
+        "pit",
+        "linear-pool",
+        "score-driven-models",
+        "splines",
+        "bayesian-predictive-synthesis"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-18-arxiv-time-varying-recalibration-forecast-distributions.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "catalog backlog (arXiv stat.ME scan)"
+    },
     {
       "id": "arxiv-label-free-verbosity-bias-llm-recommenders-randomized-paraphrasing",
       "title": "Label-Free Detection of Structural Bias in LLM-Based Recommender Systems via Randomized Paraphrasing: The Case of Verbosity",

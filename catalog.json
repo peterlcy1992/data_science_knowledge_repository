@@ -1,8 +1,40 @@
 {
   "version": 1,
-  "updated": "2026-11-17",
+  "updated": "2026-11-18",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
+    {
+      "id": "arxiv-small-area-causal-inference-empirical-best-prediction",
+      "company": "Academic (stat.ME)",
+      "title": "Small Area Causal Inference",
+      "category": "statistical-modeling",
+      "hook": "Estimates area-specific causal effects with empirical best prediction under a linear mixed model instead of doubly robust estimation, trading bias for variance to minimise mean squared prediction error in small areas.",
+      "url": "https://arxiv.org/abs/2611.22339"
+    },
+    {
+      "id": "arxiv-sequential-conditional-paired-sample-testing-monitoring",
+      "company": "Academic (stat.ME)",
+      "title": "Sequential Conditional Paired-Sample Testing with Applications to Online Monitoring",
+      "category": "experimentation-causal",
+      "hook": "SCPT: an anytime-valid test of whether two conditional distributions are equal given covariates, built from sequential conditional kernel discrepancies and test martingales, for model monitoring and online comparisons with no fixed sample size.",
+      "url": "https://arxiv.org/abs/2611.22886"
+    },
+    {
+      "id": "arxiv-heterogeneous-treatment-effects-deep-survival-learners",
+      "company": "Academic (stat.ME)",
+      "title": "Inference for Heterogeneous Treatment Effects with Deep Survival Learners",
+      "category": "statistical-modeling",
+      "hook": "Deep survival learning for time-varying CATEs: neural networks for covariate effects plus a shared spline representation of time, with valid inference for time-varying treatment effects and their contrasts.",
+      "url": "https://arxiv.org/abs/2611.23090"
+    },
+    {
+      "id": "arxiv-intentgr-personalized-generative-retrieval-search",
+      "company": "Academic (arXiv cs.IR)",
+      "title": "IntentGR: Enhancing Intent for End-to-End Personalized Generative Retrieval in Search",
+      "category": "search-ranking",
+      "hook": "Uses the search query to guide both semantic-ID tokenization and sequence generation in end-to-end personalized generative retrieval, so generated SIDs reflect immediate intent as well as long-term preference.",
+      "url": "https://arxiv.org/abs/2611.22788"
+    },
     {
       "id": "airbnb-personal-data-classification",
       "company": "Airbnb",
@@ -162,22 +194,6 @@
       "category": "product-analytics",
       "hook": "Links people's AI-assistant shopping conversations to their later browsing at 20 large retailers: visits to the named product rise from 0.02 to 2.07 per 100 answers, yet 89% of those visits carry no sign of the assistant's link — an attribution blind spot.",
       "url": "https://arxiv.org/abs/2611.20378"
-    },
-    {
-      "id": "arxiv-shrink-responsibly-empirical-bayes-economics",
-      "company": "Academic (econ.EM)",
-      "title": "Shrink Responsibly: Empirical Bayes in Economics",
-      "category": "statistical-modeling",
-      "hook": "Overview of empirical Bayes shrinkage for unit-level causal effects (teachers, schools, hospitals): when shrinkage improves compound decisions such as selecting top units even under misspecification, and which summaries are better estimated directly.",
-      "url": "https://arxiv.org/abs/2611.21230"
-    },
-    {
-      "id": "arxiv-time-varying-recalibration-forecast-distributions",
-      "company": "Academic (stat.ME)",
-      "title": "Time-Varying Recalibration of Forecast Distributions",
-      "category": "forecasting-timeseries",
-      "hook": "Recalibrates any combined density forecast with a time-varying monotone map (Beta CDF or rational quadratic spline) on its PIT, updated by score-driven filters with dynamic model averaging or a feature-conditioned convolution update.",
-      "url": "https://arxiv.org/abs/2611.19452"
     },
     {
       "id": "arxiv-honest-confidence-sets-experiment-level-failure",
