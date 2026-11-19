@@ -1,23 +1,39 @@
 {
   "version": 1,
-  "updated": "2026-11-18",
+  "updated": "2026-11-19",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
-      "id": "arxiv-small-area-causal-inference-empirical-best-prediction",
+      "id": "arxiv-fisher-randomization-test-weak-null-binary",
       "company": "Academic (stat.ME)",
-      "title": "Small Area Causal Inference",
-      "category": "statistical-modeling",
-      "hook": "Estimates area-specific causal effects with empirical best prediction under a linear mixed model instead of doubly robust estimation, trading bias for variance to minimise mean squared prediction error in small areas.",
-      "url": "https://arxiv.org/abs/2611.22339"
+      "title": "On the Validity of Fisher Randomization Tests under the Weak Null",
+      "category": "experimentation-causal",
+      "hook": "Shows the FRT is finite-sample valid for Neyman's weak null of zero average effect with binary outcomes in balanced completely randomized, matched-pairs and balanced Bernoulli designs with suitable statistics.",
+      "url": "https://arxiv.org/abs/2611.24821"
     },
     {
-      "id": "arxiv-sequential-conditional-paired-sample-testing-monitoring",
+      "id": "arxiv-match-rate-not-match-quality-identity-resolution",
+      "company": "Academic (econ.EM)",
+      "title": "Match Rate Is Not Match Quality",
+      "category": "product-analytics",
+      "hook": "Compares voter-file age and gender with self-reported survey demographics linked through two leading identity-resolution vendors, arguing match quality, not match rate, should be the vendor metric.",
+      "url": "https://arxiv.org/abs/2611.23851"
+    },
+    {
+      "id": "arxiv-balancing-partition-forest-causal-weighting",
       "company": "Academic (stat.ME)",
-      "title": "Sequential Conditional Paired-Sample Testing with Applications to Online Monitoring",
+      "title": "Balancing Partition Forest for Causal Weighting",
       "category": "experimentation-causal",
-      "hook": "SCPT: an anytime-valid test of whether two conditional distributions are equal given covariates, built from sequential conditional kernel discrepancies and test martingales, for model monitoring and online comparisons with no fixed sample size.",
-      "url": "https://arxiv.org/abs/2611.22886"
+      "hook": "Estimates balancing weights for binary or continuous treatments on a learned covariate-treatment partition whose splits maximize a Bregman-divergence gain.",
+      "url": "https://arxiv.org/abs/2611.23524"
+    },
+    {
+      "id": "arxiv-prioritize-dont-decide-hitl-cv-sorter-audit",
+      "company": "Academic (arXiv cs.IR)",
+      "title": "Prioritize, Don't Decide: What We Learned Auditing a Deployed Human-in-the-Loop CV Sorter",
+      "category": "search-ranking",
+      "hook": "Audit of a deployed CV reading-order tool on a national academic vacancy platform: a frozen multilingual encoder plus a per-session linear model retrained after each label.",
+      "url": "https://arxiv.org/abs/2611.23359"
     },
     {
       "id": "arxiv-heterogeneous-treatment-effects-deep-survival-learners",
