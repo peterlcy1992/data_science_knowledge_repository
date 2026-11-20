@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-19",
+  "updated": "2026-11-20",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,149 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "amazon-window-lever-observation-windows-customer-forecasting",
+      "title": "The Window Lever: Longer Observation Windows Outweigh the Observed Effects of Data, Capacity, and Architecture in Customer Behavior Forecasting",
+      "source": "Amazon (arXiv cs.LG)",
+      "url": "https://arxiv.org/abs/2611.26521",
+      "published": "2026-11",
+      "added": "2026-11-20",
+      "category": "forecasting-timeseries",
+      "tags": [
+        "customer-behavior-forecasting",
+        "observation-window",
+        "history-length",
+        "matched-cohorts",
+        "pre-registration",
+        "sequence-models",
+        "ridge-probe",
+        "saturation-curve",
+        "calendar-confound"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-11-20-amazon-window-lever-observation-windows-customer-forecasting.md",
+      "deep_dived_on": "2026-11-20",
+      "sourced_via": "full-text fetch",
+      "discovered_via": "arXiv cs.IR new listings (cross-list), 20 Nov 2026"
+    },
+    {
+      "id": "arxiv-saces-causal-effects-uncertain-statistical-surrogacy",
+      "title": "Causal Effect Estimation Under Uncertain Statistical Surrogacy",
+      "source": "Fred Hutch / Penn / NC State / Brown (arXiv stat.ME)",
+      "url": "https://arxiv.org/abs/2611.26289",
+      "published": "2026-11",
+      "added": "2026-11-20",
+      "category": "experimentation-causal",
+      "tags": [
+        "surrogate-outcomes",
+        "statistical-surrogacy",
+        "efficient-influence-function",
+        "missing-outcomes",
+        "estimator-selection",
+        "long-term-effects",
+        "aipw",
+        "post-selection-inference"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-20-arxiv-saces-causal-effects-uncertain-statistical-surrogacy.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "arXiv stat.ME new listings, 20 Nov 2026"
+    },
+    {
+      "id": "nikkei-generative-news-recommendation-reproduces-popularity-memorization",
+      "title": "Generative News Recommendation Reproduces Popularity: A Memorization-Based Analysis",
+      "source": "Nikkei (arXiv cs.IR)",
+      "url": "https://arxiv.org/abs/2611.25606",
+      "published": "2026-11",
+      "added": "2026-11-20",
+      "category": "personalization-recsys",
+      "tags": [
+        "generative-recommendation",
+        "popularity-bias",
+        "memorization",
+        "news-recommendation",
+        "diversity",
+        "deduplication",
+        "llama-3"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-20-nikkei-generative-news-recommendation-reproduces-popularity-memorization.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "arXiv cs.IR new listings, 20 Nov 2026"
+    },
+    {
+      "id": "meta-cost-aware-agentic-feature-optimization-fleet-ranking",
+      "title": "Cost-Aware Agentic Feature Optimization System for Fleet-Scale Ranking Models",
+      "source": "Meta (arXiv cs.IR)",
+      "url": "https://arxiv.org/abs/2611.26531",
+      "published": "2026-11",
+      "added": "2026-11-20",
+      "category": "ml-infra-serving",
+      "tags": [
+        "feature-selection",
+        "llm-agents",
+        "ads-ranking",
+        "pareto-optimality",
+        "shapley",
+        "cost-aware-ml",
+        "multi-task",
+        "a-b-testing"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-20-meta-cost-aware-agentic-feature-optimization-fleet-ranking.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "arXiv cs.IR new listings, 20 Nov 2026"
+    },
+    {
+      "id": "arxiv-fisher-randomization-test-weak-null-binary",
+      "title": "On the Validity of Fisher Randomization Tests under the Weak Null",
+      "source": "Sudijono, Dobriban & Tchetgen Tchetgen (arXiv stat.ME)",
+      "url": "https://arxiv.org/abs/2611.24821",
+      "published": "2026-11",
+      "added": "2026-11-20",
+      "category": "experimentation-causal",
+      "tags": [
+        "randomization-inference",
+        "fisher-randomization-test",
+        "weak-null",
+        "binary-outcomes",
+        "fishers-exact-test",
+        "mcnemar",
+        "matched-pairs",
+        "bernoulli-design"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-20-arxiv-fisher-randomization-test-weak-null-binary.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "arXiv stat.ME new listings, 19 Nov 2026 (backlog stub)"
+    },
+    {
+      "id": "arxiv-match-rate-not-match-quality-identity-resolution",
+      "title": "Match Rate Is Not Match Quality: An Empirical Assessment of Third-Party Identity Resolution Using Random Device Engagement Polling and a National Voter File",
+      "source": "Konitzer (GrowthLoop) & Rothschild (arXiv econ.EM)",
+      "url": "https://arxiv.org/abs/2611.23851",
+      "published": "2026-11",
+      "added": "2026-11-20",
+      "category": "product-analytics",
+      "tags": [
+        "identity-resolution",
+        "match-rate",
+        "metric-design",
+        "measurement-validity",
+        "advertising",
+        "audience-activation",
+        "mixture-model"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-20-arxiv-match-rate-not-match-quality-identity-resolution.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "arXiv econ.EM new listings, 19 Nov 2026 (backlog stub)"
+    },
     {
       "id": "netflix-recommendation-quality-concentration-of-consumption",
       "title": "Recommendation Quality and the Concentration of Consumption: Experimental Evidence from Netflix",

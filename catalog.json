@@ -1,23 +1,47 @@
 {
   "version": 1,
-  "updated": "2026-11-19",
+  "updated": "2026-11-20",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
-      "id": "arxiv-fisher-randomization-test-weak-null-binary",
-      "company": "Academic (stat.ME)",
-      "title": "On the Validity of Fisher Randomization Tests under the Weak Null",
+      "id": "arxiv-statistical-cost-second-order-orthogonality",
+      "company": "Academic (econ.EM)",
+      "title": "The Statistical Cost of Second-Order Orthogonality",
       "category": "experimentation-causal",
-      "hook": "Shows the FRT is finite-sample valid for Neyman's weak null of zero average effect with binary outcomes in balanced completely randomized, matched-pairs and balanced Bernoulli designs with suitable statistics.",
-      "url": "https://arxiv.org/abs/2611.24821"
+      "hook": "Second-order orthogonal moments remove the quadratic nuisance bias left by debiased ML, but at a variance cost; the paper quantifies when the trade is worth it.",
+      "url": "https://arxiv.org/abs/2611.25702"
     },
     {
-      "id": "arxiv-match-rate-not-match-quality-identity-resolution",
+      "id": "arxiv-informative-late-propensity-scores",
       "company": "Academic (econ.EM)",
-      "title": "Match Rate Is Not Match Quality",
-      "category": "product-analytics",
-      "hook": "Compares voter-file age and gender with self-reported survey demographics linked through two leading identity-resolution vendors, arguing match quality, not match rate, should be the vendor metric.",
-      "url": "https://arxiv.org/abs/2611.23851"
+      "title": "Informative Local Average Treatment Effects Using Propensity Scores",
+      "category": "experimentation-causal",
+      "hook": "Comparisons of conditional LATEs across covariates mix effect heterogeneity with shifts in who the compliers are; uses propensity scores to separate the two.",
+      "url": "https://arxiv.org/abs/2611.25253"
+    },
+    {
+      "id": "arxiv-anytime-valid-self-consistency-certification-correlated-reasoning",
+      "company": "Academic (stat.ME)",
+      "title": "Realized versus Population Reliability: Anytime-Valid Self-Consistency Certification under Correlated Reasoning",
+      "category": "statistical-modeling",
+      "hook": "Anytime-valid e-process certification of LLM self-consistency, and what its Type I guarantee does and doesn't cover when sampled reasoning chains are correlated.",
+      "url": "https://arxiv.org/abs/2611.26592"
+    },
+    {
+      "id": "arxiv-generative-ranking-policies-whole-page-optimization",
+      "company": "Academic (arXiv cs.IR)",
+      "title": "Learning Generative Ranking Policies for Whole-Page Optimization",
+      "category": "personalization-recsys",
+      "hook": "Treats a recommendation page as a whole (items compete and complement) and learns a generative ranking policy for whole-page optimization.",
+      "url": "https://arxiv.org/abs/2611.25527"
+    },
+    {
+      "id": "arxiv-sessions-to-serving-llm-embeddings-content-recommendation",
+      "company": "Academic / Industrial (arXiv cs.IR)",
+      "title": "From Sessions to Serving: Integrating LLM-Based Embeddings into Retrieval for Production Content Recommendation",
+      "category": "personalization-recsys",
+      "hook": "Brings LLM-based embeddings into retrieval for heterogeneous marketplace content (customer stories, product pages, learning content) with sparse, fast-changing behaviour.",
+      "url": "https://arxiv.org/abs/2611.26096"
     },
     {
       "id": "arxiv-balancing-partition-forest-causal-weighting",
