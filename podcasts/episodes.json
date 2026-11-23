@@ -6,7 +6,7 @@
     1,
     34
   ],
-  "next_episode": 64,
+  "next_episode": 65,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -934,6 +934,25 @@
       "podcast_source": "full_text",
       "podcast_source_note": "uploaded https://arxiv.org/pdf/2611.26521",
       "rss_episode_id": 3338988
+    },
+    {
+      "episode": 64,
+      "season": 2,
+      "season_episode": 31,
+      "date": "2026-11-23",
+      "title": "University of Michigan \u2014 Can your old A/B tests sharpen a new one?",
+      "description": "Big experimentation programs build up archives of thousands of past A/B tests, but those archives mostly feed intuition rather than the estimate itself. Researchers at the University of Michigan's Ross School of Business ask when borrowing from past experiments on related but different interventions can make a single new treatment-effect estimate more accurate. With known biases, borrowing from even one biased experiment always lowers mean squared error. In practice the biases are unknown, so the paper proposes three estimators: a general plug-in that reweights each past study, a pooled plug-in that limits that reweighting, and a fixed-weight estimator that pools only when a hypothesis test says the archive agrees with the new experiment. We walk through why two numbers decide which to use: how far off the past experiments are on average, and how spread out their biases are. We also cover the surprising result that more spread can both help and hurt, why the testing gate trades some gains for safety when the archive is badly misaligned, and what the simulations do and don't show. Source article: \"Combining Past Experimental Data for Efficient Estimation: A Shrinkage Approach\" \u2014 University of Michigan Ross (arXiv stat.ME), https://arxiv.org/abs/2611.27655 (published 2026-11).",
+      "audio": "podcasts/2026-11-23-arxiv-combining-past-experiments-shrinkage.m4a",
+      "cover": "podcasts/2026-11-23-arxiv-combining-past-experiments-shrinkage.cover.png",
+      "rss_status": "draft",
+      "cover_company": "University of Michigan",
+      "cover_title": "Borrowing past A/B tests",
+      "cover_overline": "Experimentation & Causal Inference",
+      "cover_subtitle": "When old experiments sharpen new estimates",
+      "cover_motif": "signal",
+      "podcast_source": "full_text",
+      "podcast_source_note": "uploaded https://arxiv.org/pdf/2611.27655",
+      "rss_episode_id": 3345773
     }
   ]
 }
