@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-20",
+  "updated": "2026-11-23",
   "categories": [
     "personalization-recsys",
     "llm-genai",
@@ -15,6 +15,150 @@
     "product-analytics"
   ],
   "articles": [
+    {
+      "id": "arxiv-combining-past-experiments-shrinkage",
+      "title": "Combining Past Experimental Data for Efficient Estimation: A Shrinkage Approach",
+      "source": "University of Michigan Ross (arXiv stat.ME)",
+      "url": "https://arxiv.org/abs/2611.27655",
+      "published": "2026-11",
+      "added": "2026-11-23",
+      "category": "experimentation-causal",
+      "tags": [
+        "shrinkage",
+        "experiment-archive",
+        "historical-experiments",
+        "bias-variance",
+        "mse",
+        "pretest-estimator",
+        "data-pooling",
+        "a-b-testing"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-11-23-arxiv-combining-past-experiments-shrinkage.md",
+      "deep_dived_on": "2026-11-23",
+      "sourced_via": "full-text fetch",
+      "discovered_via": "arXiv stat.ME new listings, 23 Nov 2026"
+    },
+    {
+      "id": "arxiv-benchmark-checks-llm-simulations-zero-reference",
+      "title": "What Does Matching a Human Intervention Effect Establish? Benchmark Checks for LLM Simulations",
+      "source": "Waseda / Anglia Ruskin / Cambridge Silicon Age Centre (arXiv stat.ME)",
+      "url": "https://arxiv.org/abs/2611.27186",
+      "published": "2026-11",
+      "added": "2026-11-23",
+      "category": "experimentation-causal",
+      "tags": [
+        "llm-simulation",
+        "synthetic-respondents",
+        "equivalence-testing",
+        "tost",
+        "validation",
+        "zero-reference",
+        "preregistration",
+        "survey-experiments"
+      ],
+      "novelty": 4,
+      "file": "articles/2026-11-23-arxiv-benchmark-checks-llm-simulations-zero-reference.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "arXiv stat.ME new listings, 23 Nov 2026"
+    },
+    {
+      "id": "arxiv-statistical-cost-second-order-orthogonality",
+      "title": "The Statistical Cost of Second-Order Orthogonality",
+      "source": "UC3M / TU Munich (arXiv econ.EM)",
+      "url": "https://arxiv.org/abs/2611.25702",
+      "published": "2026-11",
+      "added": "2026-11-23",
+      "category": "experimentation-causal",
+      "tags": [
+        "debiased-machine-learning",
+        "second-order-orthogonality",
+        "partially-linear-model",
+        "difference-in-differences",
+        "higher-order-influence-functions",
+        "cross-fitting",
+        "coverage",
+        "semiparametric-efficiency"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-23-arxiv-statistical-cost-second-order-orthogonality.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "catalog.json backlog stub (arXiv listing lead)"
+    },
+    {
+      "id": "arxiv-balancing-partition-forest-causal-weighting",
+      "title": "Balancing Partition Forest for Causal Weighting",
+      "source": "INSA Rouen Normandy / independent (arXiv stat.ME)",
+      "url": "https://arxiv.org/abs/2611.23524",
+      "published": "2026-11",
+      "added": "2026-11-23",
+      "category": "experimentation-causal",
+      "tags": [
+        "balancing-weights",
+        "density-ratio",
+        "continuous-treatment",
+        "decision-trees",
+        "mutual-information",
+        "ipw",
+        "doubly-robust",
+        "permutation-weighting"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-23-arxiv-balancing-partition-forest-causal-weighting.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "catalog.json backlog stub (arXiv listing lead)"
+    },
+    {
+      "id": "netflix-ai-discover-intelligence-layer",
+      "title": "Engineering AI Discover",
+      "source": "Netflix TechBlog",
+      "url": "https://netflixtechblog.com/engineering-ai-discover-e244944cdc38",
+      "published": "2026-11",
+      "added": "2026-11-23",
+      "category": "llm-genai",
+      "tags": [
+        "agent-harness",
+        "plan-and-execute",
+        "steerable-recommendation",
+        "llm-orchestration",
+        "async-serving",
+        "governed-execution",
+        "member-memory",
+        "offline-replay"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-23-netflix-ai-discover-intelligence-layer.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "Netflix TechBlog RSS, Nov 2026"
+    },
+    {
+      "id": "pinterest-analytics-agent-loop-engineering",
+      "title": "How Pinterest Improved Analytics Agent Compliance with Loop Engineering",
+      "source": "Pinterest Engineering Blog",
+      "url": "https://medium.com/pinterest-engineering/how-pinterest-improved-analytics-agent-compliance-with-loop-engineering-d3c52d0abaa2",
+      "published": "2026-11",
+      "added": "2026-11-23",
+      "category": "llm-genai",
+      "tags": [
+        "analytics-agent",
+        "agent-evaluation",
+        "prompt-optimization",
+        "regression-testing",
+        "eval-noise",
+        "holdout",
+        "data-discovery",
+        "llm-labeler"
+      ],
+      "novelty": 3,
+      "file": "articles/2026-11-23-pinterest-analytics-agent-loop-engineering.md",
+      "deep_dived_on": null,
+      "sourced_via": "full-text fetch",
+      "discovered_via": "Pinterest Engineering RSS, Nov 2026"
+    },
     {
       "id": "amazon-window-lever-observation-windows-customer-forecasting",
       "title": "The Window Lever: Longer Observation Windows Outweigh the Observed Effects of Data, Capacity, and Architecture in Customer Behavior Forecasting",

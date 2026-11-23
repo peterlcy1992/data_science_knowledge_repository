@@ -1,15 +1,31 @@
 {
   "version": 1,
-  "updated": "2026-11-20",
+  "updated": "2026-11-23",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
-      "id": "arxiv-statistical-cost-second-order-orthogonality",
-      "company": "Academic (econ.EM)",
-      "title": "The Statistical Cost of Second-Order Orthogonality",
+      "id": "vk-dcdn-deep-cross-division-network-ranking",
+      "company": "VK (arXiv cs.IR)",
+      "title": "Deep Cross-Division Network for Product-and-Ratio Feature Interactions in Industrial Ranking",
+      "category": "personalization-recsys",
+      "hook": "Adds a division branch to DCNv2 cross layers so ranking models learn ratio features themselves; cut 40.1% of input features and lifted likes 3.25% and shares 16.26% in a live A/B test on a short-video service.",
+      "url": "https://arxiv.org/abs/2611.27514"
+    },
+    {
+      "id": "arxiv-smoothed-conformal-testing-small-calibration",
+      "company": "Academic (stat.ME)",
+      "title": "Smoothed Conformal Testing with Small Calibration Sets",
+      "category": "statistical-modeling",
+      "hook": "Shows independent tie-block randomization of split-conformal p-values is exactly valid with small calibration sets, while some other smoothing schemes can fail marginal validity or BH FDR control.",
+      "url": "https://arxiv.org/abs/2611.27315"
+    },
+    {
+      "id": "arxiv-efficient-inference-fairness-constrained-sequential-policies",
+      "company": "Academic (stat.ME)",
+      "title": "Efficient inference for fairness-constrained sequential decision policies",
       "category": "experimentation-causal",
-      "hook": "Second-order orthogonal moments remove the quadratic nuisance bias left by debiased ML, but at a variance cost; the paper quantifies when the trade is worth it.",
-      "url": "https://arxiv.org/abs/2611.25702"
+      "hook": "Efficient influence function and cross-fitted doubly robust estimator for the optimal value of multi-stage policies under group-fairness constraints, with CIs for the price of fairness.",
+      "url": "https://arxiv.org/abs/2611.27714"
     },
     {
       "id": "arxiv-informative-late-propensity-scores",
@@ -42,14 +58,6 @@
       "category": "personalization-recsys",
       "hook": "Brings LLM-based embeddings into retrieval for heterogeneous marketplace content (customer stories, product pages, learning content) with sparse, fast-changing behaviour.",
       "url": "https://arxiv.org/abs/2611.26096"
-    },
-    {
-      "id": "arxiv-balancing-partition-forest-causal-weighting",
-      "company": "Academic (stat.ME)",
-      "title": "Balancing Partition Forest for Causal Weighting",
-      "category": "experimentation-causal",
-      "hook": "Estimates balancing weights for binary or continuous treatments on a learned covariate-treatment partition whose splits maximize a Bregman-divergence gain.",
-      "url": "https://arxiv.org/abs/2611.23524"
     },
     {
       "id": "arxiv-prioritize-dont-decide-hitl-cv-sorter-audit",
