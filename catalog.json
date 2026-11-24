@@ -1,8 +1,40 @@
 {
   "version": 1,
-  "updated": "2026-11-23",
+  "updated": "2026-11-24",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
+    {
+      "id": "arxiv-mllm-diversity-aware-reranking-prime-video",
+      "company": "Amazon / Academic (arXiv cs.IR)",
+      "title": "Beyond Relevance: An Empirical Study of Multimodal LLMs for Diversity-Aware Recommendation Reranking",
+      "category": "personalization-recsys",
+      "hook": "Training-free multimodal-LLM reranking with item images, metadata and histories; adding images gives up to +121.9% relative NDCG@5 on an industrial Prime Video dataset but limited or inconsistent gains on Amazon product datasets.",
+      "url": "https://arxiv.org/abs/2611.28379"
+    },
+    {
+      "id": "arxiv-monte-carlo-power-analysis-small-system-ab-newsletter",
+      "company": "Academic (arXiv cs.IR)",
+      "title": "Monte Carlo Power Analysis for Small-System A/B Trials: Detecting Differences in Newsletter Engagement",
+      "category": "experimentation-causal",
+      "hook": "A Monte Carlo power-analysis method for A/B tests of personalized news-recommendation e-mail newsletters, where simple closed-form power calculations would over- or under-estimate power.",
+      "url": "https://arxiv.org/abs/2611.28018"
+    },
+    {
+      "id": "arxiv-covariate-adjustment-precision-gain-binary-endpoints",
+      "company": "Academic (stat.ME)",
+      "title": "Quantifying and calibrating precision gain from covariate adjustment in clinical trials with binary endpoints",
+      "category": "experimentation-causal",
+      "hook": "Closed-form identity for the maximum first-order precision gain from covariate adjustment of marginal effects on binary outcomes, where conditional and marginal effects differ; relevant to CUPED-style adjustment of conversion metrics.",
+      "url": "https://arxiv.org/abs/2611.30845"
+    },
+    {
+      "id": "arxiv-adaptive-experiments-observational-data-long-term-effects",
+      "company": "Academic (econ.EM)",
+      "title": "Adaptive experiments with observational data: Efficient experimental design and asymptotic time-uniform inference for long-term treatment effects",
+      "category": "experimentation-causal",
+      "hook": "Uses pre-experiment observational data with long-term outcomes to design an adaptive experiment: minimises the semiparametric efficiency bound over covariate sampling and assignment rules, learns that design sequentially, and gives time-uniform inference.",
+      "url": "https://arxiv.org/abs/2611.30595"
+    },
     {
       "id": "vk-dcdn-deep-cross-division-network-ranking",
       "company": "VK (arXiv cs.IR)",
@@ -26,14 +58,6 @@
       "category": "experimentation-causal",
       "hook": "Efficient influence function and cross-fitted doubly robust estimator for the optimal value of multi-stage policies under group-fairness constraints, with CIs for the price of fairness.",
       "url": "https://arxiv.org/abs/2611.27714"
-    },
-    {
-      "id": "arxiv-informative-late-propensity-scores",
-      "company": "Academic (econ.EM)",
-      "title": "Informative Local Average Treatment Effects Using Propensity Scores",
-      "category": "experimentation-causal",
-      "hook": "Comparisons of conditional LATEs across covariates mix effect heterogeneity with shifts in who the compliers are; uses propensity scores to separate the two.",
-      "url": "https://arxiv.org/abs/2611.25253"
     },
     {
       "id": "arxiv-anytime-valid-self-consistency-certification-correlated-reasoning",
@@ -242,14 +266,6 @@
       "category": "product-analytics",
       "hook": "Links people's AI-assistant shopping conversations to their later browsing at 20 large retailers: visits to the named product rise from 0.02 to 2.07 per 100 answers, yet 89% of those visits carry no sign of the assistant's link — an attribution blind spot.",
       "url": "https://arxiv.org/abs/2611.20378"
-    },
-    {
-      "id": "arxiv-honest-confidence-sets-experiment-level-failure",
-      "company": "Academic (stat.ME)",
-      "title": "Honest confidence sets under experiment-level failure",
-      "category": "experimentation-causal",
-      "hook": "Minimax theory for confidence sets that stay honest when a whole experiment can fail with a declared probability; deterministic procedures have full-range worst-case diameter, while independent randomisation achieves sharp minimax risks.",
-      "url": "https://arxiv.org/abs/2611.20079"
     },
     {
       "id": "xiaohongshu-intentflow-multimodal-image-text-search",
