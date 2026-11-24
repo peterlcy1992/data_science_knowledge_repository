@@ -6,7 +6,7 @@
     1,
     34
   ],
-  "next_episode": 65,
+  "next_episode": 66,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -953,6 +953,25 @@
       "podcast_source": "full_text",
       "podcast_source_note": "uploaded https://arxiv.org/pdf/2611.27655",
       "rss_episode_id": 3345773
+    },
+    {
+      "episode": 65,
+      "season": 2,
+      "season_episode": 32,
+      "date": "2026-11-24",
+      "title": "Pinterest \u2014 Editing a recommender's weights instead of retraining it",
+      "description": "Recommender models usually change through retraining or fine-tuning, which is slow and expensive. Pinterest engineers try something different: an LLM coding agent that inspects a production model's weights, forms hypotheses, and makes direct edits such as rescaling, resetting, interpolating, steering or searching a few thousand parameters, all checked against the production evaluator. On the 147-million-parameter Image Search two-tower retriever, these edits raise held-out recall@10 by up to 15 points (24% relative) for about a quarter of the GPU hours of a fine-tune. Resetting a handful of normalization values alone gains 10 points, and an interaction module reset to random weights can be rebuilt by searching only 2,448 values. We walk through how the dev, filter and held-out day protocol guards against overfitting and metric gaming, why stacking good edits can make things worse, how a single steering coefficient moves fresh content from 2% to 70% of the top ten, and what the week-long online A/B tests show: saves per user from the edited source up 8.4\u201310.7%, alongside drops in long clicks and product share and a cannibalization caveat. Source article: \"Weight Coding: Evolving Web-Scale Recommenders through Direct Weight Edits with LLM Agents\" \u2014 Pinterest (arXiv cs.IR), https://arxiv.org/abs/2611.29613 (published 2026-11).",
+      "audio": "podcasts/2026-11-24-pinterest-weight-coding-llm-agent-weight-edits.m4a",
+      "cover": "podcasts/2026-11-24-pinterest-weight-coding-llm-agent-weight-edits.cover.png",
+      "rss_status": "draft",
+      "cover_company": "Pinterest",
+      "cover_title": "Weight coding",
+      "cover_overline": "Personalization & Recommender Systems",
+      "cover_subtitle": "Edits, not retraining",
+      "cover_motif": "signal",
+      "podcast_source": "full_text",
+      "podcast_source_note": "uploaded https://arxiv.org/pdf/2611.29613",
+      "rss_episode_id": 3350000
     }
   ]
 }
