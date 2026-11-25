@@ -1,8 +1,48 @@
 {
   "version": 1,
-  "updated": "2026-11-24",
+  "updated": "2026-11-25",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
+    {
+      "id": "arxiv-partial-identification-imperfect-compliance-cross-world-correlation",
+      "company": "Academic (arXiv stat.ME)",
+      "title": "Partial Identification under Imperfect Compliance via Cross-World Correlation Restriction",
+      "category": "experimentation-causal",
+      "hook": "Sharp ATE and LATE bounds in randomized experiments with noncompliance, indexed by the unidentified correlation between potential treatment statuses; restricting it can tighten Balke–Pearl bounds even with defiers, and gives a breakdown point for the Wald ratio. Four empirical applications.",
+      "url": "https://arxiv.org/abs/2611.32615"
+    },
+    {
+      "id": "arxiv-e-process-stopping-rules-best-arm-identification",
+      "company": "Academic (arXiv stat.ME)",
+      "title": "A General Framework for E-process Stopping Rules in Best-Arm Identification",
+      "category": "experimentation-causal",
+      "hook": "Replaces the Chernoff stopping rule in best-arm identification with a flexible e-process stopping rule that recovers it as a special case, with a sufficient condition for asymptotic optimality and an algorithm for generalized linear bandits.",
+      "url": "https://arxiv.org/abs/2611.31898"
+    },
+    {
+      "id": "arxiv-within-task-hazards-ai-agents-repeated-runs",
+      "company": "Academic (arXiv stat.ME)",
+      "title": "Within-task hazards of AI agents: unidentified by time-horizon curves, identified by repeated runs",
+      "category": "statistical-modeling",
+      "hook": "Shows agent time-horizon curves cannot reveal whether failure hazard declines within a task (frailty mixtures fit any Weibull shape k ≥ β); repeated runs of the same task restore identification. On METR's run-level data no model's 95% interval for 1/k lies entirely above one.",
+      "url": "https://arxiv.org/abs/2611.32415"
+    },
+    {
+      "id": "arxiv-lazunirec-unified-retrieval-ranking-multi-scenario",
+      "company": "Industrial (arXiv cs.IR)",
+      "title": "LazUnirec: Unifying Retrieval and Ranking in Multi-scenario Industrial Recommendation",
+      "category": "personalization-recsys",
+      "hook": "One Transformer backbone for retrieval and ranking, with LoRA-modulated attention and task-adaptive sparse MoE to mitigate gradient conflict, uncertainty-weighted gradient reliability and ranking-to-retrieval distillation; deployed with online A/B gains reported.",
+      "url": "https://arxiv.org/abs/2611.32590"
+    },
+    {
+      "id": "arxiv-sidecar-speculative-decoding-semantic-id-generative-rec",
+      "company": "Academic / Industrial (arXiv cs.IR)",
+      "title": "Speculative Decoding for Semantic-ID-Based Generative Recommendations",
+      "category": "ml-infra-serving",
+      "hook": "SIDECAR scores a draft of candidate semantic IDs in one tree-attention call and certifies the exact top-K (or a stated 1+δ factor), using a fraction of beam search's calls or memory and letting serving stop early at a quality target.",
+      "url": "https://arxiv.org/abs/2611.32855"
+    },
     {
       "id": "arxiv-mllm-diversity-aware-reranking-prime-video",
       "company": "Amazon / Academic (arXiv cs.IR)",
@@ -18,22 +58,6 @@
       "category": "experimentation-causal",
       "hook": "A Monte Carlo power-analysis method for A/B tests of personalized news-recommendation e-mail newsletters, where simple closed-form power calculations would over- or under-estimate power.",
       "url": "https://arxiv.org/abs/2611.28018"
-    },
-    {
-      "id": "arxiv-covariate-adjustment-precision-gain-binary-endpoints",
-      "company": "Academic (stat.ME)",
-      "title": "Quantifying and calibrating precision gain from covariate adjustment in clinical trials with binary endpoints",
-      "category": "experimentation-causal",
-      "hook": "Closed-form identity for the maximum first-order precision gain from covariate adjustment of marginal effects on binary outcomes, where conditional and marginal effects differ; relevant to CUPED-style adjustment of conversion metrics.",
-      "url": "https://arxiv.org/abs/2611.30845"
-    },
-    {
-      "id": "arxiv-adaptive-experiments-observational-data-long-term-effects",
-      "company": "Academic (econ.EM)",
-      "title": "Adaptive experiments with observational data: Efficient experimental design and asymptotic time-uniform inference for long-term treatment effects",
-      "category": "experimentation-causal",
-      "hook": "Uses pre-experiment observational data with long-term outcomes to design an adaptive experiment: minimises the semiparametric efficiency bound over covariate sampling and assignment rules, learns that design sequentially, and gives time-uniform inference.",
-      "url": "https://arxiv.org/abs/2611.30595"
     },
     {
       "id": "vk-dcdn-deep-cross-division-network-ranking",
