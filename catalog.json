@@ -1,8 +1,48 @@
 {
   "version": 1,
-  "updated": "2026-11-25",
+  "updated": "2026-11-26",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
+    {
+      "id": "datadog-how-we-built-datadog-experiments",
+      "company": "Datadog (Eppo)",
+      "title": "How we built Datadog Experiments",
+      "category": "experimentation-causal",
+      "hook": "Datadog's write-up of rebuilding the Eppo experimentation and feature-management platform after the acquisition, including extending variance reduction to percentile metrics.",
+      "url": "https://www.datadoghq.com/blog/how-we-built-datadog-experiments/"
+    },
+    {
+      "id": "arxiv-design-based-causal-inference-roc-curves",
+      "company": "Academic (arXiv stat.ME)",
+      "title": "Design-based causal inference for ROC curves",
+      "category": "experimentation-causal",
+      "hook": "Beyond the ATE: a design-based (no outcome model) estimator and inference for the treatment-vs-control ROC curve under complete randomization, comparing whole potential-outcome distributions.",
+      "url": "https://arxiv.org/abs/2611.34057"
+    },
+    {
+      "id": "arxiv-b-slim-bart-sparse-linear-interactions-hte",
+      "company": "Academic (arXiv stat.ME)",
+      "title": "B-SLIM: BART Sparse Linear Interactions Model for Heterogeneous Treatment Effects",
+      "category": "statistical-modeling",
+      "hook": "Semi-parametric Bayesian HTE model: flexible BART prognostic part plus a sparse linear treatment-interaction part, aimed at the small heterogeneity typical in medical trials.",
+      "url": "https://arxiv.org/abs/2611.33246"
+    },
+    {
+      "id": "arxiv-missing-exposures-causal-inference-practical-guide",
+      "company": "Academic (arXiv stat.ME)",
+      "title": "Addressing Missing Exposures in Causal Inference: A Practical Guide",
+      "category": "experimentation-causal",
+      "hook": "How to adapt doubly-robust estimators such as AIPW when the treatment/exposure itself is missing for some units, and which identification assumptions each approach needs.",
+      "url": "https://arxiv.org/abs/2611.33336"
+    },
+    {
+      "id": "arxiv-onequery-multilingual-ecommerce-query-understanding",
+      "company": "Academic/industry (arXiv cs.IR)",
+      "title": "OneQuery: Unified Sequence-to-Structure Generation for Multilingual E-commerce Query Understanding",
+      "category": "search-ranking",
+      "hook": "A unified generative sequence-to-structure framework for the separately optimised query-understanding subtasks for multilingual e-commerce search.",
+      "url": "https://arxiv.org/abs/2611.33653"
+    },
     {
       "id": "arxiv-partial-identification-imperfect-compliance-cross-world-correlation",
       "company": "Academic (arXiv stat.ME)",
@@ -50,14 +90,6 @@
       "category": "personalization-recsys",
       "hook": "Training-free multimodal-LLM reranking with item images, metadata and histories; adding images gives up to +121.9% relative NDCG@5 on an industrial Prime Video dataset but limited or inconsistent gains on Amazon product datasets.",
       "url": "https://arxiv.org/abs/2611.28379"
-    },
-    {
-      "id": "arxiv-monte-carlo-power-analysis-small-system-ab-newsletter",
-      "company": "Academic (arXiv cs.IR)",
-      "title": "Monte Carlo Power Analysis for Small-System A/B Trials: Detecting Differences in Newsletter Engagement",
-      "category": "experimentation-causal",
-      "hook": "A Monte Carlo power-analysis method for A/B tests of personalized news-recommendation e-mail newsletters, where simple closed-form power calculations would over- or under-estimate power.",
-      "url": "https://arxiv.org/abs/2611.28018"
     },
     {
       "id": "vk-dcdn-deep-cross-division-network-ranking",
@@ -282,14 +314,6 @@
       "category": "experimentation-causal",
       "hook": "Learns individualized stochastic treatment policies that hit an outcome target with minimal treatment under spillovers (interference-aware IPW, finite-sample regret); applied to a Colombian conditional cash transfer.",
       "url": "https://arxiv.org/abs/2611.18444"
-    },
-    {
-      "id": "arxiv-straight-to-the-product-ai-assistant-shopping-attribution",
-      "company": "Academic (arXiv cs.IR)",
-      "title": "Straight to the Product: What Online Retailers Miss When Shoppers Ask AI First",
-      "category": "product-analytics",
-      "hook": "Links people's AI-assistant shopping conversations to their later browsing at 20 large retailers: visits to the named product rise from 0.02 to 2.07 per 100 answers, yet 89% of those visits carry no sign of the assistant's link — an attribution blind spot.",
-      "url": "https://arxiv.org/abs/2611.20378"
     },
     {
       "id": "xiaohongshu-intentflow-multimodal-image-text-search",
