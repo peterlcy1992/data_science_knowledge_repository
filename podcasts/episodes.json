@@ -6,7 +6,7 @@
     1,
     34
   ],
-  "next_episode": 67,
+  "next_episode": 68,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -991,6 +991,25 @@
       "podcast_source": "full_text",
       "podcast_source_note": "uploaded https://arxiv.org/pdf/2611.31539",
       "rss_episode_id": 3355491
+    },
+    {
+      "episode": 67,
+      "season": 2,
+      "season_episode": 34,
+      "date": "2026-11-26",
+      "title": "Hassan II University \u2014 When your recommender just learns the syllabus",
+      "description": "In learning apps and online courses, the next activity in the logs is rarely the learner's own choice: teachers assign problem sets, tutoring engines pick the next question, the syllabus sets the path. So a recommender scored offline on \"did you rank the logged next activity highly\" can win simply by imitating the platform. A new audit by Youssef Jdidou (ENSAD / Hassan II University of Casablanca) tests that across eight public datasets from five platforms, including ASSISTments, EdNet, Junyi and Eedi. We unpack the three numbers the paper asks every evaluation to report \u2014 the best score of learner-agnostic \"structural\" baselines, the lift over them, and the structural share \u2014 and why a plain Markov chain on transitions reaches 0.81 to 1.00 of the best offline accuracy of any method. We cover what happens to small open LLM rankers (Qwen2.5, 0.5B to 7B) when random distractors are swapped for structurally plausible ones and their hit rate collapses toward chance; a simulation with known learner needs where, as the platform's control grows, offline NDCG stops tracking true usefulness and ranks the exact-needs oracle seventh of eleven; and a reweighted, structure-corrected accuracy that recovers a personalisation signal on seven of eight datasets but is explicitly not an estimate of online performance. We close with the paper's six-point checklist and what it means for any product where the platform, not the user, picks what comes next. Source article: \"Learning the Platform, Not the Learner: Sequencing Shortcuts in the Offline Evaluation of Educational Recommender Systems and LLM Rankers\" \u2014 ENSAD / Hassan II University of Casablanca (arXiv cs.IR), https://arxiv.org/abs/2611.33240 (published 2026-11).",
+      "audio": "podcasts/2026-11-26-arxiv-learning-platform-not-learner-educational-recsys-offline-eval.m4a",
+      "cover": "podcasts/2026-11-26-arxiv-learning-platform-not-learner-educational-recsys-offline-eval.cover.png",
+      "rss_status": "draft",
+      "cover_company": "Hassan II University",
+      "cover_title": "Platform shortcuts",
+      "cover_overline": "Personalization & Recommender Systems",
+      "cover_subtitle": "When offline accuracy scores the syllabus",
+      "cover_motif": "signal",
+      "podcast_source": "full_text",
+      "podcast_source_note": "uploaded https://arxiv.org/pdf/2611.33240",
+      "rss_episode_id": 3359163
     }
   ]
 }
