@@ -6,7 +6,7 @@
     1,
     34
   ],
-  "next_episode": 68,
+  "next_episode": 69,
   "notes": "Episode manifest for RSS.com uploads. rss_show_id holds the RSS.com podcast id for this show (discovered by title via GET /v4/podcasts on first upload, then cached here). rss_status per episode: not_uploaded -> draft -> scheduled/published. Drafts are created by automation/rss_upload.py; the OWNER publishes manually on RSS.com.",
   "episodes": [
     {
@@ -1010,6 +1010,25 @@
       "podcast_source": "full_text",
       "podcast_source_note": "uploaded https://arxiv.org/pdf/2611.33240",
       "rss_episode_id": 3359163
+    },
+    {
+      "episode": 68,
+      "season": 2,
+      "season_episode": 35,
+      "date": "2026-11-27",
+      "title": "Datadog \u2014 CUPED for every segment and every percentile",
+      "description": "When Datadog acquired the experimentation platform Eppo, it rebuilt the analysis side rather than bolting it on, and the engineering write-up explains the statistical choices behind Datadog Experiments. We walk through why the old approach to CUPED variance reduction, a separate regression model per variant, only gave unbiased answers for the population it was fitted on, so every segment needed its own refit. Datadog reframes CUPED as metric augmentation: add terms that average to zero across randomizations, so one set of global coefficients gives unbiased adjusted results for any segment, and the same trick extends variance reduction to percentile metrics like p90 page-load time. In the post's example, a raw lift of 16.09% becomes a CUPED-adjusted 12.96% and estimated run time falls by about 52%. We also cover the redefinition of global lift as coverage times local lift (13.0% \u00d7 40.3% = 5.23% in their screenshot), why that makes company-wide impact checkable by hand and usable for windowed metrics, \"Copy SQL\" for reproducing warehouse-native results yourself (for metrics without CUPED only), and real-user-monitoring metrics that refresh about every 15 minutes, plus what the post leaves unsaid about how percentile adjustments and their variances are actually built. Source article: \"How we built Datadog Experiments\" \u2014 Datadog Engineering Blog, https://www.datadoghq.com/blog/how-we-built-datadog-experiments/ (published 2026-09).",
+      "audio": "podcasts/2026-11-27-datadog-how-we-built-datadog-experiments.m4a",
+      "cover": "podcasts/2026-11-27-datadog-how-we-built-datadog-experiments.cover.png",
+      "rss_status": "draft",
+      "cover_company": "Datadog",
+      "cover_title": "Augmented CUPED",
+      "cover_overline": "Experimentation & Causal Inference",
+      "cover_subtitle": "One model for every segment and percentile",
+      "cover_motif": "signal",
+      "podcast_source": "full_text",
+      "podcast_source_note": "NotebookLM fetched https://www.datadoghq.com/blog/how-we-built-datadog-experiments/",
+      "rss_episode_id": 3361957
     }
   ]
 }
