@@ -1,23 +1,55 @@
 {
   "version": 1,
-  "updated": "2026-11-26",
+  "updated": "2026-11-27",
   "note": "Lightweight backlog of articles discovered (primarily from the Snacks Weekly on Data Science podcast's episodes) but not yet written up as full deep-dive entries. The daily refresh Routine upgrades stubs to full entries over time: it deep-summarises the top items here, writes them into articles/ + index.json, and removes them from this file. Episode enumeration is best-effort via web search because the podcast's full feed/list is egress-blocked in this environment (~45 of 101 episodes recovered so far). URLs are the underlying company article where known; null means the deepening step should locate it.",
   "stubs": [
     {
-      "id": "datadog-how-we-built-datadog-experiments",
-      "company": "Datadog (Eppo)",
-      "title": "How we built Datadog Experiments",
+      "id": "arxiv-response-adaptive-designs-inference-systematic-review",
+      "company": "Academic (arXiv stat.ME)",
+      "title": "Statistical inference under response-adaptive experimental designs: a systematic review",
       "category": "experimentation-causal",
-      "hook": "Datadog's write-up of rebuilding the Eppo experimentation and feature-management platform after the acquisition, including extending variance reduction to percentile metrics.",
-      "url": "https://www.datadoghq.com/blog/how-we-built-datadog-experiments/"
+      "hook": "Systematic review of 36 health/biostatistics studies (2010–Oct 2025) on how inference is conducted and evaluated when allocation adapts to accrued outcomes, including bandit-based designs.",
+      "url": "https://arxiv.org/abs/2611.28380"
     },
     {
-      "id": "arxiv-design-based-causal-inference-roc-curves",
-      "company": "Academic (arXiv stat.ME)",
-      "title": "Design-based causal inference for ROC curves",
+      "id": "booking-measuring-hypothesis-quality",
+      "company": "Booking.com",
+      "title": "A problem well-defined is half solved: Measuring Hypothesis Quality at Booking.com",
       "category": "experimentation-causal",
-      "hook": "Beyond the ATE: a design-based (no outcome model) estimator and inference for the treatment-vs-control ROC curve under complete randomization, comparing whole potential-outcome distributions.",
-      "url": "https://arxiv.org/abs/2611.34057"
+      "hook": "Booking.com on measuring the quality of experiment hypotheses before tests run (Sept 2026 post).",
+      "url": "https://booking.ai/a-problem-well-defined-is-half-solved-measuring-hypothesis-quality-at-booking-com-a85e845178a3"
+    },
+    {
+      "id": "arxiv-comments-jackknife-standard-errors-clustered-regression",
+      "company": "Academic (arXiv econ.EM)",
+      "title": "Comments on \"Jackknife Standard Errors for Clustered Regression\"",
+      "category": "statistical-modeling",
+      "hook": "Pötscher points out substantial shortcomings in the main theorems and proofs of Hansen (2026) on jackknife cluster-robust standard errors, and questions their interpretation.",
+      "url": "https://arxiv.org/abs/2611.33203"
+    },
+    {
+      "id": "arxiv-sharpe-ratio-inference-after-machine-learning",
+      "company": "Academic (arXiv econ.EM)",
+      "title": "Sharpe Ratio Inference after Machine Learning",
+      "category": "statistical-modeling",
+      "hook": "Signal-estimation error from ML return signals can remain consequential for Sharpe-ratio inference even in large asset panels; the paper studies how much confidence estimated Sharpe ratios deserve.",
+      "url": "https://arxiv.org/abs/2611.29747"
+    },
+    {
+      "id": "arxiv-text-to-sql-benchmark-official-statistics",
+      "company": "Academic / Statistics Netherlands (arXiv cs.IR)",
+      "title": "A Text-to-SQL Benchmark for Official Statistics",
+      "category": "llm-genai",
+      "hook": "A text-to-SQL benchmark built to resemble official-statistics catalogs: open-domain collections of thousands of wide tables, unlike existing benchmarks.",
+      "url": "https://arxiv.org/abs/2611.32646"
+    },
+    {
+      "id": "arxiv-who-gets-reranked-clinical-model-new-data",
+      "company": "Academic (arXiv cs.IR)",
+      "title": "Who Gets Re-ranked When a Clinical Model Gains New Data?",
+      "category": "statistical-modeling",
+      "hook": "When a deployed risk model adds a data source only some patients have, patients without the new data can still change rank and drop off alert lists; splits rank compatibility by data availability.",
+      "url": "https://arxiv.org/abs/2611.28968"
     },
     {
       "id": "arxiv-b-slim-bart-sparse-linear-interactions-hte",
